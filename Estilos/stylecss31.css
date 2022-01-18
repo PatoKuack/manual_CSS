@@ -1,0 +1,33 @@
+:root{
+  --letterLight:  mistyrose;
+  --bg1:          crimson;
+  --bg2:          seagreen;
+  --bgBody:       rgb(78, 3, 53);
+  --bgContainer:  rgba(236, 247, 132, 0.295);
+  --link:         rgb(160, 247, 253);
+}
+
+.body{
+  color:                var(--letterLight);
+  background-image:
+    radial-gradient(var(--bg1) 5%, var(--bgBody) 20%, var(--bgBody) 65%, var(--bg2) 100%);
+  background-size:      25rem 25rem;
+  background-repeat:    repeat;
+  background-position:  50% 50%;
+  background-attachment: fixed;
+}
+
+.container{
+  max-width:        700px;
+  border:           .2em solid var(--bg1);
+  padding:          .5em 1.5em;
+  margin:           1rem auto;
+  background-color: var(--bgContainer);
+}
+
+.link{
+  color: var(--link);
+}
+.center{
+  text-align: center;
+}

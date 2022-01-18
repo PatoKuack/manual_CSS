@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- No guardar cache en navegadores -->
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <!-- ------------------- -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../Estilos/stylecss31.css">
+  <link rel="stylesheet" href="../Estilos/normalization.css">
+  <title>RWD con JavaScript</title>
+</head>
+<body class="body">
+  <header>
+    <section class="container">
+      <div>
+        <h1 class="center">RWD con JavaScript</h1>
+        <p>El DOM (Document Objet Model) es una APIs Web (como lo es la API Canvas, API de Geolocalización, LocalStorage, Multimedia, el CSSOM, etc) que permite el acceso dinámico a través de la programación para acceder, añadir, cambiar y eliminar dinámicamente cualquier documento HTML con lenguajes como ECMAScript (JavaScript).</p>
+        <p>El DOM se define como la estructura de objetos JS que usa el navegador para comprender el código HTML, de esta forma mapea el código HTML a objetos JS para ser manipulados.</p>
+        <p>El nodo raíz del DOM llamado 'document', es un objeto (y también una propiedad de Windows) que contiene todo el HTML convertido a objetos JS y puede ser visualizado por consola o gráficamente como una estructura jerárquica de nodos en forma de árbol.</p>
+        <p></p>
+      </div>
+    </section>
+  </header>
+  <main>
+    <!-- CSSOM -->
+    <section class="container">
+      <div>
+        <h2>CSSOM (CSS Object Model).</h2>
+        <p>El CSSOM funciona de manera similar, pero complementario al DOM, transformando el lenguaje de marcado CSS en objetos JS que son entendibles para el navegador, lo que permite leer y modificar el estilo de CSS de forma dinámica.</p>
+      </div>
+    </section>
+    <!-- Métodos -->
+    <section class="container">
+      <div>
+        <h2>Método para estilo computado.</h2>
+        <dl>
+          <dt>getComputedStyle()</dt>
+          <dd>
+            <p>Es un método de lectura del objeto global Windows (window.getComputedStyle) que retorna un objeto con todos los estilos computados del elemento del DOM que se le indica como parámetro.</p>
+            <p>El navegador toma las medidas relativas de los estilos CSS, lo interpreta y las convierte a valores computados (px); estos pueden ser consultadas en la pestaña <i>computed</i> en la tercera sección dentro de las <i>herramientas para desarrolladores</i> que nos ofrecen los navegadores</p>
+            <p>Los estilos computados: representan los valores finales (en px) de las propiedades CSS del elemento.</p>
+            <aside class="exempliGratia">
+              &emsp;let <u>variable</u> = document.querySelector( '<u>.selector</u>' );<br/>
+              &emsp;getComputedStyle( <u>variable</u> );
+            </aside>
+          </dd>
+          <dt>getPropertyValue()</dt>
+          <dd>
+            <p>Método de lectura para obtener el valor de una propiedad en particular de un elemento.</p>
+            <aside class="exempliGratia">
+              &emsp;let <u>variable</u> = document.querySelector( '<u>.selector</u>' );<br/>
+              &emsp;getComputedStyle( <u>variable</u> ).getPropertyValue( '<u>propiedad</u>' );
+            </aside>
+          </dd>
+        </dl>
+      </div>
+    </section>
+    <!-- Propiedades -->
+    <section class="container">
+      <div>
+        <h2>Propiedad element.style</h2>
+        <p>Es una propiedad del elemento del DOM (objeto) que nos permite manipular ó definir estilos CSS a ese elemento. El estilo definido mediante esta propiedad no reemplaza otras propiedades CSS que puedan especificarse en el atributo style (estilo en línea) o regla CSS.</p>
+        <aside class="exempliGratia">
+          <i class="highlight">/*retorna un objeto de estilos del elemento*/</i><br/>
+          &emsp;document.body.style;<br/>
+          <i class="highlight">/*consultando un estilo*/</i><br/>
+          &emsp;document.body.style.<u>backgrounColor</u>;<br/>
+          <i class="highlight">/*manipulando el estilo*/</i><br/>
+          &emsp;document.body.style.<u>backgrounColor</u> = "<u>red</u>";<br/>
+          &emsp;document.body.style.<u>padding</u> = "<u>2rem</u>";<br/>
+          &emsp;document.body.style.<u>margin</u> = "<u>10px</u>";
+        </aside>
+        <p>Desde JS para hacer referencia a una propiedad CSS (en el CSSOM) se utiliza notación camelCase. Si una propiedad posee guion, este se elimina y el carácter continuo se escribe en mayúscula.</p>
+        <aside class="exempliGratia">
+          &emsp;var <u>div</u> = document.getElementById("<u>div1</u>");<br/>
+          &emsp;<u>div</u>.style.marginTop = "<u>.25in</u>";
+        </aside>
+        <h3>Forma de dar varios estilos de forma dinámica a un elemento desde JS:</h3>
+        <ul><li>Método 1, crea una clase en CSS.</li></ul>
+        <p>Agrega un selector de clase como valor al atributo class del elemento; y este selector estará declarado en una hoja de estilo CSS. Es el método más recomendado cuando los valores de las propiedades CSS no sean dinámicas como tal.</p>
+        <aside class="exempliGratia">
+          &emsp;<i class="highlight">// *** En archivo.js ***</i><br/>
+          &emsp;document.body.classList.add('selector');<br/>
+          &emsp;<i class="highlight">// *** En archivo.css ***</i><br/>
+          &emsp;.selector {<br/>
+          &emsp;&emsp;background: cyan;<br/>
+          &emsp;}
+        </aside>
+        <ul><li>Método 2, Sobre-escribiendo estilos:</li></ul>
+        <p>Es una metodología que nos permite crear estilos dinámicos mediante JS cuando los valores de las propiedades CSS provienen de datos de APIs, variables dinámicas o de cálculos.</p>
+        <p>Consiste en crear un nuevo atributo en el elemento indicado y establecer su valor mediante el método <b>element.setAttribute()</b>, si el atributo ya existe, el valor es actualizado.</p>
+        <p>Este método recibe como parámetro el nombre del atributo que se desea crear o actualizar y como segundo parámetro, el valor del atributo, el cual será una variable que contiene una template string con la regla CSS.</p>
+        <p>Los template string permiten declarar los estilos, utilizando la estructura de CSS e insertar variables JS. Su estructura es similar al de los objetos en JS y permite establecer reglas CSS dinámicas.</p>
+        <aside class="exempliGratia">
+          <i class="highlight">/*Declarando los estilos*/</i><br/>
+          &emsp;const <u>color</u> = '<u>green</u>';<br/>
+          &emsp;const <u>size</u> = <u>2</u>;<br/>
+          <i class="highlight">// Uso de template string (se utiliza con comillas invertidas)</i><br/>
+          &emsp;const <u>styles</u> =<br/>
+          &emsp;&emsp;`background: ${<u>color</u>};<br/>
+          &emsp;&emsp;color: <u>white</u>;<br/>
+          &emsp;&emsp;margin-top: <u>4rem</u>;<br/>
+          &emsp;&emsp;borden-bottom: ${<u>size</u> * <u>2</u>}<u>px</u> <u>solid</u> <u>black</u>;`<br/><br/>
+          <i class="highlight">/*Implementando los estilos*/</i>
+          &emsp;document.getElementById('<u>title</u>').setAttribute('style',<u>styles</u>);<br/><br/>
+          <i class="highlight">//setAttribute(nombreAtributo,objetoConEstilos);</i>
+        </aside>
+        <ul><li>Método 3, Agregando a los estilos inline existentes (poco usada).</li></ul>
+        <p>Permite adicionar más estilos inline suponiendo que ya existiesen estilos inline en el elemento.</p>
+        <aside class="exempliGratia">
+          &emsp;let element = document.getElementById('title');<br/>
+          &emsp;element.style += `; ${styles}`<br/>
+          <i class="highlight">/*+= permite concatenar strings*/</i><br/>
+          <i class="highlight">/*mediante comillas invertidas(backticks) agregamos un template strings de estilos*/</i><br/>
+        </aside>
+        <p>Declaración de una función para sobreescribir estilos.</p>
+        <aside class="exempliGratia">
+          &emsp;const setStyles = (element, templateStrings) =>{<br/>
+          &emsp;&emsp;element.setAttribute('style',templateStrings);<br/>
+          &emsp;}
+        </aside>
+      </div>
+    </section>
+    <!-- Leer variables -->
+    <section class="container">
+      <div>
+        <h2>Leer variables mediante getPropertyValue()</h2>
+        <p>El valor devuelto por <b>getPropertyValue()</b> es una cadena de texto que contiene el valor de la propiedad CSS especificada de un elemento.</p>
+        <aside class="exempliGratia">
+          <i class="highlight">// *** archivo.css ***</i><br/>
+          &emsp;:root{<br/>
+          &emsp;&emsp;--name: 'Pato';<br/>
+          &emsp;}<br/><br/>
+          <i class="highlight">// *** archivo.js ***</i><br/>
+          &emsp;const element = document.documentElement;<br/>
+          &emsp;const name = getComputedStyle( element ).getPropertyValue( '--name' );<br/><br/>
+          &emsp;const element = document.querySelector('body');<br/>
+          &emsp;const backgroundd = getComputedStyle( element ).getPropertyValue( 'background-color' );<br/>
+          &emsp;console.log(backgroundd);
+        </aside>
+      </div>
+    </section>
+    <!-- Modificar variables -->
+    <section class="container">
+      <div>
+        <h2>Modificar variables mediante setProperty()</h2>
+        <p>El método permite establecer un nuevo valor para una propiedad en un elemento.</p>
+        <aside class="exempliGratia">
+          &emsp;const element = document.documentElement;<br/>
+          &emsp;element.style.setProperty('--name','Beto')<br/>
+          <i class="highlight">
+            /* Recibe como primer parámetro el nombre de la propiedad y como segundo parámetro el nuevo valor. */
+          </i><br/><br/>
+          <i class="highlight">
+            /* La propiedad documentElement retorna el elemento raíz de document,
+            devuelve el elemento &#60;html&#62; del <b>document.style.setProperty(propertyName, value, priority);</b> */
+          </i><br/>
+        </aside>
+      </div>
+    </section>
+    <!-- Media queries con javascript -->
+    <section class="container">
+      <div>
+        <h2>Media queries con javascript</h2>
+        <dl>
+          <dt>matchMedia()</dt>
+          <dl>
+            <p>Es un método del objeto Windows que evalúa los breakpoints de CSS desde JS, aceptando como argumento cualquier media query válida de CSS y retornado un objeto, cuya propiedad matches retorna un booleano (true|false).</p>
+            <p>Este método permite el uso de JS en el diseño de layout en el RWD.</p>
+            <p>NO USAR windows.innerWidth, es una mala práctica y es limitado; no permite los diferentes tipos y combinaciones de consultas; no considera el viewport (sino el Windows) y esto puede generar conflictos.</p>
+            <aside class="exempliGratia">
+              &emsp;const <u>mediaBp</u> = matchMedia( '(<u>min-width: 568px</u>) and (<u>orientation: landscape</u>)' );<br/>
+              <i class="highlight">//*retorna un ojeto del tipo MediaQueryList.*</i><br/>
+              &emsp;console.log(<u>mediaBp</u>.matches); <i class="highlight">// true</i><br/>
+              <i class="highlight">// matches es una propiedad que retorna un booleano.</i><br/>
+              <hr class="highlight">
+              <i class="highlight">//evento que se activa al cargar el documento:</i><br/>
+              &emsp;addEventListener('<u>DOMContentLoaded</u>',()=>{<br/>
+              &emsp;&emsp;if(<u>mediaBp</u>.matches){<br/>
+              &emsp;&emsp;&emsp;document.body.style.<u>background</u> = '<u>red</u>';<br/>
+              &emsp;&emsp;}<br/>
+              &emsp;&emsp;else{<br/>
+              &emsp;&emsp;&emsp;document.body.style.<u>background</u> = '<u>blue</u>';<br/>
+              &emsp;&emsp;}<br/>
+              &emsp;})
+            </aside>
+            <p>El objeto MediaQueryList posee a su vez un método que funciona como un controlador de eventos que evalúa el redimensionar pantalla.</p>
+            <aside class="exempliGratia">
+              &emsp;const <u>mediumBp</u> = matchMedia('(<u>min-width: 800px</u>)');<br/>
+              <i class="highlight">//retorna un MediaQueryList</i><br/>
+              &emsp;const <u>changeColor</u> = <u>mql</u> =>{<br/>
+              &emsp;&emsp;<u>mql</u>.matches;<br/>
+              &emsp;&emsp;? document.body.style.<u>background</u> = '<u>red</u>';<br/>
+              &emsp;&emsp;: document.body.style.<u>background</u> = '<u>yellow</u>'<br/>
+              &emsp;}
+              <i class="highlight">//función que debe recibir por parametro un MediaQueryList</i><br/>
+              <i class="highlight">// se ejecuta una vez para el momento de cargar el DOM:</i><br/>
+              &emsp;<u>changeColor</u>(<u>mediumBp</u>);<br/>
+              &emsp;<u>mediumBp</u>.addEventListener(<u>changeColor</u>);<br/>
+              <i class="highlight">// método que funciona como un controlador de eventos.</i><br/>
+            </aside>
+          </dl>
+        </dl>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

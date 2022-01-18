@@ -1,0 +1,21 @@
+a{
+  background: rgb(188, 225, 240);
+}
+
+body{
+  background-color: khaki;
+}
+
+.caja{
+  background: rgb(199, 239, 255);
+  height: 7em;
+  width: 50em;
+}
+
+.shorth{
+  background-color: rgb(178, 252, 227);
+}
+
+.ejem{
+  color: blue;
+}

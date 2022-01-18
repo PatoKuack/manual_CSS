@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- No guardar cache en navegadores -->
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <!-- ------------------- -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../Estilos/normalization.css">
+  <link rel="stylesheet" href="../Estilos/stylecss41.css">
+  <title>Debugging</title>
+</head>
+<body class="body">
+  <header class="bubble">
+    <section class="stars">
+      <div class="container">
+        <h1 class="center">Debugging.</h1>
+        <p></p>
+      </div>
+    </section>
+  </header>
+  <main class="bubble">
+    <!-- Opciones de compilación -->
+    <section class="stars">
+      <div class="container">
+        <h2>Opciones de compilación</h2>
+        <p>Como ya se mencionó anteriormente, la compilación de SCSS se realiza a traves de un comando en la terminal: <strong>node-sass --watch scss -output css</strong></p>
+        <p>Hay una versión reducida de dos de estos comandos:</p>
+        <ul>
+          <li>De <b>--output</b> es <b>-o</b></li>
+          <li>De <b>--watch</b> es <b>-w</b></li>
+        </ul>
+        <p>Hay un versión del comando de compilación que se utiliza para compilar el archivo con saltos de línea o una mejor indentación, para que el código CSS se vea más legible y que sea fácil de leer. Este comando es <b>-output-style</b> y tiene 4 variantes:</p>
+        <p><b>node-sass scss -o css --output-style=</b><span class="coment">[ <b>nested</b> | <b>expanded</b> | <b>compressed</b> | <b>compact</b> ]</span></p>
+        <dl>
+          <dt>nested</dt>
+          <dd>Compila el archivo con indentación (es el valor por defecto).</dd>
+          <dt>expanded</dt>
+          <dd>Compila el archivo con saltos de línea.</dd>
+          <dt>compact</dt>
+          <dd>Compila el archivo colocando cada selector con su respectivo bloque de código en una sola línea.</dd>
+          <dt>compressed</dt>
+          <dd>Compila el archivo colocando todo el código en una sola línea y retirando los comentarios (lo minifica).</dd>
+        </dl>
+        <p>Una forma muy util para hacer debugging es utilizando el comando <b>--source-comments</b> el cual añade comentarios en la compilación del archivo.css. En esos comentarios está la especificación que indica la línea original y la ruta del documento SASS que ha originado cada uno de los selectores y sus bloques de código en el documento CSS (ejemplo: node-sass scss -o css --output-style=expanded --source-comments).</p>
+        <p>No funciona con el --output-style=<u>compressed</u> ya que compila el archivo SASS devolviendo un archivo CSS sin comentarios.</p>
+      </div>
+    </section>
+    <!-- Sourcemaps -->
+    <section class="stars">
+      <div class="container">
+        <h2>Sourcemaps.</h2>
+        <p>Los Sourcemaps son mapas de origen cuya función es vincular el resultado compilado con el código que le dio origen. Esto se utiliza en todos los lenguajes que hayan sido compilados.</p>
+        <p>Su principal utilidad radica en que permite trabajar mejor en rastrear funciones y demás cosas.</p>
+        <p>Para habilitar un sourcemap en SASS se utiliza, desde la terminal y posicionado en el directorio base del proyecto, el comando <b>--source-map</b> de la siguiente manera:</p>
+        <p><b>node-sass scss -o css --source-map=true</b></p>
+        <p>Se creará un archivo <b>.map</b> al lado del documento principal.scss, el documento .map contien información del documento principal .scss.</p>
+        <p>También se crea un comentario al final del archivo.css, éste comentario final conecta el archivo.map con el archivo.css</p>
+        <p>Con ésta configuración se puede ver el archivo SASS en el ispector del navergador.</p>
+      </div>
+    </section>
+    <!-- Debug -->
+    <section class="stars">
+      <div class="container">
+        <h2>Debug.</h2>
+        <p><b>@debug</b> es una propiedad que tiene como función inspeccionar un valor y mandar el dato a la consola sin necesidad de ensuciar el CSS.</p>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><u>.scss</u></span><br/>
+            $size: 1em;<br/><br/>
+            .example{<br/>
+            &ensp;color: blue;<br/>
+            &ensp;@debug type-of($size);<br/>
+            }<br/><br/>
+            <i class="coment"><b>terminal:</b> ...DEBUG: number</i>
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><u>.css</u></span><br/><br/><br/>
+            .example{<br/>
+            &ensp;color: blue;<br/>
+            }
+          </aside>
+        </div>
+        <p><b>@warn</b> tiene como función mandar un mensaje de alerta en la terminal. El mensaje de alerta de preferencia no debe contener caracteres especiales como acentos.</p>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><u>.scss</u></span><br/>
+            @mixin button {<br/>
+            &ensp;color: blue;<br/>
+            &ensp;@warn 'Comentario de alerta que aparecerpa en consola cuando se utilice el mixin button.';<br/>
+            }<br/><br/>
+            .example {<br/>
+            &ensp;@include button();<br/>
+            }<br/><br/>
+            <i class="coment"><b>terminal:</b> ...WARNING: Comentario de alerta que...</i>
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><u>.css</u></span><br/><br/><br/><br/><br/><br/><br/>
+            .example{<br/>
+            &ensp;color: blue;<br/>
+            }
+          </aside>
+        </div>
+        <p><b>@error</b> lanza un error con un mensaje y detiene el funcionamiento del programa hasta que se solucione dicho problema.Dentro de el mensaje de error que aparecerá en consola se pueden incluir vasriables interpoladas.</p>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><u>.scss</u></span><br/>
+            @mixin button($color) {<br/>
+            &ensp;@if type-of($color) == color {<br/>
+            &ensp;&emsp;color: $color;<br/>
+            &ensp;} @else {<br/>
+            &ensp;&emsp;@error 'El parametro #{$color} no es valido, usa un dato de tipo color.';<br/>
+            &ensp;}<br/>
+            }<br/><br/>
+            .example {<br/>
+            &ensp;@include button(5%);<br/>
+            }<br/><br/>
+            <i class="coment"><b>terminal:</b> ..."message": El parametro 5% no...</i>
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><u>.css</u></span><br/>
+          </aside>
+        </div>
+      </div>
+    </section>
+    <!-- Estructura del proyecto SASS -->
+    <section class="stars">
+      <div class="container">
+        <h2>Estructura del proyecto SASS.</h2>
+        <p>Existen varias metodologías para una buena estructura del proyecto, 3 de las más conocidas son:</p>
+        <dl>
+          <dt>SMACSS</dt>
+          <dd>
+            <p>Divide el código SASS en 5 secciones, cada sección tiene una carpeta asignada dentro del proyecto y al final todas las secciones se unen para generar la salida que es un archivo.css:</p>
+            <ul>
+              <li><b>Base</b>: son todos los estilos aplicados a etiquetas HTML.</li>
+              <li><b>Módulos</b>: son componentes reutilizables. Ejemplo: botones, tarjetas, menús.</li>
+              <li><b>Layout</b>: es la geometría y la posición de los elementos.</li>
+              <li><b>Theme</b>: tipografías y colores, implica la identidad visual de una marca.</li>
+              <li><b>Estado</b>: elementos que cambian, ocultan, se animan, etc.</li>
+            </ul>
+          </dd>
+          <dt>ITCSS</dt>
+          <dd>
+            <p>Es más reciente que SMACSS y tiene una composición ligeramente diferente.</p>
+            <img class="image block marg-auto" src="https://www.xfivecdn.com/xfive/wp-content/uploads/2016/02/01083650/itcss-layers2.svg" alt="imagen de triángulo invertido css">
+            <ul>
+              <li><b>Configuración</b> (Settings): se usa con preprocesadores y contiene fuentes, definiciones de colores, etc.</li>
+              <li><b>Herramientas</b> (Tools): mixins y funciones de uso mundial. Es importante no generar ningún CSS en las primeras 2 capas.</li>
+              <li><b>Genérico</b> (Generic): restablecer y / o normalizar estilos, definición de tamaño de caja, etc. Esta es la primera capa que genera CSS real.</li>
+              <li><b>Elementos</b> (Elementos): estilo para elementos HTML desnudos (como H1, A, etc.). Estos vienen con un estilo predeterminado del navegador, por lo que podemos redefinirlos aquí.</li>
+              <li><b>Objetos</b> (Objects): selectores basados en clases que definen patrones de diseño no decorados, por ejemplo, el objeto multimedia conocido de OOCSS.</li>
+              <li><b>Componentes</b> (Components): componentes específicos de la interfaz de usuario. Aquí es donde se desarrolla la mayor parte de nuestro trabajo. A menudo redactamos componentes de interfaz de usuario de objetos y componentes.</li>
+              <li><b>Utilidades</b> (Utilities): utilidades y clases de ayuda con la capacidad de anular cualquier cosa que vaya antes en el triángulo, por ejemplo, ocultar la clase de ayudante.</li>
+            </ul>
+          </dd>
+          <dt>7in1</dt>
+          <dd>
+            <p>Es casi identico a los otros dos métodos, aquí una muestra simple de como es su estructura.</p>
+            <p><a href="https://gist.github.com/rveitch/84cea9650092119527bc#file-sass-7-1-pattern-scss" target="_blank" rel="noopener noreferrer">https://gist.github.com/rveitch/84cea9650092119527bc#file-sass-7-1-pattern-scss</a></p>
+            <ul>
+              <li>base</li>
+              <li>componentes</li>
+              <li>layout</li>
+              <li>paginas</li>
+              <li>temas</li>
+              <li>utilidades</li>
+              <li>vendors</li>
+              <li>main</li>
+            </ul>
+          </dd>
+        </dl>
+      </div>
+    </section>
+<!-- <section class="stars">
+      <div class="container">
+        <h2></h2>
+        <p></p>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><u>.scss</u></span><br/>
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><u>.css</u></span><br/>
+          </aside>
+        </div>
+      </div>
+    </section> -->
+  </main>
+  <footer class="bubble">
+    <section class="stars">
+      <div class="container">
+        <h3>Referencias:</h3>
+        <p>
+          <a href="https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/" target="_blank" rel="noopener noreferrer">ITCSS: Scalable and Maintainable CSS Architecture</a>
+        </p>
+      </div>
+    </section>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- No guardar cache en navegadores -->
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <!-- ------------------- -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../Estilos/normalization.css">
+  <title>Transiciones</title>
+</head>
+<body>
+  <header>
+    <section class="container">
+      <div>
+        <h1 class="center">Transiciones.</h1>
+        <p>Las transiciones permiten que las propiedades CSS cambien suabemente en un periodo de tiempo. Se pueden definir múltiples transiciones separadas por comas.</p>
+      </div>
+    </section>
+  </header>
+  <main>
+    <!-- Propiedades -->
+    <section class="container">
+      <div>
+        <h2>Propiedades.</h2>
+        <dl>
+          <dt>transition-property: [ all | none | propiedad, propiedad, ... ]</dt>
+          <dd>
+            Indica a que propiedad se le aplicará un transición.
+            <ul>
+              <li><b>all</b> Es el valor por defecto e indica que la transición se le aplicará a todas las propiedades posibles, lo cual suele consumir muchos recursos.</li>
+              <li><b>none</b> Indica que la transición no se le aplicará a ninguna propiedad.</li>
+              <li>Se pueden especificar las propiedades a las que se les aplicará la transición, si son más de una se separan por comas.</li>
+            </ul>
+          </dd>
+          <dt>transition-duration: [ 0s | time, time, ... ]</dt>
+          <dd>No se permiten valores negativos. Lo que hace es definir la duración de las transiciones.
+            <ul>
+              <li>Si es que se coloca un dígito, se aplica ese tiempo a todas las transiciones.</li>
+              <li>Si se coloca más de un dígito, se debe colocar un tiempo separado por comas por cada propiedad especificada en <i>transition-properties</i>.</li>
+            </ul>
+          </dd>
+          <dt>transition-delay: 0s;</dt>
+          <dd>Indica cuanto esperará la transición para comenzar o para volver a su estado original (default 0s).</dd>
+          <dt>transition-timing-function: [ ease | linear | ease-in | ease-out | ease-in-out | step-start | step-end ];</dt>
+          <dd>
+            Indica si hay o no aceleración, la aceleración de la transición y en que momentos hay aceleración.
+            <ul>
+              <li><b>ease</b> Es el valor por defecto e indica que la transición será suabe.</li>
+              <li><b>linear</b> Indica que la transición tendrá la misma aceleración todo el tiempo.</li>
+              <li><b>ease-in-out</b> Indica que comenzará y finalizará la transición de una forma suabe con una aceleración intermedia.</li>
+              <li><b>ease-in</b> Indica que la transición comienza desacelerada y después comienza a acelerar.</li>
+              <li><b>ease-out</b> Indica que la transición comienza acelerada y después comienza a desacelerar.</li>
+              <li><b>step-start</b> Sirve para hacer animaciones o slides en pasos.</li>
+              <li><b>step-end</b> Sirve para hacer animaciones o slides en pasos.</li>
+            </ul>
+          </dd>
+          <dt>transition: [ properties duration timing-function delay ];</dt>
+          <dd>Es un shorthand de las propiedades anteriores.</dd>
+          <dd>Se le puede omitir el timing-function y el delay porque tienen valores por defecto (ease y 0s). La primera propiedad (all) también tiene un valor por defecto (all), pero no es viable usar ese valor porque afecta el rendimiento de la apliación o página.</dd>
+          <dd>Cuando se aplican a varias propiedades se usa así: transition: color 1s, margin 2s;</dd>
+        </dl>
+        <aside class="idEst">
+          .enlace {<br/>
+          &emsp;background-color: pink;<br/>
+          &emsp;color: blue;<br/>
+          &emsp;transition: background-color .5s, color .5s<br/>
+          }<br/><br/>
+          .parrafo:hover .enlace {<br/>
+          &emsp;background-color: brown;<br/>
+          &emsp;color: pink;<br/>
+          }
+        </aside>
+      </div>
+    </section>
+    <!-- Eventos -->
+    <section class="container">
+      <div>
+        <h2>Eventos.</h2>
+        <p>Las transiciones se disparan cuando una propiedad CSS cambia su valor, sin importar qué las desencadene.</p>
+        <p>Generalmente se utilizan eventos en JavaScript o pseudo-clases.</p>
+        <dl>
+          <dt>transitionend</dt>
+          <dd>Este evento de JavaScript es lanzado cuando una transición CSS se ha completado.</dd>
+          <dt>elapsedTime</dt>
+          <dd>Esta propiedad se usa dentro de la ejecución en JavaScript para calcular cuánto tiempo dura la animación.</dd>
+          <aside class="idEst">
+            <i class="coment block center">// .html</i><br/><br/>
+            &#60;div class="ball" id="ball"&#62; &#60;/div&#62;<br/>
+            &#60;button id="button"&#62;Animar&#60;/button&#62;
+            <hr/>
+            <i class="coment block center">// .css</i><br/><br/>
+            .ball {<br/>
+            &emsp;width: 100px;<br/>
+            &emsp;height: 100px;<br/>
+            &emsp;background-color: tomato;<br/>
+            &emsp;border-radius: 50%;<br/>
+            &emsp;position: absolute;<br/>
+            &emsp;left: 0;<br/>
+            &emsp;top: 0;<br/>
+            &emsp;transition: left 0.5s, top 0.5s 0.5s;<br/>
+            }<br/><br/>
+            <i class="coment">// Al hijo de la clase "animate" con la clase "ball", se le aplicarán los estilos.</i><br/>
+            .animate .ball {<br/>
+            &emsp;left: calc(100vw - 100px);<br/>
+            &emsp;top: calc(100vh - 100px);<br/>
+            }<br/><br/>
+            body {<br/>
+            &emsp;min-height: 100vh;<br/>
+            &emsp;display: flex;<br/>
+            }<br/><br/>
+            button {<br/>
+            &emsp;margin: auto;<br/>
+            }
+            <hr/>
+            <i class="coment block center">// .js</i><br/><br/>
+            <i class="coment">// Cuando pulsen el botón...</i><br/>
+            document.getElementById('button').addEventListener('click', e => {<br/>
+            &emsp;<i class="coment">// Se agregará la clase "animate"</i><br/>
+            &emsp;document.body.classList.add('animate');<br/>
+            &emsp;<i class="coment">// Cuando la pelota termine su transición...</i><br/>
+            &emsp;document.getElementById('ball').addEventListener('<b>transitionend</b>', e => {<br/>
+            &emsp;<i class="coment">// Si la animación duró 1 segundos, se removerá la clase animate.</i><br/>
+            &emsp;&emsp;if (e.<b>elapsedTime</b> === 1) document.body.classList.remove('animate');<br/>
+            &emsp;});<br/>
+            });
+          </aside>
+          <dt>Transición de ida y vuelta.</dt>
+          <dd>
+            <p>Al código anterior, se le puede reescribir la transición de la siguiente manera:</p>
+            <aside class="idEst">
+              <i class="coment block center">// .css</i><br/><br/>
+              .ball {<br/>
+                &emsp;...<br/>
+                &emsp;left: 0;<br/>
+                &emsp;top: 0;<br/>
+                &emsp;transition: left 0.5s, top 0.5s 0.5s;<br/>
+                }<br/><br/>
+                <i class="coment">// Se reescribirá la transición aplicando primero la reescrita y después la original.</i><br/>
+                .animate .ball {<br/>
+                &emsp;transition: left 1s, top 1s 1s;<br/>
+                &emsp;left: calc(100vw - 100px);<br/>
+                &emsp;top: calc(100vh - 100px);<br/>
+                }<br/>
+                ...
+                <hr/>
+                <i class="coment block center">// .js</i><br/><br/>
+                &emsp;<i class="coment">// Se le modificará tambien en javascript la duración de la transición.</i><br/>
+                &emsp;&emsp;if (e.elapsedTime === 3) document.body.classList.remove('animate');<br/>
+            </aside>
+            <p>Reescribirla transición de esta forma hace que se pueda definir el estado inicial y el estado final de las transiciones.</p>
+          </dd>
+        </dl>
+        <p>Las pseudo-clases más utilizadas son:</p>
+        <ul>
+          <li>:hover</li>
+          <li>:active</li>
+          <li>:target</li>
+          <li>:focus</li>
+          <li>:checked</li>
+          <li>:valid</li>
+          <li>:invalid</li>
+          <li>:in-range</li>
+          <li>:out-of-range</li>
+          <li>:required</li>
+          <li>:optional</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <section class="container">
+      <div>
+        <h3>Referencias:</h3>
+        <p>
+          <a href="https://www.w3.org/TR/selectors-4/#overview" target="_blank" rel="noopener noreferrer">Pseudo-clases.</a><br/>
+        </p>
+      </div>
+    </section>
+  </footer>
+</body>
+</html>

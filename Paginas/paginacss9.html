@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- No guardar cache en navegadores -->
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <!-- ------------------- -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../Estilos/stylecss9.css">
+  <title>Color</title>
+</head>
+<body>
+  <div class="a">
+    <h1>Color</h1>
+    En el área del color la propiedad <b>color</b> es lo que se visualiza en el frente y el <b>background</b> es lo que se visualiza atrás, de fondo.<br>
+    Existen dos modos de color básico.<br>
+    <b>Aditivo</b>: la suma de todos los colores es blanco, sus colores primarios son RGB (red, green y blue).<br>
+    <b>Sustractivo</b>: la suma de todos los colores es negro, sus colores primarios son CYMK (cyan, magenta, yellow y black).
+  </div>
+  <div class="a">
+    <h2>RGB</h2>
+    En el modo RGB se tienen 8 bits de color, significa que cada canal tiene 2<sup>8</sup> variaciones posibles, o sea 256 variaciones posibles que comienzan en 0 y terminan en 255. Combinando los 3 colores en cada una de sus variaciones podemos obtener más de 16.5 millones de colores.<br>
+    Existe un cuarto canal que define la transparencia del color y va de 0 a 1 tomando en cuenta decimales como .5 en donde 0 es transparente y 1 es visible, este cuarto canal es omisible y por default es 1.<br>
+    Las formas de colocar los colores rgb en el código son:<br>
+    color: <b>rgb([0 a 255],[0 a 255],[0 a 255])</b>;<br>
+    color: <b>rgba([0 a 255],[0 a 255],[0 a 255], [0 a 1])</b>;
+  </div>
+  <div class="a">
+    <h2>Notación hexadecimal</h2>
+    Es la forma más normal de colocar un color en un código y se utilizan números y letras para la selección del color, del 0 al 9 y de la A a la F teniendo 16 diferentes opciones para seleccionar un tipo de color, se  pueden colocar minúsculas o mayúsculas pero es más correcto colocar la notación en mayúsculas. Utilizando dos de estos valores se pueden obtener lo equivalente a cada valor del RGB
+    <table>
+      <tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td></tr>
+      <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td></tr>
+    </table>
+    FF=(2<sup>4</sup>*2<sup>4</sup>)=(16*16)=256 valores que es como contar de 0 a 255<br>
+    Las formas de colocar los colores en hexadecimal en el código son:<br>
+    color: <b>#FF00AA</b>;<br>
+    Los primeros dos dígitos representan la gama del color rojo o Red, los siguientes dos dígitos representan la gama del verde o Green y los dos últimos representan la gama del azul o Blue.<br>
+    Se pueden abreviar solamente si los dos valores de cada gama son idénticos, ejemplo:<br>
+    color: <b>#FF00AA</b>;<br>
+    color: <b>#F0A</b>;<br>
+    También se puede colocar un séptimo y octavo valor para indicar la transparencia al igual que en <b>rgba</b>, donde 00 es transparente y FF es visible (ejemplo: #FF00AA8C).
+  </div>
+  <div class="a">
+    <h2>HSL</h2>
+    Es un modo de color y sus siglas significan:<br>
+    Hue (tono de 0 a 360)<br>
+    <table>
+      <tr><td>0</td><td>rojo</td></tr>
+      <tr><td>60</td><td>amarillo</td></tr>
+      <tr><td>120</td><td>verde</td></tr>
+      <tr><td>180</td><td>cyan</td></tr>
+      <tr><td>240</td><td>azul</td></tr>
+      <tr><td>300</td><td>magenta</td></tr>
+      <tr><td>360</td><td>rojo</td></tr>
+    </table>
+    Saturation (instead del color de 0% gris a 100% color puro)<br>
+    Light (luz de 0% negro a 100% blanco)<br>
+    Las formas de colocar los colores hsla en el código son:<br>
+    color: <b>hsl(<i>[Hue], [Saturation], [Light])</i></b> ejemplo: hsl(200, 80%, 40%)<br>
+    Se le puede colocar un cuarto canal que definirá la transparencia del color y al igual que en <i>rgba</i> o en hexadecimal, va de 0 a 1<br>
+    color: <b>hsla(200, 80%, 40%, .5)</b><br>
+  </div>
+  <div class="a">
+    <h2>currentColor</h2>
+    El valor <b>currentColor</b> se usa para que el color del padre de un elemento sea heredado a uno o más elementos.<br>
+    ejemplo:<br>
+    <p class="enlace1"><b>ir a -> <a href="https://www.notion.so/8-Color-d59f68a08ce44e0ba1f6dd4f6cca02ce" title="Descripción del tema de colores en CSS" rel="noopener" target="_blank">Guía de los colores CSS</a></b></p>
+    <p class="enlace2"><b>ir a -> <a href="https://www.w3.org/TR/css-color-3/#html4" title="Listado de colores basicos CSS" rel="noopener" target="_blank">Colores básicos</a></b></p>
+    <p class="enlace3"><b>ir a -> <a href="https://www.w3.org/TR/css-color-3/#svg-color" title="Listado de colores secundarios CSS" rel="noopener" target="_blank">Colores extendidos</a></b></p>
+    <p class="enlace4"><b>ir a -> <a href="https://meyerweb.com/eric/thoughts/2014/06/19/rebeccapurple/" title="En honor de Rebecca" rel="noopener" target="_blank">Explicación del color rebeccapurple</a></b></p>
+    <img src="../Imgs/currentsin.jpg" alt="Enlaces sin código currentColor" title="Enlaces sin código currentColor">
+    <img src="../Imgs/currentcon.jpg" alt="Código currentColor" title="Código currentColor"><br>
+    Al aplicar el código en todas las etiquetas <b>a</b>, se aplica en cada uno de los enlaces el color de sus padres <b>p</b>. La propiedad currentColor sólo puede adquirir el color de la propiedad <b>color</b> del padre que por defecto siempre es negro, es decir, no se puede tomar el color de fondo, borde, etc., pero el currentColor se puede aplicar en la propiedad que sea.
+  </div>
+  <div class="a">
+    <h2>Degradados lineales</h2>
+    Permiten tener varios colores que se vayan cambiando entre ellos de manera suave, este degradado se adapta al tamaño de la pantalla automáticamente a menos que se les agregue un tamaño especifico.<br>
+    Cuando colocamos un color de fondo utilizamos <i>background-color</i> pero cuando es más de un color se utiliza <i>background-image</i>.<br>
+    <b>background-image: linear-gradient(<i>[color 1], [color 2], [color n]</i>);</b><br>
+    Se puede indicar, en porcentaje o pixeles, desde que punto se debe comenzar a degradar un color mientras tanto se visualiza el color puro, a esta indicación se le conoce como stop.<br>
+    <b>background-image: linear-gradient(<i>[color 1] [stop], [color 2] [stop], [color 2] [stop], [color n] [stop]</i>);</b><br>
+    ejemplo:<br>
+    <i>background-image: linear-gradient(yellow 25%, blue 40%, blue 50%, green 80%)</i><br>
+    El color yellow puro abarcara del 0% del elemento hasta el 25% del elemento y apartir de ahí se degrada con el siguiente elemento, el color blue se degrada hasta el 40% del elemento y continua puro hasta el 50% del elemento en donde comienza a degradarse, el color green se degrada hasta el 80% del elemento y apartir de ahí es green puro.<br>
+    En los colores de en medio se colocan dos veces, uno para indicar donde inicia el degradado de su predecesor y otro para indicar donde iniciará el degradado de su sucesor.<br>
+    Se puede colocar aparte el ángulo o dirección del degradado (180 deg es el valor por default).<br>
+    <b>background-image: linear-gradient(<i>[#deg | to <u>dirección</u>], [color 1] [stop], [color 2] [stop], [color 2] [stop], [color n] [stop]</i>);</b><br>
+    Direcciones: to top, to left, to bottom, to right y sus combinaciones de 2.<br>
+    ejemplo: background-image: linear-gradient(100deg, lima 20%, yellow 20%, yellow 50%, orange 50%);<br>
+    ejemplo: background-image: linear-gradient(to bottom right, lima 20%, yellow 20%, yellow 50%, orange 50%);<br>
+    En el primer ejemplo se elige un ángulo de 100° y en el segundo ejemplo se indica que el degradado sea en dirección a la parte inferior derecha del usuario.<br>
+    <img class="gradientlainear" src="../Imgs/gradientlainear.jpg" alt="Ejemplo de degradados lineales" title="Ejemplo de degradados lineales">
+    <img class="digris" src="../Imgs/grados.jpg" alt="Rueda de grados hacia donde se direccionael degradado" title="Rueda de grados hacia donde se direccionael degradado">
+    <div class="degline"></div>
+  </div>
+  <div class="a">
+    <h2>Degradados radiales</h2>
+    Son parecidos a los lineales, pero el cambio de color se hace del centro a las esquinas.<br>
+    <b>background-image: radial-gradient(<i>[color 1], [color 2], [color n]</i>);</b><br>
+    Igual que el lineal se puede indicar, en porcentaje o pixeles, desde que punto se debe comenzar a degradar un color.<br>
+    <b>background-image: radial-gradient(<i>[color 1] [stop], [color 2] [stop], [color 2] [stop], [color n] [stop]</i>);</b><br>
+    En el degradado radial se puede indicar, con el eje X y Y usando px o %, donde será el centro del que parten los colores para degradarse (por default es 50% 50%).<br>
+    <b>background-image: radial-gradient(<i>[at <u>+</u>X <u>+</u>Y ], [color 1] [stop], [color 2] [stop], [color 2] [stop], [color n] [stop]</i>);</b><br>
+    ejemplo: background-image: radial-gradient(at 50% 0, lima 20%, yellow 20%, yellow 50%, orange 50%);<br>
+    En el degradado radial se puede indicar el tamaño (px o %) y la forma (circle o ellipse) para poder manipular el degradado, si se modifica el tamaño del degradado no  se podrá adaptar al tamaño del navegador (ellipse esta por default).<br>
+    <b>background-image: radial-gradient([#px | #px #px] | [circle | ellipse] <i>[at <u>+</u>X <u>+</u>Y ], [color 1] [stop], [color 2] [stop], [color 2] [stop], [color n] [stop]</i>);</b><br>
+    Se coloca un numero de tamaño para el circulo (con el cual se define el radio) y dos numeros de tamaño para la elipse (con los cuales se define el radio mayor y el menor), si se coloca el tamaño se ignora la forma (circle o ellipse) ya que se indica con los radios colocados si es un circulo o una elipse.<br>
+    Existen palabras clave para indicar el tamaño:
+    <table>
+      <tr><td>closest-side</td><td>lado más cercano</td></tr>
+      <tr><td>farthest-side</td><td>lado más lejano</td></tr>
+      <tr><td>closest-corner</td><td>esquina más cercana</td></tr>
+      <tr><td>farthest-corner</td><td>esquina más lejana</td></tr>
+    </table>
+    Con estas claves se puede facilitar el tamaño del degradado repartiendo el degradado entre un color las esquinas o lados mas cercanos o lejanos, esto funciona especialmente en espacios no simétricos y con centros del degradado que no estan en el origen.
+    <img class="gradientradial" src="../Imgs/gradientradial.jpg" alt="Ejemplo de degradados radiales" title="Ejemplo de degradados radiales">
+    <div class="degrad"></div>
+  </div>
+  <div class="a">
+    <h2>Degradados repetidos.</h2>
+    Este degradado repite los degradados cuando han terminado su <i>stop</i> especificado, puede utilizarse en degradados lineales y radiales.<br>
+    <b>background-image: repeating-linear-gradient( [color 1] [stop], [color 2] [stop], [color 3] [stop], [color n] [stop]</i>);</b><br>
+    <img class="gradientripit" src="../Imgs/gradientripit.jpg" alt="Ejemplo de degradados repetidos" title="Ejemplo de degradados repetidos">
+    <div class="degripit"></div>
+  </div>
+  <div class="ejemplo">
+    <h3>calc</h3>
+    La funcion <b>calc</b> de CSS permite hacer operaciones, es util para calcular valores de variables (ejemplo: --oper: calc(var(--tamaño)/2);).
+    <pre><b>
+      div.ying-yang{
+        --tamaño: 150px;
+        --tamcalc: calc(var(--tamaño)/2);
+      
+        width: var(--tamaño);
+        height: var(--tamaño);
+        border: 1px solid hsl(0, 100%, 0%);
+        border-radius: 50%;
+      
+        background-image:
+          radial-gradient(var(--tamcalc) at 50% 25%, rgb(0, 0, 0) 10%, transparent 10%), 
+          radial-gradient(var(--tamcalc) at 50% 75%, rgb(255, 255, 255) 10%, transparent 10%), 
+          radial-gradient(var(--tamcalc) at 50% 25%, rgb(255, 255, 255) 50%, transparent 50%), 
+          radial-gradient(var(--tamcalc) at 50% 75%, rgb(0, 0, 0) 50%, transparent 50%), 
+          linear-gradient(to right, #FFF 50%, #000 50%);
+      }
+    </b></pre>
+  </div>
+  <div class="ying-yang_p1"></div>
+  <div class="ying-yang_p2"></div>
+  <div class="ying-yang_p3"></div>
+  <div class="ying-yang"></div>
+</body>
+</html>

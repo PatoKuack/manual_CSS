@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- No guardar cache en navegadores -->
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <!-- ------------------- -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../Estilos/stylecss7.css">
+  <title>Pseudoclases</title>
+</head>
+<body>
+  <section>
+    <span class="oder">
+      <h2 id="inicio">Pseudoclases</h2>
+      Son estilos contextuales, imitan a las clases, permiten seleccionar elementos según su estado o alguna condición. No pueden sobre escribir una clase.<br>
+      Se indican con dos puntos (<b>:</b>).
+    </span>
+    <article class="rut">
+      <b>:root</b> representa al DOM (document object model) es decir a todo el documento HTML. Se puede usar para declarar variables, (--color: pink) y a todos sus hijos les heredará el valor de la variable ya que las variables solo pueden ser utilizadas por los hijos del elemento donde se declararon. Es recomendable usar <span>:root{}</span> en vez de colocar <span>html{}</span>  para tener más disposición con la especificidad.<br>
+      <img src="../Imgs/pseudo root.jpg" alt="Ejemplo de pseudoclase :root" title="Ejemplo de pseudoclase :root">
+    </article>
+    <article class="jover">
+      <b>:hover</b> es una pseudoclase de estado, se muestra el estilo al sobrepasar el mouse sobre el elemento (aquí se podría usar el display: none).<br>
+      :hover{} aplica un estilo a todo el documento.<br>
+      h1:hover{} aplica un estilo a la etiqueta h1.<br>
+      h1 :hover{} aplica un estilo a los hijos de h1.<br>
+      las etiquetas como <b>br</b> cuentan como hijos, tómalo en cuenta cuando apliques estilos a los últimos hijos.<br>
+      <img src="../Imgs/pseudo hover1.jpg" alt="Ejemplo de :hover selector combinado" title="Ejemplo :hover selector combinado">
+      <img src="../Imgs/pseudo hover2.jpg" alt="Ejemplo de :hover selector descendiente" title="Ejemplo :hover selector descendiente">
+    </article>
+    <article class="activ">
+      <b>:active</b> activa un estilo cuando se mantiene presionado el clic sobre el elemento, se utiliza para usabilidad en UX (user experience) para dar la sensación al usuario de que ha hecho una acción.<br>
+      <img src="../Imgs/pseudo active.jpg" alt="Ejemplo de pseudoclase :active" title="Ejemplo de pseudoclase :active">
+      <div>
+        <br>La propiedad <b>transition</b> se usa para animaciones de páginas, hace que los cambios repentinos de estilos, se hagan mediante una transición tenue (ejemplo: transition: all #s;).<br>
+        Su valor <b>all</b> indica que aplique transiciones a todas las propiedades.<br>
+        Su valor numérico indica los segundos que tardará en completar la transición.<br><br>
+      </div>
+    </article>
+    <article class="visired">
+      <b>:visited</b> nos indica que un enlace ya ha sido visitado. Esto ya por default coloca un enlace visitado en azul, pero se puede agregar o modificar acciones al enlace. -> 
+      <a href="#inicio" title="Ir al inicio del documento">Inicio</a><br>
+      <img src="../Imgs/pseudo visited.jpg" alt="Ejemplo de pseudoclase :visited" title="Ejemplo de pseudoclase :visited">
+      <div>
+        Si se usan las 3 últimas pseudoclases en un elemento, preferentemente debe de ser usado en este orden para que no afecte el estilo en cascada:<br>
+        <b>:visited</b><br>
+        <b>:hover</b><br>
+        <b>:active</b><br>
+      </div>
+    </article>
+    <article class="taryet">
+      <b>:target</b> permite aplicar un estilo a un elemento destino cuando se detecta que se pulsó su enlace. -> 
+      <a href="#mostrar" title="Mostrar texto oculto" id="secreto">Desocultar (mostrar)</a>.
+      <img src="../Imgs/pseudo target.jpg" alt="Ejemplo de pseudoclase :target" title="Ejemplo de pseudoclase :target">
+      <div id="mostrar">
+        <a href="#secreto" title="Ocultar texto de nuevo">Ocultar (desaparecer)</a><br>
+        La URL cambia al activar la pseudoclase, aumentando al final el elemento al que se le aplica el estilo manteniendo el target activo:<br>
+        http://127.0.0.1:5500/Paginas/Prueba7.html<u><b>#mostrar</b></u><br><br><br><br><br>
+      </div>
+    </article>
+    <article class="not">
+      <b>:not</b> niega una condición, por ejemplo, si colocamos un estilo a todos los <i>span</i> entonces podemos declarar con <b>span:not(.elemento)</b> que se le aplique a todos los <i>span</i> menos al <i>span</i> con la clase "elemento".<br>
+      En este caso se activará un fondo azulado a todos los hijos de cada <i>article</i> excepto a esta sección cuya clase es "not".
+      <img src="../Imgs/pseudo not.jpg" alt="Ejemplo de pseudoclase :not" title="Ejemplo de pseudoclase :not">
+      <div>
+        <br>En este caso, las etiquetas hijas de cada etiqueta "articulo" (como las letras tipo bold o itálica) obtienen un fondo azulado al pasar el puntero del mouse por encima, excepto en el artículo con la clase <b>not</b>.<br><br>
+      </div>
+    </article>
+    <article class="empti">
+      <b>:empty</b> identifica a los elementos vacíos, es decir, aplica estilo a elementos sin contenido. Éste también se puede usar con la pseudoclase <b>:not</b> para indicar a aquellos elementos que no estén vacíos (ejemplo: <b>:not(:empty){}</b>)<br>
+      <img src="../Imgs/pseudo empty.jpg" alt="Ejemplo de pseudoclase :empty" title="Ejemplo de pseudoclase :empty">
+      <div class="vacio"></div>
+    </article>
+    <article class="firstch">
+      <b>:first-child</b> aplica un estilo al primer hijo de un elemento.<br>
+      Esto tiene dos formas de interpretarse:<br>
+      <b>h2 :first-child{}</b> (descendiente) esta selección se hace desde el padre, aplica el estilo al primer hijo de cada h2.<br>
+      <b>h3:first-child{}</b> aplica el estilo a cada h3 que sea primer hijo. Esto lo explicaré en dos reglas:<br>
+      -El h3 debe ser el primero de sus hermanos para recibir el estilo.<br>
+      -Aunque el h3 sea el primer h de nivel 3, no se le aplicará el estilo si hay un hermano de otro tipo antes que él, quitandole la primogenitura.<br>
+      <img class="chtp" src="../Imgs/chaildfirst.jpg" alt="Ejemplo de pseudoclase :first-child" title="Ejemplo de pseudoclase :first-child">
+    </article>
+    <article class="lastch">
+      <img class="chtp" src="../Imgs/chaildlast.jpg" alt="Ejemplo de pseudoclase :last-child" title="Ejemplo de pseudoclase :last-child"><br>
+      <b>:last-child</b> aplica un estilo al último hijo de un elemento, igual que la pseudoclase anterior, aplica el estilo dependiendo de si se coloca con descendencia o no.<br>
+      <b>div :last-child{}</b> (descendiente) esta selección se hace desde el padre, aplica el estilo al último hijo de cada div.<br>
+      <b>div:last-child{}</b> aplica el estilo a cada div siempre y cuando ese div sea el último hijo.
+    </article>
+    <article class="firsttaip">
+      <b>:first-of-type</b> aplica un estilo al primer elemento de su tipo dentro de un mismo contenedor.<br>
+      No se suele usar con <i>selectores</i> (#id o .class) sin acompañamiento de etiquetas.<br>
+      <b>section :first-of-type{}</b> (descendiente) esta selección se hace desde el padre, aplica el estilo a todos los primogénitos de cada section, es decir, el aplicará el estilo al primer <i>img, div, b, i, etcetera</i>.<br>
+      <b>b:first-of-type{}</b> aplica el estilo al primer b hijo de cada contenido padre.<br>
+      <img class="chtp" src="../Imgs/taipfirst.jpg" alt="Ejemplo de pseudoclase :first-of-type" title="Ejemplo de pseudoclase :first-of-type">
+    </article>
+    <article class="lasttaip">
+      <b>:last-of-type</b> aplica un estilo al último elemento de su tipo dentro de un mismo contenedor.<br>
+      Los type no se suelen usar con los <i>selectores</i> (#ides o .classes) sin acompañamento de etiquetas.<br>
+      <b>section :last-of-type{}</b> (descendiente) esta selección se hace desde el padre, aplica el estilo a todos los últimos hijos de cada section, es decir, el aplicará el estilo al último <i>img, div, b, i, etcétera</i>.<br>
+      <b>b:last-of-type{}</b> aplica el estilo al último b de cada contenido.<br>
+      <img class="chtp" src="../Imgs/taiplast.jpg" alt="Ejemplo de pseudoclase :last-of-type" title="Ejemplo de pseudoclase :last-of-type">
+    </article>
+    <article class="chaild">
+      <b>:nth-child()</b> aplica un estilo al hijo según su posición desde el primero al último.<br>
+      <b>:nth-last-child()</b> aplica un estilo al hijo según su posición desde el último al primero.<hr>
+      :nth-child(<b>even</b>) o :nth-last-child(<b>even</b>) aplica un estilo a todos los hijos pares del inicio al final o viceversa respectivamente.<br>
+      :nth-child(<b>odd</b>) o :nth-last-child(<b>odd</b>) aplica un estilo a todos los hijos impares del inicio al final o viceversa respectivamente.<hr>
+      :nth-child(<b>#</b>) o :nth-last-child(<b>#</b>) aplica un estilo a los hijos que se encuentren en la posición <b>#</b>, es decir, si <b># = 5</b> entonces cuenta desde el inicio o desde el final respectivamente y aplica el estilo al quinto hijo del elemento.<hr>
+      :nth-child(<b>#n</b>) o :nth-last-child(<b>#n</b>) este es un múltiplo, aplica un estilo a los hijos que se encuentren en la posición <b>#*n</b> (n se inicializa en 0), es decir, si <b># = 3</b> entonces cuenta desde el inicio o desde el final respectivamente y aplica el estilo a los tercer (3*1), sexto (3*2), noveno(3*3), etc., hijos del elemento.<hr>
+      :nth-child(<b>#n<u>+</u>#</b>) o :nth-last-child(<b>#n<u>+</u>#</b>) este es un múltiplo, aplica un estilo a los hijos que se encuentren en la posición <b>#*n+#</b> o <b>#*n-#</b> (n se inicializa en 0), es decir, si el primer <b># = 2</b> y el segundo es positivo y vale <b># = 3</b> entonces cuenta desde el inicio o desde el final respectivamente y aplica el estilo a los tercer (2*0+3), quinto (2*1+3), séptimo (2*2+3), etc., hijos del elemento.<br>
+      <img class="chtp" src="../Imgs/nthchaild.jpg" alt="Ejemplo de pseudoclase :nth-child" title="Ejemplo de pseudoclase :nth-child">
+      <div class="descrip">Las etiquetas <b>br</b> cuentan como hijos, solo que al ser un salto de línea no se ve su estilo.</div>
+    </article>
+    <article class="tips">
+      Se pueden usar otras fórmulas como <b>-n + 5</b> para aplicar el estilo a los primeros 5 hijos.<br>
+      O <b>n + 3</b> que selecciona todos los hijos a partir de la tercera posición.<br>
+      O <b>:nth-child(n+5):nth-child(even)</b> que selecciona a partir del quinto hijo todos los hijos pares .<br>
+      O <b>:nth-child(odd):nth-child(3n)</b> que selecciona todos los hijos impares que sean múltiplos de 3.<br>
+      Se recomienda encontrar primero los hijos a los que se desea aplicar el estilo.<br>
+      La pseudoclase sin descendencia (ejemplo: <b class="importnt">.pe:nth...</b>) aplican los estilos en este ejemplo a los hermanos de los elementos con la clase="pe".<br>
+      La pseudoclase con descendencia (ejemplo: <b class="importnt">.pe :nth...</b>) aplican los estilos en este ejemplo a los hijos de los elementos con la clase="pe".
+      <img class="nthtips" src="../Imgs/nthchaildtips.jpg" alt="Ejemplo de pseudoclase :nth-child doble" title="Ejemplo de pseudoclase :nth-child doble">
+    </article>
+    <article class="nthtaip">
+      <b>:nth-of-type()</b> hace su selección según su posición igual que <i>:nth-child</i> pero esta pseudoclase depende de una etiqueta <i>(p, div, span, etc.)</i>.<br>
+      <b>:nth-last-of-type()</b> hace su selección al revés, desde el ultimo hijo hasta el primero según su posición y dependiendo de su etiqueta <i>(p, div, span, etc.)</i>.<br>
+      <img class="chtp" src="../Imgs/nthtaip.jpg" alt="Ejemplo de pseudoclase :nth-last-of-type" title="Ejemplo de pseudoclase :nth-last-of-type">
+    </article>
+    <article class="afterbefore">
+      <b>::after</b> selector o pseudoelemento que coloca contenido después de un elemento.<br>
+      <b>::before</b> selector o pseudoelemento que coloca contenido antes de un elemento.<br>
+      <i>(Los pseudoelementos por default tienen la propiedad display: inline).</i><br>
+      Con la propiedad <b>content</b> se coloca texto, ejemplo:<br>
+      h1::after, h1::before{ content: "<>" }<br>
+      colocará los símbolos '<>' antes y después de cada h1.<br>
+      <img src="../Imgs/afterbefore.jpg" alt="Ejemplo de pseudoelemento ::after y ::before" title="Ejemplo de pseudoelemento ::after y ::before">
+    </article>
+  </section>
+  <section class="oder">
+    Existe una propiedad llamada <b>transition</b> que es para animaciones de páginas, lo que hace es que los cambios repentinos que aparezcan con pseudoclases como <i>:hover</i> se hagan mediante una transición tenue (ejemplo: transition: all #s;).<br>
+    Su valor <b>all</b> indica que aplique transiciones a todas las propiedades.<br>
+    Su <b>valor numérico</b> indica los segundos que tardará en completar la transición.
+  </section>
+</body>
+</html>

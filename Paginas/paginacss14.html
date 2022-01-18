@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- No guardar cache en navegadores -->
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <!-- ------------------- -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../Estilos/stylecss14.css">
+  <link rel="stylesheet" href="../Estilos/normalization.css">
+  <title>Columnas en layouts</title>
+</head>
+<body class="body">
+  <header>
+    <section class="container margin-auto">
+      <div>
+        <h1 class="title center">Holy grail layout.</h1>
+        <p>Es un layout que tiene tres renglones, uno para el encabezado y menú de navegación (va al inicio), uno para el pie de página (va al final) y uno para el contenido principal y publicidad (va en medio), se debe colocar el contenido de la página (contenido principal y publicidad) en columnas, las cuales deben tener la misma proporción de altura.</p>
+        <figure class="figure">
+          <img class="img margin-auto" src="https://flexbox.ninja/demos/holy-grail-layout/holy-grail-layout-big.png" alt="Ejemplo de una Holy grail layout" title="Holy grail layout">
+        </figure>
+      </div>
+    </section>
+  </header>
+  <main>
+    <!-- Layout -->
+    <section class="container margin-auto">
+      <div>
+        <h2 class="title">Columnas.</h2>
+        <p>Los layouts, sobre todo los de tipo holy grail, se hacen con grid o flexbox, sin embargo existe un conjunto de propiedades que ayudan a manipular el contenido de los elementos separandolos por columnas, haciendo un buen complemento para crear layots más eficientemente:</p>
+        <dl>
+          <dt><strong>column-count</strong>: #;</dt>
+          <dd>Se coloca en el elemento contenedor. Requiere un valor numerico para indicarle cuantas columnas debe cubrir, a esas columnas les distribuye (no separa) el contenido.</dd>
+          <dt>column-width: #[px];</dt>
+          <dd>Se coloca en el elemento contenedor. Es una propiedad complemento, esta propiedad requiere de un valor de medición con el que le indicará a las columnas cuanto deben medir de ancho cada una si es que quieren dividirse, es decir, si las columnas no tienen espacio suficiente en el contenedor para medir lo indicado en esta propiedad, mantendrán el contenido en un minimo de columnas.</dd>
+          <dt><strong>columns</strong>: #[em] #</dt>
+          <dd>Se coloca en el elemento contenedor. Esta propiedad es un shorthand se las dos primeras propiedades, recibe el ancho minimo de las columnas para dividirse y el numero de columnas.</dd>
+          <dt>column-gap: #[rem]</dt>
+          <dd>Se coloca en el elemento contenedor. Esta propiedad recibe un valor de medición para indicar la separación entre las columnas.</dd>
+          <dt>column-rule: #[px] line-type color;</dt>
+          <dd>Se coloca en el elemento contenedor. Funciona como el shorthand de la propiedad <i>border</i>, coloca un borde entre las columnas. Si las columnas tienen separación se coloca el borde justo en medio de la separación de las columnas.</dd>
+          <dt>column-span: [ none | all ];</dt>
+          <dd>Se coloca en un elemento (como hr o aside). Separa el contenido de todas las columnas de una forma horizontal.</dd>
+          <dt>column-fill: [ balance | auto |  ];</dt>
+          <dd>
+            Se coloca en el elemento contenedor. Tiene 2 valores:
+            <ul>
+              <li class="item">balance: distribuye el contenido de una forma balanceada</li>
+              <li class="item">auto: rellena una columna con el contenido antes de rellenar la siguiente, este valor requiere que el contenedor tenga una altura fija.</li>
+            </ul>
+          </dd>
+        </dl>
+      </div>
+    </section>
+  </main>
+  <!-- <footer></footer> -->
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- No guardar cache en navegadores -->
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <!-- ------------------- -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="../Estilos/stylecss10.css">
+  <title>Tipografía</title>
+</head>
+<body>
+  <div class="tipografi">
+    <h1>Tipografía</h1>
+    Disciplina que estudia el diseño y uso de tipos de letra.
+    <h4>Fuente</h4>
+    Tipo específico de letra.
+    <h4>Glifos</h4>
+    Trazos que representan a cada caracter de la fuente.
+    <h4>Estilos de fuente</h4>
+    Variaciones de una misma fuente como el grosor o inclinación.
+    <h4>Familia tipográfica</h4>
+    Variaciones de la fuente principal, esas variaciones tienen características similares.
+  </div>
+  <div class="font">
+    <h2>Tipos de fuentes</h2>
+    <b>Serif:</b> (remanentes o terminales) son pequeños adornos ubicados en los extremos de las líneas de los caracteres tipográficos, están destinados para grandes cantidades de información.<br>
+    <b>Sans serif:</b> (de palo seco o sin gracias) son caracteres que carecen de terminaciones adornadas o remanentes, están destinados a textos cortos.<br>
+    <b>Display:</b> diseño para su uso en tamaños grandes manteniendo su legibilidad de sus caracteres para visualizarlos a grandes distancias, están destinados a diseño de carteles, grandes titulares, anuncios de prensa, rótulos de grandes dimensiones, etc.<br>
+    <b>Handwriting:</b> (manuscritas) transmiten la sensación de estar hechas a mano quedando bien con casi todo.<br>
+    <b>Monospace:</b> (monoespaciado) sus letras y caracteres ocupan exactamente la misma cantidad de espacio horizontal, están destinados para editores de texto en informática o para mostrar secuencias de ácidos nucleicos y proteínas en biología.
+  </div>
+  <article class="meashurment">
+    <h2>Unidades de medida</h2>
+    <b>font-size: #[em | rem]</b><br>
+    <b>em</b> proviene del tamaño de la letra eme que antes era el molde tipográfico más ancho que los demás moldes usándolo de referencia para el tamaño de las demás letras.<br>
+    <b>rem</b> es el tamaño de la letra relativo a la raíz (r de root).<br>
+    El tamaño estándar de tamaño de fuente es de 16px y no es buena idea cambiarlo. Es recomendable al hacer medidas como márgenes colocarlos de múltiplos de 4 (4, 8, 16,...).<br>
+    1rem = 16px (siempre que no se modifique el font-size de :root).<br>
+    Si a un título se le coloca un rem=2 entonces el título tendrá un tamaño de 2*16=32px.<br>
+    Es bueno utilizarlo en la normalización de los estilos como en todos los p o h2 ejemplo: h2{font-size: 2rem;}.<br>
+    1em = 100% del tamaño de fuente del contexto.<br>
+    Si a un párrafo o título se le coloca un texto en span con 2em, el tamaño de ese span será 200% el tamaño del párrafo o título.<br>
+    Es bueno utilizarlo en las propiedades del modelo de caja porque es conveniente que si varia el tamaño del texto, también varíe su borde o margen o hasta el redondeado de las esquinas.<br>
+    Nunca se modifican los pixeles de la fuente ya que es mejor que el navegador decida los pixeles dependiendo del tipo de dispositivo en el que se visualiza la página.<br>
+  </article>
+  <article>
+    <h2>Estilos</h2>
+    <b>font-style:[italic | normal | ...];</b> - <span>Estilos</span><br>
+    Se debe comprobar que la versión de fuente que se esté usando tenga itálica porque si no existe la italica de esa letra, el navegador inclinará las letras y las deformará.<br>
+    <b>font-weight:[bold | 400 | ...];</b> - <span>grosor</span><br>
+    No es buena idea usar bold para darle un grosor a las letras, es mejor darle un numero de grosor (el 400 suele ser el grosor de default), es buena idea verificar los tipos de grosor que existen en el tipo de fuente que se está utilizando.<br>
+    <b>text-align: [center | left | ...];</b> - <span>alineación</span><br>
+    No se suele utilizar la alineación justificada (justify) por la mala presentación que genera a veces (left es la alineación predeterminada).<br>
+    <b>line-height: [#em,rem,px,% | # | normal | ...];</b> - <span>altura de línea o separación</span><br>
+    Colocar un numero sin unidades es igual a colocar el numero multiplicado por cien en unidades de porcentaje y a su vez es lo mismo que colocar ese número en unidades rem, es decir:<br>
+    line-height: 2;<br>
+    line-height: 200%; (porcentaje del tamaño de fuente)<br>
+    line-height: 2rem;<br>
+    Se suele utilizar una separación de 1.5 o 1.6 para párrafos y 1.2 o 1.3 para títulos.<br>
+    <b>text-decoration: [underline | none | ...];</b> - <span>subrayados generalmente</span><br>
+    <b>text-transform: [capitalize | none | ...];</b> - <span>transformar mayúsculas o minúsculas</span><br>
+    <b>letter-spacing: [<u>+</u>#em,rem,px,% | normal | ...];</b> - <span>separación entre letras</span><br>
+    <b>word-spacing: [<u>+</u>#em,rem,px,% | normal | ...];</b> - <span>separación entre palabras</span>
+  </article>
+  <article class="fonts">
+    <h2>Fuentes</h2>
+    <b>font-family: '[<i>fuente</i>]', '[<i>fuente alternativa</i>]';</b><br>
+    Se suelen colocar dos o más fuentes alternativas por si no se encuentra la fuente en la web o en el equipo.<br>
+    La instrucción solamente reconoce las fuentes instaladas en el equipo (en el sistema operativo de cada usuario o propietario) o las vinculadas a través del código html desde otra página web.<br>
+    A través de páginas como <a href="https://fonts.google.com/" title="Fuentes de obtenibles de google" rel="noopener" target="_blank">Google fonts</a> se pueden obtener fuentes y estilos de las mismas para descargarlas o usarlas directamente desde la página web "Google fonts" por medio de la etiqueta <b>link</b>, el link que define el <i>vínculo de la fuente</i> se coloca antes de la etiqueta link que define el <i>vínculo del documento CSS</i> para que con el efecto en cascada se obtenga la fuente y después la use a través de CSS, pero al utilizar muchas fuentes en una página puede alentar la carga de la misma.<br>
+    En Google fonts se seleccionan las fuentes con sus estilos deseados y se abre el panel de "familias seleccionadas", después se copia el link de vinculación el cual se coloca en el documento HTML y también se copia la propiedad CSS que se coloca en el elemento deseado del documento CSS. Con esto cualquier usuario puede ver la fuente ya que se carga a través del código y no a través de un sistema operativo.<br>
+    Si en el link de vinculación están seleccionadas más de un grosor o estilo de la misma fuente, se puede seleccionar cuál de ellas se desea utilizar.<br>
+    <img src="../Imgs/fonts.jpg" alt="Ejemplo del uso de fuentes en CSS" title="Ejemplo del uso de fuentes en CSS">
+  </article>
+  <img src="../Imgs/fontcomic1.jpg" alt="Ejemplo de selección de fuentes en Google fonts" title="Ejemplo de selección de fuentes en Google fonts">
+  <img src="../Imgs/fontcomic2.jpg" alt="Ejemplo de obtención del link de vinculación y propiedad de CSS en Google fonts" title="Ejemplo de obtención del link de vinculación y propiedad de CSS en Google fonts">
+  <article class="shadou">
+    <h2>Sombras de texto</h2>
+    Se utiliza generalmente para crear un efecto de separación o para crear contraste con el fondo.<br>
+    <b>text-shadow: X Y blur color, X Y blur color, ...;</b><br>
+    <img src="../Imgs/shadous.jpg" alt="Ejemplo de obtención del link de vinculación y propiedad de CSS en Google fonts" title="Ejemplo de obtención del link de vinculación y propiedad de CSS en Google fonts">
+  </article>
+</body>
+</html>

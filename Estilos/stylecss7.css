@@ -1,0 +1,107 @@
+:root{
+  --colora: rgb(7, 180, 94);
+  --colorb: rgb(189, 242, 255);
+  --colorc: rgb(255, 213, 185);
+}
+
+body{
+  background-color: khaki;
+}
+
+img{
+  width: 270px;
+}
+
+div{
+  display: inline-block;
+  width: 550px;
+  height: 100px;
+}
+
+div.descrip{
+  display: inline-block;
+  width: 400px;
+  height: 40px;
+}
+
+article.activ, article.rut, article.jover, article.taryet, article.firstch, article.lastch, article.firsttaip, article.lasttaip, article.nthtaip, article.tips, section.oder, span.oder, article.not, article.empti, article.visired, article.chaild, .afterbefore{
+  width: 850px;
+  height: auto;
+  margin: 5px;
+  padding: 5px;
+  margin-top: 7px;
+}
+
+img.chtp{
+  width: 350px;
+}
+
+img.nthtips{
+  width: 450px;
+}
+
+article:hover{
+  border: 2px solid var(--colora);
+  border-radius: 2px;
+  margin: 3px;
+}
+
+article :visited{
+  color: var(--colora);
+}
+
+article:not(.not) :hover{
+  background: var(--colorb);
+}
+
+article:active{
+  background: var(--colorc);
+  transition: all 1s;
+}
+
+div#mostrar{
+  display: none;
+}
+#mostrar:target{
+  display: inline-block;
+}
+
+div:empty{
+  background: crimson;
+}
+
+.firstch :first-child{
+  background: rgb(255, 205, 255);
+}
+
+.lastch :last-child{
+  background: rgb(255, 205, 255);
+}
+
+.firsttaip :first-of-type{
+  background: rgb(255, 205, 255);
+}
+
+.lasttaip :last-of-type{
+  background: rgb(255, 205, 255);
+}
+
+.chaild :nth-child(3n+2){
+  background: rgb(255, 205, 255);
+}
+
+article.tips :nth-child(n+10):nth-child(even){
+  background: aquamarine;
+}
+
+article:nth-last-of-type(1){
+  background: rgb(255, 205, 255);
+}
+
+h2::after, h2::before{
+  content: "";
+  display: block;
+  height: 5px;
+  width: 200px;
+  background-color: red;
+}

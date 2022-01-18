@@ -1,0 +1,165 @@
+:root{
+  --colorA: rgb(223, 247, 242);
+  --colorB: rgb(7, 136, 82);
+  --colorC: rgb(111, 30, 131);
+  --colorC: rgb(116, 76, 161);
+  --colorD: rgba(255, 255, 255, 0.281);
+  --colorE: rgb(231, 101, 97);
+  --colorF: rgb(242, 252, 99);
+  --colorG: rgb(137, 250, 250);
+}
+
+*, *::before, *::after{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.body{
+  display: grid;
+  color: var(--colorA);
+  grid-template-columns: auto 1fr;
+  grid-template-rows: min-content 1fr min-content;
+  grid-gap: .5em;
+  background-color: var(--colorA);
+  min-height: 100vh;
+  max-width: 100vw;
+}
+
+.header{
+  background-color: var(--colorB);
+  padding: 1rem;
+  text-align: center;
+  /* grid-row-start: 1; */
+  grid-column-start: 1;
+  grid-column-end: 3;
+  box-shadow: 0 0 .5rem 0 var(--colorB);
+}
+
+.nav{
+  background-image: linear-gradient(var(--colorB) 80%, var(--colorC) 120%);
+  grid-row-start: 2;
+  padding: 2em 2em 3em 3em;
+  box-shadow: 0 0 .5rem 0 var(--colorB);
+}
+
+.main{
+  background-color: var(--colorC);
+  background-image: linear-gradient(150deg, var(--colorC) 60%, var(--colorG) 63%, var(--colorC) 70%);
+  padding: 3em 1em 1em 1em;
+  box-shadow: 0 0 .5rem 0 var(--colorC);
+  flex-grow: 1;
+  text-align: center;
+  font-size: 1.5rem;
+  min-width: 50vw;
+}
+
+.footer{
+  background-color: var(--colorC);
+  box-shadow: 0 .5rem 1rem 0 var(--colorA) inset;
+  padding: 1rem;
+  padding-left: 2em;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.hr{
+  color: currentColor;
+}
+
+.h3{
+  margin-top: 1em;
+  margin-left: .5em;
+}
+
+.module *{
+  list-style-type: none;
+}
+.li{
+  padding: .2em 0 0 0;
+}
+.ol .li:hover > .a:not(.sub-ol .a){
+  background-color: var(--colorD);
+  box-shadow: -1.2em 0 0 0 var(--colorD);
+}
+.sub-ol .a:hover{
+  background-color: var(--colorD);
+  box-shadow: -1.7em 0 0 0 var(--colorD);
+}
+
+.h4{
+  padding-top: 1rem;
+}
+.module{
+  counter-reset: module;
+}
+.module .li{
+  counter-increment: module;
+}
+.module .h4::before{
+  content: 'Módulo ' counter(module, decimal) ': ';
+}
+
+.ol{
+  padding-top: .5em;
+  counter-reset: theme;
+}
+.ol .li{
+  counter-increment: theme;
+}
+.ol .li::before{
+  content: counter(theme, decimal) ' ';
+}
+
+.sub-ol{
+  padding-left: 1em;
+  counter-reset: sub-theme;
+}
+.sub-ol .li{
+  counter-increment: sub-theme;
+}
+.sub-ol .li::before{
+  content: counter(theme, decimal) '.' counter(sub-theme, decimal) ' ';
+}
+
+.a{
+  display: inline;
+  color: inherit;
+  text-decoration: none;
+}
+.footer > .a{
+  display: block;
+  width: 70vw;
+  text-decoration: underline;
+  margin: .5rem;
+}
+
+.center{
+  text-align: center;
+}
+
+@media screen and (max-width: 500px){
+  .body{
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content fit-content 1fr min-content;
+    grid-column-gap: 0;
+  }
+  .main{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    padding-top: 1em;
+    font-size: 1rem;
+  }
+  .nav{
+    grid-row-start: 3;
+    grid-row-end: 4;
+    width: 100%;
+    padding-left: 17%;
+    padding-right: 17%;
+  }
+  
+  .footer{
+    grid-row-start: 4;
+    grid-row-end: 5;
+  }
+}

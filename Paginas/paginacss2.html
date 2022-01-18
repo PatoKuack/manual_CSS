@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- No guardar cache en navegadores -->
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <!-- ------------------- -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../Estilos/stylecss2.css">
+  <link rel="stylesheet" href="../Estilos/styleHelp.css">
+  <title>Selectores y variables</title>
+</head>
+<body>
+  <p>
+    <h1>Custom properties (variables CSS)</h1>
+    Es la reutilización de valores en el código.<br>
+    <aside class="terminal">
+      <span class="cOrg2">:root</span> <span class="cOrg1">{</span><br/>
+        &emsp;<span class="cBlue">--color</span>: <span class="cOrg3">purple</span>;<br/>
+      <span class="cOrg1">}</span><br/>
+      <span class="cOrg2">h1</span> <span class="cOrg1">{</span><br/>
+        &emsp;<span class="cBlue">color</span>:&emsp;&emsp;<span class="cYll">var</span><span class="cPrp">(</span><span class="cBlue">--color</span><span class="cPrp">)</span>;<br/>
+      <span class="cOrg1">}</span><br/>
+      <span class="cOrg2">p</span> <span class="cOrg1">{</span><br/>
+        &emsp;<span class="cBlue">color</span>:&emsp;&emsp;<span class="cYll">var</span><span class="cPrp">(</span><span class="cBlue">--color</span><span class="cPrp">)</span>;<br/>
+      <span class="cOrg1">}</span>
+    </aside>
+    Es recomendable colocar nuestros estilos repetitivos en nuestra clase <b>:root</b> porque esta raíz es accesible a todo nuesro código.<br>
+    <hr>
+    <h2>Selectores</h2>
+    Indican a que elemento de HTML se le aplican los estilos.<br>
+    <h3>Selectores simples</h3>
+    Son de una sola palabra (ejemplo: <b>h1{}</b>)<br>
+    <u>Si puedes, no los utilices en CSS</u>.
+    <h4>Etiquetas, tipos o elementos</h4>
+    Sirven para normalizar el estilo, que el estilo en la página sea igual en todos los navegadores.<br>
+    y en toda la página, por ejemplo si aplico un color a los párrafos, todos los párrafos serán de ese color.<br>
+    <aside class="terminal">
+      <span class="cOrg2">h3</span> <span class="cOrg1">{</span><br/>
+        &emsp;<span class="cBlue">color</span>: <span class="cOrg3">brown</span>;<br/>
+        <span class="cOrg1">}</span>
+    </aside>
+    <h4 class="titlegreen">Clases</h4>
+    <u>Son los más utilizados en CSS</u> (practicamente cada etiqueta debería tener una clase) y permiten definir a que darle un estilo y a que no dárselo mediante clases,<br>
+    son reutilizables y se pueden declarar en HTML más de una clase separándolas en el atributo class con un espacio<br>(ejemplo: class="greenone redtwo purplethree").<br>
+    Tienen unas reglas en su declaración en HTML:<br>
+    solo pueden comenzar con letra, guion bajo o guion alto (nunca con números u otros caracteres).<br>
+    Su nombre pueden ser de una sola letra.<br>
+    <b>HTML:</b><br/>
+    <aside class="terminal">
+      <span class="cBlk">&#60;</span><span class="cBl2">h4</span> <span class="cBlue">class</span>=<span class="cOrg3">"titlegreen"</span><span class="cBlk">&#62;</span>Clases<span class="cBlk">&#60;/</span><span class="cBl2">h4</span><span class="cBlk">&#62;</span>
+    </aside>
+    <br/>
+    <b>CSS:</b><br/>
+    <aside class="terminal">
+      <span class="cOrg2">.titlegreen</span> <span class="cOrg1">{</span><br/>
+        &emsp;<span class="cBlue">color</span>: <span class="cOrg3">green</span>;<br/>
+        <span class="cOrg1">}</span>
+    </aside>
+    Se indican en CSS con: un punto y el nombre de la clase.
+    <h4>Id</h4>
+    Utilizan los identificadores de HTML, no hay dos identificadores iguales, no son reutilizables (por lo que es preferible reservarlos para JavaScript) y es difícil sobrescribirlos en cascada como los demás.<br>
+    Los identificadores se usan para anclajes en la página HTML o para seleccionar elementos pero <u>casi no se usan en CSS</u>.<br>
+    <b>HTML:</b><br/>
+    <aside class="terminal">
+      <span class="cBlk">&#60;</span><span class="cBl2">hr</span> <span class="cBlue">id</span>=<span class="cOrg3">"linea"</span><span class="cBlk">&#62;</span>
+    </aside>
+    <br/>
+    <b>CSS:</b><br/>
+    <aside class="terminal">
+      <span class="cOrg2">#linea</span> <span class="cOrg1">{</span><br/>
+        &emsp;<span class="cBlue">color</span>: <span class="cOrg3">cyan</span>;<br/>
+        <span class="cOrg1">}</span>
+    </aside>
+    Se indican en CSS con: un numeral (#) y el nombre del id.
+    <hr id="linea"><br>
+    <h3>Selectores compuestos</h3>
+    Son los que llevan más de una palabra.<br>
+    <h4 class="_Agrutitle">Agrupados (usando comas)</h4>
+    Se pueden agrupar selectores al colocarle un estilo a más de un selector.<br>
+    <b>HTML:</b><br/>
+    <aside class="terminal">
+      <span class="cBlk">&#60;</span><span class="cBl2">h4</span> <span class="cBlue">class</span>=<span class="cOrg3">"_Agrutitle"</span><span class="cBlk">&#62;</span>Agrupados<span class="cBlk">&#60;/</span><span class="cBl2">h4</span><span class="cBlk">&#62;</span><br/>
+      <span class="cBlk">&#60;</span><span class="cBl2">h4</span> <span class="cBlue">class</span>=<span class="cOrg3">"_Combititle"</span><span class="cBlk">&#62;</span>Combinados<span class="cBlk">&#60;/</span><span class="cBl2">h4</span><span class="cBlk">&#62;</span><br/>
+      <span class="cBlk">&#60;</span><span class="cBl2">h4</span> <span class="cBlue">class</span>=<span class="cOrg3">"_Descentitle"</span><span class="cBlk">&#62;</span>Descendientes<span class="cBlk">&#60;/</span><span class="cBl2">h4</span><span class="cBlk">&#62;</span>
+    </aside>
+    <br/>
+    <b>CSS:</b><br/>
+    <aside class="terminal">
+      <span class="cOrg2">._Agrutitle</span>, <span class="cOrg2">._Combititle</span>, <span class="cOrg2">._Descentitle</span> <span class="cOrg1">{</span><br/>
+        &emsp;<span class="cBlue">background</span>: <span class="cOrg3">bisque</span>;<br/>
+        <span class="cOrg1">}</span>
+    </aside>
+    <h4 class="_Combititle">Combinados (sin separaciones)</h4>
+    Se colocan más de un selector (generalmente 2), le pide al navegador que aplique el estilo en los elementos que tengan los selectores pedidos.<br>
+    (ejemplo: h3.classtitle#idtitle)<br>
+    <aside class="terminal">
+      <span class="cOrg2">h4._Combititle</span> <span class="cOrg1">{</span><br/>
+        &emsp;<span class="cBlue">color</span>: <span class="cOrg3">fuchsia</span>;<br/>
+        <span class="cOrg1">}</span>
+    </aside>
+    No deben tener espacios entre selectores en la declaración en CSS.
+    <div>
+    <h4 class="_Descentitle">Descendientes (usando espacios)</h4>
+    Se colocan los selectores de modo descendiente, es decir, si body contiene a la etiqueta p (aunque este no se coloca),<br>
+    y p contiene a div, y div a spam, en este caso se colocarían los selectores así:<br>
+    body div spam{}<br>
+    Se utilizan generalmente en items de menús para aplicar estilos a descendientes de ciertos elementos.<br>
+    Deben tener espacios entre selectores en la declaración en CSS.<br>
+    <aside class="terminal">
+      <span class="cOrg2">body div</span> <span class="cOrg1">{</span><br/>
+        &emsp;<span class="cBlue">background</span>: <span class="cOrg3">powderblue</span>;<br/>
+        <span class="cOrg1">}</span>
+    </aside>
+    </div>
+    <hr>
+    <h3>Selectores con operadores</h3>
+    Contienen algún operador (ejemplo: <b>h1 + span{}</b>).<br>
+    Nos ayudan a crear selectores compuestos con una relación más especifica<br>
+    <pre>
+    * selector universal: selecciona todo.
+    > hijo directo: selecciona una relación especifica de hijo directo, ejemplo:
+        dentro de <b>div</b> estaría <b>spam</b> (spam es hijo directo de div) pero <b>spam</b> no es hijo directo de <b>body</b> (porque spam esta 2 niveles abajo de body).
+        la etiqueta <b>p</b> no se reconoce dentro de la descendencia.
+    + hermano siguiente: selecciona todo elemento definidos del mismo nivel de descendencia (hermanos) que esté después del primer elemento especificado, ejemplo:
+        <b>b + u</b> aplicará el estilo a <u>todo</u> <u>elemento</u> <b>u</b> que esté <u>después</u> de <b>b</b>,
+        si se tuvieran etiquetas <b>u</b> <u>antes</u> de <b>b</b> y dentro del <u>mismo nivel</u> de descendencia, no se le aplicaría el estilo.
+    ~ hermanos siguientes: selecciona, al igual que el <i>operador +</i>, los elementos <u>hermanos</u> definidos que estén <u>después</u> del primer elemento definido,
+        pero esta vez aplica el estilo a <u>todos</u> los siguientes, no solo al siguiente.
+    </pre>
+    <aside class="terminal">
+      <span class="cBl2">*</span> <span class="cOrg1">{</span><br/>
+        &emsp;<span class="cBlue">font-family</span>: <span class="cOrg3">'Courier New'</span>, <span class="cOrg3">Courier</span>, <span class="cOrg3">monospace</span>;<br/>
+        <span class="cOrg1">}</span>
+    </aside>
+    <aside class="terminal">
+      <span class="cOrg2">pre</span> &#62; <span class="cOrg2">b</span> <span class="cOrg1">{</span><br/>
+        &emsp;<span class="cBlue">color</span>: <span class="cOrg3">blueviolet</span>;<br/>
+        <span class="cOrg1">}</span>
+    </aside>
+    <aside class="terminal">
+      <span class="cOrg2">b</span> + <span class="cOrg2">u</span> <span class="cOrg1">{</span><br/>
+        &emsp;<span class="cBlue">background-color</span>: <span class="cOrg3">burlywood</span>;<br/>
+        <span class="cOrg1">}</span>
+    </aside>
+    <aside class="terminal">
+      <span class="cOrg2">i</span> ~ <span class="cOrg2">u</span> <span class="cOrg1">{</span><br/>
+        &emsp;<span class="cBlue">background-color</span>: <span class="cOrg3">yellow</span>;<br/>
+        <span class="cOrg1">}</span>
+    </aside>
+    <hr>
+    <h3>Selectores de atributo</h3>
+    Usan cualquier atributo de HTML, usan corchetes para su declaración en CSS, ejemplo:<br>
+    <b>[title]{}</b> aplica el estilo a cualquier elemento de la página que tenga el atributo <b>title</b>.<br>
+    <b>[width="300"]{}</b> aplica el estilo a cualquier elemento de la página que tenga el atributo <b>width</b> y que su valor sea de <b>300</b>.<br>
+    Hay selectores de atributos para no indicar exactamente el valor del atributo usando los símbolos<br>
+    cater (^) para "todo aquello que inicie con",<br>
+    pesos ($) para "todo aquello que termine con" y<br>
+    asterisco (*) para "todo aquello que contenga", ejemplo:<br>
+    <b>[href^="http://"]{}</b> aplicará un estilo a todo aquello que en su atributo "href" tenga un valor que inicie con el protocolo no seguro (http)<br>
+    <b>[href$=".mp4"]{}</b> aplicará un estilo a todo aquello que en su atributo "href" tenga un valor que termine con el formato de almacenamiento .mp4<br>
+    <b>[href*="youtube"]{}</b> aplicará un estilo a todo aquello que en su atributo "href" contenga entre su valor la palabra "youtube".<br>
+    Estos tres últimos tres selectores de atributos sirven para identificar rutas, elementos o patrones.<br>
+  </p>
+  <aside class="terminal">
+    [<span class="cBlue">width</span>^=<span class="cOrg2">"3"</span>] <span class="cOrg1">{</span><br/>
+      &emsp;<span class="cBlue">border-radius</span>: <span class="cGrn">.5cm</span>;<br/>
+      <span class="cOrg1">}</span>
+  </aside>
+  <!--
+    control + alt + + = ~
+  -->
+</body>
+</html>

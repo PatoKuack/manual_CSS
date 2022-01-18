@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- No guardar cache en navegadores -->
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <!-- ------------------- -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../Estilos/stylecss41.css">
+  <link rel="stylesheet" href="../Estilos/normalization.css">
+  <title>Programación SASS</title>
+</head>
+<body class="body">
+  <header class="bubble">
+    <section class="stars">
+      <div class="container">
+        <h1 class="center">Programación en SASS.</h1>
+        <p>SASS tiene caracteristicas de un lenguaje de programación por lo que se comporta como uno.</p>
+      </div>
+    </section>
+  </header>
+  <main class="bubble">
+    <!-- Tipos de datos -->
+    <section class="stars">
+      <div class="container">
+        <h2>Tipos de datos.</h2>
+        <p>Con la función <b>type-of()</b> se pueden obtener los tipos de datos.</p>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><u>.scss</u></span><br/>
+            $varq: 'hello';<br/>
+            $varunq: hello;<br/>
+            .button {<br/>
+            &ensp;content: type-of($varq);<br/>
+            &ensp;content: type-of($varunq);<br/>
+            }<br/>
+            <i class="content">/* La propiedad content no admite valores sin comillas, pero se representa por esta ves como medio demostrativo.*/</i>
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><u>.css</u></span><br/><br/><br/>
+            .button {<br/>
+            &ensp;content: string;<br/>
+            &ensp;content: string;<br/>
+            }<br/>
+            <i class="content">/* La propiedad content no admite valores sin comillas, pero se representa por esta ves como medio demostrativo.*/</i>
+          </aside>
+        </div>
+        <dl>
+          <dt>Strings</dt>
+          <dd>
+            Pueden ser entrecomillados (quote) o no entrecomillados (unquote) y pueden concatenarse (si se suma un número y un string, se concatenan).
+            <div class="idEst">
+              <aside class="exempliGratia egSCSS">
+                <span class="center block"><u>.scss</u></span><br/>
+                $var: quote(hello);<br/>
+                $const: "yellow";<br/>
+                .button {<br/>
+                &ensp;content: $var;<br/>
+                &ensp;color: unquote($color);<br/>
+                }
+              </aside>
+              <aside class="exempliGratia egCSS">
+                <span class="center block"><u>.css</u></span><br/><br/><br/>
+                .button {<br/>
+                &ensp;content: "hello";<br/>
+                &ensp;color: yellow;<br/>
+                }
+              </aside>
+            </div>
+          </dd>
+          <dt>Números</dt>
+          <dd>Pueden ser enteros o decimales.</dd>
+          <dt>Colores</dt>
+          <dd>Sass reconoce los colores hexadecimales, por nombre, función rgba, rgba o hsl.</dd>
+          <dt>Booleans</dt>
+          <dd>True o false, se usa para comparaciones.</dd>
+          <dt>Lists</dt>
+          <dd>Son valores separados por comas y por espacios, como el valor de un borde (1px solid coral) o el de una fuente ('Comic Neue', 'cursive', 'sans-serif').</dd>
+          <dt>Maps</dt>
+          <dd>
+            Son contenedores de propiedades con sus respectivos valores, a traves de <b>map-get</b> se pueden mandar a llamar valores especificos del contenedor.
+            <div class="idEst">
+              <aside class="exempliGratia egSCSS">
+                <span class="center block"><u>.scss</u></span><br/>
+                $var: (<br/>
+                &ensp;color: crimson,<br/>
+                &ensp;sizeXH: 1px,<br/>
+                &ensp;sizeM: 12px<br/>
+                );<br/><br/>
+                .body{<br/>
+                &ensp;color: map-get($var, color);<br/>
+                }
+              </aside>
+              <aside class="exempliGratia egCSS">
+                <span class="center block"><u>.css</u></span><br/><br/><br/><br/><br/><br/><br/>
+                .body{<br/>
+                &ensp;color: crimson;<br/>
+                }<br/>
+              </aside>
+            </div>
+          </dd>
+        </dl>
+        <p>Con la función <b>unit()</b> se puede obtener la unidad del valor insertado en su parámetro.</p>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><u>.scss</u></span><br/>
+            $varA: 1em;<br/>
+            $varB: 15px;<br/>
+            .button {<br/>
+            &ensp;content: 1+(unit($varA));<br/>
+            &ensp;content: 1+(unit($varB));<br/>
+            }
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><u>.css</u></span><br/><br/><br/>
+            .button {<br/>
+            &ensp;content: "1em";<br/>
+            &ensp;content: "1px";<br/>
+            }
+          </aside>
+        </div>
+      </div>
+    </section>
+    <!-- Condicionales -->
+    <section class="stars">
+      <div class="container">
+        <h2>Condicionales.</h2>
+        <p>Las condicionales en SASS se utilizan para escuchar condiciones y ejecutar la que se cumpla o ignorar la que no.</p>
+        <p>Para las condicionales se utiliza:</p>
+        <ul>
+          <li>@if (sí)</li>
+          <li>@else if (sino sí)</li>
+          <li>@else (sino)</li>
+          <li>&#62; (mayor que)</li>
+          <li>&#60; (menor que)</li>
+          <li>== (igual que)</li>
+          <li># % # (residuo)</li>
+          <li>() and ()</li>
+          <li>() or ()</li>
+        </ul>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><u>.scss</u></span><br/>
+            $dev: false !default;<br/><br/>
+            @if $dev == true {<br/>
+            &ensp;* {<br/>
+            &ensp;&emsp;color: bisque;<br/>
+            &ensp;}<br/>
+            } @else if (1==1) and (3&#62;1) {<br/>
+            &ensp;* {<br/>
+            &ensp;&emsp;color: orchid;<br/>
+            &ensp;}<br/>
+            }<br/>
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><u>.css</u></span><br/><br/><br/>
+            * {<br/>
+            &ensp;color: orchid;<br/>
+            }
+          </aside>
+        </div>
+        <p>Condicionando importaciones:</p>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><b>_buttons.scss</b></span><br/>
+            @if $buttons {<br/>
+            &ensp;.button {<br/>
+            &ensp;&emsp;color: darkseagreen;<br/>
+            &ensp;}<br/>
+            }
+            <hr/>
+            <span class="center block"><b>_colors.scss</b></span><br/>
+            @if $colors {<br/>
+            &ensp;.color {<br/>
+            &ensp;&emsp;color: lightseagreen;<br/>
+            &ensp;}<br/>
+            }
+            <hr/>
+            <span class="center block"><b>styles.scss</b></span><br/>
+            $buttons: true !default;<br/>
+            $colors: true !default;<br/>
+            $colors: false;<br/><br/>
+            @import "buttons";<br/>
+            @import "colors";
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><b>styles.css</b></span><br/>
+            .button {<br/>
+            &emsp;color: darkseagreen;<br/>
+            }
+          </aside>
+        </div>
+        <p>En éste caso se importan los dos archivos partial (los que llevan guion bajo en su nombre), pero no se importa el contenido de los <i>@if</i> que tengan su condicional como <i>false</i>.</p>
+        <p>Generalmente se utilizan los @if($valor) con un solo valor como condicional para asegurarse de que el valor exista o que sea verdadero, ya que si no existe será igual a falso y la acción de la condicional no se ejecutará.</p>
+      </div>
+    </section>
+    <!-- Ciclos -->
+    <section class="stars">
+      <div class="container">
+        <h2>Ciclos.</h2>
+        <p>Las iteraciones o ciclos se utilizan para repetir muchas veces una acción.</p>
+        <h3>@for</h3>
+        <p>Para crear un ciclo con for, se utiliza la siguiente estructura:<br/>
+        <b>@for <span class="coment">$i</span> from (<i class="coment">start</i>) through (<i class="coment">end</i>){...}</b></p>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><u>.scss</u></span><br/>
+            <i class="coment">// $i va de 1 hasta 10.</i><br/>
+            @for $i from (1) through (10) {<br/>
+            <i class="coment">// Se interpola $i.</i><br/>
+            &ensp;.column-#{$i * 10} {<br/>
+            <i class="coment">// Se convierte en porcetaje y en decena.</i><br/>
+            &ensp;&emsp;width: $i * 10%;<br/>
+            &ensp;}<br/>
+            }
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><u>.css</u></span><br/>
+            .column-10{ width:10%; }<br/>
+            .column-20{ width:20%; }<br/>
+            .column-30{ width:30%; }<br/>
+            .column-40{ width:40%; }<br/>
+            .column-50{ width:50%; }<br/>
+            .column-60{ width:60%; }<br/>
+            .column-70{ width:70%; }<br/>
+            .column-80{ width:80%; }<br/>
+            .column-90{ width:90%; }<br/>
+            .column-100{width:100%;}
+          </aside>
+        </div>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><u>.scss</u></span><br/>
+            @for $i from (1) through (10) {<br/>
+            <i class="coment">// si el residuo de $i entre 2 es 0 (si es par).</i><br/>
+            &ensp;@if $i % 2 == 0 {<br/>
+            &ensp;&ensp;.column-#{$i * 10} {<br/>
+            &ensp;&ensp;&emsp;width: $i * 10%;<br/>
+            &ensp;&ensp;}<br/>
+            &ensp;}<br/>
+            }
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><u>.css</u></span><br/>
+            .column-20{ width:20%; }<br/>
+            .column-40{ width:40%; }<br/>
+            .column-60{ width:60%; }<br/>
+            .column-80{ width:80%; }<br/>
+            .column-100{width:100%;}
+          </aside>
+        </div>
+        <h3>@each</h3>
+        <p>El ciclo @each itera sobre las lists y los maps. Para crear un ciclo con each, se utiliza la siguiente estructura:<br/>
+        @each <i class="coment">$valores</i> in (<i class="coment">list</i>)</p>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><u>.scss</u></span><br/>
+            $colors: olive grey gray;<br/><br/>
+            @each $color in $colors {<br/>
+            &ensp;.#{$color} {<br/>
+            &ensp;&emsp;border-color: $color;<br/>
+            &ensp;}<br/>
+            }
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><u>.css</u></span><br/>
+            .olive {<br/>
+            &emsp;border-color: olive; }<br/>
+            .grey {<br/>
+            &emsp;border-color: grey; }<br/>
+            .gray {<br/>
+            &emsp;border-color: gray; }
+          </aside>
+        </div>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><u>.scss</u></span><br/>
+            $colors: (<br/>
+            &emsp;primary: olive,<br/>
+            &emsp;secondary: grey,<br/>
+            &emsp;tertiary: gray<br/>
+            );<br/><br/>
+            @each $key, $value in $colors {<br/>
+            &ensp;.button-#{$key} {<br/>
+            &ensp;&emsp;border-color: $value;<br/>
+            &ensp;}<br/>
+            }
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><u>.css</u></span><br/>
+            .button-primary {<br/>
+            &emsp;border-color: olive; }<br/>
+            .button-secondary {<br/>
+            &emsp;border-color: grey; }<br/>
+            .button-tertiary {<br/>
+            &emsp;border-color: gray; }
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="bubble">
+    <section class="stars">
+      <div class="container">
+        <h3>Referencias:</h3>
+        <p>
+          <a target="_blank" href=""></a><br/>
+        </p>
+      </div>
+    </section>
+  </footer>
+</body>
+</html>

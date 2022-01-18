@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- No guardar cache en navegadores -->
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <!-- ------------------- -->
+  <link rel="stylesheet" href="../Estilos/stylecss3.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Box Model</title>
+</head>
+<body>
+  <p>
+    <h1>Layout model</h1>
+    <h2>Box model (modelo de caja)</h2>
+    Todos los elementos HTML son rectángulos que con trucos se pueden formar diferentes figuras.<br>
+    Cada elemento tiene un tamaño que se puede manipular con las propiedades <b>width</b> y <b>height</b>.
+    <h3>Tipos de caja (o elementos)</h3>
+    <h4>Bloque</h4>
+    <p class="caja">
+      -Cada <i>bloque</i> ocupa todo el espacio horizontal disponible.<br>
+      -Cada <i>bloque de espacio horizontal</i> crea su propia línea.<br>
+      -Tienen un ancho (width) y un alto (height).<br>
+      (ejemplo: h1, p, div, section, ul).
+    </p>
+    <h4>Inline (en línea)</h4>
+    <span class="caja">
+      -Ocupa el espacio necesario para su contenido.<br>
+      -No tienen dimensiones por lo que no se pueden modificar con width o height, se ajustan al contenido <br>
+      (a excepción de las imágenes porque su tamaño es definida por su resolución propia).<br>
+      (ejemplo: span, img, a, em, b).
+      </ul>
+    </span>
+    <h4>Unidades tamaño (longitud)</h4>
+    Ajusta en pixeles del tamaño original de la letra del elemento <b>(px)</b> - tamaño fijo en cualquier pantalla.<br>
+    Aumento en % del tamaño original de la letra del elemento <b>(em)</b> - tamaño adaptable en cualquier pantalla.<br>
+    Aumento en % del tamaño base de la letra de todo el body <b>(rem)</b> - tamaño adaptable en cualquier pantalla.<br>
+    Aumento en % del tamaño vertical (height) del viewport <b>(vh)</b> - tamaño adaptable en cualquier pantalla.<br>
+    Aumento en % del tamaño horizontal (width) del viewport <b>(vw)</b> - tamaño adaptable en cualquier pantalla.<br>
+    Divide en fracciones el área del elemento <b>(fr)</b> - adaptable al tamaño del elemento (se usa generalmente en la propiedad grid), por ejemplo: si se coloca un elemento hijo de 1fr y otro de 3fr, un elemento medirá 25% del tamaño del elemento padre y el otro elemento medirá 75% del elemento padre.<br>
+    <em>nota1: Un viewport representa la región poligonal (normalmente rectangular) en gráficas de computación que está siendo visualizada en ese instante.</em><br>
+    <em>nota2: cuando se requiera un valor de 0 (cero), se coloca SIN una dimensión como por ejemplo 0px o 0%</em><br>
+  </p>
+  <p>
+    <h2>Display</h2>
+    Permite definir si el elemento en pantalla se define como bloque, línea, ambos o ninguno.
+    <h3>valores de display</h3>
+    <ul>
+      <li>block</li>
+      Hace que un elemento se comporte como bloque, aunque no lo sea. (ejemplo: span{display: block;})<br><br>
+      <li>inline</li>
+      Hace que un elemento se comporte como línea, aunque no lo sea. (ejemplo: p{display: inline;})<br><br>
+      <li>inline-block</li>
+      Hace que un elemento se comporte como inline, pero permitiendo modificar su ancho y largo. (ejemplo: p{display: inline-block;})<br><br>
+      <li>list-item</li>
+      Hace que un elemento se comporte como el item de una lista no ordenada con sus puntos decorativos a un lado.
+      <li>none</li>
+      Oculta un elemento (se utiliza para mostrarlo al hacer una interacción con la página web u ocultar elementos en dispositivos pequeños). (ejemplo: img{display: none;})<br><br>
+      <li>flex</li>
+      <br><br>
+      <li>grid</li>
+    </ul>
+  </p>
+</body>
+</html>

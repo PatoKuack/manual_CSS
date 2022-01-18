@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- No guardar cache en navegadores -->
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <!-- ------------------- -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../Estilos/normalization.css">
+  <link rel="stylesheet" href="../Estilos/stylecss21.css">
+  <link rel="stylesheet" href="../Estilos/stylecss29.css">
+  <title>Máscaras</title>
+</head>
+<body class="body">
+  <header>
+    <section class="container">
+      <div>
+        <h1 class="center">Canal alfa.</h1>
+        <p>Dependiendo del modo de color, una imagen tiene uno o varios canales que definen cómo son los colores.</p>
+        <p>Un canal alfa es un canal adicional que define la transparencia que tiene cada pixel de la imagen.</p>
+        <p>Algunos formatos de imagen admiten canales alfa, como PNG o TIFF, pero otros como JPEG no.</p>
+      </div>
+    </section>
+  </header>
+  <main>
+    <!-- Máscaras -->
+    <section class="container">
+      <div>
+        <h2>Máscaras.</h2>
+        <p>Entre shape y clip-path la diferencia es el comportamiento mientras que entre clip-path y mask es el área delimitada que se mostrara en la imagen, o sea que con la propiedad mask se usa el <u>canal alfa</u> de un elemento (en la capa superior) <u>para hacer el recorte</u> de otro elemento (en la capa inferior).</p>
+        <p>Esta función esta parcialmente soportada por los navegadores por lo que hay que utilizar <b>-webkit-</b> antes de cada propiedad, solamente Firefox lo soporta totalmente en la actualidad (diciembre del 2021).</p>
+        <p>Esta propiedad tiene un comportamiento similar a cuando se usa un fondo como background-repeat, size, position, etc.</p>
+        <dl>
+          <dt>mask-image: url('___');</dt>
+          <dd>Recibe la URL de la imagen.</dd>
+          <dt>mask-repeat: [repeat | no-repeat | repeat-x | repeat-y];</dt>
+          <dd>Por default se repite el recorte, pero se puede ordenar que nos e repita o que se repita en el eje X o en el eje Y.</dd>
+          <dt>mask-position: [top | right | bottom | left | center];</dt>
+          <dd>Por default se coloca el recorte en la parte superior izquierda (en perspectiva del usuario), pero se puede elegir la posición deseada.</dd>
+          <dt>mask-size: [auto | contain | cover | #];</dt>
+          <dd>Define el tamaño del recorte, por defecto tiene el tamaño del elemento original.</dd>
+          <dt>mask: _ _ _ / _;</dt>
+          <dd>
+            Se puede utilizar el shorthand de las 4 propiedades anteriores.
+            <aside class="idEst">
+              .img {<br/>
+              &emsp;mask: url('/logo.svg') no-repeat center / 200px;<br/>
+              }
+            </aside>
+          </dd>
+          <dt>mask-image: linear-gradient()</dt>
+          <dd>Esta propiedad no trabaja con el canal alfa de otro elemento, simplemente crea una capa encima de la imagen y genera el degradado lineal.</dd>
+          <dt>mask-image: radial-gradient()</dt>
+          <dd>Esta propiedad no trabaja con el canal alfa de otro elemento, simplemente crea una capa encima de la imagen y genera el degradado radial.</dd>
+          <dt>mask-composite: [add | subtract | intersect | exclude]</dt>
+          <dd>
+            <p>Se utiliza con dos o más elementos que recortan a una imagen, es decir, dos o más máscaras (ver el ejemplo de código).</p>
+            <ul>
+              <li>add: Combina el canal alfa de las máscaras haciendolas una sola.</li>
+              <li>subtract: Cuando dos máscaras tienen intersecciones de área, la máscara frontal es eliminada y el área intersectada es eliminada de la máscara trasera.</li>
+              <li>intersect: Cuando dos máscaras tienen intersecciones de área, las máscaras son eliminadas dejando unicamente el área intersectada.</li>
+              <li>exclude: Cuando dos máscaras tienen intersecciones de área, la intersección de las máscaras es eliminada dejando el resto de las máscaras.</li>
+            </ul>
+            <aside class="idEst">
+              .div {<br/>
+              &emsp;<i class="coment">// Se pueden agregar dos o más máscaras diferentes o la misma mascara dos veces</i><br/>
+              &emsp;mask: url('/circle.png'), url('https://...');<br/>
+              &emsp;mask-size: 100% 3rem;<br/>
+              &emsp;mask-position: center, 100px center;<br/>
+              &emsp;mask-repeat: no-repeat;<br/>
+              &emsp;mask-composite: subtract;<br/>
+              }
+            </aside>
+          </dd>
+        </dl>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <section class="container">
+      <div>
+        <h3>Referencias:</h3>
+        <p>
+          <a href="https://caniuse.com/mdn-svg_elements_mask" target="_blank" rel="noopener noreferrer">CAN I USE - mask</a><br/>
+        </p>
+      </div>
+    </section>
+  </footer>
+</body>
+</html>

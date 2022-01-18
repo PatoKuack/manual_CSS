@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- No guardar cache en navegadores -->
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <!-- ------------------- -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../Estilos/normalization.css">
+  <link rel="stylesheet" href="../Estilos/stylecss31.css">
+  <title>RWD</title>
+</head>
+<body class="body">
+  <header>
+    <section>
+      <div>
+        <h1 class="center">Responsive Web Design.</h1>
+        <p>Es un conjunto de metodologias de buenas practicas de patrones de diseño de interfaces, lo que busca es que cualquier página web se vea bien en cualquier tamaño de dispósitivo.</p>
+        <p>El responsive web design se basa en tres principios: el grids fluidos, las imágenes flexibles y los media querys.</p>
+        <p>Un sistema de grid es colocar contenido dentro de filas y columas permitiendo manejar faclmente el layout (geometria de la página). Éstos sistemas de grid se vuelven fluidos cuando su volumen se define por medio de porcentajes ya que se podrá adaptar facilmente el volumen del tamaño del sistema grid dependiendo del contenedor de el sistema grid.</p>
+        <p>Las imágenes se vuelven flexibles cuando se les coloca un máximo de ancho evitando que aumenten su tamaño más de lo que deben y manteniendo un tamaño minimo dependiendo de su contenedor.</p>
+        <p>Las media query (consulta de medio) son consultas de visualización de la web denominados medios, es donde se muestra el contenido de la página o aplicación.</p>
+      </div>
+    </section>
+  </header>
+  <main>
+    <!-- Viewport -->
+    <section class="container">
+      <div>
+        <h2>Viewport.</h2>
+        <p>Es toda la parte visible del navegador para mostrar la página web, cuando la página es más grande que el viewport aparece la barra de desplazamiento la cual no pertenece al viewport.</p>
+        <p>En un HTML se declara el viewport usando la etiqueta <b>&#60;meta name="viewport" content="width=device-width, initial-scale=1.0"&#62;</b></p>
+        <p>El atributo <b>name</b> indica que se aplicará un viewport a esa página y con el atributo <b>content</b> se le colocan las siguientes opciones.</p>
+        <dl>
+          <dt>width=device-width</dt>
+          <dd>Indica que el navegador debe tomar como ancho de la página el ancho del dispositivo.</dd>
+          <dt>user-scalable=<span class="gray">no|yes</span></dt>
+          <dd>Indica si se puede o no usar el zoom en la página, se recomienda siempre colocarlo en "yes".</dd>
+          <dt>initial-scale=1</dt>
+          <dd>Indica cual será la escala inicial, es recomendable colocarle una escala de 1 que es la default, sino el contenido se presentara en escala reducida (.5) o maximizada (2).</dd>
+          <dt>maximum-scale=2</dt>
+          <dd>Indica el zoom máximo que el usuario puede usar, si se coloca 2 será de 200, 3 es de 300, etc.</dd>
+        </dl>
+        <p>El viewport es diferente a la resolución de la pantalla de un dispositivo o en otras palabras, 1 pixel del viewport es diferente de un pixel real. Con la instrucción <b>devicePixelRatio</b> escrita en la consola del navegador se puede obtener el numero de pixeles reales que hay por cada pixel de viewport.</p>
+        <span>
+          devicePixelRatio<br/>
+          <i>// Si obtenemos por ejemplo 1.25, entonces por cada pixel de viewport hay 1.25 pixeles reales de la pantalla.</i>
+        </span>
+      </div>
+    </section>
+    <!-- media queries -->
+    <section class="container">
+      <div>
+        <h2 class="textCenter">Media Queries.</h2>
+        <p>Las Media Queries o Consulta de Medios son un módulo CSS3 que permite adaptar la representación del contenido a características de un dispositivo (como una impresora, una pantalla de smartphone ó de Tv); y consiste en definir al menos una consulta (@media), donde se define un tipo de medio (media type) y una o más características o parámetros específicos (media features) como la resolución de la pantalla o el ancho del viewport del navegador. Varios parámetros se pueden combinar utilizando los operadores AND y OR.</p>
+        <p>Estas consultas funcionan a manera de condicionales, cuando el tipo de medio (si se especifica) coincide con el dispositivo en el que se está mostrando el documento y todas las expresiones en el media query son "verdaderas" se aplicaran los estilos CSS que se redefinan para esa condición siguiendo <u>las reglas usuales de cascada</u>; por tanto se recomienda un enfoque 'mobile first', generar los 'Media queries' apropiados y en el orden apropiado</p>
+        <h3>Media Type</h3>
+        <dl>
+          <dt>all</dt>
+          <dd>Apto para todos los dispositivos.</dd>
+          <dt>print</dt>
+          <dd>Destinado a material impreso y visualización de documentos en una pantalla en el modo de vista previa de impresión.</dd>
+          <dt>screen</dt>
+          <dd>Es el más comúnmente utilizado, esta destinado principalmente a las pantallas.</dd>
+          <dt>speech</dt>
+          <dd>Destinado a sintetizadores de voz.</dd>
+        </dl>
+        <aside class="exempliGratia">
+          &emsp;@media <u><i>screen</i></u>{<br/>
+          &emsp;&emsp;body {<br/>
+          &emsp;&emsp;&emsp;color: black;<br/>
+          &emsp;&emsp;}<br/>
+          &emsp;&emsp;<i class="highlight">// Se indica que se utilizará el RWD en una pantalla (screen).</i><br/>
+          &emsp;}<br/>
+        </aside>
+        <h3>Media Features</h3>
+        <dl>
+          <dt>min-width | max-width</dt>
+          <dd>Define el mínimo de ancho o el máximo de ancho del elemento.</dd>
+          <dt>orientation: landscape | portrait</dt>
+          <dd>
+            landscape: cuando el ancho de la pantalla es mayor al alto de la misma. (ancho&#62;alto)<br/>
+            portrait: cuando el ancho de la pantalla es menor al alto de la misma. (ancho&#60;alto)
+          </dd>
+          <dt>aspect-ratio </dt>
+          <dd>Según la proporción o razón del ancho y alto de la pantalla (ancho:alto), puede pedir una proporción especifica o agregarle un "min" o "max" para un mínimo o máximo, ejemplo: @media screen and (min-aspect-ratio: 4/3){...}</dd>
+        </dl>
+        <aside class="exempliGratia">
+          &emsp;@media <u><i>screen</i></u> and (min-width:1024px) and (orientation: landscape) {<br/>
+          &emsp;&emsp;body {<br/>
+          &emsp;&emsp;&emsp;color: black;<br/>
+          &emsp;&emsp;}<br/>
+          &emsp;&emsp;<i class="highlight">// Se le anexa una condición para que el contenido de la media query se aplique a los dispositivos que sean pantallas, que midan mínimo 1024px de tamaño horizontal y que su orientación sea horizontal (que la parte horizontal sea mayor que la vertical).</i><br/>
+          &emsp;}<br/>
+        </aside>
+        <h3>Operadores lógicos.</h3>
+        <p>Se deben utilizar los operadores lógicos para unir las características de los media queries.</p>
+        <dl>
+          <dt>and</dt>
+          <dd>Éste operador es usado para colocar juntas múltiples funciones multimedia.</dd>
+          <dt>Lista separada por comas</dt>
+          <dd>Las listas separadas por comas se comportan como el operador <b>or</b>. Cuando utilice una lista separada por comas y alguno de los queries retorna verdadero, el estilo o la hoja de estilos sera aplicada. Cada query en una lista separada por comas es tratado como una query individual y cualquier operador aplicado a un medio no afectara a los demás.</dd>
+          <aside class="exempliGratia">
+            &emsp;body{ background: cyan; }<br/>
+            &emsp;@media (min-width: 700px), (max-width: 1024px);{<br/>
+            &emsp;&emsp;body{ background: lime; }<br/>
+            &emsp;}<br/>
+          </aside>
+          <dt>not</dt>
+          <dd>Éste operador aplica a todo el query y retorna verdadero si es posible y sino retorna falso. Un not negara un query si es posible pero no a todos los query posibles si están ubicados en una lista separada por comas. No puede ser usado para negar un query individual, solo para un query completo.</dd>
+          <aside class="exempliGratia">
+            &emsp;@media (not (print and (min-width:800px))), screen and (max-width:1024px) {<br/>
+            &emsp;<i class="highlight">
+              // Ésto es igual a:<br/>
+              @media not print and (min-width:800px), screen and...{}
+            </i><br/>
+            &emsp;&emsp;body{ background: lime; }<br/>
+            &emsp;}<br/>
+            &emsp;&emsp;<i class="highlight">// Si la página se visualiza en un formato de impresión y mide mínimo 800px retornará verdadero y se aplicará el query, pero también se puede aplicar el query si se cumple la segunda opción que pide que sea una pantalla con un máximo de 1024px.</i><br/>
+          </aside>
+          <dt>only</dt>
+          <dd>Éste operador previene que navegadores antiguos que no soportan queries con funciones apliquen los estilos asignados, ejemplo:<br/>&#60;link rel="stylesheet" media="only screen and (color)" href="Ejemplo.css" /&#62;</dd>
+        </dl>
+      </div>
+    </section>
+    <!-- Metodologías -->
+    <section class="container">
+      <div>
+        <h2 class="textCenter">Metodologías.</h2>
+        <dl>
+          <dt>Mobile first</dt>
+          <dd>El mobile first (o versión móvil primero) es la metodología más recomendada y es el enfoque en el diseño y desarrollo de sitios web orientado a comenzar con la información y características más importantes para las versiones móviles, para luego añadir más a medida que en la pantalla se hace más grande en tablets, laptops y escritorio.</dd>
+          <dt>Desktop first</dt>
+          <dd>El desktop first (escritorio primero), es como se realizaban los primeros sitios web responsive, en donde primero se desarrolla la versión de escritorio, y luego, esta se adapta para mostrar el sitio web correctamente en pantallas más pequeñas.</dd>
+          <dt>Content first</dt>
+          <dd>
+            Consiste en considerar desde el principio el proceso de creación de contenido del proyecto; para organizar y diseñar mejor los componentes dentro de un layout, así como los elementos del diseño gráfico propiamente; para cuando se entrega al cliente y se implementa en producción no se rompa o existan comportamientos inesperados.
+            Adoptando el enfoque Content-First se coloca el contenido en el centro del proceso de diseño web y la experiencia de usuario. No es una metodología excluyente de las otras dos metodologías; se trata de que el contenido y diseño trabajando juntos.<br/>
+          </dd>
+        </dl>
+      </div>
+    </section>
+    <!-- Unidades de medida -->
+    <section class="container">
+      <div>
+        <h2 class="textCenter">Unidades de medida.</h2>
+        <h3>Unidades absolutas.</h3>
+        <p>Define el valor de la propiedad de un elemento en referencia a una medida real, inalterable y no dependiente de su contenedor.</p>
+        <h3>Unidades relativas.</h3>
+        <p>Definen su valor real en relación con otra medida determinada anteriormente (en la propiedad de su elemento contenedor o ancestro); por tanto van a cambiar dependiendo las circunstancias.</p>
+        <p>Las unidas relativas más utilizadas son el porcentaje(%), 'em', 'rem', 'vw' y 'hw'. Pero es de recordar que al momento de renderizar, el navegador siempre expresará las unidades relativas en píxeles (la unidad absoluta).</p>
+        <p>* Para lograr un RWD es recomendable el uso de medias queries, pero no son necesariamente obligatorias, basta un uso adecuado e inteligente de las unidades de medidas; evitando las unidades absolutas e implementando más las unidades relativas como min/max-width o min/max-height;.</p>
+        <h4>Unidades relativas de medida.</h3>
+          <ul>
+            <li>
+              <dl>
+                <dt>Porcentaje (%)</dt>
+                <dd>
+                  <p>El porcentaje confiere un tamaño a un elemento con referencia al de su elemento padre.</p>
+                  <p>Un valor del 100% ocupará todo el espacio disponible del que lo contiene y 50% ocupará la mitad del tamaño disponible de su elemento contenedor.</p>
+                  <p>Puede ser usada en cualquier propiedad CSS que requiera valores de longitud.</p>
+                </dd>
+              </dl>
+            </li>
+            <li>
+              <dl>
+                <dt>em</dt>
+                <dd>
+                  <p>Toma el valor del tamaño de fuente del contexto definido más próximo, sea del elemento padre, su hermano directo superior ó hasta del mismo elemento, por tanto en este último caso, el orden de la declaración dentro la regla CSS es importante.</p>
+                  <p>1em = 100% del tamaño de fuente en el contexto, por tanto va a variar dentro del mismo documento</p>
+                  <p>El uso de 'em' no es recomendable como unidad de medida para layout; pero sí para componentes internos (como márgenes, padding, etc).</p>
+                </dd>
+              </dl>
+            </li>
+            <li>
+              <dl>
+                <dt>rem</dt>
+                <dd>
+                  <p>Toma el valor del tamaño de la fuente por default en el ancestro más lejano, en un documento HTML la etiqueta es &#60;html&#62; ó &#60;body&#62; y en la mayoría de los navegadores de forma predeterminada es 16px.</p>
+                  <p>1rem = 100% del tamaño de fuente del root &#60;html&#62;</p>
+                  <p>El uso de 'rem' es recomendable como unidad de medida para layout (como margin o width o height de un elemento).</p>
+                </dd>
+              </dl>
+            </li>
+            <li>
+              <dl>
+                <dt>Viewport</dt>
+                <dd>
+                  <p>Son unidades de medida relativas en función al tamaño del Viewport.</p>
+                  <p>1 vw = Viewport weight = 1% del ancho del Viewport.<br/>1 vh = Viewport height = 1% del alto del Viewport.<br/>1 vmin = Viewport mínimo = 1% del lado menor del viewport.<br/>1 vmax = Viewport máximo = 1% del lado mayor del viewport.</p>
+                  <p>Las unidades del Viewport equivalen a la centésima parte con respecto al Viewport; y no depende de su contenedor, como en la unidad relativa porcentual (%).</p>
+                  <p>El viewport es el área visible de la página web del usuario. Debido a ésto, el scroll vertical genera algunos inconvenientes.</p>
+                  <aside class="exempliGratia">
+                    <i class="highlight">// *** Cuando un elemento tiene un ancho de 100vw. ***</i><br/>
+                    &emsp;footer {<br/>
+                    &emsp;&emsp;padding: 10vmin 0;<br/>
+                    &emsp;<i class="highlight">// El padding top y bottom del footer será de 10% del lado menor del viewport, se adaptará dependiendo del viewport.</i><br/>
+                    &emsp;&emsp;width: 100vw;<br/>
+                    &emsp;}<br/>
+                    <hr class="link"/>
+                    &emsp;<i class="highlight">// *** Y se genera un scroll vertical por el gran contenido de la página, el contenido horizontal se desbordará porque se suma el 100% del viewport + el ancho del scroll vertical. ***</i><br/>
+                    &emsp;:root {<br/>
+                    &emsp;&emsp;--scrollBar: 13px;<br/>
+                    &emsp;}<br/>
+                    &emsp;footer {<br/>
+                    &emsp;&emsp;padding: 10vmin 0;<br/>
+                    &emsp;&emsp;width: calc(100vw - var(--scrollBar));<br/>
+                    &emsp;}<br/>
+                    <hr class="link"/>
+                    &emsp;<i class="highlight">// *** EN JAVASCRIPT ***</i><br/>
+                    &emsp;const getScrollBarWidth = () => innerWidth - document.documentElement.clientWidth;<br/>
+                    &emsp;<i class="highlight">// Se resta el ancho interno menos el ancho de la página HTML.</i><br/>
+                    &emsp;document.documentElement.style.setProperty('--scrollBar, getScrollBarWidth()');<br/>
+                    &emsp;<i class="highlight">// Con el comando setProperty se sustituye la propiedad indicada en el primer parámetro por el valor indicado en el segundo parámetro y así se actualizará el ancho del footer automaticamente.</i><br/>
+                  </aside>
+                  <p>Ésta actualización automatica es importante porque en dispositivos móviles el scroll no ocupa espacio del viewport a diferencia de las laptops o computadoras de escritorio.</p>
+                </dd>
+              </dl>
+            </li>
+          </ul>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <section>
+      <div>
+        <h3>Referencias:</h3>
+        <p>
+          <a href="https://alistapart.com/article/responsive-web-design/" target="_blank" rel="noopener noreferrer">Historia de responsive web design</a><br/>
+          <a href="https://developer.mozilla.org/es/docs/Web/CSS/Media_Queries/Using_media_queries" target="_blank" rel="noopener noreferrer">Media queries</a><br/>
+          <a href="https://www.w3schools.com/jsref/met_cssstyle_setproperty.asp" target="_blank" rel="noopener noreferrer">setProperty()</a><br/>
+          <a href="" target="_blank" rel="noopener noreferrer"></a><br/>
+        </p>
+      </div>
+    </section>
+  </footer>
+  <script src="../Js/programacss41.js"></script>
+</body>
+</html>

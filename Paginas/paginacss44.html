@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- No guardar cache en navegadores -->
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <!-- ------------------- -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../Estilos/normalization.css">
+  <link rel="stylesheet" href="../Estilos/stylecss41.css">
+  <title>Mixins</title>
+</head>
+<body class="body">
+  <header class="bubble">
+    <section class="stars">
+      <div class="container">
+        <h1 class="center">Mixins.</h1>
+        <p>Los mixins son bloques de códigos reutilizables que pueden contener selectores, reglas CSS, lógica interna, etc.</p>
+        <p>Para que el proyecto sea más organizado, es recomendable crear un módulo para los mixins dentro de la carpeta SCSS.</p>
+      </div>
+    </section>
+  </header>
+  <main class="bubble">
+    <!-- Declaración -->
+    <section class="stars">
+      <div class="container">
+        <h2>Declaración.</h2>
+        <p>Los mixins se declaran con <b>@mixin <i class="coment">nombre</i>{...}</b></p>
+        <p>No es recomendable llamar a los mixins en el archivo en donde se crean, se mandan a llamar de dos maneras:</p>
+        <ul>
+          <li>Mandandolo a llamar dentro de un selector.</li>
+        </ul>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><b>_mixinButton.scss</b></span><br/>
+            @mixin bttn {<br/>
+            &ensp;display: inline-block;<br/>
+            &ensp;margin: 1em;<br/>
+            &ensp;a {<br/>
+            &ensp;&emsp;text-decoration: none;<br/>
+            &ensp;}<br/>
+            }
+            <hr/>
+            <span class="center block"><b>styles.scss</b></span><br/>
+            @import "mixins/mixinButton.scss";<br/><br/>
+            <i class="coment">// A la clase "button" se le aplican las reglas CSS del mixin llamado "bttn".</i><br/>
+            .button{<br/>
+            &ensp;@include bttn;<br/>
+            }
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><b>styles.css</b></span><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            .button{<br/>
+            &ensp;display: inline-block;<br/>
+            &ensp;margin: 1em;<br/>
+            &ensp;a {<br/>
+            &ensp;&emsp;text-decoration: none;<br/>
+            &ensp;}<br/>
+            }
+          </aside>
+        </div>
+        <ul>
+          <li>Incluyendo un selector en el mixin.</li>
+        </ul>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><b>_mixinButton.scss</b></span><br/>
+            @mixin bttn {<br/>
+            &ensp;.button{<br/>
+            &ensp;&ensp;display: inline-block;<br/>
+            &ensp;&ensp;margin: 1em;<br/>
+            &ensp;&ensp;a {<br/>
+            &ensp;&ensp;&emsp;text-decoration: none;<br/>
+            &ensp;&ensp;}<br/>
+            &ensp;}<br/>
+            }
+            <hr/>
+            <span class="center block"><b>styles.scss</b></span><br/>
+            @import "mixins/mixinButton.scss";<br/><br/>
+            @include bttn;
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><b>styles.css</b></span><br/><br/>
+            .button{<br/>
+            &ensp;display: inline-block;<br/>
+            &ensp;margin: 1em;<br/>
+            &ensp;a {<br/>
+            &ensp;&emsp;text-decoration: none;<br/>
+            &ensp;}<br/>
+            }
+          </aside>
+        </div>
+        <p>Los mixins pueden servir para activar o desactivar los estilos que guardan desde el archivo principal .scss:</p>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><b>_mixinButton.scss</b></span><br/>
+            @mixin bttn {<br/>
+            &ensp;@if $buttonStyle {<br/>
+            &ensp;&ensp;.button{<br/>
+            &ensp;&ensp;&ensp;display: inline-block;<br/>
+            &ensp;&ensp;&ensp;margin: 1em;<br/>
+            &ensp;&ensp;}<br/>
+            &ensp;}<br/>
+            }
+            <hr/>
+            <span class="center block"><b>_variables.scss</b></span><br/>
+            $buttonStyle: true !default;
+            <hr/>
+            <span class="center block"><b>styles.scss</b></span><br/>
+            @import "config/variables.scss";<br/><br/>
+            @import "mixins/mixinButton.scss";<br/><br/>
+            <i class="coment">// Si la variable $buttonStyle se coloca en falso, no se cargará el mixin.</i><br/>
+            <b>$buttonStyle: false;</b><br/>
+            @include bttn;
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><b>styles.css</b></span><br/>
+          </aside>
+        </div>
+      </div>
+    </section>
+    <!-- Parámetros y argumentos en los mixins -->
+    <section class="stars">
+      <div class="container">
+        <h2>Parámetros y argumentos.</h2>
+        <p>Los mixins son capaces de recibir argumentos, dichos argumentos son variables que solamente funcionan dentro de los mixins a los que le fueron asignados.</p>
+        <p>El valor que se resive o se manda se define de dos maneras, es parámetro cuando se declara la <u>variable</u> (@mixin bttn($var)), cuando se le dá un <u>valor real</u> se le llama argumentos (@include bttn(1em))</p>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><b>_mixinButton.scss</b></span><br/>
+            <i class="coment">// Parámetro</i><br/>
+            @mixin bttn(<b>$bigColor</b>) {<br/>
+            &ensp;.button {<br/>
+            &ensp;&emsp;color: <b>$bigColor</b>;<br/>
+            &ensp;}<br/>
+            }
+            <hr/>
+            <span class="center block"><b>styles.scss</b></span><br/>
+            @import "mixins/mixinButton.scss"<br/><br/>
+            <i class="coment">// Argumento</i><br/>
+            @include bttn( <b>lightgoldenrodyellow</b> );
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><b>styles.css</b></span><br/>
+            .button {<br/>
+            &ensp;color: <b>lightgoldenrodyellow</b>;<br/>
+            }
+          </aside>
+        </div>
+        <p>Los mixins pueden tener más de un parámetro, pero al momento de enviarles el parámetro como argumento, se deben colocar los argumentos entre comillas para que la sintaxis de los argumentos no interfieran con las comas que separan los argumentos, ejemplo:</p>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><b>_mixinP.scss</b></span><br/>
+            @mixin p( <b>$selector-span</b>, <b>$selector-link</b> ) {<br/><br/>
+            &ensp;margin: .5em;<br/>
+            &ensp;#{<b>$selector-span</b>} {<br/>
+            &ensp;&emsp;background-color: yellow;<br/>
+            &ensp;}<br/><br/>
+            &ensp;#{<b>$selector-link</b>} {<br/>
+            &ensp;&emsp;text-decoration: none;<br/>
+            &ensp;}<br/><br/>
+            }
+            <hr/>
+            <span class="center block"><b>styles.scss</b></span><br/>
+            @import "mixins/mixinP.scss"<br/><br/>
+            .paragraph {<br/>
+            &ensp;<i class="coment">// Argumentos con comillas.</i><br/>
+            &ensp;@include p('<b>.span</b>', '<b>.link</b>');<br/>
+            }
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><b>styles.css</b></span><br/>
+            .paragraph {<br/>
+            &ensp;margin: .5em;<br/>
+            }<br/><br/>
+            .paragraph <b>.span</b> {<br/>
+            &ensp;background-color: yellow;<br/>
+            }<br/><br/>
+            .paragraph <b>.link</b> {<br/>
+            &ensp;text-decoration: none;<br/>
+            }
+          </aside>
+        </div>
+        <p>Los parámetros pueden tener valores por defecto y pueden ser modificados mandando argumentos al mixin. Ésto sirve para no depender de la estructura del documento HTML y poder pasar la estructura como parámetros.</p>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><b>_mixinP.scss</b></span><br/>
+            <i class="coment">// Asignación de valor por defecto.</i><br/>
+            @mixin p( <b>$selector-span: '.span'</b> ) {<br/><br/>
+            &ensp;margin: .5em;<br/>
+            &ensp;#{<b>$selector-span</b>} {<br/>
+            &ensp;&emsp;background-color: yellow;<br/>
+            &ensp;}<br/><br/>
+            }
+            <hr/>
+            <span class="center block"><b>styles.scss</b></span><br/>
+            @import "mixins/mixinP.scss"<br/><br/>
+            .paragraph {<br/>
+            &ensp;<i class="coment">// Modificación de valores.</i><br/>
+            &ensp;@include p('<b>.main-span</b>');<br/>
+            }
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><b>styles.css</b></span><br/><br/>
+            .paragraph {<br/>
+            &ensp;margin: .5em;<br/>
+            }<br/><br/>
+            .paragraph <b>.main-span</b> {<br/>
+            &ensp;background-color: yellow;<br/>
+            }
+          </aside>
+        </div>
+      </div>
+    </section>
+    <!-- Parámetros múltiples -->
+    <section class="stars">
+      <div class="container">
+        <h2>Parámetros múltiples.</h2>
+        <p>Con el parametro acompañado de 3 puntos (...) se indica que se resibirán varios argumentos sin que se sepan cuantos.</p>
+        <p>Como se resiven varios argumentos, entonces se resivirá una lista, por lo que se debe utilizar la función nth().</p>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><b>_mixinButton.scss</b></span><br/>
+            @mixin bttn(<b>$colors...</b>){<br/><br/>
+            &ensp;.button{<br/>
+            &ensp;&ensp;color: <b>nth($colors, 1)</b>;<br/>
+            &ensp;}<br/><br/>
+            &ensp;@if (lenght(<b>$colors</b>) &#62; 1) {<br/>
+            &ensp;&ensp;@for $i from 2 through length(<b>$colors</b>){<br/>
+            &ensp;&ensp;&emsp;&<b>.</b>#{<b>nth($colors, $i)</b>;}{<br/>
+            &ensp;&ensp;&ensp;&ensp;color: <b>nth($colors, $i)</b>;<br/>
+            &ensp;&ensp;&ensp;}<br/>
+            &ensp;&ensp;}<br/>
+            &ensp;}<br/>
+            }
+            <hr/>
+            <span class="center block"><b>styles.scss</b></span><br/>
+            @import "mixins/mixinButton.scss";<br/><br/>
+            @include bttn(<b>lightskyblue</b>, <b>lavender</b>, <b>darkorchid</b>);
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><b>styles.css</b></span><br/><br/><br/>
+              .button{<br/>
+              &ensp;color: <b>lightskyblue</b>;<br/>
+              }<br/><br/>
+              .button<b>.lavender</b>{<br/>
+              &ensp;color: <b>lavender</b>;<br/>
+              }<br/><br/>
+              .button<b>.darkorchid</b>{<br/>
+              &ensp;color: <b>darkorchid</b>;<br/>
+              }
+          </aside>
+        </div>
+        <h3>Ejemplo con valores tipo map.</h3>
+        <p>Cuando se reciben valores de un mapa de deben utilizar las funciones map-get() y nth() juntas.</p>
+        <p>En el archivo _variables.scss se agregan los valores en tipo map:</p>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><b>_variables.scss</b></span><br/>
+            $bttn-clrs: (<br/>
+            &ensp;alert: crimson,<br/>
+            &ensp;cta: seagreen<br/>
+            );
+          </aside>
+        </div>
+        <p>Se tienen que agregar las keys del mapa del archivo _valores.scss 1 por 1 ( <i>bttn(alert, cta)</i> )</p>
+        <p>Se puede automatizar esta parte con la función map-keys() ( <i>bttn(map-keys($bttn-clrs)...)</i> ). Se gregan los 3 puntos para indicarle al argumento que se mandarán varios valores, porque si no se especifica el, argumento del mixin recibirá la sintaxis de la función en ves de un valor esperado.</p>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><b>styles.scss</b></span><br/>
+            @import "config/variables.scss";<br/>
+            @import "mixins/mixinButton.scss";<br/><br/>
+            @include bttn(map-keys($bttn-clrs)<b>...</b>);
+          </aside>
+        </div>
+        <p>Las funciones nth() por si solas apuntarían a las keys del mapa y no a los valores, por lo que se debe agregar una función map-get() para pedir, del mapa, el valor que obtiene la función nth().</p>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><b>_mixinButton.scss</b></span><br/>
+            @mixin bttn($colors<b>...</b>){<br/><br/>
+            &ensp;.button{<br/>
+            &ensp;&ensp;color: <b>map-get($bttn-clrs, nth($colors, 1))</b>;<br/>
+            &ensp;}<br/><br/>
+            &ensp;@if (lenght($colors) &#62; 1) {<br/>
+            &ensp;&ensp;@for $i from 2 through length($colors){<br/>
+            &ensp;&ensp;&emsp;&<b>.</b>#{nth($colors, $i);}{<br/>
+            &ensp;&ensp;&ensp;&ensp;color: <b>map-get($bttn-clrs, nth($colors, $i))</b>;<br/>
+            &ensp;&ensp;&ensp;}<br/>
+            &ensp;&ensp;}<br/>
+            &ensp;}<br/>
+            }
+          </aside>
+        </div>
+        <p>Y así solo se tiene que agregar keys y valores en el map del archivo _valores.scss para crear una clase y aplicarle un color.</p>
+        <div class="idEst">
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><b>styles.css</b></span><br/><br/><br/>
+              .button{<br/>
+              &ensp;color: <b>crimson</b>;<br/>
+              }<br/><br/>
+              .button<b>.cta</b>{<br/>
+              &ensp;color: <b>seagreen</b>;<br/>
+              }
+          </aside>
+        </div>
+      </div>
+    </section>
+    <!-- @Content -->
+    <section class="stars">
+      <div class="container">
+        <h2>@Content.</h2>
+        <p>@content se utiliza para añadir contenido adicional desde el llamando a un mixin.</p>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><b>_mixinMenu.scss</b></span><br/>
+            @mixin mxmenu($clr){<br/>
+            &ensp;color: $clr;<br/>
+            &ensp;.link {<br/>
+            &ensp;&ensp;<b>@content</b><br/>
+            &ensp;}<br/>
+            }<br/>
+            <i class="coment">// El contenido adicional se agregará en el bloque de la clase link.</i>
+            <hr/>
+            <span class="center block"><b>styles.scss</b></span><br/>
+            @import "mixins/mixinMenu.scss"<br/><br/>
+            .menu {<br/>
+            &ensp;@include mxmenu(tan)<b>{<br/>
+            &ensp;&emsp;text-decoration: none;<br/>
+            &ensp;&emsp;border-color: red;<br/>
+            &ensp;}</b><br/>
+            }
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><b>styles.css</b></span><br/>
+            .menu{<br/>
+            &ensp;color: tan;<br/>
+            }<br/>
+            .menu .link {<br/>
+            &ensp;text-decoration: none;<br/>
+            &ensp;border-color: red;<br/>
+            }
+          </aside>
+        </div>
+        <h3>Ejemplo con media queries.</h3>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><b>_values.scss</b></span><br/>
+            <hr/>
+            <span class="center block"><b>_mixinMQ.scss</b></span><br/>
+            @mixin mq($breakpoint) {<br/>
+            &ensp;@media screen and (min-width: $breakpoint) {<br/>
+            &ensp;&emsp;@content;<br/>
+            &ensp;}<br/>
+            }
+            <hr/>
+            <span class="center block"><b>styles.scss</b></span><br/>
+            @import "config/variables";<br/>
+            @import "mixins/mixinMQ";<br/><br/>
+            .body {<br/>
+            &ensp;padding: .5em;<br/>
+            &ensp;@include mq(400px) {<br/>
+            &ensp;&emsp;padding: .3em;<br/>
+            &ensp;}<br/>
+            &ensp;@include mq(700px) {<br/>
+            &ensp;&emsp;padding: .1em;<br/>
+            &ensp;}<br/>
+            }
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><b>styles.css</b></span><br/>
+            .body {<br/>
+            &ensp;padding: .5em;<br/>
+            }<br/>
+            &ensp;@media screen and (min-width: 400px) {<br/>
+            &ensp;&emsp;padding: .3em;<br/>
+            &ensp;}<br/>
+            &ensp;@media screen and (min-width: 700px) {<br/>
+            &ensp;&emsp;padding: .1em;<br/>
+            &ensp;}<br/>
+          </aside>
+        </div>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><b>_values.scss</b></span><br/>
+            $breakpoints:(<br/>
+            &ensp;small: 320px,<br/>
+            &ensp;medium: 640px,<br/>
+            &ensp;large: 1024px,<br/>
+            &ensp;xlarge: 1440px<br/>
+            );
+            <hr/>
+            <span class="center block"><b>_mixinMQ.scss</b></span><br/>
+            @mixin mq($breakpoint) {<br/>
+            &ensp;@media screen and (min-width: map-get($breakpoints, $breakpoint)) {<br/>
+            &ensp;&emsp;@content;<br/>
+            &ensp;}<br/>
+            }
+            <hr/>
+            <span class="center block"><b>styles.scss</b></span><br/>
+            @import "config/variables";<br/>
+            @import "mixins/mixinMQ";<br/><br/>
+            .body {<br/>
+            &ensp;padding: .5em;<br/>
+            &ensp;@include mq(small) {<br/>
+            &ensp;&emsp;padding: .3em;<br/>
+            &ensp;}<br/>
+            &ensp;@include mq(large) {<br/>
+            &ensp;&emsp;padding: .1em;<br/>
+            &ensp;}<br/>
+            }
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><b>styles.css</b></span><br/>
+            .body {<br/>
+            &ensp;padding: .5em;<br/>
+            }<br/>
+            &ensp;@media screen and (min-width: 320px) {<br/>
+            &ensp;&emsp;padding: .3em;<br/>
+            &ensp;}<br/>
+            &ensp;@media screen and (min-width: 640px) {<br/>
+            &ensp;&emsp;padding: .1em;<br/>
+            &ensp;}<br/>
+          </aside>
+        </div>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><b>_values.scss</b></span><br/>
+            $breakpoints:(<br/>
+            &ensp;small: 320px,<br/>
+            &ensp;medium: 640px,<br/>
+            &ensp;large: 1024px,<br/>
+            &ensp;xlarge: 1440px<br/>
+            );
+            <hr/>
+            <span class="center block"><b>_mixinMQ.scss</b></span><br/>
+            @mixin mq($breakpoint) {<br/>
+            &ensp;@if map-has-key($breakpoints, $breakpoint) {<br/>
+            &ensp;&ensp;@media screen and (min-width: map-get($breakpoints, $breakpoint)) {<br/>
+            &ensp;&ensp;&emsp;@content;<br/>
+            &ensp;&ensp;}<br/>
+            &ensp;} @else if type-of($breakpoint)==number and unit($breakpoint)=='px' {<br/>
+            &ensp;&ensp;<i class="coment">// Solo funcionaria con pixeles.</i><br/>
+            &ensp;&ensp;@media screen and (min-width: $breakpoint) {<br/>
+            &ensp;&ensp;&emsp;@content;<br/>
+            &ensp;&ensp;}<br/>
+            &ensp;}<br/>
+            }
+            <hr/>
+            <span class="center block"><b>styles.scss</b></span><br/>
+            @import "config/variables";<br/>
+            @import "mixins/mixinMQ";<br/><br/>
+            .body {<br/>
+            &ensp;padding: .5em;<br/>
+            &ensp;@include mq(small) {<br/>
+            &ensp;&emsp;padding: .3em;<br/>
+            &ensp;}<br/>
+            &ensp;@include mq(514px) {<br/>
+            &ensp;&emsp;padding: .1em;<br/>
+            &ensp;}<br/>
+            &ensp;@include mq(straberry) {<br/>
+            &ensp;&emsp;padding: .3em;<br/>
+            &ensp;}<br/>
+            }
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><b>styles.css</b></span><br/>
+            .body {<br/>
+            &ensp;padding: .5em;<br/>
+            }<br/>
+            &ensp;@media screen and (min-width: 320px) {<br/>
+            &ensp;&emsp;padding: .3em;<br/>
+            &ensp;}<br/>
+            &ensp;@media screen and (min-width: 640px) {<br/>
+            &ensp;&emsp;padding: .1em;<br/>
+            &ensp;}<br/>
+            &ensp;<i class="coment">// El último no compiló por no ser una key del brackpoint ni ser una cifra en pixeles.</i><br/>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

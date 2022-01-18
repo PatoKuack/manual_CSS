@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- No guardar cache en navegadores -->
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <!-- ------------------- -->
+  <link rel="stylesheet" href="../Estilos/stylecss6.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Propiedades MC 2</title>
+</head>
+<body>
+  <p>
+    <h1>Propiedades del modelo de caja 2</h1>
+    <h2>Border</h2>
+    Línea que esta entre <i>margin</i> y <i>padding</i>, para manipularlo se usa la propiedad y valor <b class="shorth">border: #px -tipo_de_borde- -color-;</b><br>
+    el cual le da al borde un tamaño, tipo de borde y color.<br>
+    También se puede usar esos valores por separado:<br>
+    <div class="box">
+      width: 400px;<br>
+      height: 150px;<br>
+      background-color: blanchedalmond;<br>
+      <b>border-width: 4px 8px 16px 32px;</b><br>
+      <b>border-style: solid dashed dotted double;</b><br>
+      <b>border-color: black blue red green;</b><br>
+    </div>
+    En la caja, también se puede hacer un shorthand por cada lado<br>
+    <b class="shorth">border-top: #px -tipo_de_borde- -color-</b><br>
+    o colocarlo por separado:<br>
+    <b>border-top-width: #px;</b><br>
+    <b>border-top-style: -tipo-;</b><br>
+    <b>border-top-color: -color-;</b><br>
+    Se pueden utilizar los bordes para hacer triángulos con el valor <u><b>transparent</b></u>:<br>
+    <span class="triangulo"></span>
+    <span class="codt">
+      <b>.triangulo{<br>
+        padding: 0;<br>
+        border: 50px solid;<br>
+        border-color: transparent;<br>
+        border-left-color: black;<br>
+      }</b>
+    </span>
+  </p>
+  <p>
+    <h2>Border-radius</h2>
+    Propiedad que achata las puntas de las cajas. Con el valor de la propiedad se crea un círculo,<br>
+    el cual se divide en 4 partes colocando cada parte en las esquinas del borde de la caja.<br>
+    Cuando se coloca el valor de esta propiedad en <b>pixeles (px)</b>, se crea un borde circular ya que se obtiene un único radio definido de los pixeles.<br>
+    En cambio, cuando se coloca el valor de esta propiedad en <b>porcentaje (%)</b>, se crea un borde elíptico<br>
+    ya que se toma el porcentaje del ancho y del alto y se obtiene un radio mayor y un radio menor.<br>
+    <span class="Bradius0">
+      <span class="Bradius1">
+        <span class="Bradius2"><br>Circular</span>
+      </span>
+      <span class="Bradius3">
+        <span class="Bradius4"><br>elíptica</span>
+      </span>
+    </span><br>
+    Al igual que <i>margin</i> y <i>border</i>, se puede utilizar un bordeado por esquina:<br>
+    <b>border-top-left-radius: #px;<br>
+    border-top-right-radius: #px;<br>
+    border-bottom-right-radius: #px;<br>
+    border-bottom-left-radius: #px;</b><br>
+    Y un bordeado especifico utilizando un valor <b>X</b> y un valor en <b>Y</b>.<br>
+    <b>border-radius: Xpx / Ypx<br>
+    border-top-left-radius: Xpx / Ypx;<br>
+    border-top-right-radius: Xpx / Ypx;<br>
+    border-bottom-right-radius: Xpx / Ypx;<br>
+    border-bottom-left-radius: Xpx / Ypx;</b><br>
+    O se puede usar el showhand:<br>
+    <b class="shorth">border-radius: Xpx Xpx Xpx Xpx / Ypx Ypx Ypx Ypx;</b><br>
+    Y al igual que <i>margin</i> y <i>border</i> se pueden omitir valores;<br>
+    si se omite el valor de la cuarta <b>X</b> o <b>Y</b>, se tomará el valor de la segunda <b>X</b> o <b>Y</b> respectivamente,<br>
+    si se omite el valor de la tercera y cuarta <b>X</b> o <b>Y</b>, se tomara el valor de la primera y segunda <b>X</b> o <b>Y</b> respectivamente.
+  </p>
+  <p>
+    <h2>Box sizing</h2>
+    En una caja se generan el contenido, relleno, borde y margen, todo esto (menos el margen) se suma y aunque se haya definido el <b>width</b> y <b>hight</b> de cierto tamaño, <br>
+    la caja final será más grande de lo esperado por estas sumas.<br>
+    Para que la caja final mida lo esperado se utiliza la propiedad <b>box-sizing: border-box;</b><br>
+    Un hack recomendado para que se aplique a todo es usando selector universal y pseudoelemento (CSS avanzado) de la siguiente manera:<br>
+    <b>*, *::before, *::after{box-sizing: border-box}</b>
+  </p>
+  <p>
+    <h2>Box-shadow</h2>
+    Es una sombra de caja con la siguiente estructura:<br>
+    <b>box-shadow: h-offset v-offset blur spread color inset</b><br>
+    <span class="sombra">
+      <b>h-offset</b>: deslizamiento horizontal (#px o -#px).<br>
+      <b>v-offset</b>: deslizamiento vertical (#px o -#px).<br>
+      <b>blur</b>: difuminado (#px).<br>
+      <b>spread</b>: expansión y contracción (#px o -#px).<br>
+      <b>color</b>: color, por default toma el color de letra asignado a la caja.<br>
+      <b>inset</b>: si se coloca, la sombra será interna, si no se coloca, la sombra será externa.<br>
+    </span><br>
+    Puede generarse de una forma dinamica con <a href="https://cssgenerator.org/box-shadow-css-generator.html" target="_blanck" title="generador de sombra de caja">cssgenerator.org</a>
+  </p>
+</body>
+</html>

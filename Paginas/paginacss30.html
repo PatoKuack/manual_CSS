@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- No guardar cache en navegadores -->
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <!-- ------------------- -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../Estilos/normalization.css">
+  <link rel="stylesheet" href="../Estilos/stylecss21.css">
+  <title>Scroll</title>
+</head>
+<body class="body">
+  <header>
+    <section class="container">
+      <div>
+        <h1 class="center">Scroll.</h1>
+        <p>El scroll es la barra de desplazamiento lateral o inferior que coloca el navegador para moverse entre los contenedores y visualizar todo su contenido.</p>
+      </div>
+    </section>
+  </header>
+  <main>
+    <!-- Desbordamiento -->
+    <section class="container">
+      <div>
+        <h2>Desbordamiento.</h2>
+        <p>Para manipular la aparición del scroll dentro de un elemento con más contenido del que puede almacenar (contenido desbordado) se utiliza la propiedad <strong>overflow</strong>.</p>
+        <p>overflow tiene los siguientes valores:</p>
+        <ul>
+          <li><b>visible</b> valor por defecto, indica que el contenido que se desborda será visible.</li>
+          <li><b>hidden</b> oculta el contenido desbordado.</li>
+          <li><b>scroll</b> muestran las barras de scroll (la horizontal y la vertical) y las coloca aunque el contenido no se esté desbordando.</li>
+          <li><b>auto</b> colocan las barras de scroll cuando el contenido se desborda ya sea de manera horizontal, vertical o ambos.</li>
+        </ul>
+        <p>Se puede manipular especificamente el eje X (horizontal) o el eje Y (vertical) con las propiedades <b>overflow-x</b> y <b>overflow-y</b>. Estas propiedades manejan los mismos valores que el overflow simple aplicando los valores a su eje, pero cuando se le coloca a un eje un tipo de scroll (por ejemplo: overflow-x: scroll;), el otro eje obtiene automaticamente un valor auto (por ejemplo: overflow-y: auto;) y esto afecta el contenido de los elementos a los que se le aplica esta propiedad.</p>
+        <p>Cuando se tienen elementos flotantes usando la propiedad <b>float</b> y se manipula el scroll, el contenido evita colocarse debajo o por encima del elemento flotante para evitar efectos negativos con la interacción del elemento flotante y el contenido al momento de desplazar el scroll.</p>
+      </div>
+    </section>
+    <!-- Anclaje -->
+    <section class="container">
+      <div>
+        <h2>Anclaje.</h2>
+        <p>Un anclaje de enlaces es cuando se manda al usuario a una sección especifica del contenido de un elemento.</p>
+        <h3>Desplazamiento suavizado.</h3>
+        <p>Con la propiedad y el valor <strong>scroll-behavior: smooth;</strong> se crea un desplazamiento suabe entre estos valores. Esta propiedad tiene tres desventajas:</p>
+        <ol>
+          <li>Solo funciona en elementos con scroll horizontal o vertical.</li>
+          <li>No se puede controlar la transición del desplazamiento.</li>
+          <li>No funciona si la propiedad se aplica en el body, en cambio funciona en cualquier otro elemento, hasta en el html.</li>
+        </ol>
+        <h3>Padding al scroll.</h3>
+        <p>También se puede utilizar la propiedad <strong>scroll-padding</strong> con los anclajes para evitar que un menú que navegue por las secciones tape el contenido colocando una separación entre el scroll y el inicio de la sección a la que se redireccionó.</p>
+        <p>Esta propiedad se aplica al elemento padre (el menú que redirecciona a otros elementos) y como valor se le coloca una unidad de medida o 4 dependiendo:</p>
+        <ul>
+          <li>scroll-padding-top: #;</li>
+          <li>scroll-padding-right: #;</li>
+          <li>scroll-padding-bottom: #;</li>
+          <li>scroll-padding-left: #;</li>
+          <li>scroll-padding: # # # #;</li>
+        </ul>
+        <h3>Margin al scroll.</h3>
+        <p>La propiedad <strong>scroll-margin</strong> funciona igual que la propiedad anterior, excepto que se coloca en el elemento hijo (la sección a la que se redirecciona el menú), coloca un margin entre el scroll y el elemento anclado y se puede aplicar a las secciones en conjunto o individualmente.</p>
+        <ul>
+          <li>scroll-margin-top: #;</li>
+          <li>scroll-margin-right: #;</li>
+          <li>scroll-margin-bottom: #;</li>
+          <li>scroll-margin-left: #;</li>
+          <li>scroll-margin: # # # #;</li>
+        </ul>
+        <h3>Ajustar desplazamiento.</h3>
+        <p>La propiedad <strong>scroll-snap-align: [orientación alineación];</strong> ayuda a ajustar el desplazamiento cuando se hace por medio de la rueda del mouse, se coloca en el elemento padre (en el menú) y lo que hace es que cuando detecta que el desplazamiento esta por llegar a una sección, el scroll se ajusta para que la sección quede alineada en la ventana del navegador.</p>
+        <p>Esta propiedad necesita otra propiedad para funcionar, <strong>scroll-snap-type: [alineación];</strong> se coloca en el elemento hijo (en las secciones) y lo que hace es indicar en que parte de la sección se ajustará el scroll.</p>
+        <p>scroll-snap-align tiene 5 tipos de valores:</p>
+        <ul>
+          <li><b>x</b> indica que la orientación del scroll es horizontal.</li>
+          <li><b>y</b> indica que la orientación del scroll es vertical.</li>
+          <li><b>both</b> indica que la orientación del scroll es horizontal y vertical.</li>
+          <li><b>proximity</b> cuando el scroll detecta que la ventana del navegador está a punto de avandonar una sección, se desplaza automaticamente hacia el inicio, centro o final del la siguiente o anterior sección.</li>
+          <li><b>mandatory</b> cuando el scroll detecta la aparición de una sección en la ventana del navegador, se desplaza automaticamente hacia el inicio, centro o final del la sección.</li>
+        </ul>
+        <p>scroll-snap-type tiene 3 valores:</p>
+        <ul>
+          <li><b>start</b> indica que el scroll se alineará al inicio de la sección.</li>
+          <li><b>center</b> indica que el scroll se alineará en medio de la sección.</li>
+          <li><b>end</b> indica que el scroll se alineará al final de la sección.</li>
+        </ul>
+        <p>scroll-snap se puede utilizar junto con scroll-padding o scroll-margin.</p>
+        <h3>Posiciones de ajuste.</h3>
+        <p>La propiedad <strong>scroll-snap-stop: [normal | always];</strong> en su valor <i>always</i> permite detener el scroll en una sección de anclaje para evitar que se salte rapidamente a la siguiente, es útil cuando se utiliza un ajuste de scroll de tipo <u>mandatory</u>. El valor por default es <i>normal</i>.</p>
+        <p>Actualmente (diciembre del 2021), Firefox es el único que no soporta esta propiedad.</p>
+        <h3>Pseudo-elementos del scroll.</h3>
+        <p>No todos los navegadores tienen soportados los pseudo-elementos de scroll. Estos pseudo-elementos se utilizan con <b>-webkit-</b>.</p>
+        <dl>
+          <dt>::-webkit-scrollbar</dt>
+          <dd>
+            <p>Permite cambiar dimensiones, color de fondo, sombras, borde... y hasta usar las pseudo-clases :active y :hover en el scroll de un elemento.</p>
+            <p>Cuando se le aplican estilos al scroll con esta pseudo-clase, desaparecen todos los elementos del scroll para que se comience a modificar uno por uno.</p>
+            <p>La aplicación de width es para modificar el ancho del scroll vertical y height para el horizontal.</p>
+          </dd>
+          <dt>::-webkit-scrollbar-track</dt>
+          <dd>Aplica estilos a todo lo que representa la barra del scroll.</dd>
+          <dt>::-webkit-scrollbar-track-piece</dt>
+          <dd>Aplica estilos a la parte del scroll que no esta cubierta por la barra deslizable.</dd>
+          <dt>::-webkit-scrollbar-button</dt>
+          <dd>Aplica estilos a los botones del scroll.</dd>
+          <dt>::-webkit-scrollbar-thumb</dt>
+          <dd>Aplica estilos a la barra deslizable del scroll.</dd>
+          <dt>::-webkit-scrollbar-corner</dt>
+          <dd>Aplica estilos a la caja en la esquina que representa intersección de las barras, requiere que se le coloque un display: block; para funcionar.</dd>
+        </dl>
+        <p>Se le pueden aplicar pseudo-clases especiales a estos pseudo-elementos:</p>
+        <dl>
+          <dt>:vertical</dt>
+          <dd>Aplica el estilo del pseudo-elemento unicamente a la barra vertical.</dd>
+          <aside class="idEst">
+            .div::-webkit-scrollbar-thumb:vertical:hover {<br/>
+            &emsp;background-color: orange;<br/>
+            }
+          </aside>
+          <dt>:horizontal</dt>
+          <dd>Aplica el estilo del pseudo-elemento unicamente a la barra horizontal.</dd>
+          <dt>:start</dt>
+          <dd>Solamente se puede utilizar con los pseudo-elementos button o track-piece, lo que hace es aplicar el estilo a los botones del inicio o a las partes del inicio del scroll que no cubre la barra deslizable (track-piece).</dd>
+          <dt>:end</dt>
+          <dd>Solamente se puede utilizar con los pseudo-elementos button o track-piece, lo que hace es aplicar el estilo a los botones del final o a las partes del final del scroll que no cubre la barra deslizable (track-piece).</dd>
+          <dt>:increment</dt>
+          <dd>Solamente se puede utilizar con los pseudo-elementos button o track-piece, lo que hace es aplicar el estilo a los botones de incremento o a las partes del incremento del scroll que no cubre la barra deslizable (track-piece).</dd>
+          <dt>:decrement</dt>
+          <dd>Solamente se puede utilizar con los pseudo-elementos button o track-piece, lo que hace es aplicar el estilo a los botones de decremento o a las partes del decremento del scroll que no cubre la barra deslizable (track-piece).</dd>
+        </dl>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <section class="container">
+      <div>
+        <h3>Referencias:</h3>
+        <p>
+          <a href="https://developer.mozilla.org/es/docs/Web/CSS/scroll-behavior" target="_blank" rel="noopener noreferrer">scroll-behavior.</a><br/>
+          <a href="https://caniuse.com/mdn-css_properties_scroll-snap-stop" target="_blank" rel="noopener noreferrer">CAN I USE - scroll-snap-stop</a><br/>
+          <a href="https://caniuse.com/mdn-css_selectors_-webkit-scrollbar" target="_blank" rel="noopener noreferrer">CAN I USE - -webkit-scrollbar</a><br/>
+        </p>
+      </div>
+    </section>
+  </footer>
+</body>
+</html>

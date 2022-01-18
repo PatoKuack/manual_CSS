@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- No guardar cache en navegadores -->
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <!-- ------------------- -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../Estilos/normalization.css">
+  <link rel="stylesheet" href="../Estilos/stylecss41.css">
+  <title>Teoría de color</title>
+</head>
+<body class="body">
+  <header class="bubble">
+    <section class="stars">
+      <div class="container">
+        <h1 class="center">Teoría de color.</h1>
+        <p>Existen 2 tipos de colores, los sustractivos aplicados a imprenta y los aditivos aplicados a pantallas.</p>
+        <h2>CMYK.</h2>
+        <p>Los colores sustractivos substraen la luz; con forme más color se aplique, más oscuro se ve hasta llegar a un casi negro.</p>
+        <p>En el color sustractivo existen 3 colores bases: <b>Cyan, Magenta, Yellow y Black (CMYK)</b>.</p>
+        <h2>RGB.</h2>
+        <p>Los colores aditivos adicionan luz; con forme más color se aplique, más luz abrá hasta llegar al blanco.</p>
+        <p>En el color aditivo existen 3 colores básicos: <b>Red, Green y Blue (RGB)</b>.</p>
+        <p>Las variaciones posibles para cada uno de estos 3 colores es 256 (2<sup>8</sup>), dado esto, los parámetros quedan RGB( 256, 256, 256 ).</p>
+        <p>Las combinaciones posibles que se pueden tener entre estos 3 es de 16.777.216 de colores, esto es equivalente a la llamada <i>profundidad de colores de 24 bits</i>.</p>
+        <p>El RGB es la notación que entienden las computadoras, sin embargo, la lectura no es tan amigable con los seres humanos.</p>
+        <h2>HSL.</h2>
+        <p>Ya que el RGB es una notación complicada de entender para los seres humanos, existe un modo de color más fácil de entender llamado <b>HSL (Hue, Saturation, Lighten)</b>.</p>
+        <ul>
+          <li>
+            <b>Hue</b>: es el tono de color (de 0 a 360 grados).
+            <ul>
+              <li>0 y 360 = red</li>
+              <li>60 = yellow</li>
+              <li>120 = green</li>
+              <li>180 = cyan</li>
+              <li>240 = blue</li>
+              <li>300 = magenta</li>
+            </ul>
+          </li>
+          <li><b>Saturation</b>: es la intensidad del color, de gris (0%) al color puro (100%).</li>
+          <li><b>Lighten</b>: es la cantidad de luz (0% da negro y 100% da blanco, el color puro está en 50%).</li>
+        </ul>
+        <p>En la sintaxis de Sass, no es necesario colocar el signo de porcentaje (%) en los parámetros, al momento de compilar se le agrega el signo automáticamente, ejemplo: hsl(210, 80, 50) será igual a hsl(210, 80%, 50%) al momento de compilar.</p>
+        <p><i>Adobe Photoshop y todos los productos de adobe tienen el modo de color HSB (B = brightness), que no es lo mismo que HSL. EL modo HSB no es compatible con la web por lo que es necesario acoplar este formato de color al HSL con tablas de conversión o algún software conversor.</i></p>
+        <h2>Hexadecimal.</h2>
+        <p>La notación Hexadecimal sigue siendo como en RGB, pero con la pequeña diferencia de que se escribe de la siguiente manera: #RRGGBB (ejemplo: #2f5af1).</p>
+        <p>Para cada dígito se toma un rango de 0 a 16 con las siguientes notaciones en hexadecimal: 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F.</p>
+        <p></p>
+      </div>
+    </section>
+  </header>
+  <main class="bubble">
+    <!-- Funciones de color -->
+    <section class="stars">
+      <div class="container">
+        <h2>Funciones de color SASS.</h2>
+        <h3>RGB.</h3>
+        <p>Existen 3 funciones para colores RGB en SASS:</p>
+        <dl>
+          <dt>red($color)</dt>
+          <dd>Devuelve la cantidad de rojo en el formato RGB del color especificado en el parámetro ya sea hsl o hexadecimal.</dd>
+          <dt>green($color)</dt>
+          <dd>Devuelve la cantidad de verde en el formato RGB del color especificado en el parámetro ya sea hsl o hexadecimal.</dd>
+          <dt>blue($color)</dt>
+          <dd>Devuelve la cantidad de azul en el formato RGB del color especificado en el parámetro ya sea hsl o hexadecimal.</dd>
+          <div class="idEst">
+            <aside class="exempliGratia egSCSS">
+              <span class="center block"><u>.scss</u></span><br/>
+              .example{<br/>
+              &ensp;rgb-blue: blue(hsl(75, 88, 50));<br/>
+              }
+            </aside>
+            <aside class="exempliGratia egCSS">
+              <span class="center block"><u>.css</u></span><br/>
+              .example{<br/>
+              &ensp;rgb-blue: 15;<br/>
+              }
+            </aside>
+          </div>
+        </dl>
+        <h3>HSL.</h3>
+        <p>Existen más funciones para colores HSL en SASS:</p>
+        <dl>
+          <dt>hue($color)</dt>
+          <dd>Devuelve la cantidad de matiz en el formato HSL de color especificado en el parámetro ya sea rgb o hexadecimal.</dd>
+          <dt>saturation($color)</dt>
+          <dd>Devuelve la cantidad de saturación en el formato HSL de color especificado en el parámetro ya sea rgb o hexadecimal.</dd>
+          <dt>lightness($color)</dt>
+          <dd>Devuelve la cantidad de luminocidad en el formato HSL de color especificado en el parámetro ya sea rgb o hexadecimal.</dd>
+          <div class="idEst">
+            <aside class="exempliGratia egSCSS">
+              <span class="center block"><u>.scss</u></span><br/>
+              .example{<br/>
+              &ensp;hsl-l: lightness(rgb(75, 120, 200));<br/>
+              }
+            </aside>
+            <aside class="exempliGratia egCSS">
+              <span class="center block"><u>.css</u></span><br/>
+              .example{<br/>
+              &ensp;hsl-l: 53.9215686275%;<br/>
+              }
+            </aside>
+          </div>
+          <dt>lighten($color, $amount)</dt>
+          <dd>Modifica la luminocidad del color especificado en el primer parámetro <u>aumentandola</u> con la cantidad especificada en el segundo parámetro ya sea hsl, rgb o hexadecimal (ejemplo: lighten($color, 10)).</dd>
+          <dt>darken($color, $amount)</dt>
+          <dd>Modifica la luminocidad del color especificado en el primer parámetro <u>disminuyendola</u> con la cantidad especificada en el segundo parámetro ya sea hsl, rgb o hexadecimal (ejemplo: darken($color, 10)).</dd>
+          <dt>saturate($color, $amount)</dt>
+          <dd>Modifica la saturación del color especificado en el primer parámetro <u>aumentandola</u> con la cantidad especificada en el segundo parámetro ya sea hsl, rgb o hexadecimal (ejemplo: saturation($color, 10)).</dd>
+          <dt>desaturate($color, $amount)</dt>
+          <dd>Modifica la saturación del color especificado en el primer parámetro <u>disminuyendola</u> con la cantidad especificada en el segundo parámetro ya sea hsl, rgb o hexadecimal (ejemplo: desaturation($color, 10)).</dd>
+          <dt>adjust-hue($color, $degrees)</dt>
+          <dd>Modifica el matiz del color especificado en el primer parámetro <u>rotandolo</u> la cantidad especificada en el segundo parámetro ya sea hsl, rgb o hexadecimal (ejemplo: adjust-hue(red, 60)) //dará amarillo porque rotó 60° apartir del rojo (0°).</dd>
+        </dl>
+      </div>
+    </section>
+    <!-- Ejercicio -->
+    <section class="stars">
+      <div class="container">
+        <h2>Ejercicio.</h2>
+        <p>Dependiendo del color de fondo, el color de las letras se adaptarán a blanco o negro para contrastar con el fondo.</p>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><u>.scss</u></span><br/>
+            $base-color: darkgreen;<br/>
+            $text-color-light: #fff;<br/>
+            $text-color-dark: #222;<br/><br/>
+            @function color-text(){<br/>
+            &ensp;@if lightness($base-color) > 50{<br/>
+            &ensp;&emsp;@return $text-color-dark;<br/>
+            &ensp;} @else {<br/>
+            &ensp;&emsp;@return $text-color-light;<br/>
+            &ensp;}<br/>
+            }<br/><br/>
+            .body {<br/>
+            &ensp;background-color: $base-color;<br/>
+            &ensp;color: color-text();<br/>
+            }
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><u>.css</u></span><br/>
+            .body {<br/>
+              &ensp;background-color: darkgreen;<br/>
+              &ensp;color: #fff;<br/>
+              }
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="bubble">
+    <section class="stars">
+      <div class="container">
+        <h3>Referencias:</h3>
+        <p>
+          <a href="https://color.adobe.com/es/create/" target="_blank" rel="noopener noreferrer">Rueda de colores.</a>
+        </p>
+      </div>
+    </section>
+  </footer>
+</body>
+</html>

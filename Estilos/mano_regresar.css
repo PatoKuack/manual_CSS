@@ -1,0 +1,33 @@
+.regreso{
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  display: flex;
+  width: 3em;
+  height: 3em;
+  background-color: aliceblue;
+  align-items: center;
+  justify-content: center;
+  border-radius: .5em;
+  border: .2em solid cyan;
+}
+
+.mano{
+  position: absolute;
+  margin: 0 0 .2em 0;
+  font-size: 2.5em;
+  text-decoration: none;
+}
+
+@media screen and  (max-width: 430px){
+  .regreso{
+    top: .7em;
+    left: .7em;
+    height: 2.5em;
+    width: 2.5em;
+  }
+  .mano{
+    font-size: 2em;
+    margin-bottom: .15em;
+  }
+}

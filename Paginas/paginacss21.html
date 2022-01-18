@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <!-- No guardar cache en navegadores -->
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <!-- ------------------- -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- normalize css -->
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/">
+    <!-- Estilo personalizado -->
+    <link rel="stylesheet" href="../Estilos/stylecss21.css">
+    <!-- jam icons -->
+    <link rel="stylesheet" href="https://unpkg.com/jam-icons/css/jam.min.css">
+    <title>Iconos</title>
+  </head>
+  <body class="body">
+    <main class="main">
+      <section class="container">
+        <div>
+          <h2>Librerias</h2>
+          Se colocan abajo de las etiquetas <b>meta</b> y se aplican con las etiquetas <b>link</b>, se colocan los links por prioridad.<br/>
+          Por ejemplo con la página <a href="https://necolas.github.io/normalize.css/" target="_blank" rel="noopener noreferrer">Normalize css</a> se puede adquirir una normalización de tu documento HTML para que en cualquier navegador no se le apliquen los atributos CSS que están por default en algunas etiquetas como los márgenes de los títulos o los colores de los enlaces.
+        </div>
+      </section>
+      <section class="container">
+        <div>
+          <h2>Iconos</h2>
+          Mediante la página <a target="_blank" href="https://v2.jam-icons.com/?p=%2Fuse">Jam Icons</a> se puede elegir y colocar un icono mediante CSS.<br/>
+          Primero nos dirigimos al enlace <b>Use</b>:<br/>
+          <figure class="center">
+            <img class="img-w-20em opacity" src="../Imgs/JAMuse.jpg" alt="Vista de la página JAM Icons" title="Vista de la página JAM Icons"><br/>
+          </figure>
+          Luego se busca la sección de <b>CSS/Font</b> y en la segunda opción se muestra el código para incorporar la librería a nuestro código, se copia el código y se coloca en el documento HTML, debajo de los meta en la sección head.<br/>
+          Después para poder usar algún icono se debe colocar un <b>span</b> y dentro de la etiqueta se coloca la clase como se indica en la primera opción de la sección <i>CSS/Font</i> de la página <i>JAM Icons</i>, se coloca <b>span class="jam jam-<u>nombre del icono</u>"</b>:<br/>
+          <figure class="center">
+            <img class="img-w-20em opacity" src="../Imgs/JAMusage.jpg" alt="Vista de la sección Use" title="Vista de la sección Use"><br/>
+          </figure>
+          Ejemplo del icono "Whatsapp": <span class="jam jam-whatsapp"></span>
+          <hr>
+          <p>
+            Para agregar un <b>icono a la pestaña</b> de la página se escribe el comando<br/>
+            <b>&#60;link rel="shortcut icon" type="image/x-icon" href="ruta_del_archivo.ico"&#62;</b>, <br/>rel indica que será un icono y type indica el tipo de imagen que será.<br/>
+            En la página <a target="_blank" href="https://imagen.online-convert.com/es/convertir-a-ico">online-convert</a> se pueden transformar imágenes pequeñas en .ico.
+          </p>
+          <p>
+            <b>Nota:<br/>
+            De preferencia siempre se trata de colocar agradecimientos a los autores de los iconos, imágenes o documentos en la página en donde se ocupan.</b>
+          </p>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <section class="container">
+        <div>
+          <p>
+            <a target="_blank" href="https://v2.jam-icons.com/?p=%2Fuse">Jam Icons</a><br/>
+            <a target="_blank" href="https://www.iconfinder.com/search/?q=jam">Jam icons iconfinder</a><br/>
+            <a href="https://www.flaticon.com/" target="_blank" rel="noopener noreferrer">Flaticon</a>
+          </p>
+        </div>
+      </section>
+    </footer>
+  </body>
+</html>

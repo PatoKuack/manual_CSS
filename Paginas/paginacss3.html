@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- No guardar cache en navegadores -->
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <!-- ------------------- -->
+  <link rel="stylesheet" href="../Estilos/stylecss3.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fundamentos</title>
+</head>
+<body>
+  <p>
+    <ul>
+      Especificidad, cascada y herencia son tres conceptos que nos ayudan a:
+      <li>entender cómo funciona CSS.</li>
+      <li>entender cómo CSS resuelve los conflictos.</li>
+      <li>entender cómo se definen las arquitecturas CSS.</li>
+      <ul>
+        <li>SMACSS.</li>
+        <li>OOCSS.</li>
+        <li>ITCSS.</li>
+      </ul>
+    </ul>
+  </p>
+  <p>
+    <h2>Especificidad</h2>
+    El navegador se enfoca más en las instrucciones más específicas que en las generales, también se da preferencia a las instrucciones más específicas que el orden de las instrucciones en cascada,<br>
+    es decir, se puede escribir una instrucción usando selectores en CSS, la especificidad que toma el navegador de acuerdo a los selectores corresponde a los siguientes puntajes:
+    <table>
+      <tr>
+        <td>
+          Etiquetas y pseudoelementos:
+        </td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>
+          Clases, atributos y pseudoclases:
+        </td>
+        <td>10</td>
+      </tr>
+      <tr>
+        <td>
+          Id:
+        </td>
+        <td>100</td>
+      </tr>
+      <tr>
+        <td>
+          Estilos en línea:
+        </td>
+        <td>1000</td>
+      </tr>
+    </table>
+    Se puede visualizar gráficamente la especificidad del código en el siguiente link: <a href=https://jonassebastianohlsson.com/specificity-graph/ title="gráfica de especificidad">CSS Specifity</a><br>
+    Se debe tener la especificidad más plana posible, sin tantos picos en la gráfica, por lo que generalmente sólo se usan <u>clases</u> en la especificidad.
+  </p>
+  <p>
+    <h3>Ejemplo de especificidad:</h3>
+    <pre>
+      h1{}                    /*1*/
+      .title{}                /*10*/
+      h1.title{}              /*11*/
+      #title{}                /*100*/
+      h1#title{}              /*101*/
+      h1.title#title{}        /*111*/
+      body > h1.title#title{} /*112*/
+    </pre>
+    Los estilos en el documento HTML (atributo <b>style</b>) o estilos en línea, es el que mayor especificidad tiene (1000)<br>
+    este atributo <b>style</b> es tan específico que se coloca directamente en el documento HTML.<br>
+    Existe una palabra clave: <b>!important</b><br>
+    Esta palabra se coloca después de los valores de las propiedades de los selectores (ejemplo: color: blue !important;) y tiene la habilidad de darle la más alta prioridad a éste selector,<br>
+    más que el atributo style en HTML, pero solamente se utiliza en ocasiones donde no haya otra alternativa que ocuparla.
+  </p>
+  <p>Se pueden utilizar otros metodos como la propiedad <a href="https://www.w3schools.com/cssref/pr_pos_z-index.asp">z-index: #;</a></p>
+  <p>
+    <h2>Cascada</h2>
+    Los estilos que se escriben al último, sobre escriben a los anteriores.<br>
+    También se pueden sobre escribir los atributos dentro de una instrucción, ejemplo:<br>
+    <code class="ejem">
+    .ejemplo{<br>
+      color: red;<br>
+      color blue;<br>
+    }
+    </code>
+    El flujo en el código es el orden en el que se imprimen los documentos en la página web conforme al documento HTML
+  </p>
+  <p>
+    <h2>Herencia</h2>
+    Es la capacidad que tienen los elementos de HTML de heredar los estilos básicos de sus ancestros (padres, abuelos, etc.)<br>
+    ejemplo de herencia y cascada:
+    <pre>
+      body{color: blue;} /*todo el cuerpo del documento se pondrá azul*/
+      h2{color: orange;} /*se sobre escribe la herencia del estilo azul por el naranja en títulos h2*/
+      ul{color: yellow;} /*se sobre escribe la herencia del estilo azul por el amarillo en listas desordenadas*/
+    </pre>
+    Existen dos valores que nos permiten obligar a heredar o desheredar.<br>
+    <b>inherit</b> nos permite heredar forzosamente el estilo del padre (ejemplo: a{color: inherit;})<br>
+    Esto es útil en elementos como enlaces cuyo color siempre es azulado y no se ve afectado por herencias.<br>
+    <b>initial</b> nos permite desheredar el estilo de ancestros colocando el elemento en su valor inicial (ejemplo: spam{font-size: initial;}).
+  </p>
+  <hr>
+  <section>
+    <div>
+      <h2>Arquitecturas CSS (Metodologías CSS)</h2>
+      <p>
+        Ayudan a mantener nuestro código y a hacerlo más escalable.
+      </p>
+      <h3>OOCSS (Object Oriented CSS)</h3>
+      <p>
+        Separa el diseño del contenido, es decir, si se tiene el mismo estilo en varios contenidos (como un font-size:1.5rem; en 5 etiquetas diferentes),<br/>
+        se crea una clase que contenga ese estilo en CSS y a todos los contenidos de HTML se les agrega esa clase.
+      </p>
+      <h3>BEM (Block Element Modify)</h3>
+      <p>
+        Separa los bloques, elementos y modificadores, es decir, los nombres de las clases en HTML pueden indicar su contenido, su etiqueta y a sus padres,<br/>
+        ejemplo: la siguiente clase viene de una etiqueta header, es un botón y su acción será cambiar una opción o imagen, class="header_button-next"
+      </p>
+      <h3>SMACSS (Scalable and Modular Architecture for CSS)</h3>
+      <dl>
+        <dt>Se divide el código CSS en cinco pasos:</dt>
+        <dd>Base, elementos que se usarán en toda la aplicación (botones).</dd>
+        <dd>Layout, elementos que se usarán sólo una sola vez (header, footer).</dd>
+        <dd>Modulo, elementos que se usarán más de una vez (section, div).</dd>
+        <dd>State, elementos que se modifican como botones al presionarlos.</dd>
+        <dd>Theme, separar los elementos de los temas en el código CSS para modificarlos o actualizarlos fácilmente.</dd>
+      </dl>
+      <h3>ITCSS (Inverted Triangle CSS)</h3>
+      <dl>
+        <dt>Para que los archivos CSS no se combinen entre si, se dividen en:</dt>
+        <dd>Ajustes</dd>
+        <dd>Herramientas</dd>
+        <dd>Genérico</dd>
+        <dd>Elementos</dd>
+        <dd>Objetos</dd>
+        <dd>Componentes</dd>
+        <dd>Utilidades</dd>
+      </dl>
+      <h3>Atomic Design</h3>
+      <dl>
+        <dt>Divide los elementos en 5 tipos:</dt>
+        <dd>Átomos, serían como pedazos de párrafos (p).</dd>
+        <dd>Moléculas, serían como divisiones (div) que encapsula los párrafos o las secciones (section) que contienen las divisiones.</dd>
+        <dd>Organismos, sería el main que contiene las secciones.</dd>
+        <dd>Templates (plantillas).</dd>
+        <dd>Páginas</dd>
+      </dl>
+    </div>
+  </section>
+</body>
+</html>

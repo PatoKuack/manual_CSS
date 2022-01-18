@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- No guardar cache en navegadores -->
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <!-- ------------------- -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../Estilos/stylecss41.css">
+  <link rel="stylesheet" href="../Estilos/normalization.css">
+  <title>SASS</title>
+</head>
+<body class="body">
+  <header class="bubble">
+    <section class="stars">
+      <div class="container">
+        <h1 class="center">SASS</h1>
+        <p><a target="_blank" href="https://sass-lang.com/">Sass</a> es un preprocesador escrito en Ruby en el año 2006.</p>
+        <p>Un preprocesador es un lenguaje que permite generar CSS a través de una sintaxis similar pero aprovechando características de la programación.</p>
+        <p>Algunos preprocesadores son:</p>
+        <ul>
+          <li>Sass (más utilizado).</li>
+          <li>Stylus (en desuso).</li>
+          <li>Less (en desuso).</li>
+        </ul>
+        <h3>Desventajas de CSS.</h3>
+        <ul>
+          <li>No hay forma de automatizar los estilos similares, se tienen que hacer manualmente.</li>
+          <li>No se pueden modificar fácilmente las guías de estilos (aunque ya existen variables CSS).</li>
+          <li>No se puede modularizar (dividir en partes) el código sin afectar el rendimiento del proyecto.</li>
+          <li>Es propenso a sobrescrituras, problemas de especificidad y cascada en proyectos grandes.</li>
+        </ul>
+        <h3>Ventajas de un preprocesador.</h3>
+        <ul>
+          <li>Estructurar los archivos en módulos pero compilarlos a un único archivo CSS resultante.</li>
+          <li>Programar estilos automáticamente.</li>
+          <li>Almacenar las guías de estilo del proyecto en variable.</li>
+          <li>Hacer que proyectos grandes sean mantenibles entre equipos de trabajo.</li>
+        </ul>
+        <h3>Ventajas de usar Sass.</h3>
+        <ul>
+          <li>Usado por proyectos líderes.</li>
+          <li>Gran comunidad y soporte.</li>
+          <li>Sintaxis sólida y similar a CSS.</li>
+          <li>Se puede usar en cualquier entorno (no solo en Ruby) con libsass.</li>
+        </ul>
+        <h3>Sintaxis de Sass.</h3>
+        <dl>
+          <dt>Existen 2 tipos de sintaxis en Sass:</dt>
+          <dl>
+            <ol>
+              <li><strong>Sintaxis .Sass</strong> (no recomendada, en desuso)</li>
+              <li><strong>Sintaxis .Scss</strong> (recomendada)</li>
+            </ol>
+          </dl>
+        </dl>
+      </div>
+    </section>
+  </header>
+  <main class="bubble">
+    <!-- Compilación -->
+    <section class="stars">
+      <div class="container">
+        <h2>Compilación.</h2>
+        <p>Es necesario convertir el código Sass a CSS para que el navegador pueda entenderlo, para ello es necesario una herramienta para compilar Sass. Si el código no se compila no va a funcionar.</p>
+        <h3>Herramientas desde el navegador.</h3>
+        <ul>
+          <li>Sass Meister (<a target="_blank" href="https://www.sassmeister.com/">https://www.sassmeister.com/</a>)</li>
+          <li>CodePen (<a target="_blank" href="https://codepen.io/">https://codepen.io/</a>)</li>
+        </ul>
+        <h3>Compiladores gráficos.</h3>
+        <ul>
+          <li>Prepros (recomendado) (<a target="_blank" href="https://prepros.io/">https://prepros.io/</a>)</li>
+          <li>CodeKit (<a target="_blank" href="https://codekitapp.com/">https://codekitapp.com/</a>)</li>
+          <li>Koala (<a target="_blank" href="http://koala-app.com/">http://koala-app.com/</a>)</li>
+          <li>Scout (<a target="_blank" href="https://scout-app.io/">https://scout-app.io/</a>)</li>
+        </ul>
+        <h3>Compilador por línea de comandos.</h3>
+        <ul>
+          <li>Ruby Sass (<a target="_blank" href="https://sass-lang.com/ruby-sass">https://sass-lang.com/ruby-sass</a>)</li>
+          <li>
+            Node Sass (recomendable)
+            <ol>
+              <li>Instalar node.js (<a target="_blank" href="https://nodejs.org/es/">https://nodejs.org/es/</a>)</li>
+              <li>Instalarlo en la terminal del editor de código con el comando <b>npm install -g node-sass</b></li>
+              <li>Probar si está instalado con el comando <b>node-sass --version</b></li>
+            </ol>
+          </li>
+        </ul>
+        <h3>Compilación de SCSS a CSS con Node.</h3>
+        <ol>
+          <li>Abrir la terminal en el editor de código.</li>
+          <li>
+            <p>Para compilar un archivo.scss a uno .css se escribir el comando <b>node-sass <u>archivo</u>.scss <u>archivo</u>.css</b></p>
+            <p>Para guardar la compilación automaticamente (sin generar el comando cada que se quiera compilar un archivo.scss) se escribe el comando <b>node-sass --watch style.scss style.css</b></p>
+            <p>Para guardar la compilación de un directorio a otro de forma automatica se utiliza el comando <b>node-sass --watch scss --output css</b> (scss = carpeta de entrada; css = carpeta de salida). Ésto hace que un archivo.scss de una carpeta guarde su compilación en un archivo.css (con el mismo nombre del .scss) de otra carpeta.</p>
+            <p>Se puede utilizar un shorthand de --watch (-w) y --output (-o) de la siguiente forma: <b>node-sass -w dir_entrada/scss -o dir_salida/css</b></p>
+          </li>
+        </ol>
+      </div>
+    </section>
+    <!-- Estructura del proyecto SASS -->
+    <section class="stars">
+      <div class="container">
+        <h2>Estructura del proyecto SASS.</h2>
+        <p>Para crear un proyecto con buenas practicas con SASS, se deben seguir los siguientes pasos:</p>
+        <ul>
+          <li>Crear carpetas diferentes para almacenar los archivos de .scss y .css para mantener un orden en los archivos.</li>
+          <li>Separar los archivos.scss en módulos (subdirectorios).</li>
+          <li>Crear un archivo principal .scss que tendrá como función importar todos los módulos para obtener una sola salida, por lo que es preferible que no esté dentro de una subcarpeta.</li>
+          <li>En el html linkear solo el archivo.css que se obtendrá como salida de los módulos compilados.</li>
+        </ul>
+      </div>
+    </section>
+    <!-- @import -->
+    <section class="stars">
+      <div class="container">
+        <h2>@import</h2>
+        <p>Es importante que la salida de los archivos de tipo .scss de un proyecto sea un solo archivo de tipo .css. Para estructurar todos los archivos.scss en el proyecto, se utilizan importaciones.</p>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><b>menu.scss</b></span><br/>
+            .menu {<br/>
+            &ensp;background: pink;<br/>
+            }
+            <hr/>
+            <span class="center block"><b>styles.scss</b></span><br/>
+            @import "menu.scss";<br/>
+            <i class="coment">// No es necesario colocar la extención .scss pues solo se pueden importar archivos .scss</i>
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><b>menu.css</b></span><br/>
+            .menu {<br/>
+            &ensp;background: pink;<br/>
+            }
+            <hr/>
+            <span class="center block"><b>styles.css</b></span><br/>
+            .menu {<br/>
+              &ensp;background: pink;<br/>
+              }
+          </aside>
+        </div>
+        <p>Lo ideal es crear subcarpetas en una carpeta llamada SASS en el proyecto para organizar los archivos dependiendo su contenido como variables o secciones del proyecto. Para evitar que las importaciones entre los archivos.scss creen archivos.css al compilarse, se agrega un <i>guion bajo</i> al comienzo del nombre del archivo.scss (convirtiendolo en un partial) para indicarle al compilador que debe ignorar a ése archivo (no es necesario importar los archivos con el guion bajo), ejemplo:</p>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><b>_menu.scss</b></span><br/>
+            .menu {<br/>
+            &ensp;background: pink;<br/>
+            }
+            <hr/>
+            <span class="center block"><b>styles.scss</b></span><br/>
+            @import "<span class="bold">menu<i class="coment">.scss</i></span>";
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><b>styles.css</b></span><br/>
+            .menu {<br/>
+            &ensp;background: pink;<br/>
+            }
+          </aside>
+        </div>
+        <p>Es posible especificar valores de las variables importadas, pero se debe tomar en cuenta la compilación en cascada.</p>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><b>_menu.scss</b></span><br/>
+            .menu {<br/>
+            &ensp;background: $color;<br/>
+            }
+            <hr/>
+            <span class="center block"><b>styles.scss</b></span><br/>
+            $color: pink;<br/>
+            @import "menu<i class="coment">.scss</i>";<br/><br/>
+            .body{<br/>
+            &ensp;...<br/>
+            }
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><b>styles.css</b></span><br/>
+            .menu {<br/>
+            &ensp;background: pink;<br/>
+            }<br/><br/>
+            .body{<br/>
+            &ensp;...<br/>
+            }
+          </aside>
+        </div>
+        <p>Lo más común y eficiente es declarar las variables del proyecto en un archivo llamado <b>_config.scss</b> e importarlo al inicio del archivo que generará la salida .css.</p>
+      </div>
+    </section>
+  </main>
+  <footer class="bubble">
+    <section class="container">
+      <div class="stars">
+        <h3>Referencias:</h3>
+        <p>
+          <a target="_blank" href="https://www.sassmeister.com/">Herramienta para probar sintaxis de Sass.</a><br/>
+          <a target="_blank" href="https://thesassway.com/sass-vs-scss-which-syntax-is-better/">SASS VS SCSS.</a><br/>
+        </p>
+      </div>
+    </section>
+  </footer>
+</body>
+</html>

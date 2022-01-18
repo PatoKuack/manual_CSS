@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- No guardar cache en navegadores -->
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <!-- ------------------- -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../Estilos/stylecss8.css">
+  <title>Background</title>
+</head>
+<body>
+  <div>
+    <h2>Background (fondos)</h2>
+    Background es un shorthand, es decir, una propiedad que agrupa otras propiedades, así como lo es margin o padding.
+  </div>
+  <article class="bgcolor">
+    <b>background-color: <i>color</i>;</b><br>
+    Es la correcta forma de definir un color de fondo, los colores rellenan todo.
+    <img src="../Imgs/bg_color.jpg" title="ejemplo de color de fondo" alt="ejemplo de color de fondo">
+  </article>
+  <article class="bgimach">
+    <b>background-image: url(<i>url web | ubicación del archivo en el equipo</i>);</b><br>
+    Incrusta una imagen de fondo colocando una URL de internet o el directorio de una imagen guardada en el equipo de cómputo.
+    <img src="../Imgs/bg_imach.jpg" title="ejemplo de imagen de fondo" alt="ejemplo de imagen de fondo">
+  </article>
+  <article class="bgripit">
+    <b>background-repeat: <i>repeat | no-repeat | repeat-X | repeat-Y</i></b><br>
+    Repite o no la imagen de fondo (repeat es su valor predeterminado).<br>
+    <b>repeat</b> hace que se repita la imagen en todas direcciones.<br>
+    <b>no-repeat</b> evita que se repita.<br>
+    <b>repeat-X</b> la repite en el eje X (repeticiones una al lado de la otra).<br>
+    <b>repeat-Y</b> la repite en el eje Y (repeticiones una abajo de la otra).
+    <img src="../Imgs/bgripit.jpg" title="ejemplo de imagen no repetida" alt="ejemplo de imagen no repetida">
+  </article>
+  <article class="bgsais">
+    <b>background-size: <i>auto | [ancho]px | [ancho]px [alto]px</i>;</b><br>
+    Modifica el tamaño de la imagen de fondo (auto es el valor predeterminado).<br>
+    <b>auto</b> coloca el tamaño original.<br>
+    Se puede colocar el <b>ancho</b> deseado en pixeles y el largo se modifica automáticamente.<br>
+    Se puede colocar el <b>ancho</b> y el <b>largo</b> en pixeles (también se pueden utilizar porcentajes % en vez de pixeles px).
+    <img src="../Imgs/bgsais.jpg" title="ejemplo de modificación de tamaño con pixeles" alt="ejemplo de modificación de tamaño con pixeles">
+  </article>
+  <article class="bgsaisc">
+    <b>background-size: <i>contain | cover</i>;</b><br>
+    Ajusta la imagen de fondo a su contenido.<br>
+    <b>contain</b> la adapta para que se visualice en la pantalla completa y si el navegador se agranda o se achica, la imagen adaptará su tamaño para verse completa sin deformarse, pero al no deformarse, obliga a que la imagen no cubra por completo el contenido.<br>
+    <b>cover</b> obliga a que la imagen de fondo cubra todo el contenido aunque implique deformarse, además de que la imagen no se adapta al cambio de tamaño del navegador y la imagen se corta en lo alto o en lo ancho.
+    <image src="../Imgs/bgsaisc.jpg" title="ejemplo de relleno en el contenido" alt="ejemplo de relleno en el contenido">
+  </article>
+  <article class="bgpos1">
+    <b>background-position: <i><u>+</u> [coordenada X] px <u>+</u> [coordenada Y] px</i>;</b><br>
+    Coloca la imagen de fondo en las coordenadas colocadas (<u>+</u>X <u>+</u>Y) (también se pueden utilizar porcentajes % en vez de pixeles px).
+    <image src="../Imgs/bgpos1.jpg" title="ejemplo de posicionamiento con coordenadas" alt="ejemplo de posicionamiento con coordenadas">
+  </article>
+  <article class="bgpos2">
+    <b>background-position: <i>[left | center | right] [#px] [top | center | bottom] [#px]</i>;</b><br>
+    Coloca la imagen de fondo en las posiciones colocadas.<br>
+    El primer valor indica la posición vertical.<br>
+    El segundo valor indica la separación vertical con el borde del navegador.<br>
+    El tercer valor indica la posición horizontal.<br>
+    El cuarto valor indica la separación horizontal con el borde del navegador.<br>
+    Ejemplo: right 20px bottom 20px<br>
+    Ejemplo explicado: coloca la imagen de fondo a la derecha del usuario despegada 20px del borde del navegador y hasta abajo despegada 20px del borde del navegador (también se pueden utilizar porcentajes % en vez de pixeles px).
+    <image src="../Imgs/bgpos2.jpg" title="ejemplo de posicionamiento sin coordenadas" alt="ejemplo de posicionamiento sin coordenadas">
+  </article>
+  <article class="bgclip">
+    <b>background-clip: <i>content-box | border-box | padding-box</i>;</b><br>
+    Nos permite escoger padding-box (caja creada por el relleno), content-box (caja creada por el contenido) o border-box (caja creada por el borde) para colocar la imagen de fondo dentro de la caja escogida (border-box es el valor predeterminado).<br>
+    Para que la imagen de fondo dentro de una caja no se deforme se coloca el código universal: <i>(*, *:before, *:after{box-sizing:border-box})</i>.<br>
+    <b>content-box</b> acomoda la imagen para contenerla en el contenido de la caja.<br>
+    <b>border-box</b> acomoda la imagen para contenerla hasta el borde de la caja.<br>
+    <b>padding-box</b> acomoda la imagen para contenerla hasta el relleno de la caja.
+    <image src="../Imgs/bgclip.jpg" title="ejemplo de limitante de fondo" alt="ejemplo de limitante de fondo">
+  </article>
+  <article class="bgorillin">
+    <b>background-origin: <i>content-box | border-box | padding-box</i>;</b><br>
+    Indica desde dónde comienza a dibujarse la imagen de fondo, desde la caja de contenido, borde o relleno.<br>
+    A diferencia del <i>background-clip</i>, éste no limita sus duplicados para no pasar de su caja correspondiente.<br>
+    Siempre se comienza a dibujar desde arriba a tu izquierda hasta abajo a tu derecha.
+    <image src="../Imgs/bgorillin.jpg" title="ejemplo de comienzo de fondo" alt="ejemplo de comienzo de fondo">
+  </article>
+  <article class="bgatachment">
+    <b>background-attachment: <i>fixed</i>;</b><br>
+    Indica si la imagen de fondo ignorará el scroll activando el fixed o se moverá junto con él (el valor por default es scroll).<br>
+    Se puede jugar con más de una imagen para simular unas y otras no.
+    <image src="../Imgs/bgatachment.jpg" title="ejemplo de ignoro del scroll" alt="ejemplo de ignoro del scroll">
+  </article>
+  <article class="bg">
+    <b>background: <i>url position / size repeat attachment origin clip color</i>;</b><br>
+    Cuando se aplica este tipo de instrucción-múltiple-shorthand múltiples veces en una instrucción y se declara una propiedad como tamaño en una de las imágenes, ésta propiedad se tiene que aplicar a todas las imágenes declaradas, ejemplo:<br>
+    <b>background-size: 20%;<br>
+    background: url(oso.jpg) 0 0 / 50%, url(nieve.jpg) center center;<br>
+    background-repeat: no-repeat;</b><br>
+    El <i>no-repeat</i> se aplicará a todas las imágenes<br>
+    Todas las imágenes tienen una posición definida cada una, pero solo la primera imagen tiene definida una coordenada. Ya que las demás imágenes no tienen definida una, se le aplicará la coordenada de la primera imagen a las demás.<br>
+    La primera instrucción <b>background-size</b> no es aplicada por el efecto de la segunda instrucción <b>background</b>, por el estilo en cascada se sobre escribe el tamaño de 20% por el de 50% en todas las imágenes.<br>
+    El slash (/) tiene que colocarse a fuerza después de colocar la url o la posición.
+    <image src="../Imgs/bg.jpg" title="ejemplo de comienzo de fondo" alt="ejemplo de comienzo de fondo">
+  </article>
+  <div class="other">
+    Se pueden utilizar múltiples background en una sola instrucción por ejemplo:<br>
+    <b>background-image: url(oso.jpg), url(nieve.jpg), url(caña.jpg);<br>
+    background-size: 20%, 40%, 60%;<br>
+    background-position: 0 0, center center, right bottom;</b>
+  </div>
+  <aside>
+    Hay una propiedad llamada <b>opacity</b> que manipula la opacidad de un contenido, ejemplo:<br>
+    <b>opacity: 0%;</b> en este caso vuelve transparente el contenido del elemento.<br>
+    <b>opacity: 50%;</b> en este caso vuelve un poco transparente el contenido del elemento.
+  </aside>
+</body>
+</html>

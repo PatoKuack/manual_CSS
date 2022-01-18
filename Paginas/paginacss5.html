@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- No guardar cache en navegadores -->
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <!-- ------------------- -->
+  <link rel="stylesheet" href="../Estilos/stylecss3.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Propiedades MC</title>
+</head>
+<body>
+  <h1>Propiedades del modelo de caja 1</h1>
+  <span class="shorth">
+    <b>shorthand</b>: termino que se le da a una propiedad que agrupa en ella varias propiedades.
+  </span>
+  <p>El espacio reservado es el espacio total que ocupa un elemento en la página web.</p>
+  <>
+    <h2>Margin</h2>
+    Margin hace referencia al margen del elemento o bloque, ningún otro elemento puede acercarse a éste rebasando su margen. Es la separación externa de un elemento.<br>
+    <img src="../Imgs/margin border padding.jpg" alt="inspector de propiedades del navegador" title="inspector de propiedades"><br>
+    Con esta propiedad se puede manipular el ancho del margen de cada elemento:<br>
+    <b>margin-top: #px;</b> el lado superior del margen será del ancho #.<br>
+    <b>margin-right: #px;</b> el lado derecho del margen será del ancho #.<br>
+    <b>margin-bottom: #px;</b> el lado inferior del margen será del ancho #.<br>
+    <b>margin-left: #px;</b> el lado izquierdo del margen será del ancho #.<br>
+    <b class="shorth">margin: #px #px #px #px;</b> se le asignarán los valores a los márgenes superior, derecho, inferior, izquierdo respectivamente.<br>
+    <b>margin: #px #px #px;</b> se le asignarán los valores a los márgenes superior, derecho, inferior respectivamente, y el valor del izquierdo se tomará idéntico al derecho.<br>
+    <b>margin: #px #px;</b> se le asignarán los valores a los márgenes superior y derecho respectivamente, el valor del izquierdo será igual que el derecho y el valor inferior será igual que el superior.<br>
+    <b>margin: #px;</b> todo el ancho del margen será de #.<br>
+    <b>margin: #%</b> se puede usar porcentaje pero el porcentaje se toma del tamaño de BODY (el #% de todo el espacio de BODY).<br><br>
+    La propiedad <b>margin</b> con un valor <b>auto</b> tiene la habilidad de absorber todo el espacio disponible en la dirección indicada,<br>
+    por ejemplo: <i>margin-top: auto;</i> absorbe todo el espacio superior mandando al elemento hasta abajo de la página.<br>
+    Para centrar un elemento de <i>bloque</i> en la página o dentro de otro elemento, se utiliza la propiedad y el valor <b>margin-left: auto;</b> y <b>margin-right: auto;</b><br>
+    Los elementos <i>inline</i> como las imágenes se deben convertir en <i>bloque</i> con <i>display: bloque;</i>.<br><br>
+    Cuando se manipulan márgenes en elementos que están horizontales (uno al lado del otro) se suman los margener pero los márgenes verticales (uno abajo del otro) se enciman (colapsan).<br>
+    <img src="../Imgs/margen1.jpg" alt="Márgenes horizontales" title="Márgenes horizontales" width="500px">
+    <img src="../Imgs/margen2.jpg" alt="Márgenes verticales" title="Márgenes verticales" width="300px"><br>
+    Lo recomendable es usar sólo <i>margin-bottom</i> cuando se trabaje con márgenes verticales.<br><br>
+    Cuando se usa un elemento dentro de otro elemento, sus márgenes verticales (top y bottom) se enciman (colapsan), esto se arregla con la propiedad <i>padding</i> con un valor de 0.1px o 1px.
+  </p>
+  <p>
+    <h2>Outline</h2>
+    Línea externa dibujada entre <i>margin</i> y <i>border</i> restándole dimensión solo a <i>margin</i> (es como un borde del borde),<br>
+    ésta línea se sobrepone (se encima) con los elemento adyacentes,<br>
+    generalmente se usa para resaltar elementos como errores o rellenar campos. <br>
+    Tiene los mismos valores y notación que un borde (ejemplo: outline: #px -tipo de línea- -color-;).<br>
+    <img src="../Imgs/outline.jpg" alt="ejemplo visual del outline" title="ejemplo visual del outline">
+  </p>
+  <p>
+    <h2>Padding</h2>
+    Es la separación entre el límite de una caja y su contenido<br>
+    <img src="../Imgs/padding.jpg" alt="Margin, padding y contenido" title="Margin, padding y contenido" width="400px"><br>
+    Al igual que <i>margin</i>, se pueden tomar las reglas de valores usando <i>top, right, bottom, left</i> y la abreviación (shorthand) de la propiedad <b>padding</b> usando de 1 a 4 valores.<br>
+    También se pueden usar valores por porcentajes como en <i>margin</i>, pero <u>el porcentaje en este caso se toma del espacio que abarque el elemento</u>.
+  </p>
+</body>
+</html>

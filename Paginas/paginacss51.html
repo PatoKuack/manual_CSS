@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- No guardar cache en navegadores -->
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <!-- ------------------- -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introducción</title>
+</head>
+<body>
+  <header>
+    <section class="container">
+      <div>
+        <h1 class="center"></h1>
+        <p></p>
+      </div>
+    </section>
+  </header>
+  <main>
+    <!-- W3C -->
+    <section class="container">
+      <div>
+        <h2>W3C</h2>
+        <p>La <a href="https://www.w3.org/TR/CSS/" target="_blank" rel="noopener noreferrer">W3C</a> funciona como un congreso que intenta darle orden a las especificaciones de CSS.</p>
+      </div>
+    </section>
+    <!-- Animaciones -->
+    <section class="container">
+      <div>
+        <h2>Animaciones.</h2>
+        <p>Las <b>transiciones</b> son la animación de un elemento de un estado inicial a un estado final. Requieren un evento para ejecutarse.</p>
+        <p>Las <b>animaciones</b> son la transición o cambio de una propiedad CSS, desde un estado a otro a través del tiempo. Un cambio instantaneo no se considera una animación.</p>
+        <p>Un cambio de estado en CSS se calcula cuando el navegador reacciona a dicho cambio. El navegador calcula los estados intermedios (esos estados intermedios se conocen como interpolación), que no han sido definidos, para que las transiciones sean fluidas.</p>
+        <p>Un <b>trigger</b> es el cambio que ocurre en el navegador cuando una propiedad de CSS cambia. Una animación mal creada puede consumir muchos recursos del navegador.</p>
+        <p>Etapas del renderizado:</p>
+        <ol>
+          <li><b>Layout</b>: analiza la geometría y posición de los elementos.</li>
+          <li><b>Paint</b>: pintar los píxeles de los elementos.</li>
+          <li>
+            <b>Composite</b>: combina y dibuja las capas en pantalla, sin afectar el Layout o Paint.
+            <ul>
+              <li>Solo opacity y transform desencadenan la composición.</li>
+              <li>Se crea una capa que almacena al objeto y solo esa capa es transformada, en lugar de repintar todos los pixeles.</li>
+              <li>Un cambio de estado en Composite consume muchos menos recursos que un cambio en Layout o Paint.</li>
+            </ul>
+          </li>
+        </ol>
+        <p>Con <a href="https://csstriggers.com/" target="_blank" rel="noopener noreferrer">CSS Trigger</a> se puede observar cuanto consumo de capa, pintado y composición le exige a cada motor de renderizado de los navegadores.</p>
+        <p>Una animación tiene momentos intermedios donde una propiedad cambia llamados <b>keyframes</b>, estos keyframes ayudan a controlar de manera detallada los puntos clave de la animación.</p>
+        <p>En la documentación oficial (<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties" target="_blank" rel="noopener noreferrer">tabla de propiedades CSS animables</a>), cada propiedad CSS debe indicar si es animable o no, aunque hay propiedades que son animables en teoría pero no en la práctica, por ejemplo las propiedades con un tipo de animación entero que solo pueden adquirir una tracición de 0 a 1 lo cual no es una animación. Es posible cambiar el estado de estas propiedades, pero no se puede animar sus estados intermedios por medio de CSS, sin embargo si se puede por medio de Java Sript.</p>
+        <p>Todas las propiedades tienen un valor por default, algunas tienen un valor "auto", si a ese valor se le aplica una transición de 80px no aplicará la animación porque no sabrá que valores calcular entre auto y 80px. Así que en este caso se podría inicializar un valor para que fluya la animación.</p>
+        <p>En otros casos los valores de una propiedad no corresponden a valores numericos, por lo que no se podrá animar. Por ejemplo un display no puede tener valores numericos, por lo que no se puede animar.</p>
+      </div>
+    </section>
+    <!-- Variables default -->
+    <section class="container">
+      <div>
+        <h2>Variables default.</h2>
+        <p>Existen variables en CSS para todas las propiedades que permiten obtener determinados resultados en cada propiedad:</p>
+        <dl>
+          <dt>initial</dt>
+          <dd>Establece el valor por defecto (de la especificación, no del código) de la propiedad.</dd>
+          <dt>inherit</dt>
+          <dd>Fuerza al elemento a heredar la propiedad de su padre, incluso aquellas que no se pueden heredar por especificación.</dd>
+          <dt>unset</dt>
+          <dd>Borra los valores declarados y los regresa a sus valores iniciales, es decir a los heredados por su padre o a los valores por defecto.</dd>
+          <dt>revert</dt>
+          <dd>Regresa la propiedad a los estilos del usuario (estilos que el usuario modifica desde su navegador) o del user agent (estilos del navegador).</dd>
+          <dt>currentcolor</dt>
+          <dd>Usa el color definido en el contexto, es decir en su contenedor o elemento padre. Es una variable que almacena el valor actual y cada vez que cabie ese valor, todos los elementos usando currentcolor también cambian.</dd>
+        </dl>
+      </div>
+    </section>
+    <!--  -->
+    <section class="container">
+      <div>
+        <h2></h2>
+        <p></p>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <section class="container">
+      <div>
+        <h3>Referencias:</h3>
+        <p>
+          <a href="https://www.w3.org/TR/CSS/" target="_blank" rel="noopener noreferrer">W3C - CSS Snapshot.</a><br/>
+          <a href="https://csstriggers.com/" target="_blank" rel="noopener noreferrer">CSS Trigger.</a><br/>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference" target="_blank" rel="noopener noreferrer">Tabla de propiedades CSS.</a><br/>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties" target="_blank" rel="noopener noreferrer">Tabla de propiedades CSS animables.</a><br/>
+          <a href="https://cssreference.io/" target="_blank" rel="noopener noreferrer">Tabla de propiedades CSS con valores iniciales.</a><br/>
+          <a href="https://tympanus.net/codrops/css_reference/" target="_blank" rel="noopener noreferrer">Tabla general CSS.</a><br/>
+          <a href="https://projects.verou.me/animatable/" target="_blank" rel="noopener noreferrer">Muestra de animaciones.</a><br/>
+          <a href="https://greensock.com/forums/topic/13545-non-animatable-css-properties/" target="_blank" rel="noopener noreferrer">Hilo de respuestas con proyectos animables con JS.</a><br/>
+        </p>
+      </div>
+    </section>
+  </footer>
+</body>
+</html>

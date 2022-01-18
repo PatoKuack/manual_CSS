@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- No guardar cache en navegadores -->
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <!-- ------------------- -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../Estilos/stylecss41.css">
+  <link rel="stylesheet" href="../Estilos/normalization.css">
+  <title>Funciones en SASS</title>
+</head>
+<body class="body">
+  <header class="bubble">
+    <section class="stars">
+      <div class="container">
+        <h1>Funciones.</h1>
+        <p>Las funciones son trozos de código cuyo objetivo es devolver un valor, es decir, realizan cálculos y devolver un valor final.</p>
+        <p>La diferencia entre los mixins y las funciones es que los mixins pueden devolver todo un bloque de código, selectores, reglas CSS y muchas cosas más, en cambio las funciones devuelven un solo valor.</p>
+        <p><i>En SASS todo lo que comience con @ se le llama directiva.</i></p>
+      </div>
+    </section>
+  </header>
+  <main class="bubble">
+    <!-- @function y @return -->
+    <section class="stars">
+      <div class="container">
+        <h2>@function y @return</h2>
+        <p>Para crear una función se utiliza la directiva <strong>@function</strong> seguido del nombre de la función, un bloque de parentesis en donde se puede o no colocar parámetros, casi por por último un bloque de llaves en donde se coloca el código de la función y por último se utiliza la directiva <strong>@return</strong> para retornar el valor final.</p>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><u>.scss</u></span><br/>
+            <i class="coment">//1. Creación de la función.</i><br/>
+            @function name() {<br/>
+            &ensp;<i class="coment">//lógica de la función.</i><br/>
+            &ensp;$value = valor;<br/>
+            &ensp;@return $value;<br/>
+            }<br/>
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><u>.css</u></span><br/>
+          </aside>
+        </div>
+        <p>Para utilizar la función se coloca el nombre de la función y un bloque de parentesis en donde se puede o no colocar parámetros.</p>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><u>.scss</u></span><br/>
+            <i class="coment">/*2. Utilización de la función creada:*/</i><br/>
+            selector {<br/>
+            &ensp;propiedad: name();<br/>
+            }
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><u>.css</u></span><br/><br/>
+            selector {<br/>
+            &ensp;propiedad: valor;<br/>
+            }
+          </aside>
+        </div>
+        <p>Las funciones no son exclusivas de SASS, en CSS también existen funciones tales como url(), calc(), translate(), entre otros. La diferencia radica que en SASS se pueden crear funciones propias, mientras que en CSS no.</p>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><u>.scss</u></span><br/>
+            @function double($number) {<br/>
+            &ensp;@if type-of($number) == number {<br/>
+            &ensp;&ensp;@return $number * 2;<br/>
+            &ensp;}<br/>
+            &ensp;@return null;<br/>
+            }<br/><br/>
+            .body{<br/>
+            &ensp;font-size: double(1em);<br/>
+            }
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><u>.css</u></span><br/>
+            .body{<br/>
+            &ensp;font-size: double(1em);<br/>
+            }
+          </aside>
+        </div>
+        <p>Se suele tener dos carpetas en un proyecto, una llamada "src" o "dev" y en ellas se colocan los archivos no compilados como los SASS, en cambio en la segunda carpeta llamada "public" se almacenan los archivos compilados como los CSS o las imágenes. Cuando se llama a una imágen por una propiedad en css, la ruta de la imagen debe ser relativa a la carpeta "public", para facilitar la relación entre las rutas se puede crear una función en SASS muy útil:</p>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><b>_functions.scss</b></span><br/>
+            @function pathImg($image) {<br/>
+            &ensp;@return url($path + $image);<br/>
+            }
+            <hr/>
+            <span class="center block"><b>_variables.scss</b></span><br/>
+            $path: '/img/';
+            <hr/>
+            <span class="center block"><b>styles.scss</b></span><br/>
+            @import "config/variables.scss";<br/><br/>
+            @import "config/functions.scss";<br/><br/>
+            .div{<br/>
+            &ensp;background-image: pathImg(imagen.jpg)<br/>
+            }
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><u>.css</u></span><br/>
+            .body{<br/>
+            &ensp;font-size: double(1em);<br/>
+            }
+          </aside>
+        </div>
+        <p>Cuando el proyecto es muy grande se puede perder facilmente las relaciones de los archivos y si se modifica el nombre o la posición de almacenamiento de las imágenes sería problematico cambiarle la ruta a los archivos y a los pedazos de código en donde son llamas las imágenes, pero en este caso solo se debería cambiar la ruta en la variable $path del archivo "_variables.scss".</p>
+      </div>
+    </section>
+    <!-- funciones extra -->
+    <section class="stars">
+      <div class="container">
+        <h2>Funciones extra.</h2>
+        <h3>Funciones de strings.</h3>
+        <dl>
+          <dt>unquote($variable)</dt>
+          <dd>Elimina las comillas de una variable.</dd>
+          <div class="idEst">
+            <aside class="exempliGratia egSCSS">
+              <span class="center block"><u>.scss</u></span><br/>
+              $width: 1px;<br/>
+              $style: solid;<br/>
+              $color: violet;<br/><br/>
+              .example {<br/>
+              &ensp;border: unquote($width + ' ' + $style + ' ' + $color);<br/>
+              }
+            </aside>
+            <aside class="exempliGratia egCSS">
+              <span class="center block"><u>.css</u></span><br/><br/><br/><br/><br/>
+              .example {<br/>
+              &ensp;border: 1px solid violet;<br/>
+              }
+            </aside>
+          </div>
+          <dt>quote($variable)</dt>
+          <dd>Agrega comillas a una variable.</dd>
+          <div class="idEst">
+            <aside class="exempliGratia egSCSS">
+              <span class="center block"><u>.scss</u></span><br/>
+              $style: solid;<br/><br/>
+              .example {<br/>
+              &ensp;content: quote($style);<br/>
+              }
+            </aside>
+            <aside class="exempliGratia egCSS">
+              <span class="center block"><u>.css</u></span><br/><br/><br/>
+              .example {<br/>
+              &ensp;content: "solid";<br/>
+              }
+            </aside>
+          </div>
+          <dt>str-index($variable, $character)</dt>
+          <dd>Devuelve en numero, la posición del caracter indicado en el segundo argumento que se encuentra en la variable indicado en el primer argumento.</dd>
+          <div class="idEst">
+            <aside class="exempliGratia egSCSS">
+              <span class="center block"><u>.scss</u></span><br/>
+              $style: solid;<br/><br/>
+              .example{<br/>
+              &ensp;index: str-index($style, 'i');<br/>
+              }
+            </aside>
+            <aside class="exempliGratia egCSS">
+              <span class="center block"><u>.css</u></span><br/><br/>
+              .example{<br/>
+              &ensp;index: 4;<br/>
+              }
+            </aside>
+          </div>
+          <dt>str-length($variable)</dt>
+          <dd>Devuelve el numero de caracteres que hay en la variable especificada en el argumento de la función.</dd>
+          <div class="idEst">
+            <aside class="exempliGratia egSCSS">
+              <span class="center block"><u>.scss</u></span><br/>
+              $style: solid;<br/><br/>
+              .example{<br/>
+              &ensp;length: str-length($style);<br/>
+              }
+            </aside>
+            <aside class="exempliGratia egCSS">
+              <span class="center block"><u>.css</u></span><br/><br/>
+              .example{<br/>
+              &ensp;length: 5;<br/>
+              }
+            </aside>
+          </div>
+          <dt>to-upper-case($variable)</dt>
+          <dd>Devuelve la variable (generalmente es de tipo string) con todos sus caracteres en mayúscula.</dd>
+          <dt>to-lower-case($variable)</dt>
+          <dd>Devuelve la variable (generalmente es de tipo string) con todos sus caracteres en minúscula.</dd>
+        </dl>
+        <h3>Funciones de números</h3>
+        <dl>
+          <dt>percentage($number)</dt>
+          <dd>Recibe un número como argumento y lo convierte a porcentaje (1 equivale a 100%).</dd>
+          <div class="idEst">
+            <aside class="exempliGratia egSCSS">
+              <span class="center block"><u>.scss</u></span><br/>
+              @function columns($columns, $total-columns){<br/>
+              &ensp;@return percentage($columns / $total-columns);<br/>
+              }<br/>
+              for $i from 1 through 12 {<br/>
+              &ensp;.example-#{$i}{<br/>
+              &ensp;&ensp;width: columns($i, 12);<br/>
+              &ensp;}<br/>
+              }
+            </aside>
+            <aside class="exempliGratia egCSS">
+              <span class="center block"><u>.css</u></span><br/><br/>
+              .example-1{<br/>
+              &ensp;width: 8.33333%;<br/>
+              }<br/>
+              .example-2{<br/>
+              &ensp;width: 16.66667%;<br/>
+              }<br/>
+              ...
+              .example-12{<br/>
+              &ensp;width: 100%;<br/>
+              }<br/>
+            </aside>
+          </div>
+          <dt>max($numbers1, $numbers2)</dt>
+          <dd>Devuelve el valor máximo de una lista de números.</dd>
+          <dt>min($numbers1, $numbers2)</dt>
+          <dd>Devuelve el valor mínimo de una lista de números.</dd>
+          <dt>floor($number)</dt>
+          <dd>Redondea un número hacia abajo.</dd>
+          <div class="idEst">
+            <aside class="exempliGratia egSCSS">
+              <span class="center block"><u>.scss</u></span><br/>
+              .example{<br/>
+              &ensp;width: floor(7.9);<br/>
+              }
+            </aside>
+            <aside class="exempliGratia egCSS">
+              <span class="center block"><u>.css</u></span><br/><br/>
+              .example{<br/>
+              &ensp;width: 7;<br/>
+              }
+            </aside>
+          </div>
+          <dt>ceil($number)</dt>
+          <dd>Redondea un número hacia arriba.</dd>
+          <div class="idEst">
+            <aside class="exempliGratia egSCSS">
+              <span class="center block"><u>.scss</u></span><br/>
+              .example{<br/>
+              &ensp;width: ceil(4.01);<br/>
+              }
+            </aside>
+            <aside class="exempliGratia egCSS">
+              <span class="center block"><u>.css</u></span><br/><br/>
+              .example{<br/>
+              &ensp;width: 5;<br/>
+              }
+            </aside>
+          </div>
+          <dt>round($number)</dt>
+          <dd>Redondea según la aproximación.</dd>
+          <div class="idEst">
+            <aside class="exempliGratia egSCSS">
+              <span class="center block"><u>.scss</u></span><br/>
+              .example{<br/>
+              &ensp;width: round(50.5);<br/>
+              &ensp;height: round(50.49);<br/>
+              }
+            </aside>
+            <aside class="exempliGratia egCSS">
+              <span class="center block"><u>.css</u></span><br/><br/>
+              .example{<br/>
+              &ensp;width: 51;<br/>
+              &ensp;height: 50;<br/>
+              }
+            </aside>
+          </div>
+          <dt>random($limit)</dt>
+          <dd>Devuelve un número entero aleatorio entre 0 y el parámetro que se le defina.</dd>
+          <div class="idEst">
+            <aside class="exempliGratia egSCSS">
+              <span class="center block"><u>.scss</u></span><br/>
+              .example{<br/>
+              &ensp;width: random(15);<br/>
+              }
+            </aside>
+            <aside class="exempliGratia egCSS">
+              <span class="center block"><u>.css</u></span><br/><br/>
+              .example{<br/>
+              &ensp;width: 11;<br/>
+              }
+            </aside>
+          </div>
+        </dl>
+        <h3>Funciones de listas.</h3>
+        <dl>
+          <dt>nth($lista, $i)</dt>
+          <dd>Extrae de una lista el elemento que este posicionado en la posición indicada por el segundo parámetro.</dd>
+          <dd class="bold">Es importante tomar en cuenta que en SASS se indexan las listas apartir de 1 y no de 0 como en el resto de los lenguajes de programación.</dd>
+          <div class="idEst">
+            <aside class="exempliGratia egSCSS">
+              <span class="center block"><u>.scss</u></span><br/>
+              $colors: ( yellow, blue, red );<br/><br/>
+              .example{<br/>
+              &ensp;color: nth($colors, 1);<br/>
+              }
+            </aside>
+            <aside class="exempliGratia egCSS">
+              <span class="center block"><u>.css</u></span><br/><br/><br/>
+              .example{<br/>
+              &ensp;color: yellow;<br/>
+              }
+            </aside>
+          </div>
+          <dt>index($list, $value)</dt>
+          <dd>Devuelve el indice del valor indicado en el segundo parámetro, de la lista indicada en el primer parámetro.</dd>
+          <div class="idEst">
+            <aside class="exempliGratia egSCSS">
+              <span class="center block"><u>.scss</u></span><br/>
+              $colors: ( yellow, blue, red );<br/><br/>
+              .example{<br/>
+              &ensp;border: index($colors, blue);<br/>
+              }
+            </aside>
+            <aside class="exempliGratia egCSS">
+              <span class="center block"><u>.css</u></span><br/><br/><br/>
+              .example{<br/>
+              &ensp;border: 2<br/>
+              }
+            </aside>
+          </div>
+          <dt>join($list1, $list2, $separator: espace | comma)</dt>
+          <dd>Agrupa listas especificadas separando sus valores por espacios o por comas.</dd>
+          <div class="idEst">
+            <aside class="exempliGratia egSCSS">
+              <span class="center block"><u>.scss</u></span><br/>
+              $margin1: ( 1px 2px );<br/>
+              $margin2: ( 2px 1.5px );<br/><br/>
+              .example{<br/>
+              &ensp;border: join($margin1, $margin2, comma);<br/>
+              }
+            </aside>
+            <aside class="exempliGratia egCSS">
+              <span class="center block"><u>.css</u></span><br/><br/><br/><br/>
+              .example{<br/>
+              &ensp;border: 1px, 2px, 2px, 1.5px;<br/>
+              }
+            </aside>
+          </div>
+          <dt>append($list1, $val, $separator: espace | comma)</dt>
+          <dd>Permite añadir valores al final de una lista separando por espacios o comas los nuevos valores de los antiguos.</dd>
+          <div class="idEst">
+            <aside class="exempliGratia egSCSS">
+              <span class="center block"><u>.scss</u></span><br/>
+              $bord: ( 1px, solid );<br/>
+              $color: ( aqua );<br/><br/>
+              .example{<br/>
+              &ensp;border: append($bord, $color, space);<br/>
+              }
+            </aside>
+            <aside class="exempliGratia egCSS">
+              <span class="center block"><u>.css</u></span><br/><br/><br/><br/>
+              .example{<br/>
+              &ensp;border: 1px solid aqua;<br/>
+              }
+            </aside>
+          </div>
+        </dl>
+        <h3>Funciones de mapas.</h3>
+        <dl>
+          <dt>map-get($map, $key)</dt>
+          <dd>Devuelve un valor de un mapa. Con el primer parámetro llama al mapa, con el segundo parámetro se llama a la clave.</dd>
+          <div class="idEst">
+            <aside class="exempliGratia egSCSS">
+              <span class="center block"><u>.scss</u></span><br/>
+              $colors: (<br/>
+              &ensp;primary: darkcyan,<br/>
+              &ensp;secundary: darkorchid,<br/>
+              &ensp;alert: crimson,<br/>
+              &ensp;cta: seagreen<br/>
+              );<br/><br/>
+              color: map-get($colors, alert);
+            </aside>
+            <aside class="exempliGratia egCSS">
+              <span class="center block"><u>.css</u></span><br/><br/><br/><br/><br/><br/><br/><br/>
+              color: crimson;
+            </aside>
+          </div>
+          <dt>map-keys($map)</dt>
+          <dd>Devuelve las keys del mapa especificado en el parámetro en forma de lista.</dd>
+          <div class="idEst">
+            <aside class="exempliGratia egSCSS">
+              <span class="center block"><u>.scss</u></span><br/>
+              $colors: (<br/>
+              &ensp;primary: darkcyan,<br/>
+              &ensp;secundary: darkorchid,<br/>
+              &ensp;alert: crimson,<br/>
+              &ensp;cta: seagreen<br/>
+              );<br/><br/>
+              colors: map-keys($colors);
+            </aside>
+            <aside class="exempliGratia egCSS">
+              <span class="center block"><u>.css</u></span><br/><br/><br/><br/><br/><br/><br/><br/>
+              colors: primary, secundary, alert, cta;
+            </aside>
+          </div>
+          <dt>map-values($map)</dt>
+          <dd>Recibe un mapa y devuelve una lista con los valores.</dd>
+          <div class="idEst">
+            <aside class="exempliGratia egSCSS">
+              <span class="center block"><u>.scss</u></span><br/>
+              $colors: (<br/>
+              &ensp;primary: darkcyan,<br/>
+              &ensp;secundary: darkorchid,<br/>
+              &ensp;alert: crimson,<br/>
+              &ensp;cta: seagreen<br/>
+              );<br/><br/>
+              colors: map-values($colors);
+            </aside>
+            <aside class="exempliGratia egCSS">
+              <span class="center block"><u>.css</u></span><br/><br/><br/><br/><br/><br/><br/><br/>
+              colors: darkcyan, darkorchid, crimson, seagreen;
+            </aside>
+          </div>
+          <dt>map-has-keys($map, $key)</dt>
+          <dd>Devuelve verdadero si el mapa especificado en el primer parámetro tiene la key especificada en el segundo parámetro.</dd>
+          <div class="idEst">
+            <aside class="exempliGratia egSCSS">
+              <span class="center block"><u>.scss</u></span><br/>
+              breackpoints{<br/>
+              &ensp;large: 1024;<br/>
+              }<br/><br/>
+              @if map-has-key($breackpoints, large) {<br/>
+              &ensp;.example{<br/>
+              &ensp;&ensp;color: aqua;<br/>
+              &ensp;}<br/>
+              }
+            </aside>
+            <aside class="exempliGratia egCSS">
+              <span class="center block"><u>.css</u></span><br/><br/><br/><br/><br/><br/><br/>
+              .example{<br/>
+                &ensp;color: aqua;<br/>
+                }<br/>
+            </aside>
+          </div>
+          <dt>map-merge($map1, $map2)</dt>
+          <dd>Agrupa los mapas especificados.</dd>
+        </dl>
+      </div>
+    </section>
+    <!-- Funciones de introspección -->
+    <section class="stars">
+      <div class="container">
+        <h2>Funciones de introspección.</h2>
+        <p>Introspección es analizarse a uno mismo, es decir, Sass cuenta con funciones para analizarse a sí mismo algún valor, propiedad, características y demás cosas para evitar errores.</p>
+        <dl>
+          <dt>type-of($value)</dt>
+          <dd>Devuelve el tipo de dato especificado en el parámetro (como number, string, boolean, etc.).</dd>
+          <dt>unit($number)</dt>
+          <dd>Devuelve la unidad de medida de un número en forma de string (como "px", "em", "%", etc.).</dd>
+          <dt>inspect($value)</dt>
+          <dd>Devuelve el valor que se le pase como parámetro.</dd>
+          <div class="idEst">
+            <aside class="exempliGratia egSCSS">
+              <span class="center block"><u>.scss</u></span><br/>
+              $colors: (<br/>
+              &ensp;primary: yellow,<br/>
+              &ensp;secondary: blue<br/>
+              );<br/><br/>
+              .example{<br/>
+              &ensp;color: $colors;<br/>
+              }
+              <hr/>
+              $colors: (<br/>
+              &ensp;primary: yellow,<br/>
+              &ensp;secondary: blue<br/>
+              );<br/><br/>
+              .example{<br/>
+              &ensp;color: inspect($colors);<br/>
+              }
+            </aside>
+            <aside class="exempliGratia egCSS">
+              <span class="center block"><u>.css</u></span><br/><br/><br/><br/><br/><br/><br/>Error<br/><br/>
+              <hr/>
+              <br/><br/><br/><br/><br/>
+              .example{<br/>
+              &ensp;color: (primary: yellow, secondary: blue);<br/>
+              }
+            </aside>
+          </div>
+          <dt>unitless($number)</dt>
+          <dd>Devuelve un boolean verificando si un número tiene unidad de medida.</dd>
+          <dt>mixin-exists($name)</dt>
+          <dd>Devuelve un boolean verificando si un mixin existe.</dd>
+          <div class="idEst">
+            <aside class="exempliGratia egSCSS">
+              <span class="center block"><u>.scss</u></span><br/>
+              @mixin  button { color: blue; }<br/><br/>
+              @if mixin-exists(button) {<br/>
+              &ensp;.example {<br/>
+              &ensp;&emsp;color: red;<br/>
+              &ensp;}<br/>
+              }
+            </aside>
+            <aside class="exempliGratia egCSS">
+              <span class="center block"><u>.css</u></span><br/><br/><br/><br/><br/>
+              .example {<br/>
+              &ensp;color: red;<br/>
+              }
+            </aside>
+          </div>
+          <dt>function-exists($name)</dt>
+          <dd>Devuelve un boolean verificando si una función existe.</dd>
+          <dt>variable-exists($name)</dt>
+          <dd>Devuelve un boolean verificando si una variable existe, siempre busca empezando en el entorno local y va subiendo al global si no encuentra la variable.</dd>
+          <dt>global-variable-exists($name)</dt>
+          <dd>Devuelve un boolean verificando si una variable global existe, siempre busca desde el entorno global.</dd>
+        </dl>
+      </div>
+    </section>
+    <!-- Ejercicio -->
+    <section class="stars">
+      <div class="container">
+        <h2>Ejercicio.</h2>
+        <p></p>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><b>_functions.scss</b></span><br/>
+            @function img($image) {<br/>
+            &ensp;@return url($path + $image);<br/>
+            }<br/><br/>
+            @function long-shadow($n, $color){<br/>
+            &ensp;$shadow: #{1px 1px $color};<br/>
+            &ensp;@for $i from 2 through $n {<br/>
+            &ensp;&emsp;$shadow: append($shadow, #{$i*1px $i*1px $color}, comma);<br/>
+            &ensp;}<br/>
+            &ensp;@return $shadow;<br/>
+            }
+            <hr/>
+            <span class="center block"><b>styles.scss</b></span><br/>
+            @import "config/functions"<br/><br/>
+            .text{<br/>
+            &ensp;text-shadow: long-shadow(<b>100</b>, <b>black</b>);<br/>
+            &ensp;font-size: 6em;<br/>
+            }
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><u>.css</u></span><br/>
+            .text{<br/>
+            &ensp;text-shadow: long-shadow(<br/>
+            &emsp;1px 1px black, <br/>
+            &emsp;2px 2px black, <br/>
+            &emsp;3px 3px black, <br/>
+            &emsp;..., <br/>
+            &emsp;100px 100px black<br/>
+            &ensp;);<br/>
+            }
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="bubble">
+    <section class="stars">
+      <div class="container">
+        <h3>Referencias:</h3>
+        <p></p>
+      </div>
+    </section>
+  </footer>
+</body>
+</html>

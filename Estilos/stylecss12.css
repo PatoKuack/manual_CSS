@@ -1,0 +1,187 @@
+body{
+  background-color: blueviolet;
+}
+
+header{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+header, main, section{
+  background-color: rgba(253, 203, 253, 0.89);
+  max-width: 50rem;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1em;
+  border: .2rem solid blueviolet;
+  border-radius: 5%;
+}
+
+h1{
+  display: flex;
+}
+
+h1::before{
+  content: "";
+  display: block;
+  height: .7em;
+  width: 10em;
+  margin-top: auto;
+  background-image: radial-gradient(ellipse at 110% -20%, red 5%, rgba(255, 255, 255, 0) 50%);
+  flex: 1;
+}
+
+h1::after{
+  content: "";
+  display: block;
+  height: .7em;
+  width: 10em;
+  margin-top: auto;
+  background-image: radial-gradient(ellipse at -10% -20%, red 5%, rgba(255, 255, 255, 0) 50%);
+  flex: 1;
+}
+
+table{
+  background-color: rgba(230, 248, 125, 0.418);
+  padding: .5em;
+}
+
+x{
+  border: .15em solid pink;
+  border-radius: 50%;
+}
+
+[class$="caption"]{
+  display: flex;
+  justify-content: center;
+}
+
+[class^="flexes"]{
+  background-color: lightskyblue;
+  border: .1em solid antiquewhite;
+  border-bottom-left-radius: 25%;
+  border-bottom-right-radius: 25%;
+  color: azure;
+  font-weight: bold;
+  font-size: 2em;
+}
+[class^="flexes"]:nth-child(even){
+  background-color: violet;
+  border: .1em solid antiquewhite;
+  color: azure;
+}
+
+[id^="contenedor"]{
+  display: flex;
+  margin: 1em auto 1em auto;
+  width: 15em;
+  height: 8em;
+  background-image: linear-gradient(transparent, chartreuse);
+}
+
+#contenedorFG:target > div{
+  flex-grow: 1;
+}
+
+.flexesFS{
+  width: 10em;
+}
+
+#contenedorFS:target > div:not(:nth-child(2)){
+  flex-shrink: 2;
+}
+
+#contenedorFB:target > div{
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.flex{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+[id$="-e"]{
+  display: none;
+}
+
+#contenedorFini-e:target{
+  display: flex;
+}
+#contenedorFauto-e:target{
+  display: flex;
+}
+#contenedorFnone-e:target{
+  display: flex;
+}
+#contenedorFn-e:target{
+  display: flex;
+}
+
+.flexesFini{
+  flex: initial;
+}
+.flexesFauto{
+  flex: auto;
+}
+.flexesFnone{
+  flex: none;
+}
+.flexesFn{
+  flex: 1;
+}
+
+.contenedor{
+  display: flex;
+}
+
+[id^="contenedorAS"]{
+  align-content: space-around;
+  align-items: center;
+  justify-content: center;
+}
+.flexesAS{
+  border-bottom-left-radius: 25%;
+  border-bottom-right-radius: 25%;
+}
+
+#contenedorASa-e:target{
+  display: flex;
+}
+#contenedorASfs-e:target{
+  display: flex;
+}
+#contenedorASfe-e:target{
+  display: flex;
+}
+#contenedorASc-e:target{
+  display: flex;
+}
+#contenedorASb-e:target{
+  display: flex;
+}
+#contenedorASs-e:target{
+  display: flex;
+}
+
+.flexesASa{
+  align-self: auto;
+}
+.flexesASfs{
+  align-self: flex-start;
+}
+.flexesASfe{
+  align-self: flex-end;
+}
+.flexesASc{
+  align-self: center;
+}
+.flexesASb{
+  align-self: baseline;
+}
+.flexesASs{
+  align-self: stretch;
+}

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <!-- No guardar cache en navegadores -->
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <!-- ------------------- -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Estilos/stylecss12.css">
+    <link rel="stylesheet" href="../../home/styles/mano_regresar.css">
+    <title>Flex-items</title>
+  </head>
+  <body>
+    <header>
+      <h1>Flex-items</h1>
+    </header>
+    <main>
+      Los <i>flex-items</i> son los hijos directos, pseudoelementos (::before y ::after) o textos de los <i>flex-container</i>, tienen una flexibilidad que permite modificar su tamaño en lo largo o en lo ancho para adaptarse a la pantalla o al tamaño del <i>flex-container</i>, pero tienen la desventaja de que los <u>margin</u> y <u>pagding</u> no se reducen, por eso, las siguientes propiedades se aplican a los items del contenedor.
+    </main>
+    <section>
+      <h2>Flex-grow</h2>
+      <figure>
+        <div id="contenedorFG">
+          <div class="flexesFG">
+            &#129337;
+          </div>
+          <div class="flexesFG">
+            &#129336;
+          </div>
+          <div class="flexesFG">
+            &#129337;
+          </div>
+          <div class="flexesFG">
+            &#129337;
+          </div>
+        </div>
+        <figcaption class="FGcaption">
+          <a href="#contenedorFG" title="Mostrar ejemplo">aplicar a malabaristas <b>flex-grow: 1;</b></a>
+        </figcaption>
+      </figure>
+      Permite que los <i>flex-items</i> especificados aumenten su tamaño para adaptarse al espacio haciendo que el navegador realice la siguiente operación:<br/>
+      <figure>
+        <table>
+          <tr>
+            <td rowspan=2>
+              (
+            </td>
+            <td>
+              <u><b>Espacio total disponible</b></u>
+            </td>
+            <td rowspan=2>
+              <b>)(Valor de flex-grow)</b>
+            </td>
+            <td rowspan=2>
+              <b>(Espacio que ocupa cada item)</b>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <b>&#8721; Espacio que ocupa cada item</b>
+            </td>
+          </tr>
+        </table>
+        <figcaption>El resultado se multiplica por el flex-grow de cada item y es sumado al espacio original de cada item.</figcaption>
+      </figure>
+      Ejemplo:<br/>
+      -si colocamos un <i>flex-grow: 1;</i> para todos los items.<br/>
+      -el espacio en ancho disponible del padre es de 100px.<br/>
+      -hay 5 items que ocupan 10px de espacio cada uno con un total de 50px.<br/>
+      entonces (100px/50px)*1*10px=20px<br/>
+      resultado * cada <i>flex-grow</i> + espacio original de cada item.<br/>
+      (20px*1)+10px=30px, eso mediría cada espacio de los items.<br/><br/>
+      El valor del <i>flex-grow</i> permite solo números positivos ya sean decimales o enteros.<br/>
+      El valor por defecto del <i>flex-grow</i> es 0.
+    </section>
+    <section>
+      <h2>Flex-shrink</h2>
+      <figure>
+        <div id="contenedorFS">
+          <div class="flexesFS">
+            &#127947;
+          </div>
+          <div class="flexesFS">
+            &#129336;
+          </div>
+          <div class="flexesFS">
+            &#127947;
+          </div>
+          <div class="flexesFS">
+            &#127947;
+          </div>
+        </div>
+        <figcaption class="FScaption">
+          <a href="#contenedorFS" title="Mostrar ejemplo">aplicar a forzudos <b>flex-shrink: 2;</b></a>
+        </figcaption>
+      </figure>
+      Permite que los <i>flex-items</i> especificados disminuyan su tamaño para adaptarse al espacio haciendo el mismo procedimiento que en <i>flex-grow</i> pero en vez de aumentar disminuir, es decir, del espacio sobrante los divide entre la cantidad de <i>Flex-shrink</i> y el resultado se le resta a los items indicados.<br/>
+      Si se coloca el valor de 0, los items adquieren su tamaño original con respecto al eje principal y no respetan el límite de su contenedor.<br/>
+      Su valor por default es 1.
+    </section>
+    <section>
+      <h2>Flex-basis</h2>
+      <figure>
+        <div id="contenedorFB">
+          <div class="flexesFB">
+            &#129337;
+            &#127947;
+          </div>
+          <div class="flexesFB">
+            &#129336;
+            &#129337;
+            &#127947;
+            &#129336;
+          </div>
+          <div class="flexesFB">
+            &#129337;
+            &#127947;
+          </div>
+          <div class="flexesFB">
+            &#129337;
+            &#127947;
+          </div>
+        </div>
+        <figcaption class="FBcaption">
+          <a href="#contenedorFB" title="Mostrar ejemplo">aplicar <b>flex-grow: 1;</b> y <b>flex-basis: 0;</b></a>
+        </figcaption>
+      </figure>
+      Define el tamaño inicial en el eje principal (definiendo el eje principal con <i>flex-direction</i>).<br/>
+      Colocando éste elemento con un valor de 0 se puede asegurar de que todos los elementos crezcan o disminuyan por igual con <i>flex-grow</i> o <i>flex-shrink</i> sin importar que tanto cambie el tamaño de la ventana.
+    </section>
+    <section>
+      <h2>Flex</h2>
+      <figure class="flex">
+        <div>
+          <div id="contenedor">
+            <div class="flexes">
+              &#129337;
+              &#127947;
+            </div>
+            <div class="flexes">
+              &#127914;
+              &#129337;
+              &#127947;
+              &#129336;
+            </div>
+            <div class="flexes">
+              &#129337;
+              &#127947;
+            </div>
+            <div class="flexes">
+              &#129337;
+              &#127947;
+            </div>
+          </div>
+          <figcaption class="caption">Original</figcaption>
+        </div>
+        <div>
+          <div id="contenedorFini-e">
+            <div class="flexesFini">
+              &#129337;
+              &#127947;
+            </div>
+            <div class="flexesFini">
+              &#127914;
+              &#129337;
+              &#127947;
+              &#129336;
+            </div>
+            <div class="flexesFini">
+              &#129337;
+              &#127947;
+            </div>
+            <div class="flexesFini">
+              &#129337;
+              &#127947;
+            </div>
+          </div>
+          <div id="contenedorFauto-e">
+            <div class="flexesFauto">
+              &#129337;
+              &#127947;
+            </div>
+            <div class="flexesFauto">
+              &#127914;
+              &#129337;
+              &#127947;
+              &#129336;
+            </div>
+            <div class="flexesFauto">
+              &#129337;
+              &#127947;
+            </div>
+            <div class="flexesFauto">
+              &#129337;
+              &#127947;
+            </div>
+          </div>
+          <div id="contenedorFnone-e">
+            <div class="flexesFnone">
+              &#129337;
+              &#127947;
+            </div>
+            <div class="flexesFnone">
+              &#127914;
+              &#129337;
+              &#127947;
+              &#129336;
+            </div>
+            <div class="flexesFnone">
+              &#129337;
+              &#127947;
+            </div>
+            <div class="flexesFnone">
+              &#129337;
+              &#127947;
+            </div>
+          </div>
+          <div id="contenedorFn-e">
+            <div class="flexesFn">
+              &#129337;
+              &#127947;
+            </div>
+            <div class="flexesFn">
+              &#127914;
+              &#129337;
+              &#127947;
+              &#129336;
+            </div>
+            <div class="flexesFn">
+              &#129337;
+              &#127947;
+            </div>
+            <div class="flexesFn">
+              &#129337;
+              &#127947;
+            </div>
+          </div>
+          <figcaption class="caption">con flex</figcaption>
+        </div>
+      </figure>
+      Esta propiedad es un <i>shorthand</i> que agrupa <i>flex-grow, shrink</i> y <i>basis</i> (ejemplo: flex: 1 1 1;), esta propiedad tiene 4 valores predeterminados:<br/>
+      <ul>
+        <li>
+          <a href="#contenedorFini-e" title="Mostrar ejemplo"><b>initial</b></a> que contiene los valores (0 1 auto)
+          <ul>
+            es prácticamente el valor default en los <i>flex-items</i>, ejemplo:<br/>
+            <b>flex: initial;</b>
+          </ul>
+        </li>
+        <li>
+          <a href="#contenedorFauto-e" title="Mostrar ejemplo"><b>auto</b></a> que contiene los valores (1 1 auto)
+          <ul>
+            indica a los <i>flex-items</i> que crezcan y se reduzcan dependiendo de su contenido, ejemplo:<br/>
+            <b>flex: auto;</b>
+          </ul>
+        </li>
+        <li>
+          <a href="#contenedorFnone-e" title="Mostrar ejemplo"><b>none;</b></a> que contiene los valores (0 0 auto)
+          <ul>
+            indica que no exista crecimiento ni encogimiento, ejemplo:<br/>
+            <b>flex: none;</b>
+          </ul>
+        </li>
+        <li>
+          <a href="#contenedorFn-e" title="Mostrar ejemplo"><b><x>n</x></b></a> que contiene los valores (<x>n</x> 0 0)
+          <ul>
+            <x>n</x> representa cualquier número positivo y distribuye entre los items un espacio por igual, ejemplo:<br/>
+            <b>flex: <x>1</x>;</b>
+          </ul>
+        </li>
+      </ul>
+    </section>
+    <section>
+      <h2>Align-self</h2>
+      Alinea un único elemento.<br/>
+      <b>align-self: [ <a href="#contenedorASa-e" title="Mostrar ejemplo"><b>auto</b></a> | <a href="#contenedorASfs-e" title="Mostrar ejemplo"><b>flex-start</b></a> | <a href="#contenedorASfe-e" title="Mostrar ejemplo"><b>flex-end</b></a> | <a href="#contenedorASc-e" title="Mostrar ejemplo"><b>center</b></a> | <a href="#contenedorASb-e" title="Mostrar ejemplo"><b>baseline</b></a> | <a href="#contenedorASs-e" title="Mostrar ejemplo"><b>stretch</b></a> ]</b>
+      <figure class="flex">
+        <div>
+          <div id="contenedorAS">
+            <div class="flexesAS">
+              &#129337;
+            </div>
+            <div class="flexesAS">
+              &#129336;
+            </div>
+            <div class="flexesAS">
+              &#127947;
+            </div>
+            <div class="flexesAS">
+              &#127914;
+            </div>
+          </div>
+          <figcaption class="caption">Original</figcaption>
+        </div>
+        <div>
+          <div id="contenedorASa-e">
+            <div class="flexesAS">
+              &#129337;
+            </div>
+            <div class="flexesAS">
+              &#129336;
+            </div>
+            <div class="flexesAS">
+              &#127947;
+            </div>
+            <div class="flexesASa">
+              &#127914;
+            </div>
+          </div>
+          <div id="contenedorASfs-e">
+            <div class="flexesAS">
+              &#129337;
+            </div>
+            <div class="flexesAS">
+              &#129336;
+            </div>
+            <div class="flexesAS">
+              &#127947;
+            </div>
+            <div class="flexesASfs">
+              &#127914;
+            </div>
+          </div>
+          <div id="contenedorASfe-e">
+            <div class="flexesAS">
+              &#129337;
+            </div>
+            <div class="flexesAS">
+              &#129336;
+            </div>
+            <div class="flexesAS">
+              &#127947;
+            </div>
+            <div class="flexesASfe">
+              &#127914;
+            </div>
+          </div>
+          <div id="contenedorASc-e">
+            <div class="flexesAS">
+              &#129337;
+            </div>
+            <div class="flexesAS">
+              &#129336;
+            </div>
+            <div class="flexesAS">
+              &#127947;
+            </div>
+            <div class="flexesASc">
+              &#127914;
+            </div>
+          </div>
+          <div id="contenedorASb-e">
+            <div class="flexesAS">
+              &#129337;
+            </div>
+            <div class="flexesAS">
+              &#129336;
+            </div>
+            <div class="flexesAS">
+              &#127947;
+            </div>
+            <div class="flexesASb">
+              &#127914;
+            </div>
+          </div>
+          <div id="contenedorASs-e">
+            <div class="flexesAS">
+              &#129337;
+            </div>
+            <div class="flexesAS">
+              &#129336;
+            </div>
+            <div class="flexesAS">
+              &#127947;
+            </div>
+            <div class="flexesASs">
+              &#127914;
+            </div>
+          </div>
+          <figcaption class="caption">con align-self en carpa</figcaption>
+        </div>
+      </figure>
+    </section>
+    <section>
+      <h2>Order</h2>
+      Permite colocar un elemento en la <u>posición</u> deseada sin importar donde aparece en el HTML.<br/>
+      Todos los elementos tienen por default un valor <b>order: 0;</b><br/>
+      Al darle un valor de <b>order: -1;</b>, el o los elementos indicados se posicionarán al inicio de los elementos hermanos.<br/>
+      Al darle un valor de <b>order: 1;</b>, el o los elementos indicados se posicionarán al final de los elementos hermanos.<br/>
+      Se puede jugar con los valores de los elementos, los que tengan valores menores se colocarán primero y los que contengan valores mayores se colocarán al final.
+    </section>
+    <div class="regreso">
+      <a class="mano" href="../Paginas/indexcss.html" title="regresar al menú">&#9754;</a>
+    </div>
+    <footer>
+      <a target="_blank" href="http://www.flexboxdefense.com/" title="otro juego de Flex">Juego Defense: http://www.flexboxdefense.com/</a>
+    </footer>
+  </body>
+</html>

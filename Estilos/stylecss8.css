@@ -1,0 +1,121 @@
+:root{
+  --v: rgb(255, 211, 91);
+  --b: rgb(197, 246, 255);
+}
+
+body{
+  background-color: lightcyan;
+}
+
+div{
+  width: 850px;
+  height:100px;
+  margin-left: 10px;
+}
+
+article{
+  width: 850px;
+  height: 200px;
+  padding: 5px;
+  margin: 3px;
+  border: 2px solid transparent;
+}
+
+img{
+  display: block;
+  height: 95px;
+}
+
+[src^="../Imgs/bg_"]{
+  height: 80px;
+}
+
+.bg, .bgpos2, .bgclip{
+  height: 330px;
+}
+
+article:hover{
+  border: 2px solid var(--v);
+  border-radius: 5px;
+}
+
+i:hover{
+  background-color: var(--b);
+}
+
+article:not(.bgcolor):active{
+  background-image: url("../Imgs/fondo marino2.jpg");
+  transition: all 2s;
+}
+
+
+.bgcolor{
+  background-color: var(--b);
+}
+
+.bgimach{
+  background-image: url("../Imgs/fondo marino1.jpg");
+}
+
+.bgripit{
+  background-image: url("../Imgs/fondo marino1.jpg");
+  background-repeat: no-repeat;
+}
+
+.bgsais{
+  background-image: url("../Imgs/fondo marino1.jpg");
+  background-size: 870px 220px;
+}
+
+.bgsaisc{
+  background-image: url("../Imgs/fondo marino1.jpg");
+  background-size: contain;
+}
+
+article.bgsaisc:hover{
+  height: 320px;
+}
+
+.bgpos1{
+  background-image: url("../Imgs/fondo marino1.jpg");
+  background-repeat: no-repeat;
+  background-size: 200px;
+  background-position: 580px 50px;
+}
+
+.bgpos1>img{
+  height: 150px;
+}
+
+.bgpos2{
+  background-image: url("../Imgs/fondo marino1.jpg");
+  background-repeat: no-repeat;
+  background-position: right 10px bottom 5px;
+}
+
+.bgpos2>img{
+  height: 120px;
+}
+
+.bgclip{
+  background-image: url(../Imgs/fondo\ marino1.jpg);
+  background-clip: content-box;
+}
+
+.bgorillin{
+  background-image: url("../Imgs/fondo marino1.jpg");
+  background-origin: content-box;
+}
+
+.bgatachment{
+  background-image: url("../Imgs/fondo marino1.jpg");
+  background-attachment: fixed;
+}
+
+.bg{
+  background: url("../Imgs/fondo\ marino1.jpg") 0 bottom / 100px repeat-X content-box padding-box var(--b);
+}
+
+.other, aside{
+  margin: 20px 0 0 20px
+}

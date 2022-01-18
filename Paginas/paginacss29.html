@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- No guardar cache en navegadores -->
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <!-- ------------------- -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../Estilos/normalization.css">
+  <link rel="stylesheet" href="../Estilos/stylecss21.css">
+  <link rel="stylesheet" href="../Estilos/stylecss29.css">
+  <title>Recortes y figuras</title>
+</head>
+<body class="body">
+  <header>
+    <section class="container">
+      <div>
+        <h1 class="center">Canal alfa.</h1>
+        <p>Dependiendo del modo de color, una imagen tiene uno o varios canales que definen cómo son los colores.</p>
+        <p>Un canal alfa es un canal adicional que define la transparencia que tiene cada pixel de la imagen.</p>
+        <p>Algunos formatos de imagen admiten canales alfa, como PNG o TIFF, pero otros como JPEG no.</p>
+      </div>
+    </section>
+  </header>
+  <main>
+    <!-- Recortes y figuras -->
+    <section class="container">
+      <div>
+        <h2>Recortes y figuras.</h2>
+        <p>Los recortes ayudan a modificar el contorno de visión de una imagen o elemento, mientras que las figuras modifican el contorno de espacio reservado de un elemento.</p>
+        <ul>
+          <li><b><span class="text-through">clip: react(top, right, bottom, left);</span></b> Esta función ya no es estándar y no es recomendable usarla.</li>
+          <li><b>clip-path: __;</b> Sirve para recortar imageneses, tiene varios valores de tipo función y todas son animables.</li>
+          <li><b>shape-outside: ___;</b> Funciona igual que <i>clip-path</i> con todos sus valores solo que el recorte se aplica al espacio reservado del elemento, se utiliza con el texto para que el texto se recorra de acuerdo a la forma del elemento.</li>
+          <li><b>shape-margin: #;</b> Recibe un solo valor el cual crea un margen del grosor especificado en el contorno de la forma del <i>shape-outside</i> o del canal alfa de la imagen.</li>
+        </ul>
+        <dl>
+          <dt>clip-path: inset([# round #]);</dt>
+          <dd>
+            <p>La función inset() recibe un parámetro de medición que indica la proporción de contorno que se recortará.</p>
+            <p>Funciona como un shorthand, ya que se le pueden pasar 2, 3 o 4 valores para indicar las proporciones de recorte.</p>
+            <p>Después de los valores de proporción, se le pueden asignar dos últimos valores finales <b>round #</b>, el primer valor indica que sus esquinas serán redondeadas y el segundo valor indica que proporción de redondeo se le asignarán a las esquinas.</p>
+            <p>Las proporciones de redondeo tamién funcionan como un shorthand, se le pueden pasar de 1 a 4 valores para indicar el redondeo en general o cada una de las esquinas.</p>
+            <dl>
+              <dt>float: [top | right | left | bottom];</dt>
+              <dd>Se coloca en el contenedor de la imagen con las dimensiones de la imagen. Permite que el elemento se mueva entre el texto colocandolo en la posición especificada (por ejemplo, al lado izquierdo de un parrafo).</dd>
+              <dt>object-fit: [fill | container | cover | none | scale-down];</dt>
+              <dd>Se coloca en la imagen junto con el <i>clip-path</i> (y las dimensiones de 100%). Propiedad que indica a una imagen como redimensionarse de acuerdo con el contenedor.</dd>
+            </dl>
+          </dd>
+          <dt>clip-path: circle( [# | # at X Y] );</dt>
+          <dd>
+            <p>Si recibe un solo valor (de medición), el valor será el tamaño del radio del círculo.</p>
+            <p>Si recibe dos valores (de medición), significarán el radio y la posición del círculo en el eje X y en el Y (at 50% 50% es su posición original).</p>
+          </dd>
+          <dt>clip-path: ellipse( [# | # at X Y] );</dt>
+          <dd>
+            <p>Recibe dos valores obligatoriamente, el primero es el rádio en el eje X y el segundo en el Y.</p>
+            <p>Funciona igual que el circulo con respecto al posicionamiento.</p>
+          </dd>
+          <dt>clip-path: polygon( [X Y, X Y, X Y, ...] );</dt>
+          <dd>
+            <p>Recibe 3 coordenadas <u>como mínimo</u>, colocando la coordenada [0% 0%] en la esquina superior izquierda (izquierda del usuario) del elemento y la coordenada [100% 100%] en la esquina inferior derecha. Tiene la desventaja de que no se pueden redondear los bordes.</p>
+            <p>Existe una página llamada <a href="https://bennettfeely.com/clippy/" target="_blank" rel="noopener noreferrer">Clippy</a> que facilita el corte y la posición de las coordenadas.</p>
+            <p><i>Nota: la animación con polygon usando transition, requiere que se utilicen la misma cantidad d coordenada en el recorte original y en la transción.</i></p>
+            <aside class="idEst">
+              .img {<br/>
+              &emsp;clip-path: polygon(0 100%, 50% 0, 100% 100%);<br/>
+              &emsp;transition: clip-path 2s;<br/>
+              }<br/><br/>
+              .container:hover .img {<br/>
+              &emsp;clip-path: polygon(0 0, 50% 100%, 100% 0);<br/>
+              }
+            </aside>
+          </dd>
+          <dt>clip-path: url('');</dt>
+          <dd>Este valor de url solamente funciona con la ruta del logo SVG más el id del clipPath (ejemplo: /react-logo.svg#react-clip), sin embargo en la propiedad <b>shape-outside</b> funciona con la ruta del SVG sin el id y también funciona con imageneses PNG.</dd>
+        </dl>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <section class="container">
+      <div>
+        <h3>Referencias:</h3>
+        <p>
+          <a href="https://developer.mozilla.org/es/docs/Web/CSS/object-fit" target="_blank" rel="noopener noreferrer">object-fit</a><br/>
+          <a href="https://bennettfeely.com/clippy/" target="_blank" rel="noopener noreferrer">Clippy</a><br/>
+        </p>
+      </div>
+    </section>
+  </footer>
+</body>
+</html>

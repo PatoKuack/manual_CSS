@@ -1,0 +1,44 @@
+:root{
+  --bg1:          rgb(21, 138, 80);
+  --bg2:          rgb(10, 166, 194);
+  --bg3:          rgb(98, 78, 185);
+  --textColor:    aliceblue;
+  --borderColor:  rgba(251, 255, 0, 0.753);
+}
+
+*, *::before, *::after{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.body{
+  background-image: linear-gradient(50deg, var(--bg1) 20%, var(--bg2) 70%, var(--bg3) 100%);
+  color: var(--textColor);
+  padding: 1rem;
+}
+.container{
+  max-width: 700px;
+  border: .3em solid var(--borderColor);
+  padding: 1.5rem;
+  margin: 1rem;
+}
+.figure{
+  width: 100%;
+}
+.img{
+  max-width: 20em;
+  clip-path:inset(10% 15%);
+  display: block;
+}
+.title{
+  margin: .5em;
+}
+
+.center{
+  text-align: center;
+}
+.margin-auto{
+  margin-left: auto;
+  margin-right: auto;
+}

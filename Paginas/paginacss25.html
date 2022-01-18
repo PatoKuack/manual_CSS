@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- No guardar cache en navegadores -->
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <!-- ------------------- -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../Estilos/normalization.css">
+  <link rel="stylesheet" href="../Estilos/stylecss21.css">
+  <title>Fuentes digitales</title>
+</head>
+<body class="body">
+  <header>
+    <section class="container">
+      <div>
+        <h1 class="center">Formato para fuentes digitales.</h1>
+        <p>A inicios de la web cada navegador creaba sus propias fuentes y se decidio estandarisar creando 5 principales tipos de fuente digitales de los cuales WOFF o WOFF2 son los más recomendables para usarlos en un proyecto web.</p>
+        <p>Es importante tener una licencia para poder usar la fuente en un proyecto sin meterse en problemas legales.</p>
+        <p>La página más famosa para descargar formatos de fuentes es <a href="https://www.fontsquirrel.com/" target="_blank" rel="noopener noreferrer">Font squirrel</a>, con su opción "generator" se puede subir una fuente en cualquier formato y transformarlo en formato WOFF2 que es el más recomendado.</p>
+        <p>También hay una página en donde se pueden comprar formatos gratis es en <a href="https://www.myfonts.com/search/free/?freeFont=%5B%22Free+fonts+only%22%5D" target="_blank" rel="noopener noreferrer">My fonts</a>.</p>
+      </div>
+    </section>
+  </header>
+  <main>
+    <!-- Tipos de formatos -->
+    <section class="container">
+      <div>
+        <h2>Tipos de formatos digitales para fuentes.</h2>
+        <dl>
+          <dt>True Type Font (TTF).</dt>
+          <dd>Se usa en cualquier sitio.</dd>
+          <dt>Open True Type Font (OTF).</dt>
+          <dd>Facilita o implementa la creación de las curvas bézier utilizadas por los diseñadores para crear tipos de fuentes, pero en cuestión de uso es lo mismo que TTF.</dd>
+          <dt>Embedded Open Type (EOT).</dt>
+          <dd>El formato se maneja de forma comprimida por lo que pesa menos y resulta un buen recurso para las páginas web. También detecta las fuentes no licenciadas usadas de forma incorrecta por diseñadores web, sin embargo este formato solo lo soporta Internet Explorer (se quedó como una propuesta).</dd>
+          <dt>Web Open Font Format (WOFF) (WOFF2)</dt>
+          <dd>Se maneja por metadatos lo cual lo vuelve más ligero que la compresion de EOT, mejorando el rendimiento de las páginas web.</dd>
+          <dt>Scalable Vector Graphics (SVG)</dt>
+          <dd>Se utilizan las fuentes como vectores, pero genera muchas desventajas como el de hacer una selección por letra y no por palabras o parrafos, otro problema es que no es muy legible.</dd>
+        </dl>
+      </div>
+    </section>
+    <!-- importar fuentes -->
+    <section class="container">
+      <div>
+        <h2>@font-face</h2>
+        <p>Cuando se importan fuentes de <a href="https://fonts.google.com/" target="_blank" rel="noopener noreferrer">Google fonts</a> se obtiene una url en donde se encuentra un texto CSS con varias fuentes con una sola diferencia entre ellas, los rangos unicode que varian entre cada lenguaje, por lo que en cada fuente se anota con un comentario el tipo de lenguaje.</p>
+        <aside class="idEst">
+          @import url('<span class="highlight">https://fonts.googleapis.com/css2?family=Redacted+Script:wght@300&display=swap</span>');<br/><br/>
+          .body {<br/>
+          &emsp;font-family: 'Redacted Script', cursive;<br/>
+          }
+        </aside>
+        <p>Cada fuente em el documento de la URL tiene una estructura con la que se obtienen las fuentes.</p>
+        <dl>
+          <dt>@font-face</dt>
+          <dd>Señala a un archivo de fuente digital especifico para obtener datos.</dd>
+          <dt>font-family: '__';</dt>
+          <dd>Aqui se especifica el nombre de la fuente, este nombre se utiliza en otro elemento como un @import (en CSS) o en un &#60;link&#62; (en HTML) para poder utilizar la fuente en la página web.</dd>
+          <dt>font-style: __;</dt>
+          <dd>Indica el tipo de fuente, como normal, italic o oblique.</dd>
+          <dt>font-weight: __;</dt>
+          <dd>Indica el grosor de la fuente que por defecto son 400.</dd>
+          <dt>font-display: __;</dt>
+          <dd>
+            <p>Permite controlar el comportamiento de las fuentes al momento que se imprimen en pantalla, ayuda cuando se tiene una red lenta o rendimiento bajo. Tiene 5 valores:</p>
+            <ul>
+              <li><b>Auto</b> copia el comportamiento de block.</li>
+              <li><b>Block</b> no muestra el contenido hasta que se descargue la fuente que se desea.</li>
+              <li><b>Swap</b> primero muestra una fuente alternativa y una vez que obtiene la fuente la muestra.</li>
+              <li><b>Falllback</b> por una fracción de segundo (1/10 segundo) desaparece el texto, si en ese lapso de tiempo no aparece la fuente que se desea, se muestra una alternativa y una vez que obtiene la fuente la muestra.</li>
+              <li><b>Optional</b> por una fracción de segundo (1/10 segundo) desaparece el texto, si en ese lapso de tiempo no aparece la fuente que se desea, se analiza la conexión del usuario y si es lenta se asigna la fuente alternativa y ya no carga la fuente deseada.</li>
+            </ul>
+          </dd>
+          <dt>src:</dt>
+          <dd>
+            <p>Señala al archivo que se quiere importar, para esta acción utiliza lo siguiente:</p>
+            <dl>
+              <dt>local('__'),</dt>
+              <dd>Se colocan los "local" que se consideren necesarios y se usa para que el archivo que utiliza la fuente busque las variaciones de nombre que tenga la fuente dentro del entorno local del proyecto y no tenga que descargar (o volver a descargar la fuente) o utilizar fuentes externas que consuman recursos del proyecto haciendo que la página web se cargue más lento en el navegador.</dd>
+              <dt>url('__')</dt>
+              <dd>Si en el entorno local no encuentra los nombres que se le indicaron, se redirecciona la busqueda a la url especificada para señalar la fuente que se desea importar, ya sea una url de un archivo local o de un servidor.</dd>
+              <dt>format('__');</dt>
+              <dd>Indica el formato de la fuente digital.</dd>
+              <dt>unicode-range: _, _, _;</dt>
+              <dd>Especifica los caracteres especiales que se utilizarán en cada idioma en que se esté imprimiendo la fuente.</dd>
+            </dl>
+          </dd>
+        </dl>
+        <p>Para utilizar una fuente descargada con su lisencia se utiliza el mismo código de la ley @font-face</p>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <section class="container">
+      <div>
+        <h3>Referencias:</h3>
+        <p>
+          <a href="https://fonts.google.com/" target="_blank" rel="noopener noreferrer">Google fonts.</a><br/>
+          <a href="https://www.fontsquirrel.com/" target="_blank" rel="noopener noreferrer">Font squirrel.</a><br/>
+          <a href="https://www.myfonts.com/search/free/?freeFont=%5B%22Free+fonts+only%22%5D" target="_blank" rel="noopener noreferrer">My fonts.</a><br/>
+        </p>
+      </div>
+    </section>
+  </footer>
+</body>
+</html>

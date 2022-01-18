@@ -1,0 +1,70 @@
+@import "./VariablesSASS/config41";
+
+.body{
+  background-image      : radial-gradient(circle, var(--bg1) 25%, var(--bg3) 28.5%, var(--bg2) 28.5%, var(--bg2) 29%, var(--bg3) 29%, var(--bg1) 32%);
+  background-size       : 40rem 30rem;
+  background-repeat     : repeat;
+  background-position   : 30% 18%;
+}
+.bubble{
+  background-image      : radial-gradient(circle, var(--transparent) 5%, var(--bg3) 8.5%, var(--bg2) 8.5%, var(--bg2) 9%, var(--bg3) 9%, var(--transparent) 12%);
+  background-size       : 30rem 25rem;
+  background-repeat     : repeat;
+}
+.stars{
+  background-image      : radial-gradient(circle, var(--transparent) 90%, var(--bg3) 97%, var(--bg2) 99%);
+  background-size       : 15rem 15rem;
+  background-repeat     : repeat;
+  background-position   : 50% 10%;
+}
+
+.container{
+  background-color  : var(--bg4);
+  border            : .4em double var(--bord2);
+  border-radius     : 0 2rem 0 2rem;
+  margin            : 1rem auto;
+  padding           : 1rem;
+  max-width         : var(--max)-w;
+  box-shadow        : 5px 5px 5px 0px var(--bgSCSS);
+}
+
+.idEst{
+  display           : flex;
+  flex-direction    : row;
+  justify-content   : space-evenly;
+  flex-wrap         : nowrap;
+}
+.exempliGratia{
+  max-width         : 48vw;
+  border            : .3em double var(--bord1);
+  padding           : .2em;
+}
+.egCSS{
+  background-color  : var(--bgCSS);
+  flex              : 1;
+}
+.egSCSS{
+  background-color  : var(--bgSCSS);
+  flex              : 1;
+}
+
+.image{
+  max-width   : 480px;
+}
+
+.coment{
+  color       : var(--comentColor);
+}
+.center{
+  text-align  : center;
+}
+.marg-auto{
+  margin-left : auto;
+  margin-right: auto;
+}
+.block{
+  display     : block;
+}
+.bold{
+  font-weight : bold;
+}

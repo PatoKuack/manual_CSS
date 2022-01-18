@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- No guardar cache en navegadores -->
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <!-- ------------------- -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../Estilos/normalization.css">
+  <link rel="stylesheet" href="../Estilos/stylecss21.css">
+  <title>Pseudo-elementos</title>
+</head>
+<body class="body">
+  <header>
+    <section class="container">
+      <div>
+        <h1 class="center">Pseudo-elementos.</h1>
+        <p>Pseudo se refiere a cualquier cosa que aparenta ser lo que no es, por lo que un pseudo-elemento es una propiedad que aparenta ser un elemento pero no lo es.</p>
+        <p>Los pseudo-elementos permiten crear selectores más avanzados sin necesidad de agregar mucho código al programa. Hay dos tipos de pseudo-elementos.</p>
+        <ul>
+          <li>Generador de contenido: pretenden ser un elemento (elemento = cualquier etiqueta en el archivo).</li>
+          <li>Seleccionador de contenido: manipulan una parte especifica del contenido de un elemento.</li>
+        </ul>
+        <p>Los pseudo-elementos tienen 3 especificaciones puntuales para su correcta declaración, uso y funcionamiento:</p>
+        <ul>
+          <li>Requieren el uso de 4 puntos para funcionar (::).</li>
+          <li>Necesitan ser usados en elementos que puedan encapsular a otros (.h2::before).</li>
+          <li>No se puede acceder a un pseudo-elemento en JavaScript porque no existe en el DOM, no se pueden seleccionar en la página y tampoco se puede ver su valor en el inspector de elementos del navegador.</li>
+        </ul>
+      </div>
+    </section>
+  </header>
+  <main>
+    <!-- ::after y ::before -->
+    <section class="container">
+      <div>
+        <h2>Generadores de contenido.</h2>
+        <p>Los principales pseudo-elementos generadores de contenido son ::after y ::before</p>
+        <p>La forma en que funcionan los pseudo-elementos es la siguiente:</p>
+        <dl>
+          <dt>::before</dt>
+          <dd>
+            <p>Ejecuta los estilos de su bloque al inicio del selector especificado. En el siguiente ejemplo se insertará un texto con la propiedad content antes del título h2:</p>
+            <aside class="idEst">
+              h2::before {<br/>
+              &emsp;content: "Bubalo-";<br/>
+              }<br/>
+              <i class="coment">// El título quedaría: Bubalo-TítuloH2</i>
+            </aside>
+          </dd>
+          <dt>::after</dt>
+          <dd>
+            <p>Ejecuta los estilos de su bloque al final del selector especificado. En el siguiente ejemplo se insertará un texto con la propiedad content después del título h2:</p>
+            <aside class="idEst">
+              h2::after {<br/>
+              &emsp;content: "-bubalo";<br/>
+              }<br/>
+              <i class="coment">// El título quedaría: TítuloH2-bubalo</i>
+            </aside>
+          </dd>
+          <p>Todo pseudo-elemento vacío (con un content: '';) debe ser forzosamente un bloque (display: block;). Se utilizan los pseudo-elementos vacios para colocar imágenes como fondo (background: URL.svg;) y redimencionarlas (background-size: contain;) o para dibujar.</p>
+          <aside class="idEst">
+            .container::before, .container::after {<br/>
+            &emsp;content: '';<br/>
+            &emsp;display: block;<br/>
+            }
+          </aside>
+          <p>El objetivo del dibujo es hacer algo que no se pensaría que está hecho con código. Para hacer un dibujo eficiente se debe utilizar la menor cantidad de elementos posibles.</p>
+          <p>Una función que es de mucha ayuda para los pseudo-elementos es <b>attr()</b>. atrib() obtiene su contenido del atributo que se encuentra en su parámetro, es decir, obtiene su contenido desde la estructura HTML.</p>
+          <p>Un atributo que se utiliza con la función atrib() es <b>data=""</b>. data es un tipo de atributo personalizado en el cual se acostumbra a guardar información.</p>
+          <aside class="idEst">
+            &#60;p data-money="$" data-code="MX" class="p"&#62;<br/>
+            &emsp;30<br/>
+            &#60;/p&#62;
+          </aside>
+          <aside class="idEst">
+            .p::before {<br/>
+            &emsp;content: 'Precio: ' attr(data-money;);<br/>
+            }<br/>
+            <i class="coment">// Resultado en la página: Precio: $30</i>
+          </aside>
+        </dl>
+      </div>
+    </section>
+    <!-- ::first-line, ::first-letter y ::selection -->
+    <section class="container">
+      <div>
+        <h2>Seleccionadores de contenido.</h2>
+        <p>Los principales pseudo-elementos que seleccionan contenido que ya esta en el DOM son ::first-line, ::first-letter y ::selection</p>
+        <dl>
+          <dt>::first-line</dt>
+          <dd>
+            <p>Sirve para seleccionar la primera línea de un parrafo, lista o cualquier contenido.</p>
+            <p>No importa si el texto se modifica al adaptarse a un ancho mayor o menos, ::first-line seguirá seleccionando solo la primera línea del texto.</p>
+          </dd>
+          <dt>::first-letter</dt>
+          <dd>
+            <p>Sirve para seleccionar la primera letra de un parrafo, lista o cualquier contenido.</p>
+            <p>Como se utiliza en textos, se suele utilizar en su bloque de estilos las propiedades float: left; para que la letra seleccionada pueda ocupar más de un renglón sin perder su espacio reservado y line-height: 1; para centrar la letra seleccionada entre los renglones que abarca.</p>
+          </dd>
+          <dt>::selection</dt>
+          <dd>
+            <p>Sirve para seleccionar la selección de un parrafo, lista o cualquier contenido, es decir, aplica estilos a un fragmento de texto sombreado, el cual es seleccionado por el usuario para copiar o cortar dicho fragmento de texto.</p>
+            <p>Este pseudo-elemento está limitado a modificar solamente: el color, el fondo y la sombra del texto.</p>
+          </dd>
+        </dl>
+        <p>Existen otros pseudo-elementos como <b>::backdrop</b>, pero son nuevos y no todos los navegadores los soportan.</p>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <section class="container">
+      <div>
+        <h3>Referencias:</h3>
+        <p>
+          <a href="https://developer.mozilla.org/es/docs/Web/CSS/Pseudo-elements" target="_blank" rel="noopener noreferrer">Pseudo-elementos y pseudo-clases.</a>
+        </p>
+      </div>
+    </section>
+  </footer>
+</body>
+</html>

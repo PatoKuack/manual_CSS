@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- No guardar cache en navegadores -->
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <!-- ------------------- -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../Estilos/stylecss21.css">
+  <link rel="stylesheet" href="../Estilos/stylecss22.css">
+  <title>Posicionamientos</title>
+</head>
+<body class="body">
+  <header>
+    <section class="container">
+      <div>
+        <h1 class="center">Posicionamiento de elementos.</h1>
+        <p>El posicionamiento es la forma de poder ubicar un elemento en cualquier parte del layout. Para manipular el posicionamiento se utiliza la propiedad <strong>position</strong>.</p>
+        <p>Esta propiedad recive 5 valores:</p>
+        <p><b>position: [ static | relative | absolute | fixed | sticky ]</b></p>
+        <p><b>Static</b> es el valor por defecto que tienen todos los elementos e indica que un elemento no está posicionado.</p>
+      </div>
+    </section>
+  </header>
+  <main>
+    <!-- Propiedades offset -->
+    <section class="container">
+      <div>
+        <h2>Propiedades offset.</h2>
+        <p>Algo que ayuda a manejar el comportamiento de los posicionamientos (no incluido a static) es las <strong>propiedades offset</strong>:</p>
+        <ul>
+          <li>top</li>
+          <li>right</li>
+          <li>left</li>
+          <li>bottom</li>
+        </ul>
+        <p>Estas propiedades permiten posicionar un elemento en diferentes lugares de la ventana y solo estan disponibles para elementos posicionados.</p>
+        <p>Con estas propiedades se dice a partir de donde empezara a moverse, es decir, si le asignamos <i>top: 20px;</i> a un elemento X, el elemento X se desplazará 20 pixeles apartir de la parte superior de la ventana del navegador hacia la parte inferior (se podría decir que se desplaza hacia la parte contraria a la especcificada top->bottom).</p>
+        <p>Las propiedades buscan la referencia del elemento y se mueve con respecto a ella. La referencia de cada elemento depende del posicionamiento que obtienen con la propiedad position.</p>
+        <p>Se puenden asignar valores negativos en estas propiedades y culquier unidad de medida, solo que para trabajar con porcentajes en forma vertical se tiene que asignar una altura fija en el elemento padre del elemento, ya que la propiedad toma la altura del elemento padre para sacar el porcentaje de desplazamiento y sin una altura fija el porcentaje que obtiene es 0.</p>
+      </div>
+    </section>
+    <!-- Relative -->
+    <section class="container relat">
+      <div>
+        <h2>Relative.</h2>
+        <p>Este valor (relative) <u><b>no</b></u> provoca que el elemento <u>pierda su espacio reservado</u> dentro de la estructura de la página.</p>
+        <p>La posición inicial y la <u>referencia</u> (con respecto a las propiedades offset) de un elemento, cuando se utiliza relative, es <u>la misma</u> que se le asigna al elemento originalmente dentro de la página.</p>
+        <p>Con ayuda de las propiedades offset se pueden desfazar los elementos de posicionamiento relativo de su espacio reservado sin que otros elementos invadan este espacio reservado o sin que el elemento con posicionamiento relativo desface a otros elementos evitando que modifiquen su posición en la página.</p>
+      </div>
+    </section>
+    <!-- Absolute -->
+    <section class="container absol">
+      <div>
+        <h2>Absolute.</h2>
+        <p>Este valor (absolute) provoca que el elemento <u>pierda su espacio reservado</u> dentro de la estructura de la página recorriendo los elementos que le suceden tratando al elemento absoluto como si fuera una imagen de fondo.</p>
+        <p>La posición inicial y la <u>referencia</u> (con respecto a las propiedades offset) de un elemento, cuando utiliza absolute, es <u>el ancestro</u> (contenedor padre) más cercano que este posicionado (con relative, fixed o sticky).</p>
+        <p>Debido a este tipo de referencia, se le puede asignar dos veces una propiedad offset a un espacio, por ejemplo un left: 5px; a un contenedor relative y otro left: 5px; a su contenido absolute.</p>
+        <p>El elemento con posición absoluta <u>limita su espacio al contenido</u> que tiene.</p>
+        <p>Las unidades de medida del elemento absoluto dependen de su contenedor padre, por ejemplo, los porcentajes toman de referencia el tamaño del contenedor padre.</p>
+        <figure class="marg-auto wo1">
+          <div class="tooltip">
+            <div class="sponge-phrase marg-auto">¡Amo el dolor!</div>
+            <div class="balloon1"></div>
+            <div class="balloon2"></div>
+          </div>
+          <img src="../Imgs/working out 1.jpg" alt="bob esponja levanta pesas" title="da clic">
+        </figure>
+      </div>
+    </section>
+    <!-- Fixed -->
+    <section class="container fixe">
+      <div>
+        <h2>Fixed.</h2>
+        <p>Este valor (fixed) provoca que el elemento <u>pierda su espacio reservado</u> dentro de la estructura de la página recorriendo los elementos que le suceden tratando al elemento absoluto como si fuera una imagen de fondo.</p>
+        <p>La posición inicial y la <u>referencia</u> (con respecto a las propiedades offset) de un elemento, cuando utiliza fixed, es <u>el viewport</u> (ventana del navegador).</p>
+        <p>El elemento con posición fija (fixed) <u>limita su espacio al contenido</u> que tiene.</p>
+        <p>Cuando se posiciona un elemento con fixed, el elemento queda fijo y no importa en que parte de la página esta, se moverá a la par del scroll.</p>
+      </div>
+    </section>
+    <!-- Sticky -->
+    <section class="container">
+      <div>
+        <h2>Sticky.</h2>
+        <p>Este valor (sticky) <u><b>no</b></u> provoca que el elemento <u>pierda su espacio reservado</u> dentro de la estructura de la página.</p>
+        <p>La posición inicial y la <u>referencia</u> (con respecto a las propiedades offset) de un elemento, cuando se utiliza sticky, puede ser <u>el scroll o la parte superior de la página</u>.</p>
+        <p>Ya que su referencia es la parte superior del viewport, entonces solo funciona con  la propiedad offset <u>top</u> y actua de una forma particular, es decir:</p>
+        <p>Si a un elemento pegajoso (sticky) se le coloca un top: 40px;, el elemento <u>se desplazará junto al scroll</u> tal como lo hace fixed, pero lo hará sólo cuando la barra de scroll baje 40px. Así que el <u>top</u> en este caso funcionaría como una <u>condicional</u>.</p>
+      </div>
+    </section>
+  </main>
+  <figure class="center huey"><img src="../Imgs/Huey.png" alt="baby Huey (bebé Hiuy)" title="Kuack!"></figure>
+</body>
+</html>

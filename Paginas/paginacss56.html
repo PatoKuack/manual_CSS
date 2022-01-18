@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- No guardar cache en navegadores -->
+  <meta http-equiv="Last-Modified" content="0">
+  <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <!-- ------------------- -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animaciones SVG</title>
+</head>
+<body>
+  <header>
+    <section class="container">
+      <div>
+        <h1 class="center">Animaciones SVG.</h1>
+        <p>SVG (Scalable Vector Graphics) es un conjunto de instrucciones XML que el navegador interpreta como una imagen.</p>
+      </div>
+    </section>
+  </header>
+  <main>
+    <!-- Inserción -->
+    <section class="container">
+      <div>
+        <h2>Inserciónde SVG.</h2>
+        <p>Existen 3 formas de insertar una imagen SVG:</p>
+        <ul>
+          <li>Por medio de la etiqueta <i>img</i> en el documento HTML (imagen HTML).</li>
+          <li>Por medio de la etiqueta <i>background-image</i> en el documento CSS (fondo CSS).</li>
+          <li>Por medio de la inserción del código SVG dentro del documento HTML (inline HTML).</li>
+        </ul>
+      </div>
+    </section>
+    <!-- Crear -->
+    <section class="container">
+      <div>
+        <h2>Softwares.</h2>
+        <p>Existen varios softwares para la creación de SVG:</p>
+        <ul>
+          <li>Adobe Illustrator (comercial).</li>
+          <li>Affinity Designer (comercial).</li>
+          <li>Inkscape (gratuito).</li>
+          <li>Gravit Designer (versión gratuita y comercial).</li>
+        </ul>
+        <p>Es importante que se verifique el código que se guarda en el SVG ya que puede contener código basura, es decir, exceso de código que no se requiere.</p>
+        <p>También es importante tomar en cuenta que cuando se crean SVG con texto y ese texto tiene un formato de fuente especial, se debe guardar el SVG creado convirtiendo el texto en contornos, de esta forma el texto se convierte en dibujos dentro del código y el usuario no necesita tener la fuente instalada para visualisar el formato de fuente, aunque esto aumenta las líneas de código; si no se hace esto, el usuario visualisará el texto con un formato de fuente generica en caso de no tener la fuente instalada.</p>
+        <p>En la exportación de SVG en Illustrator existen 3 tipos de estilos:</p>
+        <ul>
+          <li>CSS interno: Estilos dentro de CSS.</li>
+          <li>Estilo en línea: Estilo dentro de HTML.</li>
+          <li>Atributos de presentación: Similar al HTML antiguo.</li>
+        </ul>
+      </div>
+    </section>
+    <!-- Estructura de un SVG -->
+    <section class="container">
+      <div>
+        <h2>Estructura de un SVG.</h2>
+        <p>Se puede definir el tamaño del SVG de la siguiente forma:</p>
+        <aside class="idEst">
+          &#60;svg width="400" height="300"&#62; &#60;/svg&#62;
+        </aside>
+        <p>Existe una etiqueta llamada <b>viewbox</b> que define el sistema de coordenadas interno del SVG.</p>
+        <p>Las coordenadas del viewbox se calcularán según el ancho y alto renderizados en el gráfico (no es necesario asignar una unidad de media, ya que es un sistema de coordenadas interno).</p>
+        <p><b>rect</b> es una etiqueta que crea un rectangulo, se tiene que definir el punto dentro del sistema de coordenadas en donde se comenzará a dibujar (x="#" y="#") y las dimensiones del rectangulo (width="#" height="#").</p>
+        <aside class="idEst">
+          <i class="coment">// Se define el punto inicial (0 0) y el punto final (400 300) obteniendo un sistema de coordenadas de 400 de ancho y 300 de alto.</i><br/>
+          &#60;svg viewbox="0 0 400 300"&#62;<br/>
+          <i class="coment">// Se genera un rectangulo apartir de las coordenadas (20 50) de un ancho de 200px y un alto de 120px.</i><br/>
+          &emsp;&#60;rect x="20" y="50" width="200" height="120" /&#62;<br/>
+          &#60;/svg&#62;
+        </aside>
+        <p>Con la etiqueta <b>line</b> se puede crear una línea definiendo el punto dentro del sistema de coordenadas en donde se comenzará a dibujar (x1="#" y1="#") y el punto final (x2="#" y2="#"), con stroke se puede definir el color de la línea (stroke="green") y con stroke-width su grosor (stroke-width="#").</p>
+        <p>Otras propiedades para esta etiqueta son:<br/>
+          stroke-linecap: [none | round | square]; Indica si a la línea se le agregará un medio círculo, un cuadrado o nada en cada extremo.<br/>
+          stroke-dasharray: # #; Sirve para hacer segmentos, el primer valor es el segmento y el segundo el espaciado. Se le pueden agregar mas de dos valores y el SVG hace un calculo dinamico entre espaciados y segmentaciones.<br/>
+          stroke-dashoffset: #; Esta propiedad funciona junto con stroke-dasharray, define desde que parte de la línea comenzará el trazo.
+        </p>
+        <aside class="idEst">
+          &#60;svg viewbox="0 0 400 300"&#62;<br/>
+          &emsp;&#60;line x1="10" y1="10" x2="200" y2="150" stroke="green" stroke-width="20" /&#62;<br/>
+          &#60;/svg&#62;
+        </aside>
+        <p>Con la etiqueta <b>polyline</b> se puede generar una figura conformada por varios puntos, se define el punto dentro del sistema de coordenadas en donde se comenzará a dibujar y despues se definen los puntos que conforman la figura (points="# #, # #, # #, ...").</p>
+        <p>Utiliza las mismas propiedades stroke que utiliza la etiqueta line, aunque se pueden utilizar otras como stroke-linejoin: [round | none]; que permite redondear las esquinas en las que se intersectan las lineas de las coordenadas.</p>
+        <p>Por default se colorea de negro y si no se le agrega una coordenada que cierre la figura, automaticamente se cierra aunque no se visualizarán las propiedades stroke en esa linea de cierre.</p>
+        <aside class="idEst">
+          &#60;svg viewbox="0 0 400 300"&#62;<br/>
+          &emsp;&#60;polyline stroke="red" points="10 20, 50 100, 200 100" /&#62;<br/>
+          &#60;/svg&#62;
+        </aside>
+        <p>Con la etiqueta <b>polygon</b> se puede generar una figura igual que polyline, con la diferencia de que si no se le indica una coordenada de cierre, la figura se cierra automaticamente creando una línea desde la ultima coordenada a la coordenada inicial (es posible visualizar el diseño de stroke en esta línea de cierre).</p>
+        <aside class="idEst">
+          &#60;svg viewbox="0 0 400 300"&#62;<br/>
+          &emsp;&#60;polygon stroke="red" points="10 20, 50 100, 200 100" /&#62;<br/>
+          &#60;/svg&#62;
+        </aside>
+        <p>Con la etiqueta <b>circle</b> se crea un círculo definiendo el punto dentro del sistema de coordenadas en donde se comenzará a dibujar (cx="#" cy="#"), se define el radio (r="#") y su color (fill="aqua").</p>
+        <aside class="idEst">
+          &#60;svg viewbox="0 0 400 300"&#62;<br/>
+          &emsp;&#60;circle cx="200" cy="150" r="50" fill="aqua" /&#62;<br/>
+          &#60;/svg&#62;
+        </aside>
+        <p>Con la etiqueta <b>ellipse</b> se genera una elipse, es similar a <i>circle</i> con la diferencia de que ellipse requiere dos radios (rx="#" ry="#").</p>
+        <aside class="idEst">
+          &#60;svg viewbox="0 0 400 300"&#62;<br/>
+          &emsp;&#60;ellipse cx="200" cy="150" rx="50" ry="100" fill="aqua" /&#62;<br/>
+          &#60;/svg&#62;
+        </aside>
+        <p>Con la etiqueta <b>text</b> se puede generar un texto definiendo el punto dentro del sistema de coordenadas en donde se comenzará a dibujar (x="#" y="#").</p>
+        <aside class="idEst">
+          &#60;svg viewbox="0 0 400 300"&#62;<br/>
+          &emsp;&#60;text x="200" y="150"&#62;¡Hola mundo!&#60;/text&#62;<br/>
+          &#60;/svg&#62;
+        </aside>
+      </div>
+    </section>
+    <!-- Estilos -->
+    <section class="container">
+      <div>
+        <h2>Estilos.</h2>
+        <p>Existen dos maneras de dar estilos a un SVG:</p>
+        <ul>
+          <li>La primera forma es con estilos en línea como los estilos creados directamente en el documento HTML con la diferencia de que los estilos se colocan dentro de la etiqueta <b>defs</b> en vez de head.</li>
+        </ul>
+        <aside class="idEst">
+          &#60;svg&#62;
+            &#60;defs&#62;
+              &#60;style&#62;
+                .clase {
+                  stroke: green;
+                  stroke-width: 20;
+                }
+              &#60;/style&#62;
+            &#60;/defs&#62;
+          &#60;/svg&#62;
+        </aside>
+        <ul>
+          <li>La segunda forma es colocando los estilos directamente dentro de la etiqueta a la que se le quiere aplicar el estilo.</li>
+        </ul>
+        <aside class="idEst">
+          &#60;svg viewbox="0 0 400 300"&#62;<br/>
+          &emsp;&#60;line x1="10" y1="10" x2="200" y2="150" stroke="green" stroke-width="20" /&#62;<br/>
+          &#60;/svg&#62;
+        </aside>
+        <p>Es recomendable que los estilos base esten dentro del SVG, no importa cual de las dos formas se utilice para dar estilos al SVG.</p>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <section class="container">
+      <div>
+        <h3>Referencias:</h3>
+        <p>
+          <a href="https://svgporn.com/" target="_blank" rel="noopener noreferrer">SVG Porn - SVGs de logos famosos.</a><br/>
+          <a href="https://codepen.io/AlvaroFelipe/pen/0efce282757411a4681c647b4ed1056d" target="_blank" rel="noopener noreferrer">Ejemplo - SVG texto animado.</a><br/>
+          <a href="https://codepen.io/AlvaroFelipe/pen/zPpYam" target="_blank" rel="noopener noreferrer">Ejemplo - SVG logo animado.</a><br/>
+        </p>
+      </div>
+    </section>
+  </footer>
+</body>
+</html>

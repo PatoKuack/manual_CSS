@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- No guardar cache en navegadores -->
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <!-- ------------------- -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../Estilos/normalization.css">
+  <link rel="stylesheet" href="../Estilos/stylecss21.css">
+  <link rel="stylesheet" href="../Estilos/stylecss27.css">
+  <title>Tablas</title>
+</head>
+<body class="body">
+  <header>
+    <section class="container">
+      <div>
+        <h1 class="center">Tablas.</h1>
+      </div>
+    </section>
+  </header>
+  <main>
+    <!-- Tablas -->
+    <section class="container">
+      <div>
+        <h2>Tablas.</h2>
+        <p>En CSS se le pueden dar a los elementos comportamientos de tablas con la propiedad display.</p>
+        <ul>
+          <li><b>display: table;</b> hace que el elemento se comporte como una etiqueta table de tipo bloque (con display block).</li>
+          <li><b>display: inline-table;</b> hace que el elemento se comporte como una etiqueta table de tipo linea (con display inline).</li>
+          <li><b>display: table-caption;</b> hace que el elemento se comporte como una etiqueta caption.</li>
+          <li><b>display: table-header-group;</b> hace que el elemento se comporte como una etiqueta thead.</li>
+          <li><b>display: table-row-group;</b> hace que el elemento se comporte como una etiqueta tbody.</li>
+          <li><b>display: table-footer-group;</b> hace que el elemento se comporte como una etiqueta tfoot.</li>
+          <li><b>display: table-row;</b> hace que el elemento se comporte como una etiqueta tr.</li>
+          <li><b>display: table-cell;</b> hace que el elemento se comporte como una etiqueta td.</li>
+          <li><b>display: table-column;</b> hace que el elemento se comporte como una etiqueta col.</li>
+          <li><b>display: table-column-group;</b> hace que el elemento se comporte como una etiqueta colgroup.</li>
+        </ul>
+        <p>A los captions se les puede asignar una posición superior (para titular la tabla) que es la de default o una inferior (para dar una descripción a la tabla) con la propiedad <b>caption-side [ top | bottom ]</b>.</p>
+        <p>A las celdas se les puede asignar una propiedad para ocultarlas sin que pierdan su lugar dentro de la tabla, la propiedad es <b>empty-cells: [ show | hide ];</b> tiene dos valores, con show muestro el contenido (es el valor por defecto de las celdas) y con hide se ocultan las celdas sin modificar la estructura de la tabla.</p>
+        <aside class="idEst">
+          table :nth-of-type(2) {<br/>
+          &emsp;empty-cells: hide;<br/>
+          }
+        </aside>
+        <p>Las columnas siempre modifican su ancho independientemente de las demás, tomando como referencia la celda (de la columna) con el contenido más amplio, para que todas las columnas de la tabla tomen el mismo ancho tomando como referencia la celda (de toda la tabla) con el contenido más amplio, se utiliza la propiedad <b>table-layout: [ auto | fixed ] ;</b> la cual tiene dos valores, auto es el valor por defecto y fixed es el valor que obliga a todas las celdas a tener el mismo ancho.</p>
+        <aside class="idEst">
+          table {<br/>
+          &emsp;table-layout: fixed;<br/>
+          &emsp;width: 100%;<br/>
+          }
+        </aside>
+        <h3>Bordes.</h3>
+        <p>Para eliminar el borde doble de las tablas se utiliza la propiedad <b>border-collapse</b> con la propiedad <b>collapse</b> que contrae los espacios entre los bordes. El valor por default que traen las tablas es <b>separate</b>.</p>
+        <aside class="idEst">
+          &emsp;border-collapse: [ collapse | separate ];
+        </aside>
+        <p>También se le puede agregar una separación especifica a los bordes de las tablas con la propiedad <b>border-spacing</b> y se le agregan los valores de las separaciones entre las filas y un segundo valor para la separación entre columnas.</p>
+        <aside class="idEst">
+          &emsp;border-spacing: (filas) (columnas);
+        </aside>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,13 @@
+
+.focus:focus{
+  background-color: teal;
+}
+
+.focus-within:focus-within{
+  background-color: teal;
+  color: aliceblue;
+}
+.ph-shown:placeholder-shown{
+  background-color: darkorchid;
+  color: aliceblue;
+}

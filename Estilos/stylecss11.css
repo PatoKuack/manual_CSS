@@ -1,0 +1,430 @@
+body{
+  background-color: blueviolet;
+}
+
+section{
+  height: auto;
+  margin: 1rem;
+}
+
+main, article, header, section, footer{
+  margin-left: auto;
+  margin-right: auto;
+  width: 50rem;
+  padding: 1em;
+  border: .2rem solid blueviolet;
+  border-radius: 5%;
+  background-color: rgba(252, 192, 239, 0.89);
+  max-width: 50rem;
+  height: auto;
+}    
+
+main, article, header, .select1, h2{
+  text-align: center;
+}    
+
+header{
+  background-color: initial;
+  background-image: radial-gradient(circle at 45% 100%, yellow 0%, blueviolet 30%);
+  color: aliceblue;
+  font-size: 1.5em;
+  padding: .5em;
+  text-shadow: .2em -.2em .1em darkmagenta;
+}
+
+figure{
+  margin: 0rem;
+}
+
+ul{
+  margin: 0rem;
+  padding-left: 2em;
+}
+
+a{
+  font-weight: bold;
+}
+
+.flexes{
+  background-color: brown;
+  border: .1em solid antiquewhite;
+  color: azure;
+  font-weight: bold;
+  font-size: .7em;
+}
+
+[id$="-e"]{
+  display: none;
+}
+
+#FDc-e:target{
+  display: block;
+}
+.contenedorFDc{
+  display: flex;
+  margin: 1em 0em 1em 0em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15em;
+  height: 10em;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-color: black;
+}
+
+#FDcr-e:target{
+  display: block;
+}
+.contenedorFDcr{
+  display: flex;
+  margin: 1em 0em 1em 0em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15em;
+  height: 10em;
+  flex-direction: column-reverse;
+  flex-wrap: wrap;
+  background-color: black;
+}
+
+#FDr-e:target{
+  display: block;
+}
+.contenedorFDr{
+  display: flex;
+  margin: 1em 0em 1em 0em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15em;
+  height: 10em;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: black;
+}
+
+#FDrr-e:target{
+  display: block;
+}
+.contenedorFDrr{
+  display: flex;
+  margin: 1em 0em 1em 0em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15em;
+  height: 10em;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  background-color: black;
+}
+
+#FWw-e:target{
+  display: block;
+}
+.contenedorFWw{
+  display: flex;
+  margin: 1em 0em 1em 0em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15em;
+  height: 10em;
+  flex-wrap: wrap;
+  background-color: black;
+}
+
+#FWwr-e:target{
+  display: block;
+}
+.contenedorFWwr{
+  display: flex;
+  margin: 1em 0em 1em 0em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15em;
+  height: 10em;
+  flex-wrap: wrap-reverse;
+  background-color: black;
+}
+
+#FWn-e:target{
+  display: block;
+}
+.contenedorFWn{
+  display: flex;
+  margin: 1em 0em 1em 0em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15em;
+  height: 10em;
+  flex-wrap: nowrap;
+  background-color: black;
+}
+
+#JCfs-e:target{
+  display: block;
+}
+.contenedorJCfs{
+  display: flex;
+  margin: 1em 0em 1em 0em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15em;
+  height: 10em;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  background-color: black;
+}
+
+#JCfe-e:target{
+  display: block;
+}
+.contenedorJCfe{
+  display: flex;
+  margin: 1em 0em 1em 0em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15em;
+  height: 10em;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  background-color: black;
+}
+
+#JCc-e:target{
+  display: block;
+}
+.contenedorJCc{
+  display: flex;
+  margin: 1em 0em 1em 0em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15em;
+  height: 10em;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: black;
+}
+
+#JCsb-e:target{
+  display: block;
+}
+.contenedorJCsb{
+  display: flex;
+  margin: 1em 0em 1em 0em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15em;
+  height: 10em;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: black;
+}
+
+#JCsa-e:target{
+  display: block;
+}
+.contenedorJCsa{
+  display: flex;
+  margin: 1em 0em 1em 0em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15em;
+  height: 10em;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: black;
+}
+
+#JCse-e:target{
+  display: block;
+}
+.contenedorJCse{
+  display: flex;
+  margin: 1em 0em 1em 0em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15em;
+  height: 10em;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  background-color: black;
+}
+
+#AIfs-e:target{
+  display: block;
+}
+.contenedorAIfs{
+  display: flex;
+  margin: 1em 0em 1em 0em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15em;
+  height: 10em;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  background-color: black;
+}
+
+#AIfe-e:target{
+  display: block;
+}
+.contenedorAIfe{
+  display: flex;
+  margin: 1em 0em 1em 0em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15em;
+  height: 10em;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  background-color: black;
+}
+
+#AIc-e:target{
+  display: block;
+}
+.contenedorAIc{
+  display: flex;
+  margin: 1em 0em 1em 0em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15em;
+  height: 10em;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: black;
+}
+
+#AIb-e:target{
+  display: block;
+}
+.contenedorAIb{
+  display: flex;
+  margin: 1em 0em 1em 0em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15em;
+  height: 10em;
+  flex-wrap: wrap;
+  align-items: baseline;
+  background-color: black;
+}
+
+#AIs-e:target{
+  display: block;
+}
+.contenedorAIs{
+  display: flex;
+  margin: 1em 0em 1em 0em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15em;
+  height: 10em;
+  flex-wrap: wrap;
+  align-items: stretch;
+  background-color: black;
+}
+
+#ACfs-e:target{
+  display: block;
+}
+.contenedorACfs{
+  display: flex;
+  margin: 1em 0em 1em 0em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15em;
+  height: 10em;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  background-color: black;
+}
+
+#ACfe-e:target{
+  display: block;
+}
+.contenedorACfe{
+  display: flex;
+  margin: 1em 0em 1em 0em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15em;
+  height: 10em;
+  flex-wrap: wrap;
+  align-content: flex-end;
+  background-color: black;
+}
+
+#ACc-e:target{
+  display: block;
+}
+.contenedorACc{
+  display: flex;
+  margin: 1em 0em 1em 0em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15em;
+  height: 10em;
+  flex-wrap: wrap;
+  align-content: center;
+  background-color: black;
+}
+
+#ACsb-e:target{
+  display: block;
+}
+.contenedorACsb{
+  display: flex;
+  margin: 1em 0em 1em 0em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15em;
+  height: 10em;
+  flex-wrap: wrap;
+  align-content: space-between;
+  background-color: black;
+}
+
+#ACsa-e:target{
+  display: block;
+}
+.contenedorACsa{
+  display: flex;
+  margin: 1em 0em 1em 0em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15em;
+  height: 10em;
+  flex-wrap: wrap;
+  align-content: space-around;
+  background-color: black;
+}
+
+#ACse-e:target{
+  display: block;
+}
+.contenedorACse{
+  display: flex;
+  margin: 1em 0em 1em 0em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15em;
+  height: 10em;
+  flex-wrap: wrap;
+  align-content: space-evenly;
+  background-color: black;
+}
+
+#ACs-e:target{
+  display: block;
+}
+.contenedorACs{
+  display: flex;
+  margin: 1em 0em 1em 0em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15em;
+  height: 10em;
+  flex-wrap: wrap;
+  align-content: stretch;
+  background-color: black;
+}

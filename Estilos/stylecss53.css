@@ -1,0 +1,34 @@
+/* propiedades */
+.button {
+  display: table;
+  padding: 1em 2em;
+  background-color: hsl(10, 80%, 60%);
+  color: #fff;
+  margin: 1em auto;
+  cursor: pointer;
+}
+
+.ball {
+  background: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 1em 0;
+  font-size: 12px;
+  transform: translateX(0) rotate(0);
+  transition: transform 2s;
+}
+
+.animate .ball {
+  transform: translateX(calc(100vw - 100%)) rotate(2turn);
+}
+
+.ball.ease        { transition-timing-function: ease }
+.ball.ease-in     { transition-timing-function: ease-in }
+.ball.ease-out    { transition-timing-function: ease-out }
+.ball.ease-in-out { transition-timing-function: ease-in-out }
+.ball.linear      { transition-timing-function: linear }

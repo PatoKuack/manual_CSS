@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- No guardar cache en navegadores -->
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <!-- ------------------- -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../Estilos/stylecss13.css">
+  <link rel="stylesheet" href="../../home/styles/mano_regresar.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet"> rel="stylesheet">
+  <title>Grid</title>
+</head>
+<body>
+  <header>
+    <h1>CSS Grid</h1>
+  </header>
+  <main>
+    Permite construir layouts a través de dos ejes inline (horizontal) y block (vertical).<br/>
+    No importa la posición e un elemento para construir el layout.<br/>
+    Al igual que <i>flexbox</i>, requiere una relación de padre (grid-container) a hijo (grid-items).
+  </main>
+  <h2>Terminología y elementos.</h2>
+  <section class="entrada">
+    <ul>
+      <li>
+        Elementos del DOM
+      </li>
+      <ul>
+        <li>
+          <b>grid-container</b> es aquel elemento al que se le aplica en la propiedad display un valor de grid.
+          <ul>
+            <li>
+              <b>display: grid;</b> elemento de bloque.
+            </li>
+            <li>
+              <b>display: inline-grid;</b> elemento de línea.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <b>grid-items</b>
+        </li>
+        <ul>
+          <li>
+            hijos directos del grid.
+          </li>
+          <li>
+            pseudoelementos (::before y ::after).
+          </li>
+          <li>
+            texto (contenido del elemento item).
+          </li>
+        </ul>
+      </ul>
+      <li>
+        No existen en el DOM, el navegador los crea para posicionar y alinear elementos.
+      </li>
+      <ul>
+        <li>
+          <b>grid-tracks</b>
+          <ul>
+            <li>
+              filas y columnas.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <b>grid-lines</b>
+          <ul>
+            <li>
+              se encuentran a lado de los tracks, izquierda y derecha para columnas; arriba y abajo para filas.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <b>grid-cells</b>
+          <ul>
+            <li>
+              intersección entre una fila y una columna.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <b>grid-areas</b>
+          <ul>
+            <li>
+              cualquier área rectangular delimitada por cuatro <i>grid-lines</i>.
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </ul>
+    <figure>
+      <img src="../Imgs/Grid.jpg" alt="ejemplo de partes del Grid" title="Partes de Grid">
+    </figure>
+  </section>
+  <h2>Propiedades Grid.</h2>
+  <section>
+    <article>
+      <h3>Grid-tracks</h3>
+      <p><i>Se colocan en el elemento padre.</i></p>
+      <b>grid-template-columns: #fr #fr;</b> define la cantidad de columnas dentro del grid, se coloca una medida por columna, esa medida definirá el ancho de la columna. La altura de la columna se extenderá hasta el límite inferior del elemento.
+      <figure class="GT">
+        <div id="contenedorGTc-e">
+          <div class="gridesGTc">
+            &#129383;
+          </div>
+          <div class="gridesGTc">
+            &#129383;
+          </div>
+          <div class="gridesGTc">
+            &#129383;
+          </div>
+          <div class="gridesGTc">
+            &#129383;
+          </div>
+        </div>
+        <figcaption class="GTcaption">
+          <a href="#contenedorGTc-e" title="Mostrar ejemplo">mostrar un <b>grid-template-columns: 1fr 1fr 1fr 1fr;</b></a>
+        </figcaption>
+      </figure>
+      <b>grid-template-rows: #fr #fr;</b> define la cantidad de filas dentro del grid, se coloca una medida por fila, esa medida definirá la altura de la fila. El largo de la fila se extenderá hasta el límite lateral derecho del elemento.
+      <figure class="GT">
+        <div id="contenedorGTr-e">
+          <div class="gridesGTr">
+            &#129383;
+          </div>
+          <div class="gridesGTr">
+            &#129383;
+          </div>
+          <div class="gridesGTr">
+            &#129383;
+          </div>
+          <div class="gridesGTr">
+            &#129383;
+          </div>
+        </div>
+        <figcaption class="GTcaption">
+          <a href="#contenedorGTr-e" title="Mostrar ejemplo">mostrar un <b>grid-template-rows: 1fr 1fr 1fr 1fr;</b></a>
+        </figcaption>
+      </figure>
+      <em class="nota">
+        nota1:</br>
+        La medida en <b>fr</b> distribuye mejor las areas y sus separaciones sin que se desborden y se pueden combinar los valores (#em #fr #em...)<br/>
+        nota2:<br/>
+        Al colocar una medición en porcentaje a las imágenes dentro de un grid, este porcentaje tomará de referencia el espacio asignado a ese track o área, no al tamaño del navegador.
+      </em>
+    </article>
+    <hr>
+    <article>
+      <h3>Valores</h3>
+      <b>min-content</b> especifica que las columnas o filas midan lo mínimo posible tomando como referencia el elemento (palabra o imagen) más grande del contenido, por ejemplo: en una columna, si el contenido contiene 3 palabras, se colocan saltos de línea para que la columna sea lo más angosta posible; ejemplo de uso: grid-template-columns: min-content min content;
+      <figure class="GTv">
+        <div id="contenedorGTminc-ev">
+          <div class="gridesGTminc">
+            ¡Cazadores!,
+          </div>
+          <div class="gridesGTminc">
+            gritaron sus raíces,
+          </div>
+          <div class="gridesGTminc">
+            y alarmaron a medio bosque.
+          </div>
+        </div>
+        <figcaption class="GTcaption">
+          <a href="#contenedorGTminc-ev" title="Mostrar ejemplo">mostrar un <b>grid-template-columns: min-content min-content min-content;</b></a>
+        </figcaption>
+      </figure>
+      <b>max-content</b> especifica que las columnas o filas midan lo máximo de contenido posible haciendo que el contenido se acomode para que ocupe todo el espacio posible en horizontal (columna) o vertical (fila).
+      <figure class="GTv">
+        <div id="contenedorGTmaxc-ev">
+          <div class="gridesGTmaxc">
+            ¡Cazadores!,
+          </div>
+          <div class="gridesGTmaxc">
+            gritaron sus raíces,
+          </div>
+          <div class="gridesGTmaxc">
+            y alarmaron a medio bosque.
+          </div>
+        </div>
+        <figcaption class="GTcaption">
+          <a href="#contenedorGTmaxc-ev" title="Mostrar ejemplo">mostrar un <b>grid-template-columns: max-content max-content max-content;</b></a>
+        </figcaption>
+      </figure>
+      <b>fit-content(#px)</b> función que recibe un parámetro, especifica que las columnas o filas se adapte un mínimo de "min-content" y como máximo el parámetro especificado, ejemplo: grid-template-columns: fit-content(400px);.
+      <figure class="GTv">
+        <div id="contenedorGTfitc-ev">
+          <div class="gridesGTfitc">
+            ¡Cazadores!,
+          </div>
+          <div class="gridesGTfitc">
+            gritaron sus raíces,
+          </div>
+          <div class="gridesGTfitc">
+            y alarmaron a medio bosque.
+          </div>
+        </div>
+        <figcaption class="GTcaption">
+          <a href="#contenedorGTfitc-ev" title="Mostrar ejemplo">mostrar un <b>grid-template-columns: fit-content(200px) fit-content(200px) fit-content(200px);</b></a>
+        </figcaption>
+      </figure>
+      <b>minmax(#px, #px)</b> coloca lo mínimo y lo máximo en una instrucción, se pueden colocar valores combinados, ejemplo: grid-template-columns: minmax(250px, 400px) 1fr.
+      <figure class="GTv">
+        <div id="contenedorGTminmax-ev">
+          <div class="gridesGTminmax">
+            ¡Cazadores!,
+          </div>
+          <div class="gridesGTminmax">
+            gritaron sus raíces,
+          </div>
+          <div class="gridesGTminmax">
+            y alarmaron a medio bosque.
+          </div>
+        </div>
+        <figcaption class="GTcaption">
+          <a href="#contenedorGTminmax-ev" title="Mostrar ejemplo">mostrar un <b>grid-template-columns: minmax(50px, 200px) minmax(50px, 200px) minmax(50px, 200px);</b></a>
+        </figcaption>
+      </figure>
+      <b>repeat( N, #fr );</b> repite N veces una función, maneja dos parámetros, el primero (N) es la cantidad de veces que se repetirá la función para crear los tracks (columnas o filas dependiendo del grid-template que se use) y el segundo es la función que se repetirá.
+      <figure class="GTv">
+        <div id="contenedorGTr-ev">
+          <div class="gridesGTr">
+            ¡Cazadores!,
+          </div>
+          <div class="gridesGTr">
+            gritaron sus raíces,
+          </div>
+          <div class="gridesGTr">
+            y alarmaron a medio bosque.
+          </div>
+          <div class="gridesGTr">
+            &#127794;
+          </div>
+        </div>
+        <figcaption class="GTcaption">
+          <a href="#contenedorGTr-ev" title="Mostrar ejemplo">mostrar un <b>grid-template-columns: repeat(3, min-content);</b></a>
+        </figcaption>
+      </figure>
+      <b>repeat(auto-fit, #px)</b> se utiliza con <i>repeat</i>; verifica si existe espacio y contenido disponible, si se dispone de estos dos factores, anexa otra columna o fila (del tamaño especificado en el segundo valor del repeat), ejemplo: grid-template-columns: repeat(auto-fit, 360px);
+      <figure class="GTv">
+        <div id="contenedorGTafit-ev">
+          <div class="gridesGTafit">
+            ¡Cazadores!,
+          </div>
+          <div class="gridesGTafit">
+            gritaron sus raíces,
+          </div>
+          <div class="gridesGTafit">
+            y alarmaron a medio bosque.
+          </div>
+          <div class="gridesGTafit">
+            &#127794;
+          </div>
+        </div>
+        <figcaption class="GTcaption">
+          <a href="#contenedorGTafit-ev" title="Mostrar ejemplo">mostrar un <b>grid-template-columns: repeat(auto-fit,130px);</b></a>
+        </figcaption>
+      </figure>
+      <b>repeat(auto-fill, #px)</b> se utiliza con <i>repeat</i>; verifica si existe espacio disponible, si lo hay, anexa otra división en columna o fila (del tamaño especificado en el segundo valor del repeat), es necesario que haya contenido para que se visualice la columna o fila agregada, sin embargo no es necesario que haya contenido para crear la columna o fila.<br/>
+      Se puede visualizar mejor con el inspector del navegador web (clic derecho, inspeccionar).
+      <figure class="GTv">
+        <div id="contenedorGTafill-ev">
+          <div class="gridesGTafill">
+            ¡Cazadores!,
+          </div>
+          <div class="gridesGTafill">
+            gritaron sus raíces,
+          </div>
+          <div class="gridesGTafill">
+            y alarmaron a medio bosque.
+          </div>
+          <div class="gridesGTafill">
+            &#127794;
+          </div>
+        </div>
+        <figcaption class="GTcaption">
+          <a href="#contenedorGTafill-ev" title="Mostrar ejemplo">mostrar un <b>grid-template-columns: repeat(auto-fill,130px);</b></a>
+        </figcaption>
+      </figure>
+      Se pueden combinar los valores <b>auto-fill</b> y <b>minmax</b> para obtener un sistema de columnas flexible, ejemplo: grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* agrega columnas dependiendo el espacio disponible, cada columna tendrá como mínimo 200 pixeles y como máximo calcula todo lo que se pueda abarcar. */
+      <figure class="GTv">
+        <div id="contenedorGTafillmm-ev">
+          <div class="gridesGTafillmm">
+            &#127794;
+          </div>
+          <div class="gridesGTafillmm">
+            &#127794;
+          </div>
+          <div class="gridesGTafillmm">
+            &#127794;
+          </div>
+          <div class="gridesGTafillmm">
+            &#127794;
+          </div>
+          <div class="gridesGTafillmm">
+            &#127794;
+          </div>
+          <div class="gridesGTafillmm">
+            &#127794;
+          </div>
+          <div class="gridesGTafillmm">
+            &#127794;
+          </div>
+          <div class="gridesGTafillmm">
+            &#127794;
+          </div>
+          <div class="gridesGTafillmm">
+            &#127794;
+          </div>
+          <div class="gridesGTafillmm">
+            &#127794;
+          </div>
+          <div class="gridesGTafillmm">
+            &#127794;
+          </div>
+          <div class="gridesGTafillmm">
+            &#127794;
+          </div>
+          <div class="gridesGTafillmm">
+            &#127794;
+          </div>
+          <div class="gridesGTafillmm">
+            &#127794;
+          </div>
+        </div>
+        <figcaption class="GTcaption">
+          <a href="#contenedorGTafillmm-ev" title="Mostrar ejemplo">mostrar un <b>grid-template-columns: repeat(auto-fill,minmax(51px,1fr));</b></a>
+        </figcaption>
+      </figure>
+    </article>
+    <hr>
+    <article>
+      <h3>Grid-lines</h3>
+      <p><i>Se coloca en el elemento padre.</i></p>
+      <b>grid-column-gap: #em;</b> nos permite agregar separaciones entre columnas (solo se coloca una medición).
+      <figure class="GGv">
+        <div id="contenedorGGc-ev">
+          <div class="gridesGGc">
+            ‘‘Volver a la tierra
+          </div>
+          <div class="gridesGGc">
+            de la que un día nacimos
+          </div>
+          <div class="gridesGGc">
+            es algo noble’’.
+          </div>
+          <div class="gridesGG">
+            &#127793;
+          </div>
+          <div class="gridesGG">
+            &#127793;
+          </div>
+          <div class="gridesGG">
+            &#127793;
+          </div>
+        </div>
+        <figcaption class="GGcaption">
+          <a href="#contenedorGGc-ev" title="Mostrar ejemplo">mostrar un <b>grid-column-gap: .1em;</b></a>
+        </figcaption>
+      </figure>
+      <b>grid-row-gap: #em;</b> nos permite agregar separaciones entre filas (solo se coloca una medición).
+      <figure class="GGv">
+        <div id="contenedorGGr-ev">
+          <div class="gridesGGr">
+            ‘‘Volver a la tierra
+          </div>
+          <div class="gridesGGr">
+            de la que un día nacimos
+          </div>
+          <div class="gridesGGr">
+            es algo noble’’.
+          </div>
+          <div class="gridesGG">
+            &#127793;
+          </div>
+          <div class="gridesGG">
+            &#127793;
+          </div>
+          <div class="gridesGG">
+            &#127793;
+          </div>
+        </div>
+        <figcaption class="GGcaption">
+          <a href="#contenedorGGr-ev" title="Mostrar ejemplo">mostrar un <b>grid-row-gap: .1em;</b></a>
+        </figcaption>
+      </figure>
+      <b>grid-gap: [separación para columna] [separación para fila];</b> es un shorthand para estas propiedades, ejemplo: grid-gap: 0 2em;
+      <figure class="GGv">
+        <div id="contenedorGGcr-ev">
+          <div class="gridesGGcr">
+            ‘‘Volver a la tierra
+          </div>
+          <div class="gridesGGcr">
+            de la que un día nacimos
+          </div>
+          <div class="gridesGGcr">
+            es algo noble’’.
+          </div>
+          <div class="gridesGG">
+            &#127793;
+          </div>
+          <div class="gridesGG">
+            &#127793;
+          </div>
+          <div class="gridesGG">
+            &#127793;
+          </div>
+        </div>
+        <figcaption class="GGcaption">
+          <a href="#contenedorGGcr-ev" title="Mostrar ejemplo">mostrar un <b>grid-gap: .1em .1em;</b></a>
+        </figcaption>
+      </figure>
+      <b>grid-gap: [separación para columna y fila];</b> es otro shorthand que permite colocar una medida que defina los tipos de separaciones.
+      <figure class="GGv">
+        <div id="contenedorGG-ev">
+          <div class="gridesGG">
+            ‘‘Volver a la tierra
+          </div>
+          <div class="gridesGG">
+            de la que un día nacimos
+          </div>
+          <div class="gridesGG">
+            es algo noble’’.
+          </div>
+          <div class="gridesGG">
+            &#127793;
+          </div>
+          <div class="gridesGG">
+            &#127793;
+          </div>
+          <div class="gridesGG">
+            &#127793;
+          </div>
+        </div>
+        <figcaption class="GGcaption">
+          <a href="#contenedorGG-ev" title="Mostrar ejemplo">mostrar un <b>grid-gap: .1em;</b></a>
+        </figcaption>
+      </figure>
+    </article>
+    <hr>
+    <article>
+      <h3>Grid-cells</h3>
+      <p><i>Se coloca en el elemento hijo.</i></p>
+      <b>grid-row-start: #;</b> indica en que <i>grid line</i> de las filas comenzará la colocación del <u>elemento hijo</u> del elemento con grid.
+      <figure class="GC">
+        <div id="contenedorGCrs-e">
+          <div class="gridesGCrs1">
+            &#129414;
+          </div>
+          <div class="gridesGCrs2">
+            &#129414;
+            &#129414;
+          </div>
+          <div class="gridesGCrs3">
+            &#129414;
+            &#129414;
+            &#129414;
+          </div>
+          <div class="gridesGCrs4">
+            &#128032;
+          </div>
+          <div class="gridesGCrs5">
+            &#128032;
+            &#128032;
+          </div>
+          <div class="gridesGCrs6">
+            &#128032;
+            &#128032;
+            &#128032;
+          </div>
+        </div>
+        <figcaption class="GCcaption">
+          <a href="#contenedorGCrs-e" title="Mostrar ejemplo">El tercio de patos <b>grid-row-start: 2;</b></a>
+        </figcaption>
+      </figure>
+      <b>grid-row-end: #;</b> indica en que <i>grid line</i> de las filas terminará la colocación del <u>elemento hijo</u> del elemento con grid.
+      <figure class="GC">
+        <div id="contenedorGCre-e">
+          <div class="gridesGCre1">
+            &#129414;
+          </div>
+          <div class="gridesGCre2">
+            &#129414;
+            &#129414;
+          </div>
+          <div class="gridesGCre3">
+            &#129414;
+            &#129414;
+            &#129414;
+          </div>
+          <div class="gridesGCre4">
+            &#128032;
+          </div>
+          <div class="gridesGCre5">
+            &#128032;
+            &#128032;
+          </div>
+          <div class="gridesGCre6">
+            &#128032;
+            &#128032;
+            &#128032;
+          </div>
+        </div>
+        <figcaption class="GCcaption">
+          <a href="#contenedorGCre-e" title="Mostrar ejemplo">El tercio de patos <b>grid-row-end: 4;</b></a>
+        </figcaption>
+      </figure>
+      <b>grid-column-start: #;</b> indica en que <i>grid line</i> de las columnas comenzará la colocación del <u>elemento hijo</u> del elemento con grid.
+      <figure class="GC">
+        <div id="contenedorGCcs-e">
+          <div class="gridesGCcs1">
+            &#129414;
+          </div>
+          <div class="gridesGCcs2">
+            &#129414;
+            &#129414;
+          </div>
+          <div class="gridesGCcs3">
+            &#129414;
+            &#129414;
+            &#129414;
+          </div>
+          <div class="gridesGCcs4">
+            &#128032;
+          </div>
+          <div class="gridesGCcs5">
+            &#128032;
+            &#128032;
+          </div>
+          <div class="gridesGCcs6">
+            &#128032;
+            &#128032;
+            &#128032;
+          </div>
+        </div>
+        <figcaption class="GCcaption">
+          <a href="#contenedorGCcs-e" title="Mostrar ejemplo">El tercio de patos <b>grid-column-start: 2;</b></a>
+        </figcaption>
+      </figure>
+      <b>grid-column-end: #;</b> indica en que <i>grid line</i> de las columnas terminará la colocación del <u>elemento hijo</u> del elemento con grid.
+      <figure class="GC">
+        <div id="contenedorGCce-e">
+          <div class="gridesGCce1">
+            &#129414;
+          </div>
+          <div class="gridesGCce2">
+            &#129414;
+            &#129414;
+          </div>
+          <div class="gridesGCce3">
+            &#129414;
+            &#129414;
+            &#129414;
+          </div>
+          <div class="gridesGCce4">
+            &#128032;
+          </div>
+          <div class="gridesGCce5">
+            &#128032;
+            &#128032;
+          </div>
+          <div class="gridesGCce6">
+            &#128032;
+            &#128032;
+            &#128032;
+          </div>
+        </div>
+        <figcaption class="GCcaption">
+          <a href="#contenedorGCce-e" title="Mostrar ejemplo">El tercio de patos <b>grid-column-end: 5;</b></a>
+        </figcaption>
+      </figure>
+      <b>grid-row: [start] / [end];</b> o <b>grid-column: [start] / [end];</b> es un shorthand, indica en que <i>grid line</i> del renglón o columna empieza y en cual termina el posicionamiento del elemento, ejemplo: grid-row: 1 / 0;
+      <figure class="GC">
+        <div id="contenedorGCse-e">
+          <div class="gridesGCse1">
+            &#129414;
+          </div>
+          <div class="gridesGCse2">
+            &#129414;
+            &#129414;
+          </div>
+          <div class="gridesGCse3">
+            &#129414;
+            &#129414;
+            &#129414;
+          </div>
+          <div class="gridesGCse4">
+            &#128032;
+          </div>
+          <div class="gridesGCse5">
+            &#128032;
+            &#128032;
+          </div>
+          <div class="gridesGCse6">
+            &#128032;
+            &#128032;
+            &#128032;
+          </div>
+        </div>
+        <figcaption class="GCcaption">
+          <a href="#contenedorGCse-e" title="Mostrar ejemplo">El tercio de patos <b>grid-row: 1 / 4;</b></a>
+        </figcaption>
+      </figure>
+      <b>grid-row: [start];</b> o <b>grid-column: [start];</b> es un shorthand que permite colocar solo un valor que defina únicamente el grid start, ejemplo: grid-column: 3;
+      <figure class="GC">
+        <div id="contenedorGCrc-e">
+          <div class="gridesGCrc1">
+            &#129414;
+          </div>
+          <div class="gridesGCrc2">
+            &#129414;
+            &#129414;
+          </div>
+          <div class="gridesGCrc3">
+            &#129414;
+            &#129414;
+            &#129414;
+          </div>
+          <div class="gridesGCrc4">
+            &#128032;
+          </div>
+          <div class="gridesGCrc5">
+            &#128032;
+            &#128032;
+          </div>
+          <div class="gridesGCrc6">
+            &#128032;
+            &#128032;
+            &#128032;
+          </div>
+        </div>
+        <figcaption class="GCcaption">
+          <a href="#contenedorGCrc-e" title="Mostrar ejemplo">El tercio de patos <b>grid-row: 2;</b></a>
+        </figcaption>
+      </figure>
+      <b>grid-column: [start] / span #;</b> span solamente se coloca en la posición del end e indica la cantidad de columnas (o filas) que se ocuparán a partir del <i>grid line</i> donde comienza, ejemplo: grid-gap: 1 / span 2;
+      <figure class="GC">
+        <div id="contenedorGCsspan-e">
+          <div class="gridesGCsspan1">
+            &#129414;
+          </div>
+          <div class="gridesGCsspan2">
+            &#129414;
+            &#129414;
+          </div>
+          <div class="gridesGCsspan3">
+            &#129414;
+            &#129414;
+            &#129414;
+          </div>
+          <div class="gridesGCsspan4">
+            &#128032;
+          </div>
+          <div class="gridesGCsspan5">
+            &#128032;
+            &#128032;
+          </div>
+          <div class="gridesGCsspan6">
+            &#128032;
+            &#128032;
+            &#128032;
+          </div>
+        </div>
+        <figcaption class="GCcaption">
+          <a href="#contenedorGCsspan-e" title="Mostrar ejemplo">El tercio de patos <b>grid-row: 2 / span 2;</b> y <b> grid-column: 2 / span 2;</b></a>
+        </figcaption>
+      </figure>
+      <b>grid-row: span #;</b> permite colocar solo un valor que defina la cantidad de filas o columnas que se van a ocupar, ejemplo: grid-column: span 1;
+      <figure class="GC">
+        <div id="contenedorGCspan-e">
+          <div class="gridesGCspan1">
+            &#129414;
+          </div>
+          <div class="gridesGCspan2">
+            &#129414;
+            &#129414;
+          </div>
+          <div class="gridesGCspan3">
+            &#129414;
+            &#129414;
+            &#129414;
+          </div>
+          <div class="gridesGCspan4">
+            &#128032;
+          </div>
+          <div class="gridesGCspan5">
+            &#128032;
+            &#128032;
+          </div>
+          <div class="gridesGCspan6">
+            &#128032;
+            &#128032;
+            &#128032;
+          </div>
+        </div>
+        <figcaption class="GCcaption">
+          <a href="#contenedorGCspan-e" title="Mostrar ejemplo">El tercio de patos <b>grid-column: span 2;</b></a>
+        </figcaption>
+      </figure>
+      <b>grid-area: [grid-row-start] / [grid-column-start] / [grid-row-end] / [grid-column-end];</b> es un shorthand que indica el inicio y final de las filas y columnas.
+      <figure class="GC">
+        <div id="contenedorGCarea-e">
+          <div class="gridesGCarea1">
+            &#129414;
+          </div>
+          <div class="gridesGCarea2">
+            &#129414;
+            &#129414;
+          </div>
+          <div class="gridesGCarea3">
+            &#129414;
+            &#129414;
+            &#129414;
+          </div>
+          <div class="gridesGCarea4">
+            &#128032;
+          </div>
+          <div class="gridesGCarea5">
+            &#128032;
+            &#128032;
+          </div>
+          <div class="gridesGCarea6">
+            &#128032;
+            &#128032;
+            &#128032;
+          </div>
+        </div>
+        <figcaption class="GCcaption">
+          <a href="#contenedorGCarea-e" title="Mostrar ejemplo">El tercio de patos <b>grid-area: 2 / 2 / 3 / 4;</b></a>
+        </figcaption>
+      </figure>
+    </article>
+    <hr>
+    <article>
+      <h3>Grid-areas</h3>
+      Cada <i>grid-area</i> es ocupada por un elemento hijo del elemento al que se le aplica el grid.<br/>
+      Se puede definir las áreas e indicarle a los items en que área debe aparecer, permitiendo definir áreas dentro de grid.<br/>
+      Primero se especifican las áreas de los elementos hijos con el comando <b>grid-area:NAME;</b><br/>
+      Después se especifican las posiciones de las áreas con el comando <b>grid-template-areas: 'NAME2 NAME2 NAME3' 'NAME2 NAME2 NAME1';</b> cada área declarada (NAME) representa una columna y cada bloque de comillas simples representa una fila.<br/>
+      En el ejemplo se colocaron 3 elementos, el NAME2 ocupa las dos primeras columnas de las dos filas, el NAME3 ocupa la última columna de la primera fila y el NAME1 ocupa la última columna de la segunda fila.
+      <figure class="GA">
+        <div id="contenedorGA-e">
+          <div class="gridesGA1">
+          </div>
+          <div class="gridesGA2">
+          </div>
+          <div class="gridesGA3">
+          </div>
+          <div class="gridesGA4">
+          </div>
+          <div class="gridesGA5">
+          </div>
+          <div class="gridesGA6">
+          </div>
+          <div class="gridesGA7">
+          </div>
+          <div class="gridesGA8">
+          </div>
+          <div class="gridesGA9">
+          </div>
+        </div>
+        <figcaption class="GAcaption">
+          <a href="#contenedorGA-e" title="Mostrar ejemplo"><b>grid-template-areas: ' ';</b> <br/> <b>grid-area: ;</b></a>
+        </figcaption>
+      </figure>
+      <p><i>Lo siguiente se coloca en el elemento padre (cada área debe ocupar un rectángulo y no pueden haber dos áreas (rectángualos) hechos con el mismo elemento hijo).</i></p>
+      <div class="codigo">
+        grid-template-areas:<br/>
+          'leaf1 leaf1 sky1 sky1 sky1 sky1 sky1 sky1 leaf2 leaf2'<br/>
+          'leaf1 leaf1 sky1 sky1 sky1 sky1 sky1 sky1 leaf2 leaf2'<br/>
+          'tree1 sky2 sky2 sky2 sun1 sun1 sky3 sky3 sky3 tree2'<br/>
+          'tree1 sky2 sky2 sky2 sun1 sun1 sky3 sky3 sky3 tree2'<br/>
+          'grnd grnd grnd grnd grnd grnd grnd grnd grnd grnd'<br/>
+          'grnd grnd grnd grnd grnd grnd grnd grnd grnd grnd'<br/>
+          'grnd grnd grnd grnd grnd grnd grnd grnd grnd grnd'<br/>
+        ;
+      </div>
+      <p><i>Lo siguiente se coloca un el elemento hijo (cada nombre de área va en un elemento descendiente del elemento padre).</i></p>
+      <div class="codigo">
+        grid-area: left1;
+      </div>
+    </article>
+    <hr>
+    <article>
+      <h3>Alineaciones de items</h3>
+      <figure class="GI">
+        <div id="contenedorGIji-e">
+          <div class="gridesGIji1">
+            start
+          </div>
+          <div class="gridesGIji2">
+            center
+          </div>
+          <div class="gridesGIji3">
+            end
+          </div>
+          <div class="gridesGIji4">
+            &#127782;
+          </div>
+        </div>
+      </figure>
+      <figure class="GI">
+        <div id="contenedorGIjs-e">
+          <div class="gridesGIjs1">
+            start
+          </div>
+          <div class="gridesGIjs2">
+            center
+          </div>
+          <div class="gridesGIjs3">
+            end
+          </div>
+          <div class="gridesGIjs4">
+            &#127782;
+          </div>
+        </div>
+      </figure>
+      <figure class="GI">
+        <div id="contenedorGIai-e">
+          <div class="gridesGIai1">
+            &#127782;
+          </div>
+          <div class="gridesGIai2">
+            start
+          </div>
+          <div class="gridesGIai3">
+            center
+          </div>
+          <div class="gridesGIai4">
+            end
+          </div>
+        </div>
+      </figure>
+      <figure class="GI">
+        <div id="contenedorGIas-e">
+          <div class="gridesGIas1">
+            &#127782;
+          </div>
+          <div class="gridesGIas2">
+            start
+          </div>
+          <div class="gridesGIas3">
+            center
+          </div>
+          <div class="gridesGIas4">
+            end
+          </div>
+        </div>
+      </figure>
+      <a href="#contenedorGIji-e" title="Mostrar ejemplo"><b>justify-items</b></a> propiedad que alinea los items <u>en el eje X</u> dentro de los tracks correspondientes, se coloca <u>en el contenedor padre</u> grid.<br/>
+      <a href="#contenedorGIjs-e" title="Mostrar ejemplo"><b>justify-self</b></a> propiedad que alinea un item especifico <u>en el eje X</u>, se coloca <u>en el hijo</u> del contenedor grid.<br/>
+      <a href="#contenedorGIai-e" title="Mostrar ejemplo"><b>align-items</b></a> propiedad que alinea los items <u>en el eje Y</u> dentro de los tracks correspondientes, se coloca <u>en el contenedor padre</u> grid.<br/>
+      <a href="#contenedorGIas-e" title="Mostrar ejemplo"><b>align-self</b></a> propiedad que alinea un item especifico <u>en el eje Y</u>, se coloca <u>en el hijo</u> del contenedor grid.<br/>
+      <em>
+        nota:<br/>
+        Valores de justify y de align: [start | end | center]
+      </em>
+    </article>
+    <hr>
+    <article>
+      <h3>Alineaciones de tracks</h3>
+      <figure class="GI">
+        <div id="contenedorGICjc-e">
+          <div class="gridesGIjc1">
+            &#127783;
+          </div>
+          <div class="gridesGIjc2">
+            &#127782;
+          </div>
+          <div class="gridesGIjc3">
+            &#127783;
+          </div>
+          <div class="gridesGIjc4">
+            space-evenly
+          </div>
+        </div>
+      </figure>
+      <figure class="GI">
+        <div id="contenedorGICac-e">
+          <div class="gridesGIac1">
+            &#127783;
+          </div>
+          <div class="gridesGIac2">
+            &#127782;
+          </div>
+          <div class="gridesGIac3">
+            &#127783;
+          </div>
+          <div class="gridesGIac4">
+            space-between
+          </div>
+        </div>
+      </figure>
+      <a href="#contenedorGICjc-e" title="Mostrar ejemplo"><b>justify-content</b></a> propiedad que alinea los tracks en el eje X dentro del contenedor, se coloca <u>en el contenedor padre</u> grid.<br/>
+      <a href="#contenedorGICac-e" title="Mostrar ejemplo"><b>align-content</b></a> propiedad que alinea los tracks en el eje Y dentro del contenedor, se coloca <u>en el contenedor padre</u> grid.<br/>
+      <em>
+        nota:<br/>
+        Valores de justify: [start | end | center | space-between | space-around | space-evenly]<br/>
+        Valores de align: [start | end | center | space-between | space-around | space-evenly | baseline | stretch]
+      </em>
+    </article>
+    <hr>
+    <article>
+      <h3>Grid placement</h3>
+      El <b>grid placement</b> es el algoritmo que utiliza css grid para saber dónde colocar los elementos en el grid.<br/>
+      Existen dos maneras de clasificar al grid en el código, el <b>grid implícito</b> y el <b>grid explícito</b>, el explícito es el que colocamos y definimos intencionalmente en el código, el implícito es el que se define automáticamente ya que no fue declarado en el código, pero es necesario para que funcione correctamente, a esto se le atribuye el anexo de filas o columnas no declaradas las cuales no tienen propiedades.
+      <hr>
+      <h4>Auto</h4>
+      <figure class="GA">
+        <div id="contenedorGAr-e">
+          <div class="gridesGAr1">
+            &#128060;
+          </div>
+          <div class="gridesGAr2">
+            &#128060;
+          </div>
+          <div class="gridesGAr3">
+            &#128060;
+          </div>
+          <div class="gridesGAr4">
+            &#129446;
+          </div>
+          <div class="gridesGAr5">
+            &#128060;
+          </div>
+        </div>
+      </figure>
+      <figure class="GA">
+        <div id="contenedorGAc-e">
+          <div class="gridesGAc1">
+            &#128060;
+          </div>
+          <div class="gridesGAc2">
+            &#128060;
+          </div>
+          <div class="gridesGAc3">
+            &#128060;
+          </div>
+          <div class="gridesGAc4">
+            &#129446;
+          </div>
+          <div class="gridesGAc5">
+            &#128060;
+          </div>
+        </div>
+      </figure>
+      <a href="#contenedorGAr-e" title="Mostrar ejemplo"><b>grid-auto-rows: #px;</b></a> define las medidas para filas que se creen de forma implícita o automática.<br/>
+      En el ejemplo a la nutria se le colocó un grid-row: 3 / 6; (ocupa de la grid line horizontal 3 a la 6), pero solo se definió un grid-template: repeat(2, min-content) / repeat(3, min-content); (2 filas estrechas con 3 columnas estrechas). Para colocar a la nutria en esas filas, el navegador definió 3 filas más, normalmente medirían 0 de largo por lo que no se notarían, pero el grid-auto-rows: 1.3em; les proporciona una medida definida a cada fila y la nutria puede visualizarse con las filas especificadas.<br/>
+      <a href="#contenedorGAc-e" title="Mostrar ejemplo"><b>grid-auto-columns: #px;</b></a> define las medidas para columnas que se creen de forma implícita o automática.<br/>
+      En el ejemplo a la nutria se le colocó un grid-column: 3 / 6; (ocupa de la grid line vertical 3 a la 6), pero solo se definio un grid-template: repeat(3, min-content) / repeat(2, min-content); (3 filas estrechas con 2 columnas estrechas). Para colocar a la nutria en esas columnas, el navegador definio 3 columnas más, normalmente medirían 0 de ancho por lo que no se notarían, pero el grid-auto-columns: 1.1em; les proporciona una medida definida a cada columna y la nutria puede visualizarse con las columnas especificadas.
+      <hr>
+      <h4>Flujo</h4>
+      <b>grid-auto-flow: [row | column] [dense];</b> con el primer valor se indica el flujo de los tracks, con el segundo valor se indica si los espacios vacíos entre los tracks se pueden ocupar por tracks aunque se altere su secuencia u orden del HTML.
+      <figure class="GF">
+        <div id="contenedorGFr-e">
+          <div class="gridesGFr1">
+            1
+          </div>
+          <div class="gridesGFr2">
+            2
+          </div>
+          <div class="gridesGFr3">
+            3
+          </div>
+          <div class="gridesGFr4">
+            4
+          </div>
+          <div class="gridesGFr5">
+            5
+          </div>
+          <div class="gridesGFr6">
+            6
+          </div>
+          <div class="gridesGFr7">
+            7
+          </div>
+          <div class="gridesGFr8">
+            8
+          </div>
+          <div class="gridesGFr9">
+            9
+          </div>
+          <div class="gridesGFr10">
+            10
+          </div>
+          <div class="gridesGFr11">
+            11
+          </div>
+          <div class="gridesGFr12">
+            12
+          </div>
+        </div>
+        <figcaption class="GFrcaption">
+          <a href="#contenedorGFr-e" title="Mostrar ejemplo"><b>grid-auto-flow: row;</b></a><br/>
+          (estado por default).
+        </figcaption>
+      </figure>
+      <figure class="GF">
+        <div id="contenedorGFc-e">
+          <div class="gridesGFc1">
+            1
+          </div>
+          <div class="gridesGFc2">
+            2
+          </div>
+          <div class="gridesGFc3">
+            3
+          </div>
+          <div class="gridesGFc4">
+            4
+          </div>
+          <div class="gridesGFc5">
+            5
+          </div>
+          <div class="gridesGFc6">
+            6
+          </div>
+          <div class="gridesGFc7">
+            7
+          </div>
+          <div class="gridesGFc8">
+            8
+          </div>
+          <div class="gridesGFc9">
+            9
+          </div>
+          <div class="gridesGFc10">
+            10
+          </div>
+          <div class="gridesGFc11">
+            11
+          </div>
+          <div class="gridesGFc12">
+            12
+          </div>
+        </div>
+        <figcaption class="GFccaption">
+          <a href="#contenedorGFc-e" title="Mostrar ejemplo"> aplicando <b>grid-auto-flow: column;</b></a>
+        </figcaption>
+      </figure>
+      <figure class="GF">
+        <div id="contenedorGFnd-e">
+          <div class="gridesGFd1">
+            1
+          </div>
+          <div class="gridesGFd2">
+            2
+          </div>
+          <div class="gridesGFd3">
+            3
+          </div>
+          <div class="gridesGFd4">
+            4
+          </div>
+          <div class="gridesGFd5">
+            5
+          </div>
+          <div class="gridesGFd6">
+            6
+          </div>
+          <div class="gridesGFd7">
+            7
+          </div>
+          <div class="gridesGFd8">
+            8
+          </div>
+          <div class="gridesGFd9">
+            9
+          </div>
+          <div class="gridesGFd10">
+            10
+          </div>
+          <div class="gridesGFd11">
+            11
+          </div>
+          <div class="gridesGFd12">
+            12
+          </div>
+        </div>
+        <figcaption class="GFndcaption">
+          <a href="#contenedorGFnd-e" title="Mostrar ejemplo"><b>SIN</b> grid-auto-flow: row dense;</a>
+        </figcaption>
+      </figure>
+      <figure class="GF">
+        <div id="contenedorGFd-e">
+          <div class="gridesGFd1">
+            1
+          </div>
+          <div class="gridesGFd2">
+            2
+          </div>
+          <div class="gridesGFd3">
+            3
+          </div>
+          <div class="gridesGFd4">
+            4
+          </div>
+          <div class="gridesGFd5">
+            5
+          </div>
+          <div class="gridesGFd6">
+            6
+          </div>
+          <div class="gridesGFd7">
+            7
+          </div>
+          <div class="gridesGFd8">
+            8
+          </div>
+          <div class="gridesGFd9">
+            9
+          </div>
+          <div class="gridesGFd10">
+            10
+          </div>
+          <div class="gridesGFd11">
+            11
+          </div>
+          <div class="gridesGFd12">
+            12
+          </div>
+        </div>
+        <figcaption class="GFdcaption">
+          <a href="#contenedorGFd-e" title="Mostrar ejemplo"><b>CON</b> grid-auto-flow: row dense;</a>
+        </figcaption>
+      </figure>
+    </article>
+  </section>
+  <div class="regreso">
+    <a class="mano" href="../Paginas/indexcss.html" title="regresar al menú">&#9754;</a>
+  </div>
+  <footer>
+    <a target="_blank" href="https://cssgridgarden.com/#es" title="juego de Grid">Juego de Grid: https://cssgridgarden.com/#es</a><br/>
+    <a target="_blank" href="https://css-tricks.com/snippets/css/complete-guide-grid/" title="guía de Grid">Guía de Grid: https://css-tricks.com/snippets/css/complete-guide-grid/</a>
+  </footer>
+</body>
+</html>

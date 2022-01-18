@@ -1,0 +1,55 @@
+:root{
+  --color: purple;
+}
+
+body{
+  background-color: khaki;
+}
+
+h1{
+  color: var(--color);
+}
+
+h3{
+  color: brown;
+}
+
+.titlegreen{
+  color: green;
+}
+
+#linea{
+  color: cyan;
+}
+
+._Agrutitle, ._Combititle, ._Descentitle{
+  background: bisque;
+}
+
+h4._Combititle{
+  color: fuchsia;
+}
+
+body div{
+  background: powderblue;
+}
+
+*{
+  font-family: 'Courier New', Courier, monospace;
+}
+
+pre > b{
+  color: blueviolet;
+}
+
+b + u{
+  background-color: burlywood;
+}
+
+i ~ u{
+  background-color: yellow;
+}
+
+[width^="3"]{
+  border-radius: .5cm;
+}

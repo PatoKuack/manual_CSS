@@ -1,0 +1,71 @@
+:root{
+  --balloon         : aliceblue;
+  --border-balloon  : darkslategray;
+}
+
+[src*="working"]{
+  width:        15rem;
+}
+
+[src*="Huey"]{
+  width:        5rem;
+}
+
+.section{
+  position:     relative;
+}
+
+.wo1{
+  top         : 0rem;
+  width       : min-content;
+}
+
+.absol:active .wo1{
+  position:     absolute;
+  opacity:      0%;
+  top:          -3rem;
+  transition:   all 1s;
+}
+
+.huey{
+  position:     fixed;
+  bottom:       1rem;
+  right:        1rem;
+}
+
+.wo1:hover .tooltip{
+  display         : block;
+}
+.tooltip{
+  position        : absolute;
+  display         : none;
+}
+.sponge-phrase{
+  background-color: var(--balloon);
+  border          : .1em solid var(--border-balloon);
+  color           : var(--border-balloon);
+  padding         : .8em .7em;
+  border-radius   : 50%;
+  width           : fit-content;
+  font-family     : sans-serif;
+  opacity         : 90%;
+}
+[class*="balloon"]{
+  background-color: var(--balloon);
+  border          : .1em solid var(--border-balloon);
+  border-radius   : 50%;
+  position        : absolute;
+  opacity         : 80%;
+}
+.balloon1{
+  width           : 1.5em;
+  height          : 1.2em;
+  bottom          : -17px;
+  left            : 40%;
+}
+.balloon2{
+  width           : 1em;
+  height          : .8em;
+  bottom          : -28px;
+  left            : 50%;
+}

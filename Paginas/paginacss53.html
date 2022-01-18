@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- No guardar cache en navegadores -->
+  <meta http-equiv="Last-Modified" content="0">
+  <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <!-- ------------------- -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../Estilos/stylecss53.css">
+  <title>Animaciones</title>
+</head>
+<body>
+  <header>
+    <section class="container">
+      <div>
+        <h1 class="center">Animaciones.</h1>
+        <p>A diferencia de las transiciones que requieren un cambio de propiedad para ejecutarse, las animaciones ejecutan por sí mismas los cambios de propiedades.</p>
+      </div>
+    </section>
+  </header>
+  <main>
+    <!-- Propiedades principales -->
+    <section class="container">
+      <div>
+        <h2>Propiedades principales.</h2>
+        <p>Para que una animación funcione, debe de utilizarse por lo menos las siguientes propiedades:</p>
+        <dl>
+          <dt>animation-name: [ none | <u>nombre-animacion</u> ];</dt>
+          <dd>Esta propiedad le aplica la animación especificada al elemento, permite aplicar más de una animación si se se colocan separadas por comas (valor por defecto = none).</dd>
+          <dt>animation-duration: [ time ];</dt>
+          <dd>Esta propiedad indica la duración de la animación y no acepta valores negativos (valor por defecto = 0s).</dd>
+          <dd>Si se coloca un valor, pero se tiene más de una animación aplicada, éste único valor de duración se aplica a todas las animaciones. También se pueden colocar más de una duración, pero si se colocan más valores de los que hay en <i>animation-name</i>, no se tomarán en cuenta los valores sobrantes. <b>Ésto se aplica a todas las propiedades de animación a excepción de <i>animation-name</i></b>.</dd>
+        </dl>
+      </div>
+    </section>
+    <!-- keyframes -->
+    <section class="container">
+      <div>
+        <h2>at-rule-keyframes</h2>
+        <p>Las animaciones cambian las propiedades CSS a través de momentos en el tiempo definidos como @keyframes.</p>
+        <p><b>Es importante especificar cada keyframe con el signo %</b>, aunque también se pueden especificar con from y to. <b>from</b> es lo mismo que 0% y <b>to</b> es lo mismo que 100%</p>
+        <p>Si no se especifica un valor inicial, se asigna automaticamente un 0% y lo mismo sucede si no se especifica un valor final, se le asigna automaticamente un 100%. Esto funciona miy bien con el <i>from</i> y el <i>to</i></p>
+        <aside class="idEst">
+          .div {<br/>
+            &emsp;animation-name: <u>name</u>;<br/>
+            &emsp;animation-duration: 2s;<br/>
+            }<br/>
+            @keyframes <u>name</u> {<br/>
+            &emsp;from {<br/>
+            &emsp;&emsp;...código...<br/>
+            &emsp;}<br/>
+            }<br/>
+            <i class="coment">// Automaticamente indica el <b>from</b> que se iniciará en 0% y como no se especifica el final, automaticamente se asigna un 100%.</i>
+        </aside>
+        <p>Es posible animar varias propiedades al mismo tiempo, solo hay que separarlas por comas, ejemplo:</p>
+        <aside class="idEst">
+          .div {<br/>
+          &emsp;animation-name: <u>name</u>;<br/>
+          &emsp;animation-duration: 3s;<br/>
+          }<br/>
+          @keyframes <u>name</u> {<br/>
+          &emsp;20%, 30%, 40% {<br/>
+          &emsp;&emsp;...código...<br/>
+          &emsp;}<br/>
+          }
+        </aside>
+      </div>
+    </section>
+    <!-- Propiedades secundarias -->
+    <section class="container">
+      <div>
+        <h2>Propiedades secundarias.</h2>
+        <dl>
+          <dt>animation-iteration-count: [ number | infinite ];</dt>
+          <dd>Indica la cantidad de veces que se repetirá una animación y sí acepta valores con decimales (valor por defecto = 1).</dd>
+          <dt>animation-timing-function: [ ease | ease-in | ease-in-out | ease-out | linear | steps | cubic-bezier() ];</dt>
+          <dd>
+            <ul>
+              <li><b>ease</b> inicia la animación de una forma acelerada y al final desacelera.</li>
+              <li><b>ease-in</b> inicia la animación de una forma desacelerada y al final acelera.</li>
+              <li><b>ease-in-out</b> inicia y termina la animación de una forma desacelerada con una aceleración a la mitad.</li>
+              <li><b>ease-out</b> inicia la animación de una forma acelerada y al final desacelera.</li>
+              <li><b>linear</b> genera una misma aceleración en toda la animación.</li>
+              <li><b>steps</b> </li>
+              <li><b>cubic-bezier()</b> </li>
+            </ul>
+          </dd>
+          <aside class="idEst">
+            <div class="button" id="button">Animar</div>
+            <div class="ball ease">ease</div>
+            <div class="ball ease-in">ease-in</div>
+            <div class="ball ease-in-out">ease-in-out</div>
+            <div class="ball ease-out">ease-out</div>
+            <div class="ball linear">linear</div>
+          </aside>
+          <dt>animation-direction: [ normal | reverse | alternate | alternate-reverse ];</dt>
+          <dd>
+            Indica la dirección que tomará la animación (valor por defecto = normal).
+            <ul>
+              <li><b>normal</b> iniciará la animación en el fotograma de 0% y terminará en el 100%.</li>
+              <li><b>reverse</b> iniciará la animación en el fotograma de 100% y terminará en el 0%.</li>
+              <li><b>alternate</b> iniciará la animación en el fotograma del 0% al 100% y regresará al 0%.</li>
+              <li><b>alternate-reverse</b> iniciará la animación en el fotograma del 100% al 0% y regresará al 100%.</li>
+            </ul>
+          </dd>
+          <dt>animation-play-state: [ running | paused ];</dt>
+          <dd>Permite pausar la animación, su valor por defecto es running que indica que la animación continue normalmente. Si una animación se pausa, no se reinicia cuando se renueva la pausa, a menos que se utilice JavaScript.</dd>
+          <dt>animation-delay: [ time ];</dt>
+          <dd>Indica cuanto tiempo pasará hasta que inicie la animación. Acepta valores negativos los cuales adelantan la animación, es decir, si una animación dura 4s y se le coloca un delay de -3s, la animación iniciará desde el segundo 3.</dd>
+          <dt>animation-fill-mode: [ none | forwards | backwards | both ];</dt>
+          <dd>
+            <ul>
+              <li><b>none</b> Al finalizar la animación, el elemento no usará el primer ni el último fotograma como posición final, es el valor por defecto.</li>
+              <li><b>forwards</b> Al finalizar la animación, el elemento se quedará con los valores del último keyframe.</li>
+              <li><b>backards</b> Al finalizar la animación, el elemento se quedará con los valores del primer keyframe.</li>
+              <li><b>both</b> Al finalizar la animación, el elemento tomará los valores que pueda del primer keyframe y luego tomará los valores que pueda del último keyframe.</li>
+            </ul>
+          </dd>
+          <dt>animation: [ name duration ... ];</dt>
+          <dd>Es el shorthand de las demás propiedades. Se deben incluir las propiedades <i>animation-name</i> y <i>animation-duration</i> y siempre el primer valor en segundos representa la duración y un segundo valor en segundos representa el delay. Fuera de eso, las demás propiedades pueden ser incluidas, no incluidas, colocadas en desorden o en orden.</dd>
+        </dl>
+      </div>
+    </section>
+    <!-- Eventos js de animación -->
+    <section class="container">
+      <div>
+        <h2>Animaciones con eventos js.</h2>
+        <p>Con los eventos "animation" de JavaScript es posible controlar animaciones CSS.</p>
+        <dl>
+          <dt>animationstart</dt>
+          <dd>Ejecuta el código cuando inicia la animación.</dd>
+          <dt>animationend</dt>
+          <dd>Ejecuta el código cuando termina la animación.</dd>
+          <dt>animationiteration</dt>
+          <dd>Ejecuta el código cuando se reinicia la animación.</dd>
+          <dt>event</dt>
+          <dd>
+            Se utiliza para visualizar las propiedades de los eventos en la consola, por ejemplo:
+            <ul>
+              <li><b>animationName</b> muestra el nombre de la animación.</li>
+              <li><b>elapsedTime</b>muestra el tiempo que ha durado una animación. No puede mostrar el tiempo mientras ocurre la animación y cuando se utliza con <i>animationstart</i> devuelve un 0 ya que no ha transucrrido tiempo de la animación.</li>
+              <li><b>target</b> muestra la etiqueta del documento html que recibe la animación.</li>
+            </ul>
+          </dd>
+        </dl>
+        <aside class="idEst">
+          const button = document.getElementById('button');<br/>
+          button.addEventListener('<b>animationend</b>', () => <br/>
+          &emsp;console.log(event);<br/>
+          );
+        </aside>
+        <dl>
+          <dt><a href="https://ed.team/blog/obtener-la-posicion-de-un-elemento-html-con-javascript" target="_blank" rel="noopener noreferrer">getBoundingClientRect()</a></dt>
+          <dd>
+            Este método devuelve las siguientes propiedades:
+            <ul>
+              <li><b>top</b>: distancia al borde superior del viewport.</li>
+              <li><b>left</b>: distancia al borde lateral izquierdo del viewport.</li>
+              <li><b>bottom</b>: distancia al borde inferior del viewport.</li>
+              <li><b>right</b>: distancia al borde lateral derecho del viewport.</li>
+              <li><b>width</b>: ancho de la caja del elemento.</li>
+              <li><b>height</b>: altura de la caja del elemento.</li>
+            </ul>
+          </dd>
+        </dl>
+        <aside class="idEst">
+          <i class="coment block center">// .css</i><br/>
+          img.animacion{<br/>
+          &emsp;...efecto animado...<br/>
+          }<br/><br/>
+          <i class="coment block center">// .js</i><br/>
+          <i class="coment">// Se obtienen todas las etiquetas img en una lista de objetos, esa lista se tranforma en un array.</i><br/>
+          let <u>imagenes</u> = Array.from(document.querySelectorAll('<u>img</u>'));<br/>
+          <i class="coment">// Se obtiene la distancia de cada imagen con el inicio de la página y se almacena en un map.</i><br/>
+          <i class="coment">// Se le resta la mitad de la altura del viewport a cada altura (para activar la animación cuando el elemento este a la mitad de la vista y no al inicio).</i><br/>
+          let <u>imagenScroll</u> = <u>imagenes</u>.map( <u>imagen</u> =><br/>
+          &emsp;<u>imagen</u>.getBoundingClientRect().top - (innerHeight / 2)<br/>
+          );<br/>
+          <i class="coment">// Cuando se haga scroll...</i><br/>
+          window.addEventListener('scroll', () => {<br/>
+          &emsp;<u>imagenScroll</u>.forEach( (<u>elemento</u>, <u>iteracion</u>) => {<br/>
+          <i class="coment">// Si el scroll vertical es mayor o igual a la distancia calculada, se le anexará la clase "animacion" al elemento correspondiente.</i><br/>
+          &emsp;&emsp;if (scrollY >= <u>elemento</u>) {<br/>
+          &emsp;&emsp;&emsp;<u>imagenes</u>[<u>iteracion</u>].classList.add('<u>animacion</u>');<br/>
+          &emsp;&emsp;}<br/>
+          &emsp;});<br/>
+          });<br/>
+        </aside>
+      </div>
+    </section>
+    <!-- cubic-bezier -->
+    <section class="container">
+      <div>
+        <p>Existen 2 funciones para controlar la aceleración o desaceleración de las animaciones: cubic-bezier() y steps().</p>
+        <h2>cubic-bezier</h2>
+        <p>La curva de Bézier es un concepto muy usado en diseño para indicar una relación entre valores. En este caso es una curva que controla la relación entre el tiempo (eje X) y el cambio de propiedades (eje Y) en la animación.</p>
+        <p>La función cubic-bezier() recibe cuatro parámetros que son las coordenadas de los puntos de control de la curva.</p>
+        <ul>
+          <li>animation-timing-function: cubic-bezier(P1x,P1y,P2x,P2y)</li>
+          <li>transition-timing-function: cubic-bezier(P1x,P1y,P2x,P2y)</li>
+        </ul>
+        <aside class="idEst">
+          .ball{<br/>
+          &emsp;...<br/>
+          &emsp;animation: rebotar 1s cubic-bezier(.33, -0.61, .38, 1.42) forwards;<br/>
+          &emsp;@keyframes rebotar {<br/>
+          &emsp;&emsp;...<br/>
+          &emsp;}<br/>
+          }
+        </aside>
+        <h3><a href="https://cubic-bezier.com/" target="_blank" rel="noopener noreferrer">cubic-bezier.com</a></h3>
+        <p>Es una página que ayuda a visualizar la transición con respecto al tiempo de una animación modificando de una manera visual las curvas Bézier a travez del desplazamiento de un punto verde y otro naranja que representan los puntos de control los cuales modifican la curva del plano.</p>
+        <p>Se encuentran dos botones, el botón "GO!" da una demostración de la animación comparada con una animación de la librería como <i>ease</i> o <i>linear</i>, el botón "COPY" genera una copia de las coordenadas de los puntos de control con respecto al plano.</p>
+        <h3><a href="https://easings.net/" target="_blank" rel="noopener noreferrer">easings.net</a></h3>
+        <p>Es otra página donde se muestran varias curvas. Al pasar el mouse por encima de una curva, se muestra una pequeña animación guiada del comportamientode la curva y al hacer clic en una curva, se muestra la forma en que se crea ya sea por CSS o por una función matematica en JavaScript.</p>
+      </div>
+    </section>
+    <!-- steps -->
+    <section class="container">
+      <div>
+        <h2>steps</h2>
+        <p>Los <i>steps</i> son pasos que dividen el espacio de tiempo en intervalos de igual duración.</p>
+        <p>En <i>cubic-bezier</i>, las curvas son suaves, en cambio, en <i>steps</i> no hay curvas, solo saltos bruscos.</p>
+        <p>Los <i>steps</i> se utilizan para darle movilidad a los <b>sprites</b> los cuales deben ser ejecutados calculando perfectamente sus tamaños y dimenciones.</p>
+        <p>Nota:<br/>Cuando se desea obtener el tamaño real de una imagen de internet, se puede obtener su tamaño real desde inspector del navegador por medio de $0.naturalheight y $0.naturalwidth.</p>
+        <p><b>steps()</b> resive dos parámetros. El primer valor es la cantidad de pasos que dará, es decir, si se tiene un sprite de 5 imágenes, se colocarán 4 pasos ya que la primera imagen es la que se visualiza por default. El segundo valor es opcional e indica la dirección hacia donde se mueven los pasos, <b>end</b> indica que la animación se moverá del inicio hacia el final del sprite, este es el valor por default; <b>start</b> indica que la animación salte hasta el final y regrese hasta la primer imagen.</p>
+        <aside class="idEst">
+          .div{<br/>
+          &emsp;background: url(...);<br/>
+          &emsp;background-size: 490px 800px;<br/>
+          &emsp;background-position: 0px 0px;<br/>
+          &emsp;width: 70px;<br/>
+          &emsp;height: 80px;<br/>
+          &emsp;transition: background-position .7s steps(3);<br/>
+          }<br/>
+          .div:hover{<br/>
+          &emsp;background-position: -210px 0;<br/>
+          }
+        </aside>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <section class="container">
+      <div>
+        <h3>Referencias:</h3>
+        <p>
+          <a href="https://ed.team/blog/obtener-la-posicion-de-un-elemento-html-con-javascript" target="_blank" rel="noopener noreferrer">getBoundingClientRect()</a><br/>
+          <a href="https://designmodo.com/steps-css-animations/" target="_blank" rel="noopener noreferrer">Como usar steps()</a><br/>
+          <a href="https://codepen.io/jkneb/pen/smtHA?editors=0100" target="_blank" rel="noopener noreferrer">Ejemplo de steps()</a><br/>
+        </p>
+      </div>
+    </section>
+  </footer>
+  <script src="../JavaScript/codigojs53.js"></script>
+</body>
+</html>

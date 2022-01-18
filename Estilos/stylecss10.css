@@ -1,0 +1,98 @@
+h1, h2{
+  line-height: .5em;
+}
+
+body{
+  background-color: mediumturquoise;
+}
+
+h4{
+  line-height: 0.1em;
+}
+
+img{
+  margin: 10px;
+}
+
+img[src^="../Imgs/fontcomic"]{
+  border: 2px solid gold;
+  box-shadow: 10px 10px 3px 3px goldenrod;
+}
+
+div{
+  margin: 20px 0px 0px 20px;
+  border-width: 3.5px;
+  border-style: solid;
+  border-color: darkgreen green forestgreen limegreen;
+  padding: 20px 20px 20px 20px;
+}
+
+div:hover{
+  background-image: linear-gradient(210deg, rgb(66, 255, 208) 5%, rgb(122, 243, 243) 20%, rgb(122, 243, 243) 50%, rgb(155, 198, 255) 90%);
+}
+
+.tipografi{
+  width: 850px;
+  height: 350px;
+}
+
+.font{
+  width: 850px;
+  height: 250px;
+}
+
+article{
+  margin: 20px 0px 0px 20px;
+  border-width: 3.5px;
+  border-style: solid;
+  border-color: darkred crimson red orangered;
+  padding: 20px 20px 20px 20px;
+  width: 850px;
+  height: 450px;
+}
+
+article:hover{
+  background-image: linear-gradient(150deg, rgb(253, 189, 255) 10%, transparent 40%, transparent 50%, rgb(255, 194, 247) 90%);
+}
+
+.meashurment{
+  font-size: 1.2em;
+}
+
+span:nth-of-type(1){
+  font-style: italic;
+}
+span:nth-of-type(2){
+  font-weight: bold;
+}
+span:nth-of-type(3){
+  text-align: center;
+}
+span:nth-of-type(4){
+  line-height: 2em;
+}
+span:nth-of-type(5){
+  text-decoration: underline;
+}
+span:nth-of-type(6){
+  text-transform: capitalize;
+}
+span:nth-of-type(7){
+  letter-spacing: .5em;
+}
+span:nth-of-type(8){
+  word-spacing: .5em;
+}
+
+.fonts :not(b){
+  font-family: 'Comic Neue', 'cursive', 'sans-serif';
+}
+
+.shadou :first-child{
+  text-shadow: 3px 3px 2px deepskyblue;
+  color: aliceblue;
+}
+
+.shadou{
+  height: 230px;
+}

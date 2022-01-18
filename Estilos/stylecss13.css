@@ -1,0 +1,489 @@
+:root{
+  --colorA: brown;
+  --colorB: rgba(152, 224, 44, 0.877); /* greenyellow */
+  --colorC: rgb(105, 1, 105);
+  --colorD: aliceblue;
+  --colorE: cyan;
+  --colorF: lightyellow;
+  --colorG: black;
+  --colorH: rgb(255, 220, 154);
+  --colorI: lightseagreen;
+  --colorJ: royalblue;
+  --colorK: red;
+  --cielo: rgb(152, 197, 255);
+  --tierra: rgb(127, 207, 117);
+  --agua1: rgb(143, 129, 99);
+  --agua2: rgb(47, 202, 0);
+  --vida: rgb(255, 253, 113);
+  --colorX: transparent;
+  --fuenteA: 'Dancing Script';
+}
+
+body{
+  background-color: var(--colorC);
+}
+
+header, main, section, footer{
+  max-width: 50rem;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1em;
+}
+
+header, main, h2{
+  color: var(--colorD) ;
+  text-align: center;
+}
+
+article{
+  padding: 1.5em;
+}
+article:hover{
+  padding: 1em;
+  border: .5em solid var(--colorC);
+}
+
+h2{
+  max-width: 50rem;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: radial-gradient(ellipse at 50% 0%, var(--colorC) 30%, var(--colorB));
+  border-bottom: .2em solid var(--colorA);
+  border-left: .2em solid var(--colorA);
+  border-right: .2em solid var(--colorA);
+}
+
+footer{
+  text-align: center;
+}
+
+section, footer{
+  border: .2em solid var(--colorA);
+  background-color: var(--colorB);
+}
+
+hr{
+  background-color: var(--colorC);
+  border-color: var(--colorC);
+}
+
+ul{
+  padding-left: 1.5em;
+  margin: 0;
+}
+
+.codigo{
+  font-size: .9em;
+  text-align: center;
+}
+
+.entrada{
+  display: grid;
+  grid-template-columns: 1frt;
+  grid-template-rows: repeat(3 min-contetnt);
+  grid-gap: 0 .5em;
+}
+
+.entrada img{
+  width: 100%;
+  opacity: 75%;
+}
+
+[id*="-e"]{
+  display: none;
+  font-family: var(--fuenteA), cursive;
+  font-size: 2em;
+}
+
+.GT{
+  background-image: linear-gradient(30deg, var(--colorE), var(--colorD), var(--colorE));
+}
+.GTv, .GGv{
+  background-image: linear-gradient(var(--colorA) 17%, var(--colorF) 100%);
+  color: var(--colorF);
+}
+.GC{
+  border: .1em double var(--colorJ);
+}
+
+figcaption{
+  text-align: center;
+  background-image: linear-gradient(var(--colorH) 57%, var(--colorF) 100%);
+  padding: .1em;
+}
+
+/* -------------GT------------- */
+#contenedorGTc-e:target{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+#contenedorGTr-e:target{
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+#contenedorGTc-e div, #contenedorGTr-e div{
+  text-align: center;
+  border: .1em solid var(--colorA);
+}
+
+#contenedorGTminc-ev:target{
+  display: grid;
+  grid-template-columns: min-content min-content min-content;
+}
+#contenedorGTmaxc-ev:target{
+  display: grid;
+  grid-template-columns: max-content max-content max-content;
+}
+#contenedorGTfitc-ev:target{
+  display: grid;
+  grid-template-columns: fit-content(200px) fit-content(200px) fit-content(200px);
+}
+#contenedorGTminmax-ev:target{
+  display: grid;
+  grid-template-columns: minmax(50px, 200px) minmax(50px, 200px) minmax(50px, 200px);
+}
+#contenedorGTr-ev:target{
+  display: grid;
+  grid-template-columns: repeat(3, min-content);
+}
+#contenedorGTafit-ev:target{
+  display: grid;
+  grid-template-columns: repeat(auto-fit,130px);
+}
+#contenedorGTafill-ev:target{
+  display: grid;
+  grid-template-columns: repeat(auto-fill,130px);
+}
+#contenedorGTafillmm-ev:target{
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(51px,1fr));
+}
+
+[id$="-ev"] > div{
+  text-align: center;
+  font-weight: bold;
+  border: .1em solid var(--colorG);
+}
+
+/* -------------GG------------- */
+#contenedorGGc-ev:target{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-column-gap: .1em;
+}
+#contenedorGGr-ev:target{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-row-gap: .1em;
+}
+#contenedorGGcr-ev:target{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-gap: .1em .1em;
+}
+#contenedorGG-ev:target{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-gap: .1em;
+}
+
+/* -------------GC------------- */
+#contenedorGCrs-e:target{
+  display: grid;
+}
+.gridesGCrs3{
+  grid-row-start: 2;
+}
+#contenedorGCre-e:target{
+  display: grid;
+}
+.gridesGCre3{
+  grid-row-end: 4;
+}
+#contenedorGCcs-e:target{
+  display: grid;
+}
+.gridesGCcs3{
+  grid-column-start: 2;
+}
+#contenedorGCce-e:target{
+  display: grid;
+}
+.gridesGCce3{
+  grid-column-end: 5;
+}
+#contenedorGCse-e:target{
+  display: grid;
+}
+.gridesGCse3{
+  grid-row: 1 / 4;
+}
+#contenedorGCrc-e:target{
+  display: grid;
+}
+.gridesGCrc3{
+  grid-row: 2;
+}
+#contenedorGCsspan-e:target{
+  display: grid;
+}
+.gridesGCsspan3{
+  grid-row: 2 / span 2;
+  grid-column: 2 / span 2;
+}
+#contenedorGCspan-e:target{
+  display: grid;
+}
+.gridesGCspan3{
+  grid-column: span 2;
+}
+#contenedorGCarea-e:target{
+  display: grid;
+}
+.gridesGCarea3{
+  grid-area: 2 / 2 / 3 / 4;
+}
+
+[id^="contenedorGC"]{
+  grid-template-columns: repeat(3,1fr);
+  grid-gap: .1em;
+  text-align: center;
+}
+[id^="contenedorGC"] > div{
+  background-image: radial-gradient(ellipse at 50% 80%, var(--colorE) 3%, var(--colorI) 10%, var(--colorJ) 25%), linear-gradient(var(--colorI) 17%, var(--colorJ) 100%);
+}
+
+/* -------------GC------------- */
+#contenedorGA-e:target{
+  margin: 0 auto 0 auto;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(7, 1em);
+  grid-gap: .1em;
+  grid-template-areas: 
+  'aua4 aua4 ieo3 ieo3 ieo3 ieo3 ieo3 ieo3 aua2 aua2'
+  'aua4 aua4 ieo3 ieo3 ieo3 ieo3 ieo3 ieo3 aua2 aua2'
+  'aua3 ieo2 ieo2 ieo2 ia ia ieo1 ieo1 ieo1 aua1'
+  'aua3 ieo2 ieo2 ieo2 ia ia ieo1 ieo1 ieo1 aua1'
+  'iea iea iea iea iea iea iea iea iea iea'
+  'iea iea iea iea iea iea iea iea iea iea'
+  'iea iea iea iea iea iea iea iea iea iea'
+  ;
+}
+.gridesGA1{
+  grid-area: ieo1;
+  background-image: linear-gradient(to right, var(--colorF) 1%, var(--cielo) 25%);
+}
+.gridesGA2{
+  grid-area: ieo2;
+  background-image: linear-gradient(to left, var(--colorF) 1%, var(--cielo) 25%);
+}
+.gridesGA3{
+  grid-area: ieo3;
+  background-image: radial-gradient(at 50% 100%, var(--colorF) 2%, var(--cielo) 40%);
+}
+.gridesGA4{
+  grid-area: iea;
+  background-image: radial-gradient(at 50% 0%, var(--colorF) 10%, var(--tierra) 40%);
+}
+.gridesGA5{
+  grid-area: aua1;
+  background-image:
+    radial-gradient(circle, var(--agua2) 5%, var(--agua1) 10%);
+    background-repeat: repeat-x;
+  background-position: 1em 0;
+  background-size: .25em 4.1em;
+}
+.gridesGA6{
+  grid-area: aua2;
+  background-image:
+    radial-gradient(circle, var(--colorK) 15%, var(--agua2) 20%);
+  background-position: 4.3em 6em;
+  background-size: 2em 1em;
+}
+.gridesGA7{
+  grid-area: aua3;
+  background-image:
+    radial-gradient(circle, var(--agua2) 5%, var(--agua1) 10%);
+    background-repeat: repeat-x;
+  background-position: 1em 0;
+  background-size: .25em 4.1em;
+}
+.gridesGA8{
+  grid-area: aua4;
+  background-image:
+    radial-gradient(circle, var(--colorK) 15%, var(--agua2) 20%);
+  background-position: 4.3em 6em;
+  background-size: 2em 1em;
+}
+.gridesGA9{
+  grid-area: ia;
+  background-image: radial-gradient(var(--colorF) 1%, var(--vida) 50%);
+}
+
+/* -------------GI items------------- */
+#contenedorGIji-e:target{
+  display: grid;
+  justify-items: end;
+  grid-template: repeat(2, min-content) / repeat(3, 1fr);
+}
+#contenedorGIjs-e:target{
+  display: grid;
+  grid-template: repeat(2, min-content) / repeat(3, 1fr);
+}
+#contenedorGIai-e:target{
+  display: grid;
+  align-items: end;
+  grid-template: repeat(3, 1fr) / repeat(2, 1fr);
+}
+#contenedorGIas-e:target{
+  display: grid;
+  grid-template: repeat(3, min-content) / repeat(2, 1fr);
+}
+.gridesGIjs4{
+  justify-self: end;
+}
+.gridesGIas1{
+  align-items: end;
+}
+
+.gridesGIji4, .gridesGIjs4{
+  font-size: 1em;
+  grid-column: 1 / span 3;
+}
+.gridesGIai1, .gridesGIas1{
+  font-size: 1em;
+  grid-row: 1 / span 3;
+}
+
+[id^="contenedorGI"]{
+  width: 70%;
+  height: 4em;
+  margin: 0 auto;
+  border: .2em solid var(--colorA);
+  grid-gap: .1em;
+}
+[class*="gridesGI"]{
+  background-image: linear-gradient(var(--cielo) 70%, var(--colorD) 100%);
+}
+
+#contenedorGICjc-e:target{
+  display: grid;
+  justify-content: space-evenly;
+}
+#contenedorGICac-e:target{
+  display: grid;
+  align-content: space-between;
+}
+
+[id^="contenedorGIC"]{
+  width: 70%;
+  height: 4em;
+  margin: 0 auto;
+  border: .2em solid var(--colorA);
+  grid-template: repeat(2, min-content) / repeat(3, max-content);
+  grid-gap: .1em;
+}
+.gridesGIac4, .gridesGIjc4{
+  font-size: .7em;
+  grid-column: 1 / span 3;
+}
+
+/* -------------GA area------------- */
+#contenedorGAr-e:target{
+  display: grid;
+  grid-auto-rows: 1.3em;
+  width: 50%;
+  height: 8em;
+  grid-template: repeat(2, min-content) / repeat(3, min-content);
+}
+#contenedorGAc-e:target{
+  display: grid;
+  grid-auto-columns: 1.1em;
+  width: 80%;
+  height: 4em;
+  grid-template: repeat(3, min-content) / repeat(2, min-content);
+}
+
+#contenedorGAr-e, #contenedorGAc-e{
+  margin: 0 auto;
+  border: .4em double var(--agua2);
+  grid-gap: .1em;
+  grid-auto-rows: 1em;
+}
+
+#contenedorGAr-e div, #contenedorGAc-e div{
+  background-color: var(--colorI);
+}
+
+.gridesGAr4{
+  grid-row: 3 / 6;
+  background-image: linear-gradient(var(--colorI) 17%, var(--colorJ) 100%);
+}
+.gridesGAc4{
+  grid-column: 3 / 6;
+  background-image: linear-gradient(var(--colorI) 17%, var(--colorJ) 100%);
+}
+
+/* -------------GF------------- */
+#contenedorGFr-e:target{
+  display: grid;
+  width: 80%;
+  height: 8em;
+  grid-auto-flow: row;
+}
+#contenedorGFc-e:target{
+  display: grid;
+  width: 80%;
+  height: 8em;
+  grid-auto-flow: column;
+}
+#contenedorGFnd-e:target{
+  display: grid;
+  padding: 1em 0;
+}
+#contenedorGFd-e:target{
+  display: grid;
+  grid-auto-flow: row dense;
+  padding: 1em 0;
+}
+
+[id^="contenedorGF"]{
+  margin: 0 auto;
+  grid-template: repeat(4, min-content) / repeat(3, min-content);
+  grid-gap: .3em;
+  justify-content: center;
+  align-content: center;
+  grid-auto-columns: 1em;
+        /* grid-auto-rows: 1empx; */
+  grid-auto-rows: 1em;
+}
+[id^="contenedorGF"] > div{
+  background-color: var(--vida);
+}
+
+.gridesGFd2{
+  grid-row: span 2;
+}
+.gridesGFd4{
+  grid-column: span 4;
+}
+.gridesGFd5{
+  grid-row: span 2;
+}
+.gridesGFd7{
+  grid-row: span 2;
+  grid-column: span 2;
+}
+.gridesGFd8{
+  grid-column: span 2;
+}
+.gridesGFd10{
+  grid-column: span 2;
+}
+.gridesGFd11{
+  grid-column: span 3;
+}

@@ -1,0 +1,56 @@
+:root{
+  /* COLORS */
+  --black:  rgb(41, 41, 41);
+  --white:  rgb(233, 233, 233);
+  --orange: rgb(248, 197, 101);
+  --blue:   rgb(118, 216, 255);
+  --yellow: rgb(216, 216, 101);
+  --purple: rgb(199, 94, 199);
+  --green:  rgb(174, 219, 174);
+}
+
+*, *:before, *:after{
+  box-sizing: border-box
+}
+
+.terminal{
+  display:          block;
+  max-width:        500px;
+  color:            var(--white);
+  background-color: var(--black);
+  font-weight:      bold;
+  padding:          1em;
+  margin:           .3em;
+}
+
+.cOrg1{
+  color: var(--orange);
+}
+.cOrg2{
+  color: var(--orange);
+  opacity: 90%;
+}
+.cOrg3{
+  color: var(--orange);
+  opacity: 70%;
+}
+.cBlue{
+  color: var(--blue);
+}
+.cBl2{
+  color: var(--blue);
+  opacity: 70%;
+}
+.cYll{
+  color: var(--yellow);
+}
+.cPrp{
+  color: var(--purple);
+}
+.cBlk{
+  color: var(--white);
+  opacity: 70%;
+}
+.cGrn{
+  color: var(--green);
+}

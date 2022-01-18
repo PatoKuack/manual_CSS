@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- No guardar cache en navegadores -->
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <!-- ------------------- -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../Estilos/normalization.css">
+  <link rel="stylesheet" href="../Estilos/stylecss21.css">
+  <title>Filtros</title>
+</head>
+<body class="body">
+  <header>
+    <section class="container">
+      <div>
+        <h1 class="center">Filtros.</h1>
+      </div>
+    </section>
+  </header>
+  <main>
+    <!-- Filtros -->
+    <section class="container">
+      <div>
+        <h2>Filtros</h2>
+        <p>Se le pueden aplicar filtros a las imágenes, por medio de la propiedad filter, colocandole como valores, funciones especiales de CSS.</p>
+        <h3>Filtros de colores.</h3>
+        <dl>
+          <dt>filter: grayscale();</dt>
+          <dd>Aplica un degradado de grises sacando el promedio de tonalidad a cada pixel (ejemplo: rgb(200, 100, 60) = rgb(120, 120, 120)), <i>se le puede colocar como parámetro un valor de 0 a 1, hace caso omiso a valores menores a 0 y mayores a 1. También se le puede colocar valores del 0% al 100%, si se omite el valor en el parámetro, automaticamente se aplicará un 100%.</i></dd>
+          <dt>filter: sepia();</dt>
+          <dd>Aplica una conversión de colores a escalas de tipo marron, <i>se le puede colocar como parámetro un valor de 0 a 1, hace caso omiso a valores menores a 0 y mayores a 1. También se le puede colocar valores del 0% al 100%, si se omite el valor en el parámetro, automaticamente se aplicará un 100%.</i></dd>
+          <dd>En javascript se puede editar este filtro para modificar la canversión a la escala marron.</dd>
+          <dt>filter: invert();</dt>
+          <dd>Aplica una inversión de colores colocandole a cada pixel su contraparte de color restando a sus tonalidades de rgb 255 (ejemplo: rgb(255-50, 255-80, 255-200)), <i>se le puede colocar como parámetro un valor de 0 a 1, hace caso omiso a valores menores a 0 y mayores a 1. También se le puede colocar valores del 0% al 100%, si se omite el valor en el parámetro, automaticamente se aplicará un 100%.</i></dd>
+          <dd>Cuando se le coloca un .5 o 50% en el parámetro, la imágen se ve completamente gris ya que todos los colores se colocan en una tonalidad neutra que resulta ser gris.</dd>
+          <dt>filter: hue-rotate();</dt>
+          <dd>Funciona con la rueda de colores pocicionando cada pixel en el grado de su tonalidad rotando su tono de acuerdo a los grados del parámetro, <i>se le puede colocar como parámetro valores en radianes, numero de vueltas (1turn) o grados de 0deg a 360deg, si se coloca un numero mayor vuelve a contar desde 0, por ejemplo un valor de 361deg lo tomaría como 1deg. También acepta numeros negativos los cuales resta de 360, por ejemplo un valor de -100deg lo tomaría como 260deg.</i></dd>
+          <aside class="idEst">
+            <i class="coment">// Para una aimación de colores:</i><br/><br/>
+            .imagen {<br/>
+            &emsp;filter: hue-rotate(0);<br/>
+            &emsp;animation: hue 3s linear infinite<br/>;
+            }<br/><br/>
+            @keyframes hue {<br/>
+            &emsp;to {<br/>
+            &emsp; &emsp;filter: hue-rotate(1turn);<br/>
+            &emsp;}<br/>
+            }
+          </aside>
+          <dt>filter: brightness();</dt>
+          <dd>Maneja la luminosidad de los colores, <i>el valor por default es 100% o 1, se le puede colocar como parámetro un valor mayor o igual a 0, hace caso omiso a valores menores a 0. También se le puede colocar valores mayores o igual a 0%, si se omite el valor en el parámetro, automaticamente se aplicará un 100%.</i></dd>
+          <aside class="idEst">
+            <i class="coment">// Para una aimación de colores:</i><br/><br/>
+            .imagen {<br/>
+            &emsp;filter: hue-rotate(0);<br/>
+            &emsp;animation: hue 3s linear infinite alternate<br/>;
+            }<br/><br/>
+            @keyframes hue {<br/>
+            &emsp;to {<br/>
+            &emsp; &emsp;filter: hue-rotate(1turn);<br/>
+            &emsp;}<br/>
+            }
+          </aside>
+          <dt>filter: contrast();</dt>
+          <dd>Hace más marcada las delimitantes entre las áreas de las luces y sombras, <i>el valor por default es 100% o 1, se le puede colocar como parámetro un valor mayor o menor a 1, o mayor o menor a 100%. El valor de 0% o 0 elimina todo el contraste entre las áreas oscuras o claras haciendo que la imagen sea gris completamente.</i></dd>
+          <dt>filter: saturate();</dt>
+          <dd>Aumenta la pureza de cada color, <i>el valor por default es 100% o 1, se le puede colocar como parámetro un valor mayor o menor a 1, o mayor o menor a 100%. El valor de 0% o 0 elimina toda la saturación haciendo que la imagen se convierta en una escala de grises.</i></dd>
+        </dl>
+        <h3>Filtros de transformación.</h3>
+        <dl>
+          <dt>filter: blur();</dt>
+          <dd>Mezcla los pixeles entre si dea cuerdo con el valor que se le proporcione en el parámetro, <i>recibe como parámetro una unidad de medida (como px) y no recibe valores negativos, en sí es el perímetro el que utiliza para mezclar los píxeles del elemento.</i></dd>
+          <dt>filter: opacity();</dt>
+          <dd>Existe ya una propiedad opacity la cual sirve para elementos estaticos como fotos, pero el filtro opacity sirve para elementos animados (utiliza aceleración de hardware), <i>recibe valores mayores a 0 como parámetro.</i></dd>
+          <dt>filter: drop-shadow();</dt>
+          <dd>Se aplica a elementos .svg o .png dandoles una sombra al contorno de sus contenidos usando el canal alfa(transparencia) para dar sombra en cambio la propiedad box-shadow le crea una sombra a la figura perimetral del elemento, <i>recibe como parámetros 4 valores, el translado de la sombra en X, en Y, el nivel de difuminado de la sombra y el color de la sombra.</i></dd>
+        </dl>
+        <p>Se pueden colocar múltiples filtros en la misma propiedad, cada filtro trabaja con lo que se le va mostrando y no con el elemento base, así que el orden en que las funciones se colocan dentro de la propiedad filter influye en el resultado de la imágen.</p>
+      </div>
+    </section>
+  </main>
+  <!-- <footer>
+    <section class="container">
+      <div>
+        <h3>Referencias:</h3>
+        <p></p>
+      </div>
+    </section>
+  </footer> -->
+</body>
+</html>

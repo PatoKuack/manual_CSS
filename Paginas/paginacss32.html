@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- No guardar cache en navegadores -->
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <!-- ------------------- -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../Estilos/stylecss31.css">
+  <title>RWD mutimedia</title>
+</head>
+<body class="body">
+  <header>
+    <section class="container">
+      <div>
+        <h1 class="center">RWD multimedia.</h1>
+        <!-- <p></p> -->
+      </div>
+    </section>
+  </header>
+  <main>
+    <!-- Breackpoints -->
+    <section class="container">
+      <div>
+        <h2>Breackpoints</h2>
+        <p>Los breakpoints o puntos de quiebre, son puntos en los que cambian el diseño basado en el viewport del dispositivo (major breakpoint) o por ajustes del contenido (minor breakpoint), implementando media queries y mostrando el mejor diseño posible al usuario.</p>
+        <ul>
+          <li><strong>Major breackpoints</strong>: Representan cambios mayores en el diseño, componentes o layout.</li>
+          <li><strong>Minor breacpoints</strong>: Representan cambios menores muy específicos, donde el contenido necesita algún ajuste de diseño.</li>
+        </ul>
+        <p>Es una muy buena practica utilizar SASS para crear un mapa de breackpoints ya que se utilizan medidas especificas para implementar el responsive web designe en cada tamaño de dispositivo, el siguiente ejemplo muestra algunos tamaños masyormente utilizados pero no existe un estandar:</p>
+        <p>
+          Para pantallas pequeñas se definen medidas de 320px o 360px o 480px<br/>
+          Para pantallas medianas se definen medidas de 640px o 768px<br/>
+          Para pantallas grandes se definen medidas de 960px o 1024px<br/>
+          Para pantallas extra grandes se definen medidas de 1200px o 1280px<br/>
+          Para pantallas super extra grandes se definen medidas de 1440px o 1600px
+        </p>
+        <aside class="exempliGratia">
+          <i class="highlight">// *** EJEMPLO CON SASS ***</i><br/>
+          &emsp;$breakpoints: (<br/>
+          &emsp;&emsp;small: 320px,<br/>
+          &emsp;&emsp;medium: 640px,<br/>
+          &emsp;&emsp;large: 1024px,<br/>
+          &emsp;&emsp;xlarge: 1200px,<br/>
+          &emsp;&emsp;xxlarge: 1440px,<br/>
+          &emsp;);<br/>
+          &emsp;@mixin rwd($bp){<br/>
+          &emsp;&emsp;@media screen and (min-width: map-get($breakpoints, $bp))&emsp;&emsp;{<br/>
+          &emsp;&emsp;&emsp;@content;<br/>
+          &emsp;&emsp;}<br/>
+          &emsp;}<br/>
+          &emsp;body{<br/>
+          &emsp;&emsp;background: red;<br/>
+          &emsp;&emsp;@include rwd(small){<br/>
+          &emsp;&emsp;&emsp;background: orange;<br/>
+          &emsp;&emsp;}<br/>
+          &emsp;&emsp;@include rwd(medium){<br/>
+          &emsp;&emsp;&emsp;background: yellow;<br/>
+          &emsp;&emsp;}<br/>
+          &emsp;}
+        </aside>
+        <aside class="exempliGratia">
+          <i class="highlight">// *** EJEMPLO CON CSS ***</i>
+          &emsp;body {
+          &emsp;&emsp;background: red;
+          &emsp;}
+          &emsp;@media screen and (min-width: 320px) {
+          &emsp;&emsp;body {
+          &emsp;&emsp;&emsp;background: orange;
+          &emsp;&emsp;}
+          &emsp;}
+          &emsp;@media screen and (min-width: 640px) {
+          &emsp;&emsp;body {
+          &emsp;&emsp;&emsp;background: yellow;
+          &emsp;&emsp;}
+          &emsp;}
+        </aside>
+      </div>
+    </section>
+    <!-- Video responsive -->
+    <section class="container">
+      <div>
+        <h2>Video responsive.</h2>
+        <p>Para visualizar correctamente un video en diferentes tamaños de viewport, el contenedor (frame) debe guardar una proporción estándar de 16:9 entre su ancho y alto (relación de aspecto o aspect ratio) a lo largo de las diferentes medias queries. Si 16 es 100%, entonces 9 es 56.25% por lo que se utiliza 56.25% como referencia de proporción.</p>
+        <p>El formato 16:9 codifica en las resoluciones comúnmente más utilizadas: 240 píxeles: 426 x 240 360 píxeles: 640 x 360 480 píxeles: 854 x 480 720 píxeles: 1280 x 720 1080 píxeles: 1920 x 1080.</p>
+        <aside class="exempliGratia">
+          &emsp;.video {<br/>
+          &emsp;&emsp;height:&emsp;&emsp;&emsp;&emsp;0;<br/>
+          &emsp;&emsp;padding-bottom: 56.25%;<br/>
+          &emsp;&emsp;position:&ensp;&emsp;&emsp;&emsp;relative;<br/>
+          <i class="highlight">// Como el padding siempre es relativo al ancho, empuja la altura del elemento que por defecto es 0, ésto hace que se ajuste automaticamente con el viewport o contenedor.</i><br/>
+          &emsp;&emsp;&#62; iframe, &#62; video {<br/>
+          &emsp;&emsp;&emsp;position: absolute;<br/>
+          &emsp;&emsp;&emsp;width:&emsp;100%;<br/>
+          &emsp;&emsp;&emsp;height:&emsp;100%;<br/>
+          <i class="highlight">// Los hijos directos que sean iframe o video, obtienen los atributos.</i><br/>
+          &emsp;&emsp;}<br/>
+          &emsp;}<br/>
+        </aside>
+        <p>Contenedor responsive formato 16:9 utilizando display grid:</p>
+        <aside class="exempliGratia">
+          &emsp;.video {<br/>
+          <i class="highlight">// Se crea el grid separando una proporción de 16:9.</i><br/>
+          &emsp;&emsp;display: grid;<br/>
+          &emsp;&emsp;grid-template-columns: repeat(16, 1fr);<br/>
+          &emsp;&emsp;grid-template-rows: repeat(9, 1fr);<br/>
+          &emsp;&emsp;background: blue;<br/>
+          &emsp;&emsp;position: relative;<br/><br/>
+          <i class="highlight">// Se vuelven cuadradas las filas y columnas.</i><br/>
+          &emsp;&emsp;&::before {<br/>
+          &emsp;&emsp;&emsp;content:"";<br/>
+          &emsp;&emsp;&emsp;display: block;<br/>
+          &emsp;&emsp;&emsp;padding-bottom: 100%;<br/>
+          &emsp;&emsp;}<br/><br/>
+          <i class="highlight">// Inserción de video.</i><br/>
+          &emsp;&emsp;> iframe, video {<br/>
+          &emsp;&emsp;&emsp;position: absolute;<br/>
+          &emsp;&emsp;&emsp;width: 100%;<br/>
+          &emsp;&emsp;&emsp;height: 100%;<br/>
+          &emsp;&emsp;}<br/>
+          &emsp;}<br/>
+        </aside>
+      </div>
+    </section>
+    <!-- Imágenes responsive -->
+    <section class="container">
+      <div>
+        <h2>Imágenes responsive.</h2>
+        <p>Si bien las imágenes cargadas en un diseño RWD deben adaptarse al tamaño del contenedor responsive, estas también deben optimizar su carga en la web según el tamaño de viewport del dispositivo; partiendo del principio de que no es necesario mostrar una imagen de gran tamaño en una pantalla significativamente más pequeña que el tamaño para el que fue diseñada, hacerlo genera costes de ancho de banda, tanto para el usuario final como para la carga de la web.</p>
+        <p>Las <strong>imágenes adaptables</strong> son una forma de ofrecer al navegador varias versiones de imágenes en diferentes archivos (ya sea que muestren lo mismo), pero que contengan diferentes resoluciones, para que la carga de estas imágenes sea según las características y tamaño de pantalla del dispositivo y/o adecuadas para diferentes asignaciones de espacio y orientación.</p>
+        <p>Una de las formas para usar imágenes con RWD es colocar la imagen como background dentro de un contenedor adaptable.</p>
+        <aside class="exempliGratia">
+          &emsp;.image{<br/>
+          &emsp;&emsp;background-image: url(tu-imagen-deMenorResolucion.jpg);<br/>
+          &emsp;&emsp;background-posittion: center;<br/>
+          &emsp;&emsp;background-size: contain;<br/>
+          &emsp;}<br/><br/>
+          &emsp;@media screen and (min-width: 760px) {<br/>
+          &emsp;&emsp;.imagen {<br/>
+          &emsp;&emsp;&emsp;background: url(tu-imagen-deMayorResolucion.jpg) center/cover;<br/>
+          &emsp;&emsp;}<br/>
+          &emsp;}
+        </aside>
+        <p>Otra forma de utilizar RWD en imágenes es utilizando el elemento HTML &#60;picture&#62;, el cual permite sin necesidad de CSS, indicar al navegador qué imagen mostrar en cada tamaño de pantalla. Esto requiere de dos elementos anidados, &#60;source&#62; e &#60;img&#62;.</p>
+        <p>Los elementos &#60;source&#62; trabajan con base en una media query (atributo media) y un recurso que se adapta a la condición (atributo srcset).</p>
+        <p>El elemento &#60;img&#62; contiene la ruta a un recurso que solo cargará si los &#60;source&#62; fallan.</p>
+        <p>El orden de la declaración de los elementos &#60;source&#62; en base al atributo media, es muy importante, pues solo toma el primero que cumpla una condición obviando al resto y <u>no existe un efecto cascada</u>. El orden de las condiciones es importante.</p>
+        <aside class="exempliGratia">
+          &emsp;&#60;picture&#62;<br/>
+          &emsp;&emsp;&#60;source media="(min-width:1000px)" srcset="./img/extraLarge.jpg"&#62;<br/>
+          &emsp;&emsp;&#60;source media="(min-width:800px)" srcset="./img/large.jpg"&#62;<br/>
+          &emsp;&emsp;&#60;source media="(min-width:600px)" srcset="./img/medium.jpg"&#62;<br/>
+          &emsp;&emsp;&#60;img src="./img/small" alt="Texto Alt."&#62;<br/>
+          &emsp;&#60;/picture&#62;
+        </aside>
+        <p>El elemento &#60;picture&#62; también permite cargar imágenes según si el navegador soporta o no ciertos formatos; como el caso de webp (un formato de imagen moderno que proporciona una compresión optimizada), pero puede no ser soportada por algunos navegadores o versiones antiguas de los mismos.</p>
+        <aside class="exempliGratia">
+          &emsp;&#60;picture&#62;<br/>
+          &emsp;&emsp;&#60;source media="(min-width:800px)" srcset="./img/large.webp" type="image/webp"&#62;<br/>
+          &emsp;&emsp;&#60;source media="(min-width:800px)" srcset="./img/large.jpg" type="image/jpeg"&#62;<br/>
+          &emsp;&#60;/picture&#62;<br/>
+          <i class="highlight">// De esta forma si el navegador no soporta el tipo de formato webp salta al siguiente elemento &#60;sourse&#62; que al ser un formato estándar como jpg lo renderiza.</i>
+        </aside>
+        <p>Otra forma es declarando el atributo <strong>srcset</strong> el cual puede ser declarado de forma adicional en el elemento HTML &#60;img&#62; para proporcionar varias imágenes adicionales, junto con unos indicadores y ayudar al navegador a elegir la correcta, según criterios internos del navegador basándose en la información que le suministramos, sin necesidad de CSS.</p>
+        <p>Cada conjunto de información, está formado por el nombre&extensión del archivo, el ancho intrínseco de la imagen en píxeles y separado de la anterior por una coma.</p>
+        <p>La unidad para el ancho intrínseco de la imagen, se representa con w, y no con px. Siendo este el tamaño real de la imagen.</p>
+        <p>Navegadores como Chrome renderizaran la imagen de mayor resolución que hayan logrado descargar en caché, según nuestras indicaciones.</p>
+        <aside class="exempliGratia">
+          &emsp;&#60;img<br/>
+          &emsp;&emsp;srcset="img/medium.jpg  500w, img/extraLarge.jpg 1000w"<br/>
+          &emsp;&emsp;src="defaul.jpeg"<br/>
+          &emsp;&emsp;alt="Texto Alt."<br/>
+          &emsp;&#62;<br/>
+          <i class="highlight">// En src se coloca la imagen que aparecerá por default si es que el navegador no encuentra las de srcset.</i>
+        </aside>
+        <p>Cuando el navegador descarga la imagen mas grande, no descarga las imágenes más pequeñas a esa porque si la imagen grande ya esta en el cache del navegador, no descarga una imagen menor porque no es necesario utilizar una con menor resolución si ya se tiene una con mejor calidad.</p>
+      </div>
+    </section>
+    <!-- Temas responsive -->
+    <section class="container">
+      <div>
+        <h2>Temas responsive.</h2>
+        <p>Cuando se crean temas en las páginas como las tipicas versiones normal en donde el fondo es blaco u oscuro en donde el fondo es negro, las variables son muy importantes ya que cambian sus valores al modificar estos temas.</p>
+        <p>En la creación de temas se deben tener claros que valores se van a cambiar en los componentes cuando el usuario pase de un tema al otro. También se debe tener una paleta de colores definida para facilita el desarrollo del código.</p>
+        <p>Se puede hacer la asignación de la clase con JavaScript o con un media query especial que detecta el tema del navegador.</p>
+        <p><a class="link" target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme">@media ( prefers-color-scheme : [ no-preference | light | dark ] ) { ... }</a></p>
+        <p>Este media query especial activa su contenido cuando se cambia el tema del navegador (todos los navegadores le dan soporte a esta media query)</p>
+        <aside class="exempliGratia">
+          :root {<br/>
+          &emsp;--bd: white;<br/>
+          }<br/><br/>
+          @media (prefers-color-scheme : dark) {<br/>
+          &emsp;:root {<br/>
+          &emsp;&emsp;--bg: black;<br/>
+          &emsp;}<br/>
+          }<br/><br/>
+          .body {<br/>
+          &emsp;background-color: var(--bg);<br/>
+          }
+        </aside>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <section class="container">
+      <div>
+        <h3>Referencias:</h3>
+        <p>
+          <a class="link" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme" target="_blank" rel="noopener noreferrer">prefers-color-scheme</a><br/>
+        </p>
+      </div>
+    </section>
+  </footer>
+</body>
+</html>

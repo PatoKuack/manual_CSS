@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- No guardar cache en navegadores -->
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <!-- ------------------- -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../Estilos/normalization.css">
+  <link rel="stylesheet" href="../Estilos/stylecss41.css">
+  <title>Sintaxis SASS</title>
+</head>
+<body class="body">
+  <header class="bubble">
+    <section class="stars">
+      <div class="container">
+        <h1 class="center">Sintaxis en SASS.</h1>
+      </div>
+    </section>
+  </header>
+  <main class="bubble">
+    <!-- Sintaccis SCSS -->
+    <section class="stars">
+      <div class="container">
+        <h2>Comentarios.</h2>
+        <p>Los comentarios son importantes para la documentación, tanto en SASS como en CSS, para mostrar comentarios en CSS desde SCSS se hace lo siguiente:</p>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><u>.scss</u></span><br/>
+            /*Comentarios visibles en la compilación.*/<br/>
+            // Comentarios invisibles en la compilación.
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><u>.css</u></span><br/>
+            /*Comentarios visibles en la compilación.*/
+          </aside>
+        </div>
+      </div>
+    </section>
+    <!-- Variables -->
+    <section class="stars">
+      <div class="container">
+        <h2>Variables.</h2>
+        <p>Una variable almacena información que se pueda reutilizar.</p>
+        <p>En sass las variables se declaran con el signo monetario <b>$</b> de la siguiente forma:</p>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><u>.scss</u></span><br/>
+            <i class="coment">//Declaración de variable.</i><br/>
+            $size: 200px;<br/>
+            <i class="coment">//Uso de la variable declarada.</i><br/>
+            .body {<br/>
+            &ensp;padding-top: $size;<br/>
+            }<br/>
+            <i class="coment">//Además se pueden hacer operaciones con las variables.</i><br/>
+            .footer {<br/>
+            &ensp;<i class="coment">//multiplicación:</i><br/>
+            &ensp;padding-top: $size * 2;<br/>
+            &ensp;<i class="coment">//división:</i><br/>
+            &ensp;padding-top: $size / 2;<br/>
+            &ensp;<i class="coment">//suma:</i><br/>
+            &ensp;padding-top: $size + 2;<br/>
+            &ensp;<i class="coment">//resta:</i><br/>
+            &ensp;padding-top: $size - 2;<br/>
+            }
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><u>.css</u></span><br/><br/><br/><br/>
+            .body {<br/>
+            &ensp;padding-top: 200px;<br/>
+            }<br/><br/>
+            .footer {<br/>
+            &ensp;padding-top: 400px;<br/>
+            &ensp;padding-top: 100px;<br/>
+            &ensp;padding-top: 202px;<br/>
+            &ensp;padding-top: 198px;<br/>
+            }
+          </aside>
+        </div>
+        <p>Es posible modificar las unidades, eliminarlas o agregarlas.</p>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><u>.scss</u></span><br/>
+            $size: 5px;<br/>
+            .body{<br/>
+            &ensp;margin: ($size/1px)*1%;<br/>
+            }<br/>
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><u>.css</u></span><br/><br/>
+            .body{<br/>
+            &ensp;margin: 5%;<br/>
+            }<br/>
+          </aside>
+        </div>
+        <h3>Alcance.</h3>
+        <p>También se pueden declarar variables dentro de algún selector o bloque para que solo funcionen dentro de dicho selector o bloque, no se podrá utilizar dicha variable fuera de ese bloque de código. Por ejemplo:</p>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><u>.scss</u></span><br/>
+            .body {<br/>
+            &ensp;$size: 20px;<br/>
+            &ensp;padding-top: $size;<br/>
+            }
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><u>.css</u></span><br/>
+            .body {<br/>
+            &ensp;padding-top: 20px;<br/>
+            }
+          </aside>
+        </div>
+        <h3>!default</h3>
+        <p>Para poder sobrescribir valores de una variable a lo largo del proyecto se utiliza <b>!default</b>, ésto permite que una propiedad tenga un valor por defecto, permitiendo sobre-escribir ese valor <u>antes o después</u> de su uso en dicha propiedad.</p>
+        <p>Es utilizado cuando se desea que personas ajenas al proyecto puedan cambiar valores de ciertas variables, como el color. Se usa de la siguiente manera:</p>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><u>.scss</u></span><br/>
+            $txt-color: purple !default;<br/><br/>
+            .body{<br/>
+            &ensp;color: $txt-color;<br/>
+            }<br/>
+            <hr/>
+            $txt-color: green;<br/>
+            $txt-color: purple !default;<br/><br/>
+            .body{<br/>
+            &ensp;color: $txt-color;<br/>
+            }<br/>
+            <hr/>
+            $txt-color: purple !default;<br/>
+            $txt-color: brown;<br/><br/>
+            .body{<br/>
+            &ensp;color: $txt-color;<br/>
+            }
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><u>.css</u></span><br/><br/><br/>
+            .body{<br/>
+            &ensp;color: purple;<br/>
+            }<br/>
+            <hr/><br/><br/><br/>
+            .body{<br/>
+            &ensp;color: green;<br/>
+            }<br/>
+            <hr/><br/><br/><br/>
+            .body{<br/>
+            &ensp;color: brown;<br/>
+            }<br/>
+          </aside>
+        </div>
+        <h3>Interpolación.</h3>
+        <p>Una de las cosas que se pueden hacer en Sass es <b>interpolar las variables</b>. Interpolar variables es utilizar su valor para construir una expresión. Se hace de la siguiente manera:</p>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><u>.scss</u></span><br/>
+            $color: red;<br/>
+            $size: 100%;<br/><br/>
+            <i class="coment">// Calc requiere dos valores por lo que es necesario interpolar.</i><br/>
+            .#{$color}{<br/>
+            &ensp;height: calc($size - 50);<br/>
+            &ensp;height: calc(#{$size} - 50);<br/>
+            }
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><u>.css</u></span><br/><br/><br/><br/><br/>
+            .red{<br/>
+            &ensp;height: calc($size - 50);<br/>
+            &ensp;height: calc(100% - 50);<br/>
+            }
+          </aside>
+        </div>
+      </div>
+    </section>
+    <!-- Anidamiento -->
+    <section class="stars">
+      <div class="container">
+        <h2>Anidamiento.</h2>
+        <p>Anidamiento es poder meter selectores dentro de otros (no es buena idea usar muchas anidaciones porque el código se vuelve confuso). Por ejemplo:</p>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><u>.scss</u></span><br/>
+            .div {<br/>
+            &ensp;margin: 0;<br/>
+            &ensp;.p {<br/>
+            &ensp;&ensp;margin: 0;<br/>
+            &ensp;}<br/>
+            &ensp;.ul {<br/>
+            &ensp;&ensp;margin: 0;<br/>
+            &ensp;}<br/>
+            }<br/>
+            <i class="coment">// El elemento ".p" y el ".ul" que está dentro de ".div" tendrá un valor 0 de margen.</i>
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><u>.css</u></span><br/>
+            .div {<br/>
+            &ensp;margin: 0;<br/>
+            }<br/>
+            .div .p {<br/>
+            &ensp;margin: 0;<br/>
+            }<br/>
+            .div .ul {<br/>
+            &ensp;margin: 0;<br/>
+            }
+          </aside>
+        </div>
+        <p>Ejemplo de anidamiento con media queries:</p>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><u>.scss</u></span><br/>
+            .ul {<br/>
+            &ensp;display: block;<br/>
+            &ensp;@media screen and (min-width: 640px) {<br/>
+            &ensp;&ensp;display: flex;<br/>
+            &ensp;}<br/>
+            }
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><u>.css</u></span><br/>
+            .ul {<br/>
+            &ensp;display: block;<br/>
+            }<br/>
+            @media screen and (min-width: 640px) {<br/>
+            &ensp;.ul {<br/>
+            &ensp;&ensp;display: flex;<br/>
+            &ensp;}<br/>
+            }
+          </aside>
+        </div>
+        <p>Ejemplo de anidamiento con animaciones:</p>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><u>.scss</u></span><br/>
+            <i class="coment">// Más fácil de visualizar.</i><br/>
+            .ul {<br/>
+            &ensp;animation: menu 1s;<br/>
+            &ensp;@keyframes menu {<br/>
+            &ensp;&ensp;to {<br/>
+            &ensp;&ensp;&ensp;color: aliceblue;<br/>
+            &ensp;&ensp;}<br/>
+            &ensp;}<br/>
+            }
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><u>.css</u></span><br/><br/>
+            .ul {<br/>
+            &ensp;animation: menu 1s;<br/>
+            }<br/>
+            @keyframes menu {<br/>
+            &ensp;to {<br/>
+            &ensp;&ensp;color: aliceblue;<br/>
+            &ensp;}<br/>
+            }
+          </aside>
+        </div>
+        <p>Otro tipo de sintaxis:</p>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><u>.scss</u></span><br/>
+            .menu {<br/>
+            &ensp;margin: 1rem;<br/><br/>
+            &ensp;font: {<br/>
+            &ensp;&ensp;family: arial;<br/>
+            &ensp;}<br/>
+            }
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><u>.css</u></span><br/>
+            .menu {<br/>
+            &ensp;margin: 1rem;<br/><br/>
+            &ensp;font-family: arial;<br/>
+            }<br/>
+          </aside>
+        </div>
+        <h3>Ampersand.</h3>
+        <p>Otra forma de anidar es utilizando el ampersand (<b>&</b>) para indicarle a un pseudoelemento o a un selector que se aplicará al elemento que los contiene, ejemplo:</p>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><u>.scss</u></span><br/>
+            .ul {<br/>
+            &ensp;background-color: darkblue;<br/><br/>
+            &ensp;&:hover{<br/>
+            &ensp;&ensp;color: gold;<br/>
+            &ensp;}<br/><br/>
+            &ensp;:hover{<br/>
+            &ensp;&ensp;color: orange;<br/>
+            &ensp;}<br/>
+            }
+            <hr/>
+            .menu {<br/>
+            &ensp;margin: 1rem;<br/><br/>
+            &ensp;&-item{<br/>
+            &ensp;&ensp;margin: 5rem;<br/>
+            &ensp;}<br/>
+            }
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><u>.css</u></span><br/>
+            .ul {<br/>
+            &ensp;background-color: darkblue;<br/>
+            }<br/><br/>
+            ul:hover{<br/>
+            &ensp;color: gold;<br/>
+            }<br/><br/>
+            ul :hover{<br/>
+            &ensp;color: orange;<br/>
+            }
+            <hr/>
+            .menu {<br/>
+            &ensp;margin: 1rem;<br/>
+            }<br/><br/>
+            .menu-item{<br/>
+            &ensp;margin: 5rem;<br/>
+            }
+          </aside>
+        </div>
+      </div>
+    </section>
+    <!-- @extend -->
+    <section class="stars">
+      <div class="container">
+        <h2>@extend</h2>
+        <p>@extend permite crear placeholders e importarlos o extenderlos en selectores.</p>
+        <p>Los placeholders se usan para guardar bloques de estilos que podrán reutilizarse, ejemplo:</p>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><u>.scss</u></span><br/>
+            %button {<br/>
+            &ensp;display: inline-block;<br/>
+            &ensp;margin: 1em 0;<br/>
+            &ensp;padding: .5em 1.5em;<br/>
+            }<br/><br/>
+            .button {<br/>
+            &ensp;@extend %button;<br/>
+            }
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><u>.css</u></span><br/><br/><br/><br/><br/><br/><br/>
+            .button {<br/>
+            &ensp;display: inline-block;<br/>
+            &ensp;margin: 1em 0;<br/>
+            &ensp;padding: .5em 1.5em;<br/>
+            }
+          </aside>
+        </div>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><u>.scss</u></span><br/>
+            %button {<br/>
+            &ensp;display: inline-block;<br/>
+            &ensp;margin: 1em 0;<br/>
+            &ensp;padding: .5em 1.5em;<br/>
+            }<br/><br/>
+            .button {<br/>
+            &ensp;@extend %button;<br/>
+            }<br/><br/>
+            .button-alert {<br/>
+            &ensp;@extend %button;<br/>
+            &ensp;<i class="coment">// funciona igual con @extend .button;</i><br/>
+            &ensp;background-color: red;<br/>
+            }
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><u>.css</u></span><br/><br/><br/><br/><br/><br/><br/>
+            .button, .button-alert {<br/>
+            &ensp;display: inline-block;<br/>
+            &ensp;margin: 1em 0;<br/>
+            &ensp;padding: .5em 1.5em;<br/>
+            }<br/><br/>
+            .button-alert {<br/>
+            &ensp;background-color: red;<br/>
+            }
+          </aside>
+        </div>
+        <p>También se pueden reutilizar bloques de código de otros selectores, ejemplo:</p>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><u>.scss</u></span><br/>
+            .button {<br/>
+            &ensp;display: inline-block;<br/>
+            &ensp;margin: 1em 0;<br/>
+            &ensp;padding: .5em 1.5em;<br/>
+            }<br/><br/>
+            .button-alert {<br/>
+            &ensp;background-color: red;<br/>
+            &ensp;@extend .button;<br/>
+            &ensp;<i class="coment">// a fuerza tiene que ser <b>.button</b> y no <b>%button</b></i><br/>
+            }
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><u>.css</u></span><br/>
+            .button, .button-alert {<br/>
+            &ensp;display: inline-block;<br/>
+            &ensp;margin: 1em 0;<br/>
+            &ensp;padding: .5em 1.5em;<br/>
+            }<br/><br/>
+            .button-alert {<br/>
+            &ensp;background-color: red;<br/>
+            }
+          </aside>
+        </div>
+        <p>Se tiene que tener bastante cuidado cuando se extienden los selectores. Es recomendable utilizar extend en selectores con solamente 1 nivel, ya que, si se desciende a sub-niveles esto puede causar complicaciones.</p>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><u>.scss</u></span><br/>
+            %button {<br/>
+            &ensp;display: inline-block;<br/>
+            &ensp;margin: 1em 0;<br/>
+            &ensp;padding: .5em 1.5em;<br/>
+            }<br/><br/>
+            .div {<br/>
+            &ensp;display: block;<br/><br/>
+            &ensp;.button {<br/>
+            &ensp;&emsp;@extend %button;<br/>
+            &ensp;}<br/><br/>
+            }
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><u>.css</u></span><br/><br/><br/><br/><br/><br/><br/>
+            .div .button {<br/>
+            &ensp;display: inline-block;<br/>
+            &ensp;margin: 1em 0;<br/>
+            &ensp;padding: .5em 1.5em;<br/>
+            }<br/><br/>
+            .div {<br/>
+            &ensp;display: block;<br/>
+            }
+          </aside>
+        </div>
+        <p>@extend también se puede utilizar en pseudoclases, ejemplo:</p>
+        <div class="idEst">
+          <aside class="exempliGratia egSCSS">
+            <span class="center block"><u>.scss</u></span><br/>
+            .button:hover {<br/>
+            &ensp;transform: translateY(-5px);<br/>
+            }<br/><br/>
+            .button:active {<br/>
+            &ensp;@extend .button:hover;<br/>
+            }
+          </aside>
+          <aside class="exempliGratia egCSS">
+            <span class="center block"><u>.css</u></span><br/>
+            .button:hover, .button:active {<br/>
+            &ensp;transform: translateY(-5px);<br/>
+            }
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="bubble">
+    <section class="stars">
+      <div class="container">
+        <h3>Referencias:</h3>
+        <p>
+          <a target="_blank" href=""></a><br/>
+        </p>
+      </div>
+    </section>
+  </footer>
+</body>
+</html>

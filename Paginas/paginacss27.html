@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- No guardar cache en navegadores -->
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <!-- ------------------- -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../Estilos/normalization.css">
+  <link rel="stylesheet" href="../Estilos/stylecss21.css">
+  <link rel="stylesheet" href="../Estilos/stylecss27.css">
+  <title>Formularios</title>
+</head>
+<body class="body">
+  <header>
+    <section class="container">
+      <div>
+        <h1 class="center">Formularios.</h1>
+      </div>
+    </section>
+  </header>
+  <main>
+    <!-- Formularios -->
+    <section class="container">
+      <div>
+        <h2>Formularios.</h2>
+        <p>En los elementos de los formularios se tiene por defecto asignada la propiedad <b>-moz-appearance: ;</b> que tiene muchos valores para cada tipo de dato, pero su principal uso en CSS es modificar el checkbox.</p>
+        <aside class="idEst">
+          input[type="checkbox"] {<br/>
+          &emsp;-moz-appearance: none;<br/>
+          }<br/><br/>
+          input[type="checkbox"]::before {<br/>
+          &emsp;content: ' ';<br/>
+          &emsp;display: block;<br/>
+          &emsp;width: .5rem;<br/>
+          &emsp;height: .5rem;<br/>
+          &emsp;border: 1px solid blue;<br/>
+          }<br/><br/>
+          <i class="coment">// <b>checked</b> es una pseudo-clase para avisar si el elemento esta activado o no.</i>
+          input[type="checkbox"]:checked + label {<br/>
+          &emsp;background-color: tomato;<br/>
+          }
+        </aside>
+        <p>Las etiquetas <b>textarea</b> que hay en los formularios tienen por defecto una propiedad llamada <b>resize: [ both | none | vertical | horizontal ];</b> que sirve para modificar las dimenciones del elemento contenedor directamente desde la página web. Esta propiedad se puede utilizar para cualquier elemento aunque su principal uso es en los textarea.</p>
+        <p>Los valores de resize tienen los siguientes efectos:</p>
+        <ul>
+          <li><b>none</b> no permite redimensionar los elementos</li>
+          <li><b>both</b> permite redimensionar el elemento vertical y horizontalmente.</li>
+          <li><b>vertical</b> permite redimensionar el elemento unicamente de forma vertical.</li>
+          <li><b>horizontal</b> permite redimensionar el elemento unicamente de forma horizontal.</li>
+        </ul>
+        <h3>Pseudoclases para formularios.</h3>
+        <dl>
+          <dt>:focus</dt>
+          <dd>
+            Se utiliza generalmente en elementos seleccionables como en los formularios. Aplica un estilo al elemento al que se le tiene el foco.
+            <form action="#" >
+              <label>Nombre</label>
+              <input type="text" class="focus">
+            </form>
+          </dd>
+          <dt>:focus-within</dt>
+          <dd>
+            <p>Se utiliza para aplicar un estilo al elemento padre del elemento seleccionado. Es la unica pseudo-clase que permite seleccionar a un padre de forma directa.</p>
+            <p>Incluso se podría aplicar un estilo a los hermanos del contenedor padre con selectores.</p>
+            <form action="#" class="focus-within">
+              <label>Nombre</label>
+              <input type="text">
+            </form>
+          </dd>
+          <dt>:placeholder-shown</dt>
+          <dd>
+            Se utiliza en el input y le aplica un estilo mientras se esté mostrando el placeholder.
+            <form action="#">
+              <label>Escribe</label>
+              <input type="text" placeholder="escribe lo q sea" class="ph-shown">
+            </form>
+          </dd>
+        </dl>
+        <p>En los formularios existen campos con los atributos <b>require</b> para que el formulario no sea mandado sin completar los campos con este atributo. Para este atributo existen dos pseudo-clases:</p>
+        <dl>
+          <dt>:required</dt>
+          <dd>Le aplica un estilo a los elementos con el atributo require.</dd>
+          <dt>:optional</dt>
+          <dd>Le aplica un estilo a los elementos sin el atributo require.</dd>
+        </dl>
+        <p>También existen los atributos <b>readonly</b> que evita que un campo del formulario sea modificado (los botones tienen este atributo por default). Para este atributo existe dos pseudo-clases:</p>
+        <dl>
+          <dt>:read-only</dt>
+          <dd>Aplica un estilo a los elementos con el atributo readonly (en los que nos e puede escribir).</dd>
+          <dt>:read-write</dt>
+          <dd>Aplica un estilo a los elementos sin el atributo readonly en los que se puede escribir.</dd>
+        </dl>
+        <p>Otro atributo es <b>disable</b> que desactiva un campo, algunos navegadores aplican "readonly" a los campos con "disable". Para este atributo existen 2 pseudo-clases:</p>
+        <dl>
+          <dl>:disabled</dl>
+          <dd>Aplica un estilo a los elementos con el atributo disable.</dd>
+          <dl>:enabled</dl>
+          <dd>Aplica un estilo a los elementos sin el atributo disable.</dd>
+        </dl>
+        <p>Cuando un campo del formulario no es valido, es porque no cumple con los caracteres mínimos, los máximos, con algún @ en los campos de e-mail, etc. Para los caracteres invalidos existen 2 pseudo-clases:</p>
+        <dl>
+          <dt>:valid</dt>
+          <dd>Aplica un estilo a los elementos validos.</dd>
+          <dt>:invalid</dt>
+          <dd>Aplica un estilo a los elementos invalidos.</dd>
+        </dl>
+        <p>Existe un pseudo-elemento para los placeholder que funciona como la pseudo-clase:</p>
+        <dl>
+          <dt>::placeholder</dt>
+          <dd>Aplica un estilo a los campos con place holder desactivando el estilo cuando el usuario escribe sobre el campo ya que al hacer eso el placeholder desaparece.</dd>
+        </dl>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <section class="container">
+      <div>
+        <h3>Referencias:</h3>
+        <p>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/appearance" target="_blank" rel="noopener noreferrer">-moz-appearance</a><br/>
+        </p>
+      </div>
+    </section>
+  </footer>
+</body>
+</html>
