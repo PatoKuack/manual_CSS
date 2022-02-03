@@ -94,7 +94,7 @@ ul{
 [id*="-e"]{
   display: none;
   font-family: var(--fuenteA), cursive;
-  font-size: 2em;
+  font-size: 1em;
 }
 
 .GT{
@@ -360,11 +360,12 @@ figcaption{
 }
 
 [id^="contenedorGI"]{
-  width: 70%;
+  width: 80%;
   height: 4em;
   margin: 0 auto;
   border: .2em solid var(--colorA);
   grid-gap: .1em;
+  font-size: 2em;
 }
 [class*="gridesGI"]{
   background-image: linear-gradient(var(--cielo) 70%, var(--colorD) 100%);
@@ -386,6 +387,7 @@ figcaption{
   border: .2em solid var(--colorA);
   grid-template: repeat(2, min-content) / repeat(3, max-content);
   grid-gap: .1em;
+  font-size: 2em;
 }
 .gridesGIac4, .gridesGIjc4{
   font-size: .7em;
@@ -460,6 +462,7 @@ figcaption{
   grid-auto-columns: 1em;
         /* grid-auto-rows: 1empx; */
   grid-auto-rows: 1em;
+  font-size: 2em;
 }
 [id^="contenedorGF"] > div{
   background-color: var(--vida);

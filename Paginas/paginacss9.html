@@ -29,7 +29,7 @@
   </div>
   <div class="a">
     <h2>Notación hexadecimal</h2>
-    Es la forma más normal de colocar un color en un código y se utilizan números y letras para la selección del color, del 0 al 9 y de la A a la F teniendo 16 diferentes opciones para seleccionar un tipo de color, se  pueden colocar minúsculas o mayúsculas pero es más correcto colocar la notación en mayúsculas. Utilizando dos de estos valores se pueden obtener lo equivalente a cada valor del RGB
+    Es la forma más normal de colocar un color en un código y se utilizan números y letras para la selección del color, del 0 al 9 y de la A a la F teniendo 16 diferentes opciones para seleccionar un tipo de color, se  pueden colocar minúsculas o mayúsculas, pero es más correcto colocar la notación en mayúsculas. Utilizando dos de estos valores se pueden obtener lo equivalente a cada valor del RGB
     <table>
       <tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td></tr>
       <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td></tr>
@@ -84,7 +84,7 @@
     <b>background-image: linear-gradient(<i>[color 1] [stop], [color 2] [stop], [color 2] [stop], [color n] [stop]</i>);</b><br>
     ejemplo:<br>
     <i>background-image: linear-gradient(yellow 25%, blue 40%, blue 50%, green 80%)</i><br>
-    El color yellow puro abarcara del 0% del elemento hasta el 25% del elemento y apartir de ahí se degrada con el siguiente elemento, el color blue se degrada hasta el 40% del elemento y continua puro hasta el 50% del elemento en donde comienza a degradarse, el color green se degrada hasta el 80% del elemento y apartir de ahí es green puro.<br>
+    El color yellow puro abarcara del 0% del elemento hasta el 25% del elemento y a partir de ahí se degrada con el siguiente elemento, el color blue se degrada hasta el 40% del elemento y continua puro hasta el 50% del elemento en donde comienza a degradarse, el color green se degrada hasta el 80% del elemento y a partir de ahí es green puro.<br>
     En los colores de en medio se colocan dos veces, uno para indicar donde inicia el degradado de su predecesor y otro para indicar donde iniciará el degradado de su sucesor.<br>
     Se puede colocar aparte el ángulo o dirección del degradado (180 deg es el valor por default).<br>
     <b>background-image: linear-gradient(<i>[#deg | to <u>dirección</u>], [color 1] [stop], [color 2] [stop], [color 2] [stop], [color n] [stop]</i>);</b><br>
@@ -105,9 +105,9 @@
     En el degradado radial se puede indicar, con el eje X y Y usando px o %, donde será el centro del que parten los colores para degradarse (por default es 50% 50%).<br>
     <b>background-image: radial-gradient(<i>[at <u>+</u>X <u>+</u>Y ], [color 1] [stop], [color 2] [stop], [color 2] [stop], [color n] [stop]</i>);</b><br>
     ejemplo: background-image: radial-gradient(at 50% 0, lima 20%, yellow 20%, yellow 50%, orange 50%);<br>
-    En el degradado radial se puede indicar el tamaño (px o %) y la forma (circle o ellipse) para poder manipular el degradado, si se modifica el tamaño del degradado no  se podrá adaptar al tamaño del navegador (ellipse esta por default).<br>
+    En el degradado radial se puede indicar el tamaño (px o %) y la forma (circle o ellipse) para poder manipular el degradado, si se modifica el tamaño del degradado no  se podrá adaptar al tamaño del navegador (ellipse está por default).<br>
     <b>background-image: radial-gradient([#px | #px #px] | [circle | ellipse] <i>[at <u>+</u>X <u>+</u>Y ], [color 1] [stop], [color 2] [stop], [color 2] [stop], [color n] [stop]</i>);</b><br>
-    Se coloca un numero de tamaño para el circulo (con el cual se define el radio) y dos numeros de tamaño para la elipse (con los cuales se define el radio mayor y el menor), si se coloca el tamaño se ignora la forma (circle o ellipse) ya que se indica con los radios colocados si es un circulo o una elipse.<br>
+    Se coloca un numero de tamaño para el círculo (con el cual se define el radio) y dos números de tamaño para la elipse (con los cuales se define el radio mayor y el menor), si se coloca el tamaño se ignora la forma (circle o ellipse) ya que se indica con los radios colocados si es un círculo o una elipse.<br>
     Existen palabras clave para indicar el tamaño:
     <table>
       <tr><td>closest-side</td><td>lado más cercano</td></tr>
@@ -115,7 +115,7 @@
       <tr><td>closest-corner</td><td>esquina más cercana</td></tr>
       <tr><td>farthest-corner</td><td>esquina más lejana</td></tr>
     </table>
-    Con estas claves se puede facilitar el tamaño del degradado repartiendo el degradado entre un color las esquinas o lados mas cercanos o lejanos, esto funciona especialmente en espacios no simétricos y con centros del degradado que no estan en el origen.
+    Con estas claves se puede facilitar el tamaño del degradado repartiendo el degradado entre un color las esquinas o lados más cercanos o lejanos, esto funciona especialmente en espacios no simétricos y con centros del degradado que no están en el origen.
     <img class="gradientradial" src="../Imgs/gradientradial.jpg" alt="Ejemplo de degradados radiales" title="Ejemplo de degradados radiales">
     <div class="degrad"></div>
   </div>
@@ -128,7 +128,7 @@
   </div>
   <div class="ejemplo">
     <h3>calc</h3>
-    La funcion <b>calc</b> de CSS permite hacer operaciones, es util para calcular valores de variables (ejemplo: --oper: calc(var(--tamaño)/2);).
+    La función <b>calc</b> de CSS permite hacer operaciones, es útil para calcular valores de variables (ejemplo: --oper: calc(var(--tamaño)/2);).
     <pre><b>
       div.ying-yang{
         --tamaño: 150px;

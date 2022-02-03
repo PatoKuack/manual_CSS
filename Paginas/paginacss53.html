@@ -29,11 +29,11 @@
         <h2>Propiedades principales.</h2>
         <p>Para que una animación funcione, debe de utilizarse por lo menos las siguientes propiedades:</p>
         <dl>
-          <dt>animation-name: [ none | <u>nombre-animacion</u> ];</dt>
-          <dd>Esta propiedad le aplica la animación especificada al elemento, permite aplicar más de una animación si se se colocan separadas por comas (valor por defecto = none).</dd>
+          <dt>animation-name: [ none | <u>nombre-animación</u> ];</dt>
+          <dd>Esta propiedad le aplica la animación especificada al elemento, permite aplicar más de una animación si se colocan separadas por comas (valor por defecto = none).</dd>
           <dt>animation-duration: [ time ];</dt>
           <dd>Esta propiedad indica la duración de la animación y no acepta valores negativos (valor por defecto = 0s).</dd>
-          <dd>Si se coloca un valor, pero se tiene más de una animación aplicada, éste único valor de duración se aplica a todas las animaciones. También se pueden colocar más de una duración, pero si se colocan más valores de los que hay en <i>animation-name</i>, no se tomarán en cuenta los valores sobrantes. <b>Ésto se aplica a todas las propiedades de animación a excepción de <i>animation-name</i></b>.</dd>
+          <dd>Si se coloca un valor, pero se tiene más de una animación aplicada, éste único valor de duración se aplica a todas las animaciones. También se pueden colocar más de una duración, pero si se colocan más valores de los que hay en <i>animation-name</i>, no se tomarán en cuenta los valores sobrantes. <b>Esto se aplica a todas las propiedades de animación a excepción de <i>animation-name</i></b>.</dd>
         </dl>
       </div>
     </section>
@@ -43,7 +43,7 @@
         <h2>at-rule-keyframes</h2>
         <p>Las animaciones cambian las propiedades CSS a través de momentos en el tiempo definidos como @keyframes.</p>
         <p><b>Es importante especificar cada keyframe con el signo %</b>, aunque también se pueden especificar con from y to. <b>from</b> es lo mismo que 0% y <b>to</b> es lo mismo que 100%</p>
-        <p>Si no se especifica un valor inicial, se asigna automaticamente un 0% y lo mismo sucede si no se especifica un valor final, se le asigna automaticamente un 100%. Esto funciona miy bien con el <i>from</i> y el <i>to</i></p>
+        <p>Si no se especifica un valor inicial, se asigna automáticamente un 0% y lo mismo sucede si no se especifica un valor final, se le asigna automáticamente un 100%. Esto funciona muy bien con el <i>from</i> y el <i>to</i></p>
         <aside class="idEst">
           .div {<br/>
             &emsp;animation-name: <u>name</u>;<br/>
@@ -54,7 +54,7 @@
             &emsp;&emsp;...código...<br/>
             &emsp;}<br/>
             }<br/>
-            <i class="coment">// Automaticamente indica el <b>from</b> que se iniciará en 0% y como no se especifica el final, automaticamente se asigna un 100%.</i>
+            <i class="coment">// Automáticamente indica el <b>from</b> que se iniciará en 0% y como no se especifica el final, automáticamente se asigna un 100%.</i>
         </aside>
         <p>Es posible animar varias propiedades al mismo tiempo, solo hay que separarlas por comas, ejemplo:</p>
         <aside class="idEst">
@@ -142,7 +142,7 @@
             Se utiliza para visualizar las propiedades de los eventos en la consola, por ejemplo:
             <ul>
               <li><b>animationName</b> muestra el nombre de la animación.</li>
-              <li><b>elapsedTime</b>muestra el tiempo que ha durado una animación. No puede mostrar el tiempo mientras ocurre la animación y cuando se utliza con <i>animationstart</i> devuelve un 0 ya que no ha transucrrido tiempo de la animación.</li>
+              <li><b>elapsedTime</b>muestra el tiempo que ha durado una animación. No puede mostrar el tiempo mientras ocurre la animación y cuando se utiliza con <i>animationstart</i> devuelve un 0 ya que no ha transcurrido tiempo de la animación.</li>
               <li><b>target</b> muestra la etiqueta del documento html que recibe la animación.</li>
             </ul>
           </dd>
@@ -173,7 +173,7 @@
           &emsp;...efecto animado...<br/>
           }<br/><br/>
           <i class="coment block center">// .js</i><br/>
-          <i class="coment">// Se obtienen todas las etiquetas img en una lista de objetos, esa lista se tranforma en un array.</i><br/>
+          <i class="coment">// Se obtienen todas las etiquetas img en una lista de objetos, esa lista se transforma en un array.</i><br/>
           let <u>imagenes</u> = Array.from(document.querySelectorAll('<u>img</u>'));<br/>
           <i class="coment">// Se obtiene la distancia de cada imagen con el inicio de la página y se almacena en un map.</i><br/>
           <i class="coment">// Se le resta la mitad de la altura del viewport a cada altura (para activar la animación cuando el elemento este a la mitad de la vista y no al inicio).</i><br/>
@@ -183,7 +183,7 @@
           <i class="coment">// Cuando se haga scroll...</i><br/>
           window.addEventListener('scroll', () => {<br/>
           &emsp;<u>imagenScroll</u>.forEach( (<u>elemento</u>, <u>iteracion</u>) => {<br/>
-          <i class="coment">// Si el scroll vertical es mayor o igual a la distancia calculada, se le anexará la clase "animacion" al elemento correspondiente.</i><br/>
+          <i class="coment">// Si el scroll vertical es mayor o igual a la distancia calculada, se le anexará la clase "animación" al elemento correspondiente.</i><br/>
           &emsp;&emsp;if (scrollY >= <u>elemento</u>) {<br/>
           &emsp;&emsp;&emsp;<u>imagenes</u>[<u>iteracion</u>].classList.add('<u>animacion</u>');<br/>
           &emsp;&emsp;}<br/>
@@ -213,10 +213,10 @@
           }
         </aside>
         <h3><a href="https://cubic-bezier.com/" target="_blank" rel="noopener noreferrer">cubic-bezier.com</a></h3>
-        <p>Es una página que ayuda a visualizar la transición con respecto al tiempo de una animación modificando de una manera visual las curvas Bézier a travez del desplazamiento de un punto verde y otro naranja que representan los puntos de control los cuales modifican la curva del plano.</p>
+        <p>Es una página que ayuda a visualizar la transición con respecto al tiempo de una animación modificando de una manera visual las curvas Bézier a través del desplazamiento de un punto verde y otro naranja que representan los puntos de control los cuales modifican la curva del plano.</p>
         <p>Se encuentran dos botones, el botón "GO!" da una demostración de la animación comparada con una animación de la librería como <i>ease</i> o <i>linear</i>, el botón "COPY" genera una copia de las coordenadas de los puntos de control con respecto al plano.</p>
         <h3><a href="https://easings.net/" target="_blank" rel="noopener noreferrer">easings.net</a></h3>
-        <p>Es otra página donde se muestran varias curvas. Al pasar el mouse por encima de una curva, se muestra una pequeña animación guiada del comportamientode la curva y al hacer clic en una curva, se muestra la forma en que se crea ya sea por CSS o por una función matematica en JavaScript.</p>
+        <p>Es otra página donde se muestran varias curvas. Al pasar el mouse por encima de una curva, se muestra una pequeña animación guiada del comportamiento de la curva y al hacer clic en una curva, se muestra la forma en que se crea ya sea por CSS o por una función matemática en JavaScript.</p>
       </div>
     </section>
     <!-- steps -->
@@ -225,9 +225,9 @@
         <h2>steps</h2>
         <p>Los <i>steps</i> son pasos que dividen el espacio de tiempo en intervalos de igual duración.</p>
         <p>En <i>cubic-bezier</i>, las curvas son suaves, en cambio, en <i>steps</i> no hay curvas, solo saltos bruscos.</p>
-        <p>Los <i>steps</i> se utilizan para darle movilidad a los <b>sprites</b> los cuales deben ser ejecutados calculando perfectamente sus tamaños y dimenciones.</p>
+        <p>Los <i>steps</i> se utilizan para darle movilidad a los <b>sprites</b> los cuales deben ser ejecutados calculando perfectamente sus tamaños y dimensiones.</p>
         <p>Nota:<br/>Cuando se desea obtener el tamaño real de una imagen de internet, se puede obtener su tamaño real desde inspector del navegador por medio de $0.naturalheight y $0.naturalwidth.</p>
-        <p><b>steps()</b> resive dos parámetros. El primer valor es la cantidad de pasos que dará, es decir, si se tiene un sprite de 5 imágenes, se colocarán 4 pasos ya que la primera imagen es la que se visualiza por default. El segundo valor es opcional e indica la dirección hacia donde se mueven los pasos, <b>end</b> indica que la animación se moverá del inicio hacia el final del sprite, este es el valor por default; <b>start</b> indica que la animación salte hasta el final y regrese hasta la primer imagen.</p>
+        <p><b>steps()</b> recibe dos parámetros. El primer valor es la cantidad de pasos que dará, es decir, si se tiene un sprite de 5 imágenes, se colocarán 4 pasos ya que la primera imagen es la que se visualiza por default. El segundo valor es opcional e indica la dirección hacia donde se mueven los pasos, <b>end</b> indica que la animación se moverá del inicio hacia el final del sprite, este es el valor por default; <b>start</b> indica que la animación salte hasta el final y regrese hasta la primera imagen.</p>
         <aside class="idEst">
           .div{<br/>
           &emsp;background: url(...);<br/>

@@ -10,10 +10,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../Estilos/stylecss11.css">
-  <link rel="stylesheet" href="../../home/styles/mano_regresar.css">
+  <link rel="stylesheet" href="../Estilos/mano_regresar.css">
   <title>Flex</title>
 </head>
-<body>
+<body class="body">
   <header>
     <h1>Flex</h1>
   </header>
@@ -29,13 +29,13 @@
   </article>
   <section class="select1">
     Flexbox siempre necesita una relación de padres e hijos, no funciona sólo y no interactua con los nietos, solo con los hijos del elemento padre y con el padre.
-    <div><img src="../Imgs/flexbox-terms.svg" alt="Terminos visulaes de Flex" title="Terminos visulaes de Flex"></div>
-    Al <i>elemento padre</i> se le denomina <b>flex container</b> y a los <i>elementos hijos directos</i> se les denomina <b>flex items</b>.<br/>
-    Los flex items se vuelven flexibles, es decir, pueden modificar su tamaño, al crecer verticalmente por default lo hacen de arriba (<i>cross start</i>) hacia abajo (<i>cross end</i>) llamándole a esta acción: <b>cross axis</b>; y al crecer de forma horizontal, por default crece de derecha (<i>main start</i>) a izquierda (<i>main end</i>) del <i>flex container</i> llamándole a esta acción: <b>main axis</b>.
+    <div><img src="../Imgs/flexbox-terms.svg" class="svg" alt="Terminos visulaes de Flex" title="Terminos visulaes de Flex"></div>
+    Al <i>elemento padre</i> se le denomina <b>flex container</b> y a los <i>elementos hijos directos</i> se les denomina <b>flex ítems</b>.<br/>
+    Los flex ítems se vuelven flexibles, es decir, pueden modificar su tamaño, al crecer verticalmente por default lo hacen de arriba (<i>cross start</i>) hacia abajo (<i>cross end</i>) llamándole a esta acción: <b>cross axis</b>; y al crecer de forma horizontal, por default crece de derecha (<i>main start</i>) a izquierda (<i>main end</i>) del <i>flex container</i> llamándole a esta acción: <b>main axis</b>.
   </section>
   <section>
     <h2>Componentes</h2>
-    De manera predeterminada los <i>flex items</i> (elementos hijos) se colocan a lo largo del <i>main axis</i> y en su dirección, es decir, se colocan uno al lado del otro.<br/>
+    De manera predeterminada los <i>flex ítems</i> (elementos hijos) se colocan a lo largo del <i>main axis</i> y en su dirección, es decir, se colocan uno al lado del otro.<br/>
     Con la propiedad <b>display: flex;</b> se indica que el elemento será un <i>flex container</i>.<br/>
     Con la propiedad <b>display: inline-flex;</b> el elemento se vuelve inline sin perder su propiedad flex, es decir, el elemento podrá colocarse en renglones o columnas pero el tipo de caja será inline.<br/>
     Con la propiedad <b>flex-direction: [colum | row];</b> se <u>indica la dirección</u> del <i>main axis</i> (eje principal). Puede utilizarse los siguientes valores:
@@ -222,21 +222,21 @@
       </div>
       <ul>
         <li>
-          <a href="#FDc-e" title="Mostrar ejemplo">column</a> alinea los flex items desde el <i>cross start</i> hacia el <i>cross end</i>.
+          <a href="#FDc-e" title="Mostrar ejemplo">column</a> alinea los flex ítems desde el <i>cross start</i> hacia el <i>cross end</i>.
         </li>
         <li>
-          <a href="#FDcr-e" title="Mostrar ejemplo">column-reverse</a> alinea los flex items del <i>cross end</i> (abajo) hacia el <i>cross start</i> (arriba) colocándolos pegados a la esquina inferior derecha del flex container, es decir, donde acaba el <i>main start</i>.
+          <a href="#FDcr-e" title="Mostrar ejemplo">column-reverse</a> alinea los flex ítems del <i>cross end</i> (abajo) hacia el <i>cross start</i> (arriba) colocándolos pegados a la esquina inferior derecha del flex container, es decir, donde acaba el <i>main start</i>.
         </li>
         <li>
-          <a href="#FDr-e" title="Mostrar ejemplo">row</a> (este es el valor predeterminado) alinea los flex items del <i>main start</i> (derecha del lado del navegador) al <i>main end</i> (izquierda del lado del navegador) .
+          <a href="#FDr-e" title="Mostrar ejemplo">row</a> (este es el valor predeterminado) alinea los flex ítems del <i>main start</i> (derecha del lado del navegador) al <i>main end</i> (izquierda del lado del navegador) .
         </li>
         <li>
-          <a href="#FDrr-e" title="Mostrar ejemplo">row-reverse</a> alinea los flex items del <i>main end</i> al <i>main start</i> del lado del navegador colocándolos pegados a la esquina superior izquierda del flex container, es decir, donde inicia el <i>main end</i>.
+          <a href="#FDrr-e" title="Mostrar ejemplo">row-reverse</a> alinea los flex ítems del <i>main end</i> al <i>main start</i> del lado del navegador colocándolos pegados a la esquina superior izquierda del flex container, es decir, donde inicia el <i>main end</i>.
         </li>
       </ul>
     </figure>
-    Cuando los <i>flex items</i> son demasiados o muy grandes y no caben en el <i>flex container</i>, los <i>flex items</i> se comprimen o se salen del área del <i>flex container</i>.<br/>
-    Con la propiedad <b>flex-wrap: [nowrap | wrap];</b> se <u>indica la dirección</u> del <i>cross axis</i> y permite o no saltar de línea para que los <i>flex items</i> se coloquen en dos renglones en caso de que no quepan.
+    Cuando los <i>flex ítems</i> son demasiados o muy grandes y no caben en el <i>flex container</i>, los <i>flex ítems</i> se comprimen o se salen del área del <i>flex container</i>.<br/>
+    Con la propiedad <b>flex-wrap: [nowrap | wrap];</b> se <u>indica la dirección</u> del <i>cross axis</i> y permite o no saltar de línea para que los <i>flex ítems</i> se coloquen en dos renglones en caso de que no quepan.
     <figure class="FW">
       <div id="FWw-e">
         <div class="contenedorFWw">
@@ -375,10 +375,10 @@
       </div>
       <ul>
         <li>
-          <a href="#FWw-e" title="Mostrar ejemplo">wrap</a> es el valor que permite saltar de línea y acomodar automáticamente los <i>flex items</i>.
+          <a href="#FWw-e" title="Mostrar ejemplo">wrap</a> es el valor que permite saltar de línea y acomodar automáticamente los <i>flex ítems</i>.
         </li>
         <li>
-          <a href="#FWwr-e" title="Mostrar ejemplo">wrap-reverse</a> coloca los <i>flex items</i> al revés a nivel de renglón.
+          <a href="#FWwr-e" title="Mostrar ejemplo">wrap-reverse</a> coloca los <i>flex ítems</i> al revés a nivel de renglón.
         </li>
         <li>
           <a href="#FWn-e" title="Mostrar ejemplo">nowrap</a> es el valor por defecto y no permite saltar de línea.
@@ -389,8 +389,8 @@
   </section>
   <section>
     <h2>Alineación</h2>
-    <h3>Alineación de items</h3>
-    <b>justify-content: [flex-start | flex-end | center | space-between | space-around | space-evenly];</b> alinea los items en el <i>main axis</i>.
+    <h3>Alineación de ítems</h3>
+    <b>justify-content: [flex-start | flex-end | center | space-between | space-around | space-evenly];</b> alinea los ítems en el <i>main axis</i>.
     <figure class="JC">
       <div id="JCfs-e">
         <div class="contenedorJCfs">
@@ -664,26 +664,26 @@
       </div>
       <ul>
         <li>
-          <a href="#JCfs-e" title="Mostrar ejemplo">flex-start</a> (es el valor por defecto) alinea los <i>flex items</i> del <i>main start</i> al <i>main end</i>.
+          <a href="#JCfs-e" title="Mostrar ejemplo">flex-start</a> (es el valor por defecto) alinea los <i>flex ítems</i> del <i>main start</i> al <i>main end</i>.
         </li>
         <li>
-          <a href="#JCfe-e" title="Mostrar ejemplo">flex-end</a> alinea los <i>flex items</i> del <i>main end</i> al <i>main start</i>.
+          <a href="#JCfe-e" title="Mostrar ejemplo">flex-end</a> alinea los <i>flex ítems</i> del <i>main end</i> al <i>main start</i>.
         </li>
         <li>
-          <a href="#JCc-e" title="Mostrar ejemplo">center</a> alinea los <i>flex items</i> al centro.
+          <a href="#JCc-e" title="Mostrar ejemplo">center</a> alinea los <i>flex ítems</i> al centro.
         </li>
         <li>
-          <a href="#JCsb-e" title="Mostrar ejemplo">space-between</a> hace que el navegador calcule cuanto espacio vacío hay en el <i>flex container</i> y coloca una proporción de separación igual entre cada <i>flex item</i> dependiendo del espacio disponible en cada renglón y cada columna.
+          <a href="#JCsb-e" title="Mostrar ejemplo">space-between</a> hace que el navegador calcule cuanto espacio vacío hay en el <i>flex container</i> y coloca una proporción de separación igual entre cada <i>flex ítem</i> dependiendo del espacio disponible en cada renglón y cada columna.
         </li>
         <li>
-          <a href="#JCsa-e" title="Mostrar ejemplo">space-around</a> hace que el navegador calcule cuanto espacio vacío hay en el <i>flex container</i> y le coloca un padding lateral a cada <i>flex item</i> en una proporción igual (los items que están uno al lado del otro suman sus paddings), también hace que los <i>flex items</i> ocupen todo el height disponible en su renglón.
+          <a href="#JCsa-e" title="Mostrar ejemplo">space-around</a> hace que el navegador calcule cuanto espacio vacío hay en el <i>flex container</i> y le coloca un padding lateral a cada <i>flex ítem</i> en una proporción igual (los ítems que están uno al lado del otro suman sus paddings), también hace que los <i>flex ítems</i> ocupen todo el height disponible en su renglón.
         </li>
         <li>
-          <a href="#JCse-e" title="Mostrar ejemplo">space-evenly</a> hace que el navegador calcule cuanto espacio vacío hay en el <i>flex container</i> y coloca una separación igual entre cada <i>flex item</i> y entre el <i>flex item</i> y el borde.
+          <a href="#JCse-e" title="Mostrar ejemplo">space-evenly</a> hace que el navegador calcule cuanto espacio vacío hay en el <i>flex container</i> y coloca una separación igual entre cada <i>flex ítem</i> y entre el <i>flex ítem</i> y el borde.
         </li>
       </ul>
     </figure>
-    <b>align-items: [flex-start | flex-end | center | baseline | stretch];</b> alinea los items en el <i>cross axis</i> dentro del renglón.
+    <b>align-ítems: [flex-start | flex-end | center | baseline | stretch];</b> alinea los ítems en el <i>cross axis</i> dentro del renglón.
     <figure class="AI">
       <div id="AIfs-e">
         <div class="contenedorAIfs">
@@ -912,19 +912,19 @@
       </div>
       <ul>
         <li>
-          <a href="#AIfs-e" title="Mostrar ejemplo">flex-start</a> (es el valor por defecto) alinea los <i>flex items</i> pegados al <i>cross start</i>.
+          <a href="#AIfs-e" title="Mostrar ejemplo">flex-start</a> (es el valor por defecto) alinea los <i>flex ítems</i> pegados al <i>cross start</i>.
         </li>
         <li>
-          <a href="#AIfe-e" title="Mostrar ejemplo">flex-end</a> alinea los <i>flex items</i> pegados al <i>cross end</i>.
+          <a href="#AIfe-e" title="Mostrar ejemplo">flex-end</a> alinea los <i>flex ítems</i> pegados al <i>cross end</i>.
         </li>
         <li>
-          <a href="#AIc-e" title="Mostrar ejemplo">center</a> centra los <i>flex items</i> respecto a cada renglón.
+          <a href="#AIc-e" title="Mostrar ejemplo">center</a> centra los <i>flex ítems</i> respecto a cada renglón.
         </li>
         <li>
-          <a href="#AIb-e" title="Mostrar ejemplo">baseline</a> hace que los <i>flex items</i> abarquen la altura mínima que ocupa su contenido respectivamente de cada contenido.
+          <a href="#AIb-e" title="Mostrar ejemplo">baseline</a> hace que los <i>flex ítems</i> abarquen la altura mínima que ocupa su contenido respectivamente de cada contenido.
         </li>
         <li>
-          <a href="#AIs-e" title="Mostrar ejemplo">stretch</a> hace que los <i>flex items</i> abarquen toda la altura o lo ancho posible (respectivamente de la dirección del flex en el "flex-direction") dentro del <i>flex container</i> (esta propiedad no se aplica si hay una altura (<i>height</i>) ya definida para los <i>flex items</i>.
+          <a href="#AIs-e" title="Mostrar ejemplo">stretch</a> hace que los <i>flex ítems</i> abarquen toda la altura o lo ancho posible (respectivamente de la dirección del flex en el "flex-direction") dentro del <i>flex container</i> (esta propiedad no se aplica si hay una altura (<i>height</i>) ya definida para los <i>flex ítems</i>.
         </li>
       </ul>
     </figure>
@@ -1260,19 +1260,19 @@
           <a href="#ACsb-e" title="Mostrar ejemplo">space-between</a> hace que el navegador calcule cuanto espacio vacío hay en el <i>flex container</i> y coloca una proporción de separación igual entre cada renglón dependiendo del espacio disponible.
         </li>
         <li>
-          <a href="#ACsa-e" title="Mostrar ejemplo">space-around</a> hace que el navegador calcule cuanto espacio vacío hay en el <i>flex container</i> y le coloca un padding superior e inferior a cada <i>flex item</i> en una proporción igual (los items que están uno encima del otro suman sus paddings), también hace que los <i>flex items</i> ocupen todo el height disponible en su renglón
+          <a href="#ACsa-e" title="Mostrar ejemplo">space-around</a> hace que el navegador calcule cuanto espacio vacío hay en el <i>flex container</i> y le coloca un padding superior e inferior a cada <i>flex ítem</i> en una proporción igual (los ítems que están uno encima del otro suman sus paddings), también hace que los <i>flex ítems</i> ocupen todo el height disponible en su renglón
         </li>
         <li>
-          <a href="#ACse-e" title="Mostrar ejemplo">space-evenly</a> hace que el navegador calcule cuanto espacio vacío hay en el <i>flex container</i> y coloca una separación igual entre cada <i>flex item</i> y entre el <i>flex item</i> y el borde.
+          <a href="#ACse-e" title="Mostrar ejemplo">space-evenly</a> hace que el navegador calcule cuanto espacio vacío hay en el <i>flex container</i> y coloca una separación igual entre cada <i>flex ítem</i> y entre el <i>flex ítem</i> y el borde.
         </li>
         <li>
-          <a href="#ACs-e" title="Mostrar ejemplo">stretch</a> hace que los <i>flex items</i> abarquen toda la altura o lo ancho posible (respectivamente de la dirección del flex en el "flex-direction") dentro del renglón (esta propiedad no se aplica si hay una altura (<i>height</i>) ya definida para los <i>flex items</i>.
+          <a href="#ACs-e" title="Mostrar ejemplo">stretch</a> hace que los <i>flex ítems</i> abarquen toda la altura o lo ancho posible (respectivamente de la dirección del flex en el "flex-direction") dentro del renglón (esta propiedad no se aplica si hay una altura (<i>height</i>) ya definida para los <i>flex ítems</i>.
         </li>
       </ul>
     </figure>
   </section>
   <div class="regreso">
-    <a class="mano" href="../Paginas/indexcss.html" title="regresar al menú">&#9754;</a>
+    <a class="mano" href="../index.html" title="regresar al menú">&#9754;</a>
   </div>
   <footer>
         <h3>Referencias:</h3>

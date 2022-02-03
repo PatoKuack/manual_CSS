@@ -26,7 +26,6 @@
     <!-- Formularios -->
     <section class="container">
       <div>
-        <h2>Formularios.</h2>
         <p>En los elementos de los formularios se tiene por defecto asignada la propiedad <b>-moz-appearance: ;</b> que tiene muchos valores para cada tipo de dato, pero su principal uso en CSS es modificar el checkbox.</p>
         <aside class="idEst">
           input[type="checkbox"] {<br/>
@@ -44,13 +43,13 @@
           &emsp;background-color: tomato;<br/>
           }
         </aside>
-        <p>Las etiquetas <b>textarea</b> que hay en los formularios tienen por defecto una propiedad llamada <b>resize: [ both | none | vertical | horizontal ];</b> que sirve para modificar las dimenciones del elemento contenedor directamente desde la página web. Esta propiedad se puede utilizar para cualquier elemento aunque su principal uso es en los textarea.</p>
+        <p>Las etiquetas <b>textarea</b> que hay en los formularios tienen por defecto una propiedad llamada <b>resize: [ both | none | vertical | horizontal ];</b> que sirve para modificar las dimensiones del elemento contenedor directamente desde la página web. Esta propiedad se puede utilizar para cualquier elemento, aunque su principal uso es en los textarea.</p>
         <p>Los valores de resize tienen los siguientes efectos:</p>
         <ul>
           <li><b>none</b> no permite redimensionar los elementos</li>
           <li><b>both</b> permite redimensionar el elemento vertical y horizontalmente.</li>
-          <li><b>vertical</b> permite redimensionar el elemento unicamente de forma vertical.</li>
-          <li><b>horizontal</b> permite redimensionar el elemento unicamente de forma horizontal.</li>
+          <li><b>vertical</b> permite redimensionar el elemento únicamente de forma vertical.</li>
+          <li><b>horizontal</b> permite redimensionar el elemento únicamente de forma horizontal.</li>
         </ul>
         <h3>Pseudoclases para formularios.</h3>
         <dl>
@@ -64,7 +63,7 @@
           </dd>
           <dt>:focus-within</dt>
           <dd>
-            <p>Se utiliza para aplicar un estilo al elemento padre del elemento seleccionado. Es la unica pseudo-clase que permite seleccionar a un padre de forma directa.</p>
+            <p>Se utiliza para aplicar un estilo al elemento padre del elemento seleccionado. Es la única pseudo-clase que permite seleccionar a un padre de forma directa.</p>
             <p>Incluso se podría aplicar un estilo a los hermanos del contenedor padre con selectores.</p>
             <form action="#" class="focus-within">
               <label>Nombre</label>
@@ -83,9 +82,9 @@
         <p>En los formularios existen campos con los atributos <b>require</b> para que el formulario no sea mandado sin completar los campos con este atributo. Para este atributo existen dos pseudo-clases:</p>
         <dl>
           <dt>:required</dt>
-          <dd>Le aplica un estilo a los elementos con el atributo require.</dd>
+          <dd>Les aplica un estilo a los elementos con el atributo require.</dd>
           <dt>:optional</dt>
-          <dd>Le aplica un estilo a los elementos sin el atributo require.</dd>
+          <dd>Les aplica un estilo a los elementos sin el atributo require.</dd>
         </dl>
         <p>También existen los atributos <b>readonly</b> que evita que un campo del formulario sea modificado (los botones tienen este atributo por default). Para este atributo existe dos pseudo-clases:</p>
         <dl>
@@ -101,12 +100,12 @@
           <dl>:enabled</dl>
           <dd>Aplica un estilo a los elementos sin el atributo disable.</dd>
         </dl>
-        <p>Cuando un campo del formulario no es valido, es porque no cumple con los caracteres mínimos, los máximos, con algún @ en los campos de e-mail, etc. Para los caracteres invalidos existen 2 pseudo-clases:</p>
+        <p>Cuando un campo del formulario no es válido, es porque no cumple con los caracteres mínimos, los máximos, con algún @ en los campos de e-mail, etc. Para los caracteres inválidos existen 2 pseudo-clases:</p>
         <dl>
           <dt>:valid</dt>
-          <dd>Aplica un estilo a los elementos validos.</dd>
+          <dd>Aplica un estilo a los elementos válidos.</dd>
           <dt>:invalid</dt>
-          <dd>Aplica un estilo a los elementos invalidos.</dd>
+          <dd>Aplica un estilo a los elementos inválidos.</dd>
         </dl>
         <p>Existe un pseudo-elemento para los placeholder que funciona como la pseudo-clase:</p>
         <dl>

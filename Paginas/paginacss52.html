@@ -17,7 +17,7 @@
     <section class="container">
       <div>
         <h1 class="center">Transiciones.</h1>
-        <p>Las transiciones permiten que las propiedades CSS cambien suabemente en un periodo de tiempo. Se pueden definir múltiples transiciones separadas por comas.</p>
+        <p>Las transiciones permiten que las propiedades CSS cambien suavemente en un periodo de tiempo. Se pueden definir múltiples transiciones separadas por comas.</p>
       </div>
     </section>
   </header>
@@ -29,9 +29,9 @@
         <dl>
           <dt>transition-property: [ all | none | propiedad, propiedad, ... ]</dt>
           <dd>
-            Indica a que propiedad se le aplicará un transición.
+            Indica a que propiedad se le aplicará una transición.
             <ul>
-              <li><b>all</b> Es el valor por defecto e indica que la transición se le aplicará a todas las propiedades posibles, lo cual suele consumir muchos recursos.</li>
+              <li><b>all</b> Es el valor por defecto e indica que la transición se les aplicará a todas las propiedades posibles, lo cual suele consumir muchos recursos.</li>
               <li><b>none</b> Indica que la transición no se le aplicará a ninguna propiedad.</li>
               <li>Se pueden especificar las propiedades a las que se les aplicará la transición, si son más de una se separan por comas.</li>
             </ul>
@@ -47,7 +47,7 @@
           <dd>Indica cuanto esperará la transición para comenzar o para volver a su estado original (default 0s).</dd>
           <dt>transition-timing-function: [ ease | linear | ease-in | ease-out | ease-in-out | step-start | step-end ];</dt>
           <dd>
-            Indica si hay o no aceleración, la aceleración de la transición y en que momentos hay aceleración.
+            Indica si hay o no aceleración, la aceleración de la transición y en qué momentos hay aceleración.
             <ul>
               <li><b>ease</b> Es el valor por defecto e indica que la transición será suabe.</li>
               <li><b>linear</b> Indica que la transición tendrá la misma aceleración todo el tiempo.</li>
@@ -60,7 +60,7 @@
           </dd>
           <dt>transition: [ properties duration timing-function delay ];</dt>
           <dd>Es un shorthand de las propiedades anteriores.</dd>
-          <dd>Se le puede omitir el timing-function y el delay porque tienen valores por defecto (ease y 0s). La primera propiedad (all) también tiene un valor por defecto (all), pero no es viable usar ese valor porque afecta el rendimiento de la apliación o página.</dd>
+          <dd>Se le puede omitir el timing-function y el delay porque tienen valores por defecto (ease y 0s). La primera propiedad (all) también tiene un valor por defecto (all), pero no es viable usar ese valor porque afecta el rendimiento de la aplicación o página.</dd>
           <dd>Cuando se aplican a varias propiedades se usa así: transition: color 1s, margin 2s;</dd>
         </dl>
         <aside class="idEst">
@@ -148,7 +148,7 @@
                 ...
                 <hr/>
                 <i class="coment block center">// .js</i><br/><br/>
-                &emsp;<i class="coment">// Se le modificará tambien en javascript la duración de la transición.</i><br/>
+                &emsp;<i class="coment">// Se le modificará también en javascript la duración de la transición.</i><br/>
                 &emsp;&emsp;if (e.elapsedTime === 3) document.body.classList.remove('animate');<br/>
             </aside>
             <p>Reescribirla transición de esta forma hace que se pueda definir el estado inicial y el estado final de las transiciones.</p>

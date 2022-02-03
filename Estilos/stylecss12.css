@@ -8,7 +8,7 @@ header{
   justify-content: center;
 }
 
-header, main, section{
+header, main, section, footer{
   background-color: rgba(253, 203, 253, 0.89);
   max-width: 50rem;
   height: auto;

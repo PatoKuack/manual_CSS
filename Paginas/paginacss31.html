@@ -15,14 +15,14 @@
 </head>
 <body class="body">
   <header>
-    <section>
+    <section class="container">
       <div>
         <h1 class="center">Responsive Web Design.</h1>
-        <p>Es un conjunto de metodologias de buenas practicas de patrones de diseño de interfaces, lo que busca es que cualquier página web se vea bien en cualquier tamaño de dispósitivo.</p>
-        <p>El responsive web design se basa en tres principios: el grids fluidos, las imágenes flexibles y los media querys.</p>
-        <p>Un sistema de grid es colocar contenido dentro de filas y columas permitiendo manejar faclmente el layout (geometria de la página). Éstos sistemas de grid se vuelven fluidos cuando su volumen se define por medio de porcentajes ya que se podrá adaptar facilmente el volumen del tamaño del sistema grid dependiendo del contenedor de el sistema grid.</p>
-        <p>Las imágenes se vuelven flexibles cuando se les coloca un máximo de ancho evitando que aumenten su tamaño más de lo que deben y manteniendo un tamaño minimo dependiendo de su contenedor.</p>
-        <p>Las media query (consulta de medio) son consultas de visualización de la web denominados medios, es donde se muestra el contenido de la página o aplicación.</p>
+        <p>Es un conjunto de metodologías de buenas prácticas de patrones de diseño de interfaces, lo que busca es que cualquier página web se vea bien en cualquier tamaño de dispositivo.</p>
+        <p>El responsive web design se basa en tres principios: los grids fluidos, las imágenes flexibles y los media queries.</p>
+        <p>Un sistema de grid es colocar contenido dentro de filas y columnas permitiendo manejar fácilmente el layout (geometría de la página). Estos sistemas de grid se vuelven fluidos cuando su volumen se define por medio de porcentajes ya que se podrá adaptar fácilmente el volumen del tamaño del sistema grid dependiendo del contenedor del sistema grid.</p>
+        <p>Las imágenes se vuelven flexibles cuando se les coloca un máximo de ancho evitando que aumenten su tamaño más de lo que deben y manteniendo un tamaño mínimo dependiendo de su contenedor.</p>
+        <p>Las medias queries (consulta de medio) son consultas de visualización de la web denominados medios, es donde se muestra el contenido de la página o aplicación.</p>
       </div>
     </section>
   </header>
@@ -40,11 +40,11 @@
           <dt>user-scalable=<span class="gray">no|yes</span></dt>
           <dd>Indica si se puede o no usar el zoom en la página, se recomienda siempre colocarlo en "yes".</dd>
           <dt>initial-scale=1</dt>
-          <dd>Indica cual será la escala inicial, es recomendable colocarle una escala de 1 que es la default, sino el contenido se presentara en escala reducida (.5) o maximizada (2).</dd>
+          <dd>Indica cual será la escala inicial, es recomendable colocarle una escala de 1 que es la escala default, sino el contenido se presentara en escala reducida (.5) o maximizada (2).</dd>
           <dt>maximum-scale=2</dt>
           <dd>Indica el zoom máximo que el usuario puede usar, si se coloca 2 será de 200, 3 es de 300, etc.</dd>
         </dl>
-        <p>El viewport es diferente a la resolución de la pantalla de un dispositivo o en otras palabras, 1 pixel del viewport es diferente de un pixel real. Con la instrucción <b>devicePixelRatio</b> escrita en la consola del navegador se puede obtener el numero de pixeles reales que hay por cada pixel de viewport.</p>
+        <p>El viewport es diferente a la resolución de la pantalla de un dispositivo o en otras palabras, 1 pixel del viewport es diferente de un pixel real. Con la instrucción <b>devicePixelRatio</b> escrita en la consola del navegador se puede obtener el número de pixeles reales que hay por cada pixel de viewport.</p>
         <span>
           devicePixelRatio<br/>
           <i>// Si obtenemos por ejemplo 1.25, entonces por cada pixel de viewport hay 1.25 pixeles reales de la pantalla.</i>
@@ -55,8 +55,8 @@
     <section class="container">
       <div>
         <h2 class="textCenter">Media Queries.</h2>
-        <p>Las Media Queries o Consulta de Medios son un módulo CSS3 que permite adaptar la representación del contenido a características de un dispositivo (como una impresora, una pantalla de smartphone ó de Tv); y consiste en definir al menos una consulta (@media), donde se define un tipo de medio (media type) y una o más características o parámetros específicos (media features) como la resolución de la pantalla o el ancho del viewport del navegador. Varios parámetros se pueden combinar utilizando los operadores AND y OR.</p>
-        <p>Estas consultas funcionan a manera de condicionales, cuando el tipo de medio (si se especifica) coincide con el dispositivo en el que se está mostrando el documento y todas las expresiones en el media query son "verdaderas" se aplicaran los estilos CSS que se redefinan para esa condición siguiendo <u>las reglas usuales de cascada</u>; por tanto se recomienda un enfoque 'mobile first', generar los 'Media queries' apropiados y en el orden apropiado</p>
+        <p>Las Medias Queries o Consulta de Medios son un módulo CSS3 que permite adaptar la representación del contenido a características de un dispositivo (como una impresora, una pantalla de smartphone o de Tv); y consiste en definir al menos una consulta (@media), donde se define un tipo de medio (media type) y una o más características o parámetros específicos (media features) como la resolución de la pantalla o el ancho del viewport del navegador. Varios parámetros se pueden combinar utilizando los operadores AND y OR.</p>
+        <p>Estas consultas funcionan a manera de condicionales, cuando el tipo de medio (si se especifica) coincide con el dispositivo en el que se está mostrando el documento y todas las expresiones en el media query son "verdaderas" se aplicaran los estilos CSS que se redefinan para esa condición siguiendo <u>las reglas usuales de cascada</u>; por tanto, se recomienda un enfoque 'mobile first', generar los 'Media queries' apropiados y en el orden apropiado</p>
         <h3>Media Type</h3>
         <dl>
           <dt>all</dt>
@@ -64,7 +64,7 @@
           <dt>print</dt>
           <dd>Destinado a material impreso y visualización de documentos en una pantalla en el modo de vista previa de impresión.</dd>
           <dt>screen</dt>
-          <dd>Es el más comúnmente utilizado, esta destinado principalmente a las pantallas.</dd>
+          <dd>Es el más comúnmente utilizado, está destinado principalmente a las pantallas.</dd>
           <dt>speech</dt>
           <dd>Destinado a sintetizadores de voz.</dd>
         </dl>
@@ -97,12 +97,12 @@
           &emsp;}<br/>
         </aside>
         <h3>Operadores lógicos.</h3>
-        <p>Se deben utilizar los operadores lógicos para unir las características de los media queries.</p>
+        <p>Se deben utilizar los operadores lógicos para unir las características de las medias queries.</p>
         <dl>
           <dt>and</dt>
-          <dd>Éste operador es usado para colocar juntas múltiples funciones multimedia.</dd>
+          <dd>Este operador es usado para colocar juntas múltiples funciones multimedia.</dd>
           <dt>Lista separada por comas</dt>
-          <dd>Las listas separadas por comas se comportan como el operador <b>or</b>. Cuando utilice una lista separada por comas y alguno de los queries retorna verdadero, el estilo o la hoja de estilos sera aplicada. Cada query en una lista separada por comas es tratado como una query individual y cualquier operador aplicado a un medio no afectara a los demás.</dd>
+          <dd>Las listas separadas por comas se comportan como el operador <b>or</b>. Cuando utilice una lista separada por comas y alguno de los queries retorna verdadero, el estilo o la hoja de estilos será aplicada. Cada query en una lista separada por comas es tratado como una query individual y cualquier operador aplicado a un medio no afectara a los demás.</dd>
           <aside class="exempliGratia">
             &emsp;body{ background: cyan; }<br/>
             &emsp;@media (min-width: 700px), (max-width: 1024px);{<br/>
@@ -110,11 +110,11 @@
             &emsp;}<br/>
           </aside>
           <dt>not</dt>
-          <dd>Éste operador aplica a todo el query y retorna verdadero si es posible y sino retorna falso. Un not negara un query si es posible pero no a todos los query posibles si están ubicados en una lista separada por comas. No puede ser usado para negar un query individual, solo para un query completo.</dd>
+          <dd>Este operador aplica a todo el query y retorna verdadero si es posible y sino retorna falso. Un not negara un query si es posible pero no a todos los query posibles si están ubicados en una lista separada por comas. No puede ser usado para negar un query individual, solo para un query completo.</dd>
           <aside class="exempliGratia">
             &emsp;@media (not (print and (min-width:800px))), screen and (max-width:1024px) {<br/>
             &emsp;<i class="highlight">
-              // Ésto es igual a:<br/>
+              // Esto es igual a:<br/>
               @media not print and (min-width:800px), screen and...{}
             </i><br/>
             &emsp;&emsp;body{ background: lime; }<br/>
@@ -122,7 +122,7 @@
             &emsp;&emsp;<i class="highlight">// Si la página se visualiza en un formato de impresión y mide mínimo 800px retornará verdadero y se aplicará el query, pero también se puede aplicar el query si se cumple la segunda opción que pide que sea una pantalla con un máximo de 1024px.</i><br/>
           </aside>
           <dt>only</dt>
-          <dd>Éste operador previene que navegadores antiguos que no soportan queries con funciones apliquen los estilos asignados, ejemplo:<br/>&#60;link rel="stylesheet" media="only screen and (color)" href="Ejemplo.css" /&#62;</dd>
+          <dd>Este operador previene que navegadores antiguos que no soportan queries con funciones apliquen los estilos asignados, ejemplo:<br/>&#60;link rel="stylesheet" media="only screen and (color)" href="Ejemplo.css" /&#62;</dd>
         </dl>
       </div>
     </section>
@@ -150,8 +150,8 @@
         <h3>Unidades absolutas.</h3>
         <p>Define el valor de la propiedad de un elemento en referencia a una medida real, inalterable y no dependiente de su contenedor.</p>
         <h3>Unidades relativas.</h3>
-        <p>Definen su valor real en relación con otra medida determinada anteriormente (en la propiedad de su elemento contenedor o ancestro); por tanto van a cambiar dependiendo las circunstancias.</p>
-        <p>Las unidas relativas más utilizadas son el porcentaje(%), 'em', 'rem', 'vw' y 'hw'. Pero es de recordar que al momento de renderizar, el navegador siempre expresará las unidades relativas en píxeles (la unidad absoluta).</p>
+        <p>Definen su valor real en relación con otra medida determinada anteriormente (en la propiedad de su elemento contenedor o ancestro); por tanto, van a cambiar dependiendo las circunstancias.</p>
+        <p>Las unidas relativas más utilizadas son el porcentaje (%), 'em', 'rem', 'vw' y 'hw'. Pero es de recordar que, al momento de renderizar, el navegador siempre expresará las unidades relativas en píxeles (la unidad absoluta).</p>
         <p>* Para lograr un RWD es recomendable el uso de medias queries, pero no son necesariamente obligatorias, basta un uso adecuado e inteligente de las unidades de medidas; evitando las unidades absolutas e implementando más las unidades relativas como min/max-width o min/max-height;.</p>
         <h4>Unidades relativas de medida.</h3>
           <ul>
@@ -169,8 +169,8 @@
               <dl>
                 <dt>em</dt>
                 <dd>
-                  <p>Toma el valor del tamaño de fuente del contexto definido más próximo, sea del elemento padre, su hermano directo superior ó hasta del mismo elemento, por tanto en este último caso, el orden de la declaración dentro la regla CSS es importante.</p>
-                  <p>1em = 100% del tamaño de fuente en el contexto, por tanto va a variar dentro del mismo documento</p>
+                  <p>Toma el valor del tamaño de fuente del contexto definido más próximo, sea del elemento padre, su hermano directo superior o hasta del mismo elemento, por tanto, en este último caso, el orden de la declaración dentro la regla CSS es importante.</p>
+                  <p>1em = 100% del tamaño de fuente en el contexto, por tanto, va a variar dentro del mismo documento</p>
                   <p>El uso de 'em' no es recomendable como unidad de medida para layout; pero sí para componentes internos (como márgenes, padding, etc).</p>
                 </dd>
               </dl>
@@ -179,7 +179,7 @@
               <dl>
                 <dt>rem</dt>
                 <dd>
-                  <p>Toma el valor del tamaño de la fuente por default en el ancestro más lejano, en un documento HTML la etiqueta es &#60;html&#62; ó &#60;body&#62; y en la mayoría de los navegadores de forma predeterminada es 16px.</p>
+                  <p>Toma el valor del tamaño de la fuente por default en el ancestro más lejano, en un documento HTML la etiqueta es &#60;html&#62; o &#60;body&#62; y en la mayoría de los navegadores de forma predeterminada es 16px.</p>
                   <p>1rem = 100% del tamaño de fuente del root &#60;html&#62;</p>
                   <p>El uso de 'rem' es recomendable como unidad de medida para layout (como margin o width o height de un elemento).</p>
                 </dd>
@@ -192,7 +192,7 @@
                   <p>Son unidades de medida relativas en función al tamaño del Viewport.</p>
                   <p>1 vw = Viewport weight = 1% del ancho del Viewport.<br/>1 vh = Viewport height = 1% del alto del Viewport.<br/>1 vmin = Viewport mínimo = 1% del lado menor del viewport.<br/>1 vmax = Viewport máximo = 1% del lado mayor del viewport.</p>
                   <p>Las unidades del Viewport equivalen a la centésima parte con respecto al Viewport; y no depende de su contenedor, como en la unidad relativa porcentual (%).</p>
-                  <p>El viewport es el área visible de la página web del usuario. Debido a ésto, el scroll vertical genera algunos inconvenientes.</p>
+                  <p>El viewport es el área visible de la página web del usuario. Debido a esto, el scroll vertical genera algunos inconvenientes.</p>
                   <aside class="exempliGratia">
                     <i class="highlight">// *** Cuando un elemento tiene un ancho de 100vw. ***</i><br/>
                     &emsp;footer {<br/>
@@ -216,7 +216,7 @@
                     &emsp;document.documentElement.style.setProperty('--scrollBar, getScrollBarWidth()');<br/>
                     &emsp;<i class="highlight">// Con el comando setProperty se sustituye la propiedad indicada en el primer parámetro por el valor indicado en el segundo parámetro y así se actualizará el ancho del footer automaticamente.</i><br/>
                   </aside>
-                  <p>Ésta actualización automatica es importante porque en dispositivos móviles el scroll no ocupa espacio del viewport a diferencia de las laptops o computadoras de escritorio.</p>
+                  <p>Esta actualización automática es importante porque en dispositivos móviles el scroll no ocupa espacio del viewport a diferencia de las laptops o computadoras de escritorio.</p>
                 </dd>
               </dl>
             </li>
@@ -225,14 +225,14 @@
     </section>
   </main>
   <footer>
-    <section>
+    <section class="container">
       <div>
         <h3>Referencias:</h3>
         <p>
-          <a href="https://alistapart.com/article/responsive-web-design/" target="_blank" rel="noopener noreferrer">Historia de responsive web design</a><br/>
-          <a href="https://developer.mozilla.org/es/docs/Web/CSS/Media_Queries/Using_media_queries" target="_blank" rel="noopener noreferrer">Media queries</a><br/>
-          <a href="https://www.w3schools.com/jsref/met_cssstyle_setproperty.asp" target="_blank" rel="noopener noreferrer">setProperty()</a><br/>
-          <a href="" target="_blank" rel="noopener noreferrer"></a><br/>
+          <a class="link" href="https://alistapart.com/article/responsive-web-design/" target="_blank" rel="noopener noreferrer">Historia de responsive web design</a><br/>
+          <a class="link" href="https://developer.mozilla.org/es/docs/Web/CSS/Media_Queries/Using_media_queries" target="_blank" rel="noopener noreferrer">Medias queries</a><br/>
+          <a class="link" href="https://www.w3schools.com/jsref/met_cssstyle_setproperty.asp" target="_blank" rel="noopener noreferrer">setProperty()</a><br/>
+          <a class="link" href="" target="_blank" rel="noopener noreferrer"></a><br/>
         </p>
       </div>
     </section>

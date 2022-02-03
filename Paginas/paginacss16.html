@@ -18,14 +18,14 @@
     <section class="container">
       <div>
         <h2>Stacking context.</h2>
-        <p>El contexto de apilamiento es la interpretación de los elementos HTML en el eje imaginario z (apilamiento de los elementos), es decir, es la manera en que el navegador interpreta como se pone un elemento sobre otro. Existen 4 niveles de apilamiento que ayudan a determinar que elementos van encima de otros:</p>
+        <p>El contexto de apilamiento es la interpretación de los elementos HTML en el eje imaginario z (apilamiento de los elementos), es decir, es la manera en que el navegador interpreta como se pone un elemento sobre otro. Existen 4 niveles de apilamiento que ayudan a determinar qué elementos van encima de otros:</p>
         <ol>
           <li>Elementos con nivel de apilamiento negativo (se colocan hasta abajo de los elementos).</li>
           <li>Elementos con position static (todos los elementos con el valor de posicionamiento por defecto).</li>
-          <li>Elementos con nivel de apilamiento 0 o auto, este nivel de apilamiento se le asigna automaticamente a elementos cuando se le asigna un posicionamiento diferente a static.</li>
+          <li>Elementos con nivel de apilamiento 0 o auto (este nivel de apilamiento se les asigna automáticamente a elementos que tienen un posicionamiento diferente a static).</li>
           <li>Elementos con nivel de apilamiento mayor a cero (se colocan hasta arriba de los elementos).</li>
         </ol>
-        <p>Cuando todos los elementos tienen el mismo nivel de apilamiento, la superposicón de un elemento con respecto a otro se decide con el flujo en que se declaran los elementos en el archivo html, el primer elemento puede ser posicionado por debajo del segundo que puede ser el hijo o el hermano siguiente.</p>
+        <p>Cuando todos los elementos tienen el mismo nivel de apilamiento, la superposición de un elemento con respecto a otro se decide con el flujo en que se declaran los elementos en el archivo HTML, el primer elemento puede ser posicionado por debajo del segundo que puede ser el hijo o el hermano siguiente.</p>
       </div>
     </section>
   </header>
@@ -34,15 +34,15 @@
     <section class="container">
       <div>
         <h2>z-index.</h2>
-        <p>Permite cambiar el nivel de apilamiento de un elemento, siguiendo la siguiente escla:</p>
+        <p>Permite cambiar el nivel de apilamiento de un elemento, siguiendo la siguiente escala:</p>
         <ul>
           <li><b>z-index: -#;</b> Números negativos se quedan hasta abajo, entre menor sea el numero negativo más abajo queda el elemento.</li>
           <li><b>z-index: 0;</b> Numero cero es como un valor por defecto.</li>
           <li><b>z-index: #;</b> Números positivos se colocan hasta arriba, entre mayor sea el valor más arriba queda el elemento.</li>
         </ul>
-        <p>Es reccomendable dar valores en el z-index de decenas (como 10, 20, 30,...) por si se requiere posteriormente colocar un elemento entre dos elementos con z-index ya que no se pueden usar decimales como valor de esta propiedad (como 2.5 o 4.1).</p>
-        <p>Esta propiedad no es única de la propiedad position, hay elementos que pueden utilizarla como hijos de flex y grid containers, elementos con opacity, filtros, mix-blend-mode o perspectiva con valor diferente al inicial.</p>
-        <p>Cuando se le da un nivel de apilamiento (con z-index) a un elemento padre, sus hijos no podrán subponerse a él aún cuando tengan un nivel de apilamiento menor que el padre.</p>
+        <p>Es recomendable dar valores en el z-index de decenas (como 10, 20, 30...) por si se requiere posteriormente colocar un elemento entre dos elementos con z-index ya que no se pueden usar decimales como valor de esta propiedad (como 2.5 o 4.1).</p>
+        <p>Esta propiedad no es única de la propiedad position, hay elementos que pueden utilizarla como hijos de flex y grid containers, elementos con opacity, filtros, mix-blend-mode o perspectiva con un valor diferente a la inicial.</p>
+        <p>Cuando se le da un nivel de apilamiento (con z-index) a un elemento padre, sus hijos no podrán anteponerse a él aun cuando tengan un nivel de apilamiento menor que el padre.</p>
       </div>
     </section>
     <!-- pointer-events -->

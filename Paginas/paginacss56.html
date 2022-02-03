@@ -46,7 +46,7 @@
           <li>Gravit Designer (versión gratuita y comercial).</li>
         </ul>
         <p>Es importante que se verifique el código que se guarda en el SVG ya que puede contener código basura, es decir, exceso de código que no se requiere.</p>
-        <p>También es importante tomar en cuenta que cuando se crean SVG con texto y ese texto tiene un formato de fuente especial, se debe guardar el SVG creado convirtiendo el texto en contornos, de esta forma el texto se convierte en dibujos dentro del código y el usuario no necesita tener la fuente instalada para visualisar el formato de fuente, aunque esto aumenta las líneas de código; si no se hace esto, el usuario visualisará el texto con un formato de fuente generica en caso de no tener la fuente instalada.</p>
+        <p>También es importante tomar en cuenta que cuando se crean SVG con texto y ese texto tiene un formato de fuente especial, se debe guardar el SVG creado convirtiendo el texto en contornos, de esta forma el texto se convierte en dibujos dentro del código y el usuario no necesita tener la fuente instalada para visualizar el formato de fuente, aunque esto aumenta las líneas de código; si no se hace esto, el usuario visualizará el texto con un formato de fuente genérica en caso de no tener la fuente instalada.</p>
         <p>En la exportación de SVG en Illustrator existen 3 tipos de estilos:</p>
         <ul>
           <li>CSS interno: Estilos dentro de CSS.</li>
@@ -65,18 +65,18 @@
         </aside>
         <p>Existe una etiqueta llamada <b>viewbox</b> que define el sistema de coordenadas interno del SVG.</p>
         <p>Las coordenadas del viewbox se calcularán según el ancho y alto renderizados en el gráfico (no es necesario asignar una unidad de media, ya que es un sistema de coordenadas interno).</p>
-        <p><b>rect</b> es una etiqueta que crea un rectangulo, se tiene que definir el punto dentro del sistema de coordenadas en donde se comenzará a dibujar (x="#" y="#") y las dimensiones del rectangulo (width="#" height="#").</p>
+        <p><b>rect</b> es una etiqueta que crea un rectángulo, se tiene que definir el punto dentro del sistema de coordenadas en donde se comenzará a dibujar (x="#" y="#") y las dimensiones del rectángulo (width="#" height="#").</p>
         <aside class="idEst">
           <i class="coment">// Se define el punto inicial (0 0) y el punto final (400 300) obteniendo un sistema de coordenadas de 400 de ancho y 300 de alto.</i><br/>
           &#60;svg viewbox="0 0 400 300"&#62;<br/>
-          <i class="coment">// Se genera un rectangulo apartir de las coordenadas (20 50) de un ancho de 200px y un alto de 120px.</i><br/>
+          <i class="coment">// Se genera un rectángulo a partir de las coordenadas (20 50) de un ancho de 200px y un alto de 120px.</i><br/>
           &emsp;&#60;rect x="20" y="50" width="200" height="120" /&#62;<br/>
           &#60;/svg&#62;
         </aside>
         <p>Con la etiqueta <b>line</b> se puede crear una línea definiendo el punto dentro del sistema de coordenadas en donde se comenzará a dibujar (x1="#" y1="#") y el punto final (x2="#" y2="#"), con stroke se puede definir el color de la línea (stroke="green") y con stroke-width su grosor (stroke-width="#").</p>
         <p>Otras propiedades para esta etiqueta son:<br/>
           stroke-linecap: [none | round | square]; Indica si a la línea se le agregará un medio círculo, un cuadrado o nada en cada extremo.<br/>
-          stroke-dasharray: # #; Sirve para hacer segmentos, el primer valor es el segmento y el segundo el espaciado. Se le pueden agregar mas de dos valores y el SVG hace un calculo dinamico entre espaciados y segmentaciones.<br/>
+          stroke-dasharray: # #; Sirve para hacer segmentos, el primer valor es el segmento y el segundo el espaciado. Se le pueden agregar más de dos valores y el SVG hace un cálculo dinámico entre espaciados y segmentaciones.<br/>
           stroke-dashoffset: #; Esta propiedad funciona junto con stroke-dasharray, define desde que parte de la línea comenzará el trazo.
         </p>
         <aside class="idEst">
@@ -84,15 +84,15 @@
           &emsp;&#60;line x1="10" y1="10" x2="200" y2="150" stroke="green" stroke-width="20" /&#62;<br/>
           &#60;/svg&#62;
         </aside>
-        <p>Con la etiqueta <b>polyline</b> se puede generar una figura conformada por varios puntos, se define el punto dentro del sistema de coordenadas en donde se comenzará a dibujar y despues se definen los puntos que conforman la figura (points="# #, # #, # #, ...").</p>
-        <p>Utiliza las mismas propiedades stroke que utiliza la etiqueta line, aunque se pueden utilizar otras como stroke-linejoin: [round | none]; que permite redondear las esquinas en las que se intersectan las lineas de las coordenadas.</p>
-        <p>Por default se colorea de negro y si no se le agrega una coordenada que cierre la figura, automaticamente se cierra aunque no se visualizarán las propiedades stroke en esa linea de cierre.</p>
+        <p>Con la etiqueta <b>polyline</b> se puede generar una figura conformada por varios puntos, se define el punto dentro del sistema de coordenadas en donde se comenzará a dibujar y después se definen los puntos que conforman la figura (points="# #, # #, # #, ...").</p>
+        <p>Utiliza las mismas propiedades stroke que utiliza la etiqueta line, aunque se pueden utilizar otras como stroke-linejoin: [round | none]; que permite redondear las esquinas en las que se interceptan las líneas de las coordenadas.</p>
+        <p>Por default se colorea de negro y si no se le agrega una coordenada que cierre la figura, automáticamente se cierra, aunque no se visualizarán las propiedades stroke en esa línea de cierre.</p>
         <aside class="idEst">
           &#60;svg viewbox="0 0 400 300"&#62;<br/>
           &emsp;&#60;polyline stroke="red" points="10 20, 50 100, 200 100" /&#62;<br/>
           &#60;/svg&#62;
         </aside>
-        <p>Con la etiqueta <b>polygon</b> se puede generar una figura igual que polyline, con la diferencia de que si no se le indica una coordenada de cierre, la figura se cierra automaticamente creando una línea desde la ultima coordenada a la coordenada inicial (es posible visualizar el diseño de stroke en esta línea de cierre).</p>
+        <p>Con la etiqueta <b>polygon</b> se puede generar una figura igual que polyline, con la diferencia de que, si no se le indica una coordenada de cierre, la figura se cierra automáticamente creando una línea desde la última coordenada a la coordenada inicial (es posible visualizar el diseño de stroke en esta línea de cierre).</p>
         <aside class="idEst">
           &#60;svg viewbox="0 0 400 300"&#62;<br/>
           &emsp;&#60;polygon stroke="red" points="10 20, 50 100, 200 100" /&#62;<br/>
@@ -146,7 +146,7 @@
           &emsp;&#60;line x1="10" y1="10" x2="200" y2="150" stroke="green" stroke-width="20" /&#62;<br/>
           &#60;/svg&#62;
         </aside>
-        <p>Es recomendable que los estilos base esten dentro del SVG, no importa cual de las dos formas se utilice para dar estilos al SVG.</p>
+        <p>Es recomendable que los estilos base estén dentro del SVG, no importa cuál de las dos formas se utilice para dar estilos al SVG.</p>
       </div>
     </section>
   </main>

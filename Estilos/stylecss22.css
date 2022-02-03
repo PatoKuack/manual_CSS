@@ -4,41 +4,55 @@
 }
 
 [src*="working"]{
-  width:        15rem;
+  max-width:        15rem;
 }
 
-[src*="Huey"]{
-  width:        5rem;
+[src*=".png"]{
+  max-width:        5rem;
 }
 
-.section{
+.container{
   position:     relative;
 }
 
-.wo1{
+.workout{
   top         : 0rem;
   width       : min-content;
+  position    : relative;
+}
+.wo2{
+  display: none;
 }
 
 .absol:active .wo1{
   position:     absolute;
-  opacity:      0%;
-  top:          -3rem;
-  transition:   all 1s;
+  opacity:      50%;
+  top:          -200px;
+}
+.absol:active .wo2{
+  display: block;
 }
 
-.huey{
+.spongeBob{
   position:     fixed;
-  bottom:       1rem;
+  top:          40%;
   right:        1rem;
 }
+.spongeBob:hover, .patrickStar:hover{
+  opacity: 40%;
+}
+.patrickStar{
+  position:     sticky;
+  bottom:       2em;
+}
 
-.wo1:hover .tooltip{
+.workout:hover .tooltip{
   display         : block;
 }
 .tooltip{
   position        : absolute;
   display         : none;
+  left            : -6rem;
 }
 .sponge-phrase{
   background-color: var(--balloon);
@@ -60,12 +74,12 @@
 .balloon1{
   width           : 1.5em;
   height          : 1.2em;
-  bottom          : -17px;
-  left            : 40%;
+  bottom          : -15px;
+  left            : 65%;
 }
 .balloon2{
   width           : 1em;
   height          : .8em;
-  bottom          : -28px;
-  left            : 50%;
+  bottom          : -25px;
+  left            : 78%;
 }

@@ -37,7 +37,7 @@
           }
         </aside>
         <h3>Llamado.</h3>
-        <p>La forma de mandar a llamar una variable es con la palabra <b>var</b> seguida de un bloque de parentesis en donde se coloca el nombre de la variable, ejemplo:</p>
+        <p>La forma de mandar a llamar una variable es con la palabra <b>var</b> seguida de un bloque de paréntesis en donde se coloca el nombre de la variable, ejemplo:</p>
         <aside class="idEst">
           .body {<br/>
           &emsp;color: var(--text-color);<br/>
@@ -45,7 +45,7 @@
         </aside>
         <h3>Valores que reciben.</h3>
         <ul>
-          <li>Colores en HSL , RGBA, HEX o cualquier tipo de color (pink).</li>
+          <li>Colores en HSL, RGBA, HEX o cualquier tipo de color (como el predefinido "pink").</li>
           <li>Pasar varios valores como si se estuviera asignando el valor (1px solid red).</li>
           <li>Cadenas de texto ('hello lady').</li>
           <li>Variable dentro de otra variable (var(--txtColor)).</li>
@@ -78,7 +78,7 @@
       <div>
         <h2>Conceptos.</h2>
         <h3>Scope.</h3>
-        <p>Es al ámbito o contexto en el que existe una variable y que en el puede ser utilizada, es decir, lo que se crea y existe unicamente dentro de un determinado bloque de código.</p>
+        <p>Es al ámbito o contexto en el que existe una variable y que en él mismo puede ser utilizada, es decir, lo que se crea y existe únicamente dentro de un determinado bloque de código.</p>
         <p>Existen 3 tipos de scope en las variables CSS:</p>
         <dl>
           <dt>Global.</dt>
@@ -86,16 +86,16 @@
           <dt>DOM.</dt>
           <dd>Si comparten estructura o relación en el documento HTML entonces compartirán las mismas variables en el CSS.</dd>
           <dt>Local.</dt>
-          <dd>Declaración en la línea en donde se declara la etiqueta HTML en el documento HTML. Estas variables solamente existirán en estas etiquetas y en los hijos que deciendan de ella.</dd>
+          <dd>Declaración en la línea en donde se declara la etiqueta HTML en el documento HTML. Estas variables solamente existirán en estas etiquetas y en los hijos que desciendan de ella.</dd>
         </dl>
         <h3>Hoisting.</h3>
         <p>Es la acción que hace el lenguaje para reordenar la declaración de variables con respecto al uso, es decir, si se utiliza una variable y después se crea esa variable usada, el lenguaje colocará la declaración (creación) de la variable antes de su uso al momento de compilar el código.</p>
         <h3>Herencia.</h3>
         <p>Es la habilidad que tienen los elementos de obtener los valores o estilos de sus ancestros.</p>
         <h3>Cascada.</h3>
-        <p>Es la manera que tiene el lenguaje de sobre escribir valores o estilos a aquellas propiedades que ya tenian un valor pero se vuelven a declarar con valores diferentes.</p>
+        <p>Es la manera que tiene el lenguaje de sobre escribir valores o estilos a aquellas propiedades que ya tenían un valor, pero se vuelven a declarar con valores diferentes.</p>
         <h3>RWD.</h3>
-        <p>Responsive Web Designe es la adaptación de la página web o aplicación al tamaño del dispositivo o de la ventana a traves de condiciones llamadas media queries. Gracias a las variables CSS, el RWD se puede realizar de una forma más fácil, sin utilizar JavaScript para calcular tamaños o escalas.</p>
+        <p>Responsive Web Designe es la adaptación de la página web o aplicación al tamaño del dispositivo o de la ventana a través de condiciones llamadas media queries. Gracias a las variables CSS, el RWD se puede realizar de una forma más fácil, sin utilizar JavaScript para calcular tamaños o escalas.</p>
       </div>
     </section>
     <!-- SASS -->
@@ -103,12 +103,12 @@
       <div>
         <h2>SASS.</h2>
         <p>Es un preprocesador de CSS que agrega sintaxis relacionada con la programación para facilitar la creación de estilos y trabajar de una manera más rápida y escalable (darle fácil mantenimiento al programa).</p>
-        <p>La diferencias entre las variables CSS y las variables SASS son las siguientes:</p>
+        <p>Las diferencias entre las variables CSS y las variables SASS son las siguientes:</p>
         <ul>
-          <li>La forma de delcarar una variable es con el signo monetario: $name: value;</li>
+          <li>La forma de declarar una variable es con el signo monetario: $name: value;</li>
           <li>Scope de bloque, en SASS se pueden declarar selectores con sus respectivos bloques de estilos dentro de otros bloques de estilo de selectores ajenos y pueden tomar las variables del selector externo.</li>
           <li>Se pueden interpolar variables, es decir, utilizar las variables como selectores o transformarlas en otro tipo de valor.</li>
-          <li>En las operaciones con SASS se obtiene el valor a diferencia de CSS que unicamente se calcula.</li>
+          <li>En las operaciones con SASS se obtiene el valor a diferencia de CSS que únicamente se calcula.</li>
           <li>En CSS se pueden reasignar valores dentro de selectores y siguen existiendo esos valores aún sin ser utilizados en cambio en SASS no se compilan esos valores reasignados si no se utilizan.</li>
         </ul>
       </div>
@@ -117,7 +117,7 @@
     <section class="container">
       <div>
         <h2>Creación de temas.</h2>
-        <p>Cuando se crean temas en las páginas como las tipicas versiones normal en donde el fondo es blaco u oscuro en donde el fondo es negro, las variables son muy importantes ya que cambian sus valores al modificar estos temas.</p>
+        <p>Cuando se crean temas en las páginas como las típicas versiones normal en donde el fondo es blanco u oscuro en donde el fondo es negro, las variables son muy importantes ya que cambian sus valores al modificar estos temas.</p>
         <p>En la creación de temas se deben tener claros que valores se van a cambiar en los componentes cuando el usuario pase de un tema al otro. También se debe tener una paleta de colores definida para facilita el desarrollo del código.</p>
         <p>Se puede hacer la asignación de la clase con JavaScript o con un media query especial que detecta el tema del navegador.</p>
         <p><a target="_blanck" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme">@media ( prefers-color-scheme : [ no-preference | light | dark ] ) { ... }</a></p>

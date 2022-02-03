@@ -17,8 +17,8 @@
   <header>
     <section class="container">
       <div>
-        <h1 class="center">Listas y contadores.</h1>
-        <p></p>
+        <h1 class="center">Listas</h1>
+        <p>Las listas por defecto tienen estilos, las ordenadas tienen una numeración y las no ordenadas tienen viñetas.</p>
       </div>
     </section>
   </header>
@@ -26,8 +26,7 @@
     <!-- Listas -->
     <section class="container">
       <div>
-        <h2>Listas</h2>
-        <p>Las listas por defecto tienen estilos, las ordenadas tienen una numeración y las no ordenadas tienen viñetas, existe la propiedad <b>list-style-type: ___;</b> con la cual se pueden modificar estos estilos (tiene un shorthand: list-style: _;), a continuación se muestran los valores de esta propiedad:</p>
+        <p>Con la propiedad <b>list-style-type: ___;</b> se pueden modificar estos estilos (tiene un shorthand: list-style: _;), a continuación, se muestran los valores de esta propiedad:</p>
         <dl>
           <dt>none</dt>
           <dd>Elimina los estilos de las listas.</dd>
@@ -43,9 +42,9 @@
           <dd>Coloca números romanos en mayúscula (I, II, III, IV etc.).</dd>
           <dd>Existe su versión con "lower-roman" o con varios alfabetos como griego o latín.</dd>
         </dl>
-        <p>Las listas también pueden adquirir imágenes en vez de viñetas o números con la propiedad <b>list-style-image: <u>url</u>;</b>, solo que las imágenes no se pueden redimencionar, por lo que deben tener el tamaño adecuado, aunque la mejor manera de colocar imágenes en los estilos de las listas es colocando pseudo-elementos vacíos como se vió anteriormente.</p>
-        <p>Otra propiedad muy útil es <b>list-style-position:</b> [ inside | outside ]<b>;</b> el cual indica si las viñetas o números de los items se colocan adentro de su entorno o afuera de su entorno, por default estan afuera del entorno de los items por lo que si se le da un estilo de fondo al item, la viñeta o numero no recivirán ese estilo.</p>
-        <p>Existen dos formas de modificar la viñeta de las listas, la unica desventaja con estas dos opciones es que no todos los navegadores les dan soporte todavía (actualmente del año 2021):</p>
+        <p>Las listas también pueden adquirir imágenes en vez de viñetas o números con la propiedad <b>list-style-image: <u>url</u>;</b>, solo que las imágenes no se pueden redimensionar, por lo que deben tener el tamaño adecuado, aunque la mejor manera de colocar imágenes en los estilos de las listas es colocando pseudo-elementos vacíos como se vio anteriormente.</p>
+        <p>Otra propiedad muy útil es <b>list-style-position:</b> [ inside | outside ]<b>;</b> el cual indica si las viñetas o números de los ítems se colocan adentro de su entorno o afuera de su entorno, por default están afuera del entorno de los ítems por lo que si se le da un estilo de fondo al ítem, la viñeta o número no recibirán ese estilo.</p>
+        <p>Existen dos formas de modificar la viñeta de las listas, la única desventaja con estas dos opciones es que no todos los navegadores les dan soporte todavía (actualmente del año 2021):</p>
         <dl>
           <dt>list-style-type: symbols(...);</dt> 
           <dd>Esta propiedad tiene varias funciones para ordenar o modificar las viñetas (pueden colocarse emojis). Solo es soportado por 1 navegador actualmente.</dd>
@@ -58,13 +57,13 @@
     <section class="container">
       <div>
         <h2>Contadores.</h2>
-        <p>Esos contadores son para las ordenar listas ordenadas o no ordenadas y tienen varias ventajas:</p>
+        <p>Los contadores se utilizan en las listas ordenar listas ordenadas y no ordenadas y tienen varias propiedades:</p>
         <dl>
           <dt>counter-reset: <u>name's-counter</u> <u>#</u>;</dt>
           <dd>
             <p>Esta propiedad se coloca en el bloque de padre de los elementos a los que se les aplicará el contador y sirve para reiniciar y crear contadores.</p>
-            <p>Se declara colocando como primer valor el nombre que se le dará al contador y como segundo valor (opcional) se especifica después de qué número debe empiezar el conteo de los elementos hijo.</p>
-            <p>Es recomendable que se eliminen las viñetas o numeros de las listas para que tengan buena presentación (list-style-type: none;).</p>
+            <p>Se declara colocando como primer valor el nombre que se le dará al contador y como segundo valor (opcional) se especifica después de qué número debe empezar el conteo de los elementos hijo.</p>
+            <p>Es recomendable que se eliminen las viñetas o números de las listas para que tengan buena presentación (list-style-type: none;).</p>
           </dd>
           <dt>counter-increment: <u>name's-counter</u> <u>#</u>;</dt>
           <dd>
@@ -75,12 +74,12 @@
           <dt>content: counter(<u>name's-counter</u>, <u>upper-roman</u>) '<u>.- </u>';</dt>
           <dd>
             <p>La función <b>counter</b> se coloca en el bloque de los elementos hijo con el pseudo-elemento ::before y como valor de la propiedad content.</p>
-            <p>Indica el tipo de viñeta o numeración de los items y gracias al pseudo-elemento puede añadir contenido para separar el item del pseudo-elemento o para agregarle más contenido a las numeraciones.</p>
+            <p>Indica el tipo de viñeta o numeración de los ítems y gracias al pseudo-elemento puede añadir contenido para separar el ítem del pseudo-elemento o para agregarle más contenido a las numeraciones.</p>
             <p>Se declara colocando como primer parámetro el nombre que se le ha dado al contador y como segundo parámetro el tipo de numeración (alguno de los valores de list-style-type).</p>
           </dd>
         </dl>
         <h3>Contadores anidados.</h3>
-        <p>Los contadores anidados ayudan a darles un estilo diferente a los sub-items de las listas anidadas.</p>
+        <p>Los contadores anidados ayudan a darles un estilo diferente a los sub-ítems de las listas anidadas.</p>
         <aside class="idEst">
           ul {<br/>
           &emsp;list-style: none;<br/>
@@ -98,7 +97,7 @@
           p::before {<br/>
           &emsp;content: counter(chapter) '.' counter(sub-chapter) ' ';<br/>
           }<br/>
-          <i class="coment">// "chapter" representa el contador el padre y "sub-chapter" representa el contador del elementoactual.</i>
+          <i class="coment">// "chapter" representa el contador el padre y "sub-chapter" representa el contador del elemento actual.</i>
         </aside>
       </div>
     </section>

@@ -11,18 +11,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../Estilos/normalization.css">
   <link rel="stylesheet" href="../Estilos/stylecss21.css">
+  <link rel="stylesheet" href="../Estilos/stylecss2n-n.css">
   <title>Pseudo-elementos</title>
 </head>
 <body class="body">
   <header>
     <section class="container">
       <div>
-        <h1 class="center">Pseudo-elementos.</h1>
-        <p>Pseudo se refiere a cualquier cosa que aparenta ser lo que no es, por lo que un pseudo-elemento es una propiedad que aparenta ser un elemento pero no lo es.</p>
+        <h1 class="center pseudoE-h1">Pseudo-elementos.</h1>
+        <p>Pseudo se refiere a cualquier cosa que aparenta ser lo que no es, por lo que un pseudo-elemento es una propiedad que aparenta ser un elemento, pero no lo es.</p>
         <p>Los pseudo-elementos permiten crear selectores más avanzados sin necesidad de agregar mucho código al programa. Hay dos tipos de pseudo-elementos.</p>
         <ul>
           <li>Generador de contenido: pretenden ser un elemento (elemento = cualquier etiqueta en el archivo).</li>
-          <li>Seleccionador de contenido: manipulan una parte especifica del contenido de un elemento.</li>
+          <li>Seleccionador de contenido: manipulan una parte específica del contenido de un elemento.</li>
         </ul>
         <p>Los pseudo-elementos tienen 3 especificaciones puntuales para su correcta declaración, uso y funcionamiento:</p>
         <ul>
@@ -61,16 +62,19 @@
               <i class="coment">// El título quedaría: TítuloH2-bubalo</i>
             </aside>
           </dd>
-          <p>Todo pseudo-elemento vacío (con un content: '';) debe ser forzosamente un bloque (display: block;). Se utilizan los pseudo-elementos vacios para colocar imágenes como fondo (background: URL.svg;) y redimencionarlas (background-size: contain;) o para dibujar.</p>
+          <p>Todo pseudo-elemento vacío (con un content: '';) debe ser forzosamente un bloque (display: block;). Se utilizan los pseudo-elementos vacíos para colocar imágenes como fondo (background: URL.svg;) y redimensionarlas (background-size: contain;) o para dibujar.</p>
           <aside class="idEst">
             .container::before, .container::after {<br/>
             &emsp;content: '';<br/>
-            &emsp;display: block;<br/>
+            &emsp;display: inline-block;<br/>
+            &emsp;height: .5em;<br/>
+            &emsp;width: 2em;<br/>
+            &emsp;background-color: blueviolet;<br/>
             }
           </aside>
           <p>El objetivo del dibujo es hacer algo que no se pensaría que está hecho con código. Para hacer un dibujo eficiente se debe utilizar la menor cantidad de elementos posibles.</p>
-          <p>Una función que es de mucha ayuda para los pseudo-elementos es <b>attr()</b>. atrib() obtiene su contenido del atributo que se encuentra en su parámetro, es decir, obtiene su contenido desde la estructura HTML.</p>
-          <p>Un atributo que se utiliza con la función atrib() es <b>data=""</b>. data es un tipo de atributo personalizado en el cual se acostumbra a guardar información.</p>
+          <p>Una función que es de mucha ayuda para los pseudo-elementos es <b>attr()</b>. attr() obtiene su contenido del atributo que se encuentra en su parámetro, es decir, obtiene su contenido desde la estructura HTML.</p>
+          <p>Un atributo que se utiliza con la función attr() es <b>data=""</b>. data es un tipo de atributo personalizado en el cual se acostumbra a guardar información.</p>
           <aside class="idEst">
             &#60;p data-money="$" data-code="MX" class="p"&#62;<br/>
             &emsp;30<br/>
@@ -89,21 +93,21 @@
     <section class="container">
       <div>
         <h2>Seleccionadores de contenido.</h2>
-        <p>Los principales pseudo-elementos que seleccionan contenido que ya esta en el DOM son ::first-line, ::first-letter y ::selection</p>
+        <p>Los principales pseudo-elementos que seleccionan contenido que ya está en el DOM son ::first-line, ::first-letter y ::selection</p>
         <dl>
           <dt>::first-line</dt>
-          <dd>
-            <p>Sirve para seleccionar la primera línea de un parrafo, lista o cualquier contenido.</p>
+          <dd class="pseudoE-fli">
+            <p>Sirve para seleccionar la primera línea de un párrafo, lista o cualquier contenido.</p>
             <p>No importa si el texto se modifica al adaptarse a un ancho mayor o menos, ::first-line seguirá seleccionando solo la primera línea del texto.</p>
           </dd>
           <dt>::first-letter</dt>
-          <dd>
-            <p>Sirve para seleccionar la primera letra de un parrafo, lista o cualquier contenido.</p>
+          <dd class="pseudoE-fle">
+            <p>Sirve para seleccionar la primera letra de un párrafo, lista o cualquier contenido.</p>
             <p>Como se utiliza en textos, se suele utilizar en su bloque de estilos las propiedades float: left; para que la letra seleccionada pueda ocupar más de un renglón sin perder su espacio reservado y line-height: 1; para centrar la letra seleccionada entre los renglones que abarca.</p>
           </dd>
           <dt>::selection</dt>
-          <dd>
-            <p>Sirve para seleccionar la selección de un parrafo, lista o cualquier contenido, es decir, aplica estilos a un fragmento de texto sombreado, el cual es seleccionado por el usuario para copiar o cortar dicho fragmento de texto.</p>
+          <dd class="pseudoE-s">
+            <p>Sirve para seleccionar la selección de un párrafo, lista o cualquier contenido, es decir, aplica estilos a un fragmento de texto sombreado, el cual es seleccionado por el usuario para copiar o cortar dicho fragmento de texto.</p>
             <p>Este pseudo-elemento está limitado a modificar solamente: el color, el fondo y la sombra del texto.</p>
           </dd>
         </dl>

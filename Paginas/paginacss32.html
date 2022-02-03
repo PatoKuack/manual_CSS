@@ -26,12 +26,12 @@
     <section class="container">
       <div>
         <h2>Breackpoints</h2>
-        <p>Los breakpoints o puntos de quiebre, son puntos en los que cambian el diseño basado en el viewport del dispositivo (major breakpoint) o por ajustes del contenido (minor breakpoint), implementando media queries y mostrando el mejor diseño posible al usuario.</p>
+        <p>Los breakpoints o puntos de quiebre, son puntos en los que cambian el diseño basado en el viewport del dispositivo (major breakpoint) o por ajustes del contenido (minor breakpoint), implementando medias queries y mostrando el mejor diseño posible al usuario.</p>
         <ul>
           <li><strong>Major breackpoints</strong>: Representan cambios mayores en el diseño, componentes o layout.</li>
-          <li><strong>Minor breacpoints</strong>: Representan cambios menores muy específicos, donde el contenido necesita algún ajuste de diseño.</li>
+          <li><strong>Minor breackpoints</strong>: Representan cambios menores muy específicos, donde el contenido necesita algún ajuste de diseño.</li>
         </ul>
-        <p>Es una muy buena practica utilizar SASS para crear un mapa de breackpoints ya que se utilizan medidas especificas para implementar el responsive web designe en cada tamaño de dispositivo, el siguiente ejemplo muestra algunos tamaños masyormente utilizados pero no existe un estandar:</p>
+        <p>Es una muy buena práctica utilizar SASS para crear un mapa de breackpoints ya que se utilizan medidas específicas para implementar el responsive web designe en cada tamaño de dispositivo, el siguiente ejemplo muestra algunos tamaños mayormente utilizados, pero no existe un estándar:</p>
         <p>
           Para pantallas pequeñas se definen medidas de 320px o 360px o 480px<br/>
           Para pantallas medianas se definen medidas de 640px o 768px<br/>
@@ -92,7 +92,7 @@
           &emsp;&emsp;height:&emsp;&emsp;&emsp;&emsp;0;<br/>
           &emsp;&emsp;padding-bottom: 56.25%;<br/>
           &emsp;&emsp;position:&ensp;&emsp;&emsp;&emsp;relative;<br/>
-          <i class="highlight">// Como el padding siempre es relativo al ancho, empuja la altura del elemento que por defecto es 0, ésto hace que se ajuste automaticamente con el viewport o contenedor.</i><br/>
+          <i class="highlight">// Como el padding siempre es relativo al ancho, empuja la altura del elemento que por defecto es 0, esto hace que se ajuste automáticamente con el viewport o contenedor.</i><br/>
           &emsp;&emsp;&#62; iframe, &#62; video {<br/>
           &emsp;&emsp;&emsp;position: absolute;<br/>
           &emsp;&emsp;&emsp;width:&emsp;100%;<br/>
@@ -184,11 +184,11 @@
     <section class="container">
       <div>
         <h2>Temas responsive.</h2>
-        <p>Cuando se crean temas en las páginas como las tipicas versiones normal en donde el fondo es blaco u oscuro en donde el fondo es negro, las variables son muy importantes ya que cambian sus valores al modificar estos temas.</p>
-        <p>En la creación de temas se deben tener claros que valores se van a cambiar en los componentes cuando el usuario pase de un tema al otro. También se debe tener una paleta de colores definida para facilita el desarrollo del código.</p>
+        <p>Cuando se crean temas en las páginas como las típicas versiones normal en donde el fondo es blanco u oscuro en donde el fondo es negro, las variables son muy importantes ya que cambian sus valores al modificar estos temas.</p>
+        <p>En la creación de temas se deben tener claros que valores se van a cambiar en los componentes cuando el usuario pase de un tema al otro. También se debe tener una paleta de colores definida para facilitar el desarrollo del código.</p>
         <p>Se puede hacer la asignación de la clase con JavaScript o con un media query especial que detecta el tema del navegador.</p>
         <p><a class="link" target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme">@media ( prefers-color-scheme : [ no-preference | light | dark ] ) { ... }</a></p>
-        <p>Este media query especial activa su contenido cuando se cambia el tema del navegador (todos los navegadores le dan soporte a esta media query)</p>
+        <p>Esta media query especial activa su contenido cuando se cambia el tema del navegador (todos los navegadores le dan soporte a esta media query)</p>
         <aside class="exempliGratia">
           :root {<br/>
           &emsp;--bd: white;<br/>

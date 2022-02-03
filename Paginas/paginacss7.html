@@ -53,7 +53,7 @@
     </article>
     <article class="taryet">
       <b>:target</b> permite aplicar un estilo a un elemento destino cuando se detecta que se pulsó su enlace. -> 
-      <a href="#mostrar" title="Mostrar texto oculto" id="secreto">Desocultar (mostrar)</a>.
+      <a href="#mostrar" title="Mostrar texto oculto" id="secreto">Des-ocultar (mostrar)</a>.
       <img src="../Imgs/pseudo target.jpg" alt="Ejemplo de pseudoclase :target" title="Ejemplo de pseudoclase :target">
       <div id="mostrar">
         <a href="#secreto" title="Ocultar texto de nuevo">Ocultar (desaparecer)</a><br>
@@ -80,7 +80,7 @@
       <b>h2 :first-child{}</b> (descendiente) esta selección se hace desde el padre, aplica el estilo al primer hijo de cada h2.<br>
       <b>h3:first-child{}</b> aplica el estilo a cada h3 que sea primer hijo. Esto lo explicaré en dos reglas:<br>
       -El h3 debe ser el primero de sus hermanos para recibir el estilo.<br>
-      -Aunque el h3 sea el primer h de nivel 3, no se le aplicará el estilo si hay un hermano de otro tipo antes que él, quitandole la primogenitura.<br>
+      -Aunque el h3 sea el primer h de nivel 3, no se le aplicará el estilo si hay un hermano de otro tipo antes que él, quitándole el lugar de primogénito.<br>
       <img class="chtp" src="../Imgs/chaildfirst.jpg" alt="Ejemplo de pseudoclase :first-child" title="Ejemplo de pseudoclase :first-child">
     </article>
     <article class="lastch">
@@ -98,7 +98,7 @@
     </article>
     <article class="lasttaip">
       <b>:last-of-type</b> aplica un estilo al último elemento de su tipo dentro de un mismo contenedor.<br>
-      Los type no se suelen usar con los <i>selectores</i> (#ides o .classes) sin acompañamento de etiquetas.<br>
+      Los type no se suelen usar con los <i>selectores</i> (#ides o .classes) sin acompañamiento de etiquetas.<br>
       <b>section :last-of-type{}</b> (descendiente) esta selección se hace desde el padre, aplica el estilo a todos los últimos hijos de cada section, es decir, el aplicará el estilo al último <i>img, div, b, i, etcétera</i>.<br>
       <b>b:last-of-type{}</b> aplica el estilo al último b de cada contenido.<br>
       <img class="chtp" src="../Imgs/taiplast.jpg" alt="Ejemplo de pseudoclase :last-of-type" title="Ejemplo de pseudoclase :last-of-type">

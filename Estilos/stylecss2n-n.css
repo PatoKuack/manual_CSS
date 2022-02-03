@@ -1,0 +1,31 @@
+:root{
+  --pseudo-color1: rgb(105, 0, 243);
+  --pseudo-color2: rgb(195, 149, 255);
+  --pseudo-color3: rgba(195, 149, 255, 0.486);
+}
+
+.pseudoE-h1::after, .pseudoE-h1::before{
+  content: '';
+  display: inline-block;
+  height: .5em;
+  width: 2em;
+  border-radius: 100% 0;
+  background-image: linear-gradient(to right, var(--pseudo-color1) 10%, var(--pseudo-color2) 90%);
+}
+.pseudoE-h1::after{
+  border-radius: 0 100%;
+  background-image: linear-gradient(to left, var(--pseudo-color1) 10%, var(--pseudo-color2) 90%);
+}
+
+.pseudoE-fli ::first-line{
+  background-color: var(--pseudo-color3);
+}
+.pseudoE-fle ::first-letter{
+  background-color: var(--pseudo-color3);
+  font-size: 2em;
+  float: left;
+  line-height: 1;
+}
+.pseudoE-s ::selection{
+  background-color: var(--pseudo-color3);
+}

@@ -90,7 +90,7 @@
           &emsp;&emsp;background: cyan;<br/>
           &emsp;}
         </aside>
-        <ul><li>Método 2, Sobre-escribiendo estilos:</li></ul>
+        <ul><li>Método 2, Sobrescribiendo estilos:</li></ul>
         <p>Es una metodología que nos permite crear estilos dinámicos mediante JS cuando los valores de las propiedades CSS provienen de datos de APIs, variables dinámicas o de cálculos.</p>
         <p>Consiste en crear un nuevo atributo en el elemento indicado y establecer su valor mediante el método <b>element.setAttribute()</b>, si el atributo ya existe, el valor es actualizado.</p>
         <p>Este método recibe como parámetro el nombre del atributo que se desea crear o actualizar y como segundo parámetro, el valor del atributo, el cual será una variable que contiene una template string con la regla CSS.</p>
@@ -117,7 +117,7 @@
           <i class="highlight">/*+= permite concatenar strings*/</i><br/>
           <i class="highlight">/*mediante comillas invertidas(backticks) agregamos un template strings de estilos*/</i><br/>
         </aside>
-        <p>Declaración de una función para sobreescribir estilos.</p>
+        <p>Declaración de una función para sobrescribir estilos.</p>
         <aside class="exempliGratia">
           &emsp;const setStyles = (element, templateStrings) =>{<br/>
           &emsp;&emsp;element.setAttribute('style',templateStrings);<br/>
@@ -174,7 +174,7 @@
             <p>NO USAR windows.innerWidth, es una mala práctica y es limitado; no permite los diferentes tipos y combinaciones de consultas; no considera el viewport (sino el Windows) y esto puede generar conflictos.</p>
             <aside class="exempliGratia">
               &emsp;const <u>mediaBp</u> = matchMedia( '(<u>min-width: 568px</u>) and (<u>orientation: landscape</u>)' );<br/>
-              <i class="highlight">//*retorna un ojeto del tipo MediaQueryList.*</i><br/>
+              <i class="highlight">//*retorna un objeto del tipo MediaQueryList.*</i><br/>
               &emsp;console.log(<u>mediaBp</u>.matches); <i class="highlight">// true</i><br/>
               <i class="highlight">// matches es una propiedad que retorna un booleano.</i><br/>
               <hr class="highlight">
@@ -197,7 +197,7 @@
               &emsp;&emsp;? document.body.style.<u>background</u> = '<u>red</u>';<br/>
               &emsp;&emsp;: document.body.style.<u>background</u> = '<u>yellow</u>'<br/>
               &emsp;}
-              <i class="highlight">//función que debe recibir por parametro un MediaQueryList</i><br/>
+              <i class="highlight">//función que debe recibir por parámetro un MediaQueryList</i><br/>
               <i class="highlight">// se ejecuta una vez para el momento de cargar el DOM:</i><br/>
               &emsp;<u>changeColor</u>(<u>mediumBp</u>);<br/>
               &emsp;<u>mediumBp</u>.addEventListener(<u>changeColor</u>);<br/>

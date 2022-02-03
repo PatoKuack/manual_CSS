@@ -1,8 +1,9 @@
 :root{
   --fondobody:  darkslateblue;
-  --fondodiv:   dodgerblue;
-  --bordediv:   rgb(141, 198, 255);
-  --sombra:     white;
+  --bordediv:   dodgerblue;
+  --fondoaside: rgba(246, 255, 161, 0.349);
+  --fondodiv:   rgb(141, 198, 255);
+  --sombra:     rgba(195, 149, 255, 0.486);
 }
 
 .body{
@@ -11,12 +12,19 @@
 
 .container{
   max-width:        750px;
-  border:           3px solid var(--fondodiv);
+  border:           3px solid var(--bordediv);
   padding:          1em;
-  background-color: var(--bordediv);
+  background-color: var(--fondodiv);
   margin:           .5em auto;
   box-sizing:       border-box;
-  box-shadow:       1em .1em 30em -8em var(--sombra) inset;
+  box-shadow:       .7em .3em .3em 0em var(--sombra);
+}
+
+.idEst{
+  border:           .15em solid var(--fondobody);
+  border-radius:    .5em;
+  padding:          .5em;
+  background-color: var(--fondoaside);
 }
 
 /* .main{
@@ -50,5 +58,5 @@
   opacity: 60%;
 }
 .highlight{
-  background-color: rgba(255, 255, 0, 0.226);
+  background-color: rgba(195, 149, 255, 0.486);
 }

@@ -31,7 +31,7 @@
         <p>Los mixins se declaran con <b>@mixin <i class="coment">nombre</i>{...}</b></p>
         <p>No es recomendable llamar a los mixins en el archivo en donde se crean, se mandan a llamar de dos maneras:</p>
         <ul>
-          <li>Mandandolo a llamar dentro de un selector.</li>
+          <li>Mandándolo a llamar dentro de un selector.</li>
         </ul>
         <div class="idEst">
           <aside class="exempliGratia egSCSS">
@@ -127,7 +127,7 @@
       <div class="container">
         <h2>Parámetros y argumentos.</h2>
         <p>Los mixins son capaces de recibir argumentos, dichos argumentos son variables que solamente funcionan dentro de los mixins a los que le fueron asignados.</p>
-        <p>El valor que se resive o se manda se define de dos maneras, es parámetro cuando se declara la <u>variable</u> (@mixin bttn($var)), cuando se le dá un <u>valor real</u> se le llama argumentos (@include bttn(1em))</p>
+        <p>El valor que se recibe o se manda se define de dos maneras, es parámetro cuando se declara la <u>variable</u> (@mixin bttn($var)), cuando se le da un <u>valor real</u> se le llama argumentos (@include bttn(1em))</p>
         <div class="idEst">
           <aside class="exempliGratia egSCSS">
             <span class="center block"><b>_mixinButton.scss</b></span><br/>
@@ -150,7 +150,7 @@
             }
           </aside>
         </div>
-        <p>Los mixins pueden tener más de un parámetro, pero al momento de enviarles el parámetro como argumento, se deben colocar los argumentos entre comillas para que la sintaxis de los argumentos no interfieran con las comas que separan los argumentos, ejemplo:</p>
+        <p>Los mixins pueden tener más de un parámetro, pero al momento de enviarles el parámetro como argumento, se deben colocar los argumentos entre comillas para que la sintaxis de los argumentos no interfiera con las comas que separan los argumentos, ejemplo:</p>
         <div class="idEst">
           <aside class="exempliGratia egSCSS">
             <span class="center block"><b>_mixinP.scss</b></span><br/>
@@ -184,7 +184,7 @@
             }
           </aside>
         </div>
-        <p>Los parámetros pueden tener valores por defecto y pueden ser modificados mandando argumentos al mixin. Ésto sirve para no depender de la estructura del documento HTML y poder pasar la estructura como parámetros.</p>
+        <p>Los parámetros pueden tener valores por defecto y pueden ser modificados mandando argumentos al mixin. Esto sirve para no depender de la estructura del documento HTML y poder pasar la estructura como parámetros.</p>
         <div class="idEst">
           <aside class="exempliGratia egSCSS">
             <span class="center block"><b>_mixinP.scss</b></span><br/>
@@ -219,8 +219,8 @@
     <section class="stars">
       <div class="container">
         <h2>Parámetros múltiples.</h2>
-        <p>Con el parametro acompañado de 3 puntos (...) se indica que se resibirán varios argumentos sin que se sepan cuantos.</p>
-        <p>Como se resiven varios argumentos, entonces se resivirá una lista, por lo que se debe utilizar la función nth().</p>
+        <p>Con el parámetro acompañado de 3 puntos (...) se indica que se recibirán varios argumentos sin que se sepan cuantos.</p>
+        <p>Como se reciben varios argumentos, entonces se recibirá una lista, por lo que se debe utilizar la función nth().</p>
         <div class="idEst">
           <aside class="exempliGratia egSCSS">
             <span class="center block"><b>_mixinButton.scss</b></span><br/>
@@ -267,7 +267,7 @@
           </aside>
         </div>
         <p>Se tienen que agregar las keys del mapa del archivo _valores.scss 1 por 1 ( <i>bttn(alert, cta)</i> )</p>
-        <p>Se puede automatizar esta parte con la función map-keys() ( <i>bttn(map-keys($bttn-clrs)...)</i> ). Se gregan los 3 puntos para indicarle al argumento que se mandarán varios valores, porque si no se especifica el, argumento del mixin recibirá la sintaxis de la función en ves de un valor esperado.</p>
+        <p>Se puede automatizar esta parte con la función map-keys() ( <i>bttn(map-keys($bttn-clrs)...)</i> ). Se agregan los 3 puntos para indicarle al argumento que se mandarán varios valores, porque si no se especifica el, argumento del mixin recibirá la sintaxis de la función en vez de un valor esperado.</p>
         <div class="idEst">
           <aside class="exempliGratia egSCSS">
             <span class="center block"><b>styles.scss</b></span><br/>
@@ -344,7 +344,7 @@
             }
           </aside>
         </div>
-        <h3>Ejemplo con media queries.</h3>
+        <h3>Ejemplo con medias queries.</h3>
         <div class="idEst">
           <aside class="exempliGratia egSCSS">
             <span class="center block"><b>_values.scss</b></span><br/>
@@ -476,7 +476,7 @@
             &ensp;@media screen and (min-width: 640px) {<br/>
             &ensp;&emsp;padding: .1em;<br/>
             &ensp;}<br/>
-            &ensp;<i class="coment">// El último no compiló por no ser una key del brackpoint ni ser una cifra en pixeles.</i><br/>
+            &ensp;<i class="coment">// El último no compiló por no ser una key del breackpoint ni ser una cifra en pixeles.</i><br/>
           </aside>
         </div>
       </div>

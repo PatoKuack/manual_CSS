@@ -30,12 +30,13 @@
   background-position: 50% 10%; }
 
 .container {
+  max-width: 600px;
   background-color: var(--bg4);
   border: 0.4em double var(--bord2);
   border-radius: 0 2rem 0 2rem;
   margin: 1rem auto;
   padding: 1rem;
-  max-width: var(--max-w);
+  max-width: var(--max) -w;
   box-shadow: 5px 5px 5px 0px var(--bgSCSS); }
 
 .idEst {

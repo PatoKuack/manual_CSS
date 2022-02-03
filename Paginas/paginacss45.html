@@ -17,7 +17,7 @@
   <header class="bubble">
     <section class="stars">
       <div class="container">
-        <h1>Funciones.</h1>
+        <h1 class="center">Funciones.</h1>
         <p>Las funciones son trozos de código cuyo objetivo es devolver un valor, es decir, realizan cálculos y devolver un valor final.</p>
         <p>La diferencia entre los mixins y las funciones es que los mixins pueden devolver todo un bloque de código, selectores, reglas CSS y muchas cosas más, en cambio las funciones devuelven un solo valor.</p>
         <p><i>En SASS todo lo que comience con @ se le llama directiva.</i></p>
@@ -29,7 +29,7 @@
     <section class="stars">
       <div class="container">
         <h2>@function y @return</h2>
-        <p>Para crear una función se utiliza la directiva <strong>@function</strong> seguido del nombre de la función, un bloque de parentesis en donde se puede o no colocar parámetros, casi por por último un bloque de llaves en donde se coloca el código de la función y por último se utiliza la directiva <strong>@return</strong> para retornar el valor final.</p>
+        <p>Para crear una función se utiliza la directiva <strong>@function</strong> seguido del nombre de la función, un bloque de paréntesis en donde se puede o no colocar parámetros, casi por último un bloque de llaves en donde se coloca el código de la función y por último se utiliza la directiva <strong>@return</strong> para retornar el valor final.</p>
         <div class="idEst">
           <aside class="exempliGratia egSCSS">
             <span class="center block"><u>.scss</u></span><br/>
@@ -44,7 +44,7 @@
             <span class="center block"><u>.css</u></span><br/>
           </aside>
         </div>
-        <p>Para utilizar la función se coloca el nombre de la función y un bloque de parentesis en donde se puede o no colocar parámetros.</p>
+        <p>Para utilizar la función se coloca el nombre de la función y un bloque de paréntesis en donde se puede o no colocar parámetros.</p>
         <div class="idEst">
           <aside class="exempliGratia egSCSS">
             <span class="center block"><u>.scss</u></span><br/>
@@ -81,7 +81,7 @@
             }
           </aside>
         </div>
-        <p>Se suele tener dos carpetas en un proyecto, una llamada "src" o "dev" y en ellas se colocan los archivos no compilados como los SASS, en cambio en la segunda carpeta llamada "public" se almacenan los archivos compilados como los CSS o las imágenes. Cuando se llama a una imágen por una propiedad en css, la ruta de la imagen debe ser relativa a la carpeta "public", para facilitar la relación entre las rutas se puede crear una función en SASS muy útil:</p>
+        <p>Se suele tener dos carpetas en un proyecto, una llamada "src" o "dev" y en ellas se colocan los archivos no compilados como los SASS, en cambio en la segunda carpeta llamada "public" se almacenan los archivos compilados como los CSS o las imágenes. Cuando se llama a una imagen por una propiedad en css, la ruta de la imagen debe ser relativa a la carpeta "public", para facilitar la relación entre las rutas se puede crear una función en SASS muy útil:</p>
         <div class="idEst">
           <aside class="exempliGratia egSCSS">
             <span class="center block"><b>_functions.scss</b></span><br/>
@@ -106,7 +106,7 @@
             }
           </aside>
         </div>
-        <p>Cuando el proyecto es muy grande se puede perder facilmente las relaciones de los archivos y si se modifica el nombre o la posición de almacenamiento de las imágenes sería problematico cambiarle la ruta a los archivos y a los pedazos de código en donde son llamas las imágenes, pero en este caso solo se debería cambiar la ruta en la variable $path del archivo "_variables.scss".</p>
+        <p>Cuando el proyecto es muy grande se puede perder fácilmente las relaciones de los archivos y si se modifica el nombre o la posición de almacenamiento de las imágenes sería problemático cambiarle la ruta a los archivos y a los pedazos de código en donde son llamas las imágenes, pero en este caso solo se debería cambiar la ruta en la variable $path del archivo "_variables.scss".</p>
       </div>
     </section>
     <!-- funciones extra -->
@@ -152,7 +152,7 @@
             </aside>
           </div>
           <dt>str-index($variable, $character)</dt>
-          <dd>Devuelve en numero, la posición del caracter indicado en el segundo argumento que se encuentra en la variable indicado en el primer argumento.</dd>
+          <dd>Devuelve en número, la posición del carácter indicado en el segundo argumento que se encuentra en la variable indicado en el primer argumento.</dd>
           <div class="idEst">
             <aside class="exempliGratia egSCSS">
               <span class="center block"><u>.scss</u></span><br/>
@@ -169,7 +169,7 @@
             </aside>
           </div>
           <dt>str-length($variable)</dt>
-          <dd>Devuelve el numero de caracteres que hay en la variable especificada en el argumento de la función.</dd>
+          <dd>Devuelve el número de caracteres que hay en la variable especificada en el argumento de la función.</dd>
           <div class="idEst">
             <aside class="exempliGratia egSCSS">
               <span class="center block"><u>.scss</u></span><br/>
@@ -295,7 +295,7 @@
         <dl>
           <dt>nth($lista, $i)</dt>
           <dd>Extrae de una lista el elemento que este posicionado en la posición indicada por el segundo parámetro.</dd>
-          <dd class="bold">Es importante tomar en cuenta que en SASS se indexan las listas apartir de 1 y no de 0 como en el resto de los lenguajes de programación.</dd>
+          <dd class="bold">Es importante tomar en cuenta que en SASS se indexan las listas a partir de 1 y no de 0 como en el resto de los lenguajes de programación.</dd>
           <div class="idEst">
             <aside class="exempliGratia egSCSS">
               <span class="center block"><u>.scss</u></span><br/>
@@ -312,7 +312,7 @@
             </aside>
           </div>
           <dt>index($list, $value)</dt>
-          <dd>Devuelve el indice del valor indicado en el segundo parámetro, de la lista indicada en el primer parámetro.</dd>
+          <dd>Devuelve el índice del valor indicado en el segundo parámetro, de la lista indicada en el primer parámetro.</dd>
           <div class="idEst">
             <aside class="exempliGratia egSCSS">
               <span class="center block"><u>.scss</u></span><br/>
@@ -559,13 +559,13 @@
       </div>
     </section>
   </main>
-  <footer class="bubble">
+  <!-- <footer class="bubble">
     <section class="stars">
       <div class="container">
         <h3>Referencias:</h3>
         <p></p>
       </div>
     </section>
-  </footer>
+  </footer> -->
 </body>
 </html>

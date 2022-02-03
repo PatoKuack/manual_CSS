@@ -10,15 +10,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Estilos/stylecss12.css">
-    <link rel="stylesheet" href="../../home/styles/mano_regresar.css">
-    <title>Flex-items</title>
+    <link rel="stylesheet" href="../Estilos/mano_regresar.css">
+    <title>Flex-ítems</title>
   </head>
   <body>
     <header>
-      <h1>Flex-items</h1>
+      <h1>Flex-ítems</h1>
     </header>
     <main>
-      Los <i>flex-items</i> son los hijos directos, pseudoelementos (::before y ::after) o textos de los <i>flex-container</i>, tienen una flexibilidad que permite modificar su tamaño en lo largo o en lo ancho para adaptarse a la pantalla o al tamaño del <i>flex-container</i>, pero tienen la desventaja de que los <u>margin</u> y <u>pagding</u> no se reducen, por eso, las siguientes propiedades se aplican a los items del contenedor.
+      Los <i>flex-ítems</i> son los hijos directos, pseudoelementos (::before y ::after) o textos de los <i>flex-container</i>, tienen una flexibilidad que permite modificar su tamaño en lo largo o en lo ancho para adaptarse a la pantalla o al tamaño del <i>flex-container</i>, pero tienen la desventaja de que los <u>margin</u> y <u>padding</u> no se reducen, por eso, las siguientes propiedades se aplican a los ítems del contenedor.
     </main>
     <section>
       <h2>Flex-grow</h2>
@@ -41,7 +41,7 @@
           <a href="#contenedorFG" title="Mostrar ejemplo">aplicar a malabaristas <b>flex-grow: 1;</b></a>
         </figcaption>
       </figure>
-      Permite que los <i>flex-items</i> especificados aumenten su tamaño para adaptarse al espacio haciendo que el navegador realice la siguiente operación:<br/>
+      Permite que los <i>flex-ítems</i> especificados aumenten su tamaño para adaptarse al espacio haciendo que el navegador realice la siguiente operación:<br/>
       <figure>
         <table>
           <tr>
@@ -55,24 +55,24 @@
               <b>)(Valor de flex-grow)</b>
             </td>
             <td rowspan=2>
-              <b>(Espacio que ocupa cada item)</b>
+              <b>(Espacio que ocupa cada ítem)</b>
             </td>
           </tr>
           <tr>
             <td>
-              <b>&#8721; Espacio que ocupa cada item</b>
+              <b>&#8721; Espacio que ocupa cada ítem</b>
             </td>
           </tr>
         </table>
-        <figcaption>El resultado se multiplica por el flex-grow de cada item y es sumado al espacio original de cada item.</figcaption>
+        <figcaption>El resultado se multiplica por el flex-grow de cada ítem y es sumado al espacio original de cada ítem.</figcaption>
       </figure>
       Ejemplo:<br/>
-      -si colocamos un <i>flex-grow: 1;</i> para todos los items.<br/>
+      -si colocamos un <i>flex-grow: 1;</i> para todos los ítems.<br/>
       -el espacio en ancho disponible del padre es de 100px.<br/>
-      -hay 5 items que ocupan 10px de espacio cada uno con un total de 50px.<br/>
+      -hay 5 ítems que ocupan 10px de espacio cada uno con un total de 50px.<br/>
       entonces (100px/50px)*1*10px=20px<br/>
-      resultado * cada <i>flex-grow</i> + espacio original de cada item.<br/>
-      (20px*1)+10px=30px, eso mediría cada espacio de los items.<br/><br/>
+      resultado * cada <i>flex-grow</i> + espacio original de cada ítem.<br/>
+      (20px*1)+10px=30px, eso mediría cada espacio de los ítems.<br/><br/>
       El valor del <i>flex-grow</i> permite solo números positivos ya sean decimales o enteros.<br/>
       El valor por defecto del <i>flex-grow</i> es 0.
     </section>
@@ -97,8 +97,8 @@
           <a href="#contenedorFS" title="Mostrar ejemplo">aplicar a forzudos <b>flex-shrink: 2;</b></a>
         </figcaption>
       </figure>
-      Permite que los <i>flex-items</i> especificados disminuyan su tamaño para adaptarse al espacio haciendo el mismo procedimiento que en <i>flex-grow</i> pero en vez de aumentar disminuir, es decir, del espacio sobrante los divide entre la cantidad de <i>Flex-shrink</i> y el resultado se le resta a los items indicados.<br/>
-      Si se coloca el valor de 0, los items adquieren su tamaño original con respecto al eje principal y no respetan el límite de su contenedor.<br/>
+      Permite que los <i>flex-ítems</i> especificados disminuyan su tamaño para adaptarse al espacio haciendo el mismo procedimiento que en <i>flex-grow</i> pero en vez de aumentar disminuir, es decir, del espacio sobrante los divide entre la cantidad de <i>Flex-shrink</i> y el resultado se le resta a los ítems indicados.<br/>
+      Si se coloca el valor de 0, los ítems adquieren su tamaño original con respecto al eje principal y no respetan el límite de su contenedor.<br/>
       Su valor por default es 1.
     </section>
     <section>
@@ -129,7 +129,7 @@
         </figcaption>
       </figure>
       Define el tamaño inicial en el eje principal (definiendo el eje principal con <i>flex-direction</i>).<br/>
-      Colocando éste elemento con un valor de 0 se puede asegurar de que todos los elementos crezcan o disminuyan por igual con <i>flex-grow</i> o <i>flex-shrink</i> sin importar que tanto cambie el tamaño de la ventana.
+      Colocando este elemento con un valor de 0 se puede asegurar de que todos los elementos crezcan o disminuyan por igual con <i>flex-grow</i> o <i>flex-shrink</i> sin importar que tanto cambie el tamaño de la ventana.
     </section>
     <section>
       <h2>Flex</h2>
@@ -246,14 +246,14 @@
         <li>
           <a href="#contenedorFini-e" title="Mostrar ejemplo"><b>initial</b></a> que contiene los valores (0 1 auto)
           <ul>
-            es prácticamente el valor default en los <i>flex-items</i>, ejemplo:<br/>
+            es prácticamente el valor default en los <i>flex-ítems</i>, ejemplo:<br/>
             <b>flex: initial;</b>
           </ul>
         </li>
         <li>
           <a href="#contenedorFauto-e" title="Mostrar ejemplo"><b>auto</b></a> que contiene los valores (1 1 auto)
           <ul>
-            indica a los <i>flex-items</i> que crezcan y se reduzcan dependiendo de su contenido, ejemplo:<br/>
+            indica a los <i>flex-ítems</i> que crezcan y se reduzcan dependiendo de su contenido, ejemplo:<br/>
             <b>flex: auto;</b>
           </ul>
         </li>
@@ -267,7 +267,7 @@
         <li>
           <a href="#contenedorFn-e" title="Mostrar ejemplo"><b><x>n</x></b></a> que contiene los valores (<x>n</x> 0 0)
           <ul>
-            <x>n</x> representa cualquier número positivo y distribuye entre los items un espacio por igual, ejemplo:<br/>
+            <x>n</x> representa cualquier número positivo y distribuye entre los ítems un espacio por igual, ejemplo:<br/>
             <b>flex: <x>1</x>;</b>
           </ul>
         </li>
@@ -393,9 +393,10 @@
       Se puede jugar con los valores de los elementos, los que tengan valores menores se colocarán primero y los que contengan valores mayores se colocarán al final.
     </section>
     <div class="regreso">
-      <a class="mano" href="../Paginas/indexcss.html" title="regresar al menú">&#9754;</a>
+      <a class="mano" href="../index.html" title="regresar al menú">&#9754;</a>
     </div>
     <footer>
+      <h3>Referencias:</h3>
       <a target="_blank" href="http://www.flexboxdefense.com/" title="otro juego de Flex">Juego Defense: http://www.flexboxdefense.com/</a>
     </footer>
   </body>

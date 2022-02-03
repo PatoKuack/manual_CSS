@@ -97,11 +97,3 @@ article.tips :nth-child(n+10):nth-child(even){
 article:nth-last-of-type(1){
   background: rgb(255, 205, 255);
 }
-
-h2::after, h2::before{
-  content: "";
-  display: block;
-  height: 5px;
-  width: 200px;
-  background-color: red;
-}

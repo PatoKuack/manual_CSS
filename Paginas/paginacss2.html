@@ -27,7 +27,7 @@
         &emsp;<span class="cBlue">color</span>:&emsp;&emsp;<span class="cYll">var</span><span class="cPrp">(</span><span class="cBlue">--color</span><span class="cPrp">)</span>;<br/>
       <span class="cOrg1">}</span>
     </aside>
-    Es recomendable colocar nuestros estilos repetitivos en nuestra clase <b>:root</b> porque esta raíz es accesible a todo nuesro código.<br>
+    Es recomendable colocar nuestros estilos repetitivos en nuestra clase <b>:root</b> porque esta raíz es accesible a todo nuestro código.<br>
     <hr>
     <h2>Selectores</h2>
     Indican a que elemento de HTML se le aplican los estilos.<br>
@@ -36,14 +36,14 @@
     <u>Si puedes, no los utilices en CSS</u>.
     <h4>Etiquetas, tipos o elementos</h4>
     Sirven para normalizar el estilo, que el estilo en la página sea igual en todos los navegadores.<br>
-    y en toda la página, por ejemplo si aplico un color a los párrafos, todos los párrafos serán de ese color.<br>
+    y en toda la página, por ejemplo, si aplico un color a los párrafos, todos los párrafos serán de ese color.<br>
     <aside class="terminal">
       <span class="cOrg2">h3</span> <span class="cOrg1">{</span><br/>
         &emsp;<span class="cBlue">color</span>: <span class="cOrg3">brown</span>;<br/>
         <span class="cOrg1">}</span>
     </aside>
     <h4 class="titlegreen">Clases</h4>
-    <u>Son los más utilizados en CSS</u> (practicamente cada etiqueta debería tener una clase) y permiten definir a que darle un estilo y a que no dárselo mediante clases,<br>
+    <u>Son los más utilizados en CSS</u> (prácticamente cada etiqueta debería tener una clase) y permiten definir a que darle un estilo y a que no dárselo mediante clases,<br>
     son reutilizables y se pueden declarar en HTML más de una clase separándolas en el atributo class con un espacio<br>(ejemplo: class="greenone redtwo purplethree").<br>
     Tienen unas reglas en su declaración en HTML:<br>
     solo pueden comenzar con letra, guion bajo o guion alto (nunca con números u otros caracteres).<br>
@@ -62,7 +62,7 @@
     Se indican en CSS con: un punto y el nombre de la clase.
     <h4>Id</h4>
     Utilizan los identificadores de HTML, no hay dos identificadores iguales, no son reutilizables (por lo que es preferible reservarlos para JavaScript) y es difícil sobrescribirlos en cascada como los demás.<br>
-    Los identificadores se usan para anclajes en la página HTML o para seleccionar elementos pero <u>casi no se usan en CSS</u>.<br>
+    Los identificadores se usan para anclajes en la página HTML o para seleccionar elementos, pero <u>casi no se usan en CSS</u>.<br>
     <b>HTML:</b><br/>
     <aside class="terminal">
       <span class="cBlk">&#60;</span><span class="cBl2">hr</span> <span class="cBlue">id</span>=<span class="cOrg3">"linea"</span><span class="cBlk">&#62;</span>
@@ -124,7 +124,7 @@
     > hijo directo: selecciona una relación especifica de hijo directo, ejemplo:
         dentro de <b>div</b> estaría <b>spam</b> (spam es hijo directo de div) pero <b>spam</b> no es hijo directo de <b>body</b> (porque spam esta 2 niveles abajo de body).
         la etiqueta <b>p</b> no se reconoce dentro de la descendencia.
-    + hermano siguiente: selecciona todo elemento definidos del mismo nivel de descendencia (hermanos) que esté después del primer elemento especificado, ejemplo:
+    + hermano siguiente: selecciona todo elemento definido del mismo nivel de descendencia (hermanos) que esté después del primer elemento especificado, ejemplo:
         <b>b + u</b> aplicará el estilo a <u>todo</u> <u>elemento</u> <b>u</b> que esté <u>después</u> de <b>b</b>,
         si se tuvieran etiquetas <b>u</b> <u>antes</u> de <b>b</b> y dentro del <u>mismo nivel</u> de descendencia, no se le aplicaría el estilo.
     ~ hermanos siguientes: selecciona, al igual que el <i>operador +</i>, los elementos <u>hermanos</u> definidos que estén <u>después</u> del primer elemento definido,

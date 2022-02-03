@@ -19,7 +19,7 @@
       <div class="container">
         <h1 class="center">SASS</h1>
         <p><a target="_blank" href="https://sass-lang.com/">Sass</a> es un preprocesador escrito en Ruby en el año 2006.</p>
-        <p>Un preprocesador es un lenguaje que permite generar CSS a través de una sintaxis similar pero aprovechando características de la programación.</p>
+        <p>Un preprocesador es un lenguaje que permite generar CSS a través de una sintaxis similar, pero aprovechando características de la programación.</p>
         <p>Algunos preprocesadores son:</p>
         <ul>
           <li>Sass (más utilizado).</li>
@@ -31,11 +31,11 @@
           <li>No hay forma de automatizar los estilos similares, se tienen que hacer manualmente.</li>
           <li>No se pueden modificar fácilmente las guías de estilos (aunque ya existen variables CSS).</li>
           <li>No se puede modularizar (dividir en partes) el código sin afectar el rendimiento del proyecto.</li>
-          <li>Es propenso a sobrescrituras, problemas de especificidad y cascada en proyectos grandes.</li>
+          <li>Es propenso a sobreescrituras, problemas de especificidad y cascada en proyectos grandes.</li>
         </ul>
         <h3>Ventajas de un preprocesador.</h3>
         <ul>
-          <li>Estructurar los archivos en módulos pero compilarlos a un único archivo CSS resultante.</li>
+          <li>Estructurar los archivos en módulos, pero compilarlos a un único archivo CSS resultante.</li>
           <li>Programar estilos automáticamente.</li>
           <li>Almacenar las guías de estilo del proyecto en variable.</li>
           <li>Hacer que proyectos grandes sean mantenibles entre equipos de trabajo.</li>
@@ -95,8 +95,8 @@
           <li>Abrir la terminal en el editor de código.</li>
           <li>
             <p>Para compilar un archivo.scss a uno .css se escribir el comando <b>node-sass <u>archivo</u>.scss <u>archivo</u>.css</b></p>
-            <p>Para guardar la compilación automaticamente (sin generar el comando cada que se quiera compilar un archivo.scss) se escribe el comando <b>node-sass --watch style.scss style.css</b></p>
-            <p>Para guardar la compilación de un directorio a otro de forma automatica se utiliza el comando <b>node-sass --watch scss --output css</b> (scss = carpeta de entrada; css = carpeta de salida). Ésto hace que un archivo.scss de una carpeta guarde su compilación en un archivo.css (con el mismo nombre del .scss) de otra carpeta.</p>
+            <p>Para guardar la compilación automáticamente (sin generar el comando cada que se quiera compilar un archivo.scss) se escribe el comando <b>node-sass --watch style.scss style.css</b></p>
+            <p>Para guardar la compilación de un directorio a otro de forma automática se utiliza el comando <b>node-sass --watch scss --output css</b> (scss = carpeta de entrada; css = carpeta de salida). Esto hace que un archivo.scss de una carpeta guarde su compilación en un archivo.css (con el mismo nombre del .scss) de otra carpeta.</p>
             <p>Se puede utilizar un shorthand de --watch (-w) y --output (-o) de la siguiente forma: <b>node-sass -w dir_entrada/scss -o dir_salida/css</b></p>
           </li>
         </ol>
@@ -106,10 +106,10 @@
     <section class="stars">
       <div class="container">
         <h2>Estructura del proyecto SASS.</h2>
-        <p>Para crear un proyecto con buenas practicas con SASS, se deben seguir los siguientes pasos:</p>
+        <p>Para crear un proyecto con buenas prácticas con SASS, se deben seguir los siguientes pasos:</p>
         <ul>
           <li>Crear carpetas diferentes para almacenar los archivos de .scss y .css para mantener un orden en los archivos.</li>
-          <li>Separar los archivos.scss en módulos (subdirectorios).</li>
+          <li>Separar los archivos .scss en módulos (subdirectorios).</li>
           <li>Crear un archivo principal .scss que tendrá como función importar todos los módulos para obtener una sola salida, por lo que es preferible que no esté dentro de una subcarpeta.</li>
           <li>En el html linkear solo el archivo.css que se obtendrá como salida de los módulos compilados.</li>
         </ul>
@@ -119,7 +119,7 @@
     <section class="stars">
       <div class="container">
         <h2>@import</h2>
-        <p>Es importante que la salida de los archivos de tipo .scss de un proyecto sea un solo archivo de tipo .css. Para estructurar todos los archivos.scss en el proyecto, se utilizan importaciones.</p>
+        <p>Es importante que la salida de los archivos de tipo .scss de un proyecto sea un solo archivo de tipo .css. Para estructurar todos los archivos .scss en el proyecto, se utilizan importaciones.</p>
         <div class="idEst">
           <aside class="exempliGratia egSCSS">
             <span class="center block"><b>menu.scss</b></span><br/>
@@ -129,7 +129,7 @@
             <hr/>
             <span class="center block"><b>styles.scss</b></span><br/>
             @import "menu.scss";<br/>
-            <i class="coment">// No es necesario colocar la extención .scss pues solo se pueden importar archivos .scss</i>
+            <i class="coment">// No es necesario colocar la extensión .scss pues solo se pueden importar archivos .scss</i>
           </aside>
           <aside class="exempliGratia egCSS">
             <span class="center block"><b>menu.css</b></span><br/>
@@ -143,7 +143,7 @@
               }
           </aside>
         </div>
-        <p>Lo ideal es crear subcarpetas en una carpeta llamada SASS en el proyecto para organizar los archivos dependiendo su contenido como variables o secciones del proyecto. Para evitar que las importaciones entre los archivos.scss creen archivos.css al compilarse, se agrega un <i>guion bajo</i> al comienzo del nombre del archivo.scss (convirtiendolo en un partial) para indicarle al compilador que debe ignorar a ése archivo (no es necesario importar los archivos con el guion bajo), ejemplo:</p>
+        <p>Lo ideal es crear subcarpetas en una carpeta llamada SASS en el proyecto para organizar los archivos dependiendo su contenido como variables o secciones del proyecto. Para evitar que las importaciones entre los archivos .scss creen archivos .css al compilarse, se agrega un <i>guion bajo</i> al comienzo del nombre del archivo .scss (convirtiéndolo en un <b>partial</b>) para indicarle al compilador que debe ignorar a ése archivo (no es necesario importar los archivos con el guion bajo), ejemplo:</p>
         <div class="idEst">
           <aside class="exempliGratia egSCSS">
             <span class="center block"><b>_menu.scss</b></span><br/>

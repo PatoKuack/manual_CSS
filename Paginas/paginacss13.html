@@ -10,7 +10,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../Estilos/stylecss13.css">
-  <link rel="stylesheet" href="../../home/styles/mano_regresar.css">
+  <link rel="stylesheet" href="../Estilos/mano_regresar.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet"> rel="stylesheet">
   <title>Grid</title>
@@ -22,8 +22,8 @@
   <main>
     Permite construir layouts a través de dos ejes inline (horizontal) y block (vertical).<br/>
     No importa la posición e un elemento para construir el layout.<br/>
-    Al igual que <i>flexbox</i>, requiere una relación de padre (grid-container) a hijo (grid-items).
-  </main>
+    Al igual que <i>flexbox</i>, requiere una relación de padre (grid-container) a hijo (grid-ítems).
+  <émain>
   <h2>Terminología y elementos.</h2>
   <section class="entrada">
     <ul>
@@ -43,8 +43,8 @@
           </ul>
         </li>
         <li>
-          <b>grid-items</b>
-        </li>
+          <b>grid-ítems</b>
+ é      </li>
         <ul>
           <li>
             hijos directos del grid.
@@ -53,8 +53,8 @@
             pseudoelementos (::before y ::after).
           </li>
           <li>
-            texto (contenido del elemento item).
-          </li>
+            texto (contenido del elemento ítem).
+    é     </li>
         </ul>
       </ul>
       <li>
@@ -146,7 +146,7 @@
       </figure>
       <em class="nota">
         nota1:</br>
-        La medida en <b>fr</b> distribuye mejor las areas y sus separaciones sin que se desborden y se pueden combinar los valores (#em #fr #em...)<br/>
+        La medida en <b>fr</b> distribuye mejor las áreas y sus separaciones sin que se desborden y se pueden combinar los valores (#em #fr #em...)<br/>
         nota2:<br/>
         Al colocar una medición en porcentaje a las imágenes dentro de un grid, este porcentaje tomará de referencia el espacio asignado a ese track o área, no al tamaño del navegador.
       </em>
@@ -740,7 +740,7 @@
     <article>
       <h3>Grid-areas</h3>
       Cada <i>grid-area</i> es ocupada por un elemento hijo del elemento al que se le aplica el grid.<br/>
-      Se puede definir las áreas e indicarle a los items en que área debe aparecer, permitiendo definir áreas dentro de grid.<br/>
+      Se puede definir las áreas e indicarle a los ítems en qué área debe aparecer, permitiendo definir áreas dentro de grid.<br/>
       Primero se especifican las áreas de los elementos hijos con el comando <b>grid-area:NAME;</b><br/>
       Después se especifican las posiciones de las áreas con el comando <b>grid-template-areas: 'NAME2 NAME2 NAME3' 'NAME2 NAME2 NAME1';</b> cada área declarada (NAME) representa una columna y cada bloque de comillas simples representa una fila.<br/>
       En el ejemplo se colocaron 3 elementos, el NAME2 ocupa las dos primeras columnas de las dos filas, el NAME3 ocupa la última columna de la primera fila y el NAME1 ocupa la última columna de la segunda fila.
@@ -769,7 +769,7 @@
           <a href="#contenedorGA-e" title="Mostrar ejemplo"><b>grid-template-areas: ' ';</b> <br/> <b>grid-area: ;</b></a>
         </figcaption>
       </figure>
-      <p><i>Lo siguiente se coloca en el elemento padre (cada área debe ocupar un rectángulo y no pueden haber dos áreas (rectángualos) hechos con el mismo elemento hijo).</i></p>
+      <p><i>Lo siguiente se coloca en el elemento padre (cada área debe ocupar un rectángulo y no pueden haber dos áreas (rectángulos) hechos con el mismo elemento hijo).</i></p>
       <div class="codigo">
         grid-template-areas:<br/>
           'leaf1 leaf1 sky1 sky1 sky1 sky1 sky1 sky1 leaf2 leaf2'<br/>
@@ -788,8 +788,8 @@
     </article>
     <hr>
     <article>
-      <h3>Alineaciones de items</h3>
-      <figure class="GI">
+      <h3>Alineaciones de ítems</h3>
+é     <figure class="GI">
         <div id="contenedorGIji-e">
           <div class="gridesGIji1">
             start
@@ -853,10 +853,10 @@
           </div>
         </div>
       </figure>
-      <a href="#contenedorGIji-e" title="Mostrar ejemplo"><b>justify-items</b></a> propiedad que alinea los items <u>en el eje X</u> dentro de los tracks correspondientes, se coloca <u>en el contenedor padre</u> grid.<br/>
-      <a href="#contenedorGIjs-e" title="Mostrar ejemplo"><b>justify-self</b></a> propiedad que alinea un item especifico <u>en el eje X</u>, se coloca <u>en el hijo</u> del contenedor grid.<br/>
-      <a href="#contenedorGIai-e" title="Mostrar ejemplo"><b>align-items</b></a> propiedad que alinea los items <u>en el eje Y</u> dentro de los tracks correspondientes, se coloca <u>en el contenedor padre</u> grid.<br/>
-      <a href="#contenedorGIas-e" title="Mostrar ejemplo"><b>align-self</b></a> propiedad que alinea un item especifico <u>en el eje Y</u>, se coloca <u>en el hijo</u> del contenedor grid.<br/>
+      <é href="#contenedorGIji-e" title="Mostrar ejemplo"><b>justify-items</b></é> propiedad que alinea los ítems <u>enéel eje X</u> dentro de los tracks correspondientes, se coloca <u>en el contenedor padre</u> grid.<br/>
+      <a href="#contenedorGIjs-e" title="Mostrar ejemplo"><b>justify-self</b></a> propiedad que alinea un ítem especiéico <u>en el eje X</u>, se coloca <u>en el hijo</u> del contenedor grid.<br/>
+      <é href="#contenedorGIai-e" title="Mostrar ejemplo"><b>align-items</b></é> propiedad que alinea los ítems <u>enéel eje Y</u> dentro de los tracks correspondientes, se coloca <u>en el contenedor padre</u> grid.<br/>
+      <a href="#contenedorGIas-e" title="Mostrar ejemplo"><b>align-self</b></a> propiedad que alinea un ítem especiéico <u>en el eje Y</u>, se coloca <u>en el hijo</u> del contenedor grid.<br/>
       <em>
         nota:<br/>
         Valores de justify y de align: [start | end | center]
@@ -953,7 +953,7 @@
       <a href="#contenedorGAr-e" title="Mostrar ejemplo"><b>grid-auto-rows: #px;</b></a> define las medidas para filas que se creen de forma implícita o automática.<br/>
       En el ejemplo a la nutria se le colocó un grid-row: 3 / 6; (ocupa de la grid line horizontal 3 a la 6), pero solo se definió un grid-template: repeat(2, min-content) / repeat(3, min-content); (2 filas estrechas con 3 columnas estrechas). Para colocar a la nutria en esas filas, el navegador definió 3 filas más, normalmente medirían 0 de largo por lo que no se notarían, pero el grid-auto-rows: 1.3em; les proporciona una medida definida a cada fila y la nutria puede visualizarse con las filas especificadas.<br/>
       <a href="#contenedorGAc-e" title="Mostrar ejemplo"><b>grid-auto-columns: #px;</b></a> define las medidas para columnas que se creen de forma implícita o automática.<br/>
-      En el ejemplo a la nutria se le colocó un grid-column: 3 / 6; (ocupa de la grid line vertical 3 a la 6), pero solo se definio un grid-template: repeat(3, min-content) / repeat(2, min-content); (3 filas estrechas con 2 columnas estrechas). Para colocar a la nutria en esas columnas, el navegador definio 3 columnas más, normalmente medirían 0 de ancho por lo que no se notarían, pero el grid-auto-columns: 1.1em; les proporciona una medida definida a cada columna y la nutria puede visualizarse con las columnas especificadas.
+      En el ejemplo a la nutria se le colocó un grid-column: 3 / 6; (ocupa de la grid line vertical 3 a la 6), pero solo se definio un grid-template: repeat(3, min-content) / repeat(2, min-content); (3 filas estrechas con 2 columnas estrechas). Para colocar a la nutria en esas columnas, el navegador definió 3 columnas más, normalmente medirían 0 de ancho por lo que no se notarían, pero el grid-auto-columns: 1.1em; les proporciona una medida definida a cada columna y la nutria puede visualizarse con las columnas especificadas.
       <hr>
       <h4>Flujo</h4>
       <b>grid-auto-flow: [row | column] [dense];</b> con el primer valor se indica el flujo de los tracks, con el segundo valor se indica si los espacios vacíos entre los tracks se pueden ocupar por tracks aunque se altere su secuencia u orden del HTML.
@@ -1133,7 +1133,7 @@
     </article>
   </section>
   <div class="regreso">
-    <a class="mano" href="../Paginas/indexcss.html" title="regresar al menú">&#9754;</a>
+    <a class="mano" href="../index.html" title="regresar al menú">&#9754;</a>
   </div>
   <footer>
     <a target="_blank" href="https://cssgridgarden.com/#es" title="juego de Grid">Juego de Grid: https://cssgridgarden.com/#es</a><br/>
