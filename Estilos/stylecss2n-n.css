@@ -1,8 +1,52 @@
 :root{
-  --pseudo-color1: rgb(105, 0, 243);
-  --pseudo-color2: rgb(195, 149, 255);
-  --pseudo-color3: rgba(195, 149, 255, 0.486);
+  --pseudo-color1 : rgb(105, 0, 243);
+  --pseudo-color2 : rgb(195, 149, 255);
+  --pseudo-color3 : rgba(195, 149, 255, 0.486);
+  
+  --button        : rgb(238, 119, 40);
+  --button-hover  : rgb(228, 110, 31);
+  --button-active : rgb(212, 103, 30);
+
+  --textwhite     : rgb(230, 238, 245);
 }
+
+
+
+.pointerEvents{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 7rem;
+}
+.guantes{
+  position: absolute;
+  width: 7rem;
+  padding-top: 1rem;
+  opacity: 50%;
+  pointer-events: none;
+}
+.buttonZIndex{
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: .9rem;
+  background-color: var(--button);
+}
+.buttonZIndex:hover{
+  height: 6rem;
+  width: 6rem;
+  font-size: 1.2rem;
+  background-color: var(--button-hover);
+}
+.buttonZIndex:active{
+  height: 6rem;
+  width: 6rem;
+  font-size: 1.2rem;
+  background-color: var(--button-active);
+}
+
+
 
 .pseudoE-h1::after, .pseudoE-h1::before{
   content: '';
@@ -28,4 +72,254 @@
 }
 .pseudoE-s ::selection{
   background-color: var(--pseudo-color3);
+}
+
+
+
+.listStyle :nth-child(2)>*>*{
+  list-style-type: none;
+}
+.listStyle :nth-child(4)>*>*{
+  list-style-type: disc;
+}
+.listStyle :nth-child(6)>*>*{
+  list-style-type: circle;
+}
+.listStyle :nth-child(8)>*>*{
+  list-style-type: square;
+}
+.listStyle :nth-child(10)>*>*{
+  list-style-type: decimal-leading-zero;
+}
+.listStyle :nth-child(12)>*>*:nth-child(1){
+  list-style-type: upper-roman;
+}
+.listStyle :nth-child(12)>*>*:nth-child(2){
+  list-style-type: lower-roman;
+}
+.listStyle :nth-child(12)>*>*:nth-child(3){
+  list-style-type: lower-greek;
+}
+
+.ls-image{
+  list-style-image: url(../Imgs/isotipoPlatzi.png);
+}
+[class^="ls-position-"]{
+  background-color: var(--pseudo-color2);
+}
+.ls-position-out{
+  list-style-position: outside;
+}
+.ls-position-in{
+  list-style-position: inside;
+}
+.ls-type{
+  list-style-type: symbols(cyclic "\1F986" "\1F30A");
+}
+.li-marker::marker{
+  content:"\1F366"
+}
+.counter{
+  counter-reset: nombresito 10;
+}
+.counter-item{
+  counter-increment: nombresito 2;
+  list-style-type: none;
+}
+.counter-item::before{
+  content: counter(nombresito, upper-roman) ') ';
+}
+
+
+
+.miniIdEst{
+  width: 12rem;
+  margin: .5rem 0;
+}
+.miniIdEst>*{
+  margin: 0;
+}
+.ws-noWrap{
+  white-space: nowrap;
+}
+.ws-pre{
+  white-space: pre;
+}
+.ws-preWrap{
+  white-space: pre-wrap;
+}
+.ws-preLine{
+  white-space: pre-line;
+}
+.wb-breakAll{
+  word-break: break-all;
+}
+.wb-breakWord{
+  word-break: break-word;
+}
+.wb-keepAll{
+  word-break: keep-all;
+}
+.ow-anywhere{
+  overflow-wrap: anywhere;
+}
+.ow-breakWord{
+  overflow-wrap: break-word;
+}
+.h-manual{
+  hyphens: manual;
+}
+.h-auto{
+  hyphens: auto;
+}
+
+
+
+.to-c{
+  overflow: hidden;
+  text-overflow: clip;
+}
+.to-e{
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.wlc{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+.o-visible{
+  overflow: visible;
+}
+.o-hidden{
+  overflow: hidden;
+}
+.o-scroll{
+  overflow: scroll;
+}
+
+
+
+.ejemploFormulario{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: .5rem auto;
+}
+
+input[type="checkbox"] {
+  -moz-appearance: none;
+}
+input[type="checkbox"]::before {
+  content: ' ';
+  display: block;
+  width: .8rem;
+  height: .8rem;
+  border: 1px solid var(--pseudo-color1);
+  border-radius: 25%;
+}
+input[type="checkbox"]:checked + label {
+  background-color: var(--pseudo-color3);
+}
+input[type="checkbox"]:checked {
+  background-color: var(--pseudo-color2);
+}
+
+.textarea{
+  resize: vertical;
+}
+
+.focus:focus{
+  background-color: var(--pseudo-color2);
+}
+.focus-within:focus-within{
+  background-color: var(--pseudo-color1);
+  color: var(--textwhite);
+}
+.ph-shown:placeholder-shown{
+  background-color: var(--pseudo-color1);
+  color: var(--textwhite);
+  font-weight: bold;
+}
+
+
+
+[src$="shopi.jpg"]{
+  display: none;
+  margin: .5rem auto;
+}
+
+
+
+.androides-blending{
+  position: fixed;
+  top: 25%;
+  left: 175px;
+  width: 150px;
+  height: 300px;
+  background-image: url(../Imgs/no18.png), url(../Imgs/no17.png);
+  background-position: 35px 0, 0 0;
+  background-repeat: no-repeat;
+}
+.androides-blending:active{
+  display: none;
+}
+.button{
+  border: 2px solid var(--pseudo-color1);
+  background-color: var(--pseudo-color3);
+  display: inline-block;
+  padding: .3rem;
+  box-shadow: 3px 3px 7px var(--textwhite) inset;
+}
+.button:active{
+  box-shadow: -3px -3px 7px var(--pseudo-color2) inset;
+}
+
+
+
+.cp{
+  border: 1px solid var(--pseudo-color1);
+  width: fit-content;
+  height: fit-content;
+}
+.cp-inset{
+  clip-path: inset(20px 80px 30px 45px round 10px);
+}
+.cp-circle{
+  clip-path: circle(40px at 35% 50%);
+}
+.cp-ellipse{
+  clip-path: ellipse(30px 40px at 35% 50%);
+}
+.cp-polygon{
+  clip-path: polygon(15% 40%, 35% 0, 55% 40%, 35% 100%);
+}
+.cp-path{
+  clip-path: path('M15.987 26.329C12.5968 26.1217 9.35049 24.0481 7.77225 21.0177C6.30761 18.2055 6.33065 14.6727 7.82761 11.882C9.50339 8.75815 12.8276 6.85318 16.507 6.68934C16.507 6.68934 17.4213 6.63078 18.0314 6.28422C19.842 5.25542 20.1125 2.21862 18.1665 0.978617C17.6427 0.644857 17.0174 0.490285 16.3941 0.492205C10.2471 0.551085 4.30313 4.39238 1.80456 10.0913C-0.295279 14.8813 0.141521 20.6904 2.99432 25.1322C5.26473 28.667 8.96745 31.2519 13.075 32.1457C18.6961 33.369 24.9223 31.29 28.6798 26.9063C32.4052 22.5594 33.5435 16.1338 31.4571 10.7396C30.2609 7.6471 28.1415 4.82694 25.3057 3.1303C25.1576 3.04166 25.0023 2.9687 24.8423 2.91046C27.6952 5.35366 29.5038 8.97895 29.5038 13.0225C29.5038 20.3723 23.529 26.339 16.1694 26.339C16.1093 26.339 16.1031 26.3361 15.987 26.329Z');
+}
+.float{
+  float: left;
+}
+.objectfit{
+  width: 18%;
+  height: 150px;
+}
+.fill{
+  object-fit: fill;
+}
+.contain{
+  object-fit: contain;
+}
+.cover{
+  object-fit: cover;
+}
+.none{
+  object-fit: none;
+}
+.scale-down{
+  object-fit: scale-down;
+}
+.text-through{
+  text-decoration: line-through;
 }

@@ -11,6 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../Estilos/normalization.css">
   <link rel="stylesheet" href="../Estilos/stylecss21.css">
+  <link rel="stylesheet" href="../Estilos/stylecss2n-n.css">
   <title>Blendings</title>
 </head>
 <body class="body">
@@ -36,45 +37,53 @@
         </ul>
         <h3>Propiedades.</h3>
         <ul>
-          <li><b>mix-blend-mode</b> se usa solo para elementos.</li>
+          <li><b>backgound-blend-mode</b> se utiliza en un elemento con dos o más fondos y provoca que los fondos fusionen sus pixeles de diferentes maneras.</li>
         </ul>
+        <div class="androides-blending" id="androides"></div>
         <dl>
-          <dt>backgound-blend-mode: multiply;</dt>
+          <!-- <form action="#">
+            <div class="ejemploFormulario">
+              <label>0%</label>
+              <input id="rangograyscale" type="range" min="0" max="10" step="1" value="5">
+              <label>10%</label>
+            </div>
+          </form> -->
+          <dt class="button" id="bbm-multiply">backgound-blend-mode: multiply;</dt>
           <dd>Mezcla el color entre imágenes o colores que ocupan el mismo espacio píxel por píxel, colocándole al resultado entregado una tonalidad un poco más <u>oscura</u>.</dd>
           <dd>Una imagen combinada con un fondo blanco no entrega cambios, en cambio una imagen combinada con un fondo negro entrega una imagen en negro total.</dd>
-          <dt>backgound-blend-mode: screen;</dt>
+          <dt class="button" id="bbm-screen">backgound-blend-mode: screen;</dt>
           <dd>Mezcla el color entre imágenes o colores que ocupan el mismo espacio píxel por píxel, colocándole al resultado entregado una tonalidad un poco más <u>clara</u>.</dd>
           <dd>Una imagen combinada con un fondo negro no entrega cambios, en cambio una imagen combinada con un fondo blanco entrega una imagen en blanco total.</dd>
-          <dt>backgound-blend-mode: Overlay;</dt>
+          <dt class="button" id="bbm-overlay">backgound-blend-mode: overlay;</dt>
           <dd>Detecta las áreas claras y oscuras para respetar la luminosidad y oscuridad de la imagen o color base a la hora de combinarlas con otro elemento.</dd>
-          <dt>backgound-blend-mode: hard-light;</dt>
+          <dt class="button" id="bbm-hardlight">backgound-blend-mode: hard-light;</dt>
           <dd>Detecta las áreas claras y oscuras de la imagen o color base para agregar más luminosidad a las claras y más oscuridad a las oscuras a la hora de combinarlas con otro elemento.</dd>
-          <dt>backgound-blend-mode: soft-light;</dt>
+          <dt class="button" id="bbm-softlight">backgound-blend-mode: soft-light;</dt>
           <dd>Detecta las áreas claras y oscuras para difuminar un poco la combinación de colores respetando un poco la luminosidad y oscuridad de la imagen o color base a la hora de combinarlas con otro elemento.</dd>
-          <dt>backgound-blend-mode: color-dodge;</dt>
+          <dt class="button" id="bbm-colordodge">backgound-blend-mode: color-dodge;</dt>
           <dd>Entre menos contraste haya entre los colores o imágenes (capas), más brillo les añade.</dd>
-          <dt>backgound-blend-mode: color-burn;</dt>
+          <dt class="button" id="bbm-colorburn">backgound-blend-mode: color-burn;</dt>
           <dd>Entre mayor contraste haya entre las capas mayor oscuridad añadirá.</dd>
-          <dt>backgound-blend-mode: darken;</dt>
+          <dt class="button" id="bbm-darken">backgound-blend-mode: darken;</dt>
           <dd>Compara lo colores que hay en las capas y remplaza los colores claros por colores más oscuros.</dd>
-          <dt>backgound-blend-mode: lighten;</dt>
+          <dt class="button" id="bbm-lighten">backgound-blend-mode: lighten;</dt>
           <dd>Compara lo colores que hay en las capas y remplaza los colores oscuros por colores más claros.</dd>
         </dl>
         <ul>
-          <li><b>backgound-blend-mode</b> interactúa con las diferentes capas que se tienen en el fondo.</li>
+          <li><b>mix-blend-mode</b> interactúa con las diferentes capas que se tienen en el fondo.</li>
         </ul>
         <dl>
-          <dt>mix-blend-mode: difference;</dt>
+          <dt class="button" id="mbm-difference">mix-blend-mode: difference;</dt>
           <dd>Compara los colores de cada una de las capas y hace una resta pixel por pixel entre los dos rojos, los dos verdes y los dos azules dando como resultado un nuevo color entre las capas.</dd>
-          <dt>mix-blend-mode: exclusion;</dt>
+          <dt class="button" id="mbm-exclusion">mix-blend-mode: exclusion;</dt>
           <dd>Funciona igual que difference, pero con menos contraste.</dd>
-          <dt>mix-blend-mode: hue;</dt>
+          <dt class="button" id="mbm-hue">mix-blend-mode: hue;</dt>
           <dd>Remplaza la <u>tonalidad</u> a los colores de la primera capa (la inferior) dependiendo de los colores de la segunda capa (superior) manteniendo la luminosidad, los colores blancos y los negros igual.</dd>
-          <dt>mix-blend-mode: color;</dt>
+          <dt class="button" id="mbm-color">mix-blend-mode: color;</dt>
           <dd>Remplaza la <u>tonalidad</u> y la <u>saturación</u> a los colores de la primera capa (la inferior) dependiendo de los colores de la segunda capa (superior) manteniendo la luminosidad, los colores blancos y los negros igual.</dd>
-          <dt>mix-blend-mode: saturation;</dt>
+          <dt class="button" id="mbm-saturation">mix-blend-mode: saturation;</dt>
           <dd>Remplaza la <u>saturación</u> a los colores de la primera capa (la inferior) dependiendo de los colores de la segunda capa (superior) manteniendo la luminosidad, los colores blancos y los negros igual.</dd>
-          <dt>mix-blend-mode: luminosity;</dt>
+          <dt class="button" id="mbm-luminosity">mix-blend-mode: luminosity;</dt>
           <dd>Remplaza la <u>luminosidad</u> a los colores de la primera capa (la inferior) dependiendo de los colores de la segunda capa (superior) conservando la tonalidad y saturación de los elementos.</dd>
         </dl>
         <dl>
@@ -84,5 +93,6 @@
       </div>
     </section>
   </main>
+  <script src="../JavaScript/codigojs19.js"></script>
 </body>
 </html>

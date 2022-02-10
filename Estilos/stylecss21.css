@@ -1,13 +1,16 @@
 :root{
-  --fondobody:  darkslateblue;
-  --bordediv:   dodgerblue;
+  --color     : rgb(14, 13, 13);
+  --fondobody : rgb(72, 61, 139);
+  --bordediv  : rgb(30, 144, 255);
   --fondoaside: rgba(246, 255, 161, 0.349);
-  --fondodiv:   rgb(141, 198, 255);
-  --sombra:     rgba(195, 149, 255, 0.486);
+  --fondodiv  : rgb(179, 217, 255);
+  --sombra    : rgba(195, 149, 255, 0.486);
 }
 
 .body{
   background-color: var(--fondobody);
+  color           : var(--color);
+  position        : relative;
 }
 
 .container{

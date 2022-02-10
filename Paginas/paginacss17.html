@@ -11,6 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../Estilos/normalization.css">
   <link rel="stylesheet" href="../Estilos/stylecss21.css">
+  <link rel="stylesheet" href="../Estilos/stylecss2n-n.css">
   <title>Espacio en blanco</title>
 </head>
 <body class="body">
@@ -30,32 +31,122 @@
         <p>Es una propiedad que controla los espacios en blanco de los textos. Tiene 5 valores:</p>
         <ul>
           <li><b>normal</b> coloca el contenido como si fuera texto plano, sin tomar en cuenta los espacios en blanco.</li>
+          <div class="idEst miniIdEst">
+            <p>
+              "El_mundo_y_yo_te_queremos_de_veras, pero yo siempre un poquito más que el mundo."<br/>
+              Mario Benedetti.
+            </p>
+          </div>
           <li><b>nowrap</b> no respeta los espacios en blanco, ocasionando que se coloque todo el contenido en una sola línea y por consecuencia que se desborde del contenedor.</li>
+          <div class="idEst miniIdEst">
+            <p class="ws-noWrap">
+              "El_mundo_y_yo_te_queremos_de_veras, pero yo siempre un poquito más que el mundo."<br/>
+              Mario Benedetti.
+            </p>
+          </div>
           <li><b>pre</b> respeta el espacio en blanco y no lo reordena, genera desbordamientos con líneas de texto largas.</li>
+          <div class="idEst miniIdEst">
+            <p class="ws-pre">
+              "El_mundo_y_yo_te_queremos_de_veras, pero yo siempre un poquito más que el mundo."<br/>
+              Mario Benedetti.
+            </p>
+          </div>
           <li><b>pre-wrap</b> funciona igual que "pre" con la única diferencia de que este valor ordena el contenido para que el contenido no desborde su contenedor.</li>
+          <div class="idEst miniIdEst">
+            <p class="ws-preWrap">
+              "El_mundo_y_yo_te_queremos_de_veras, pero yo siempre un poquito más que el mundo."<br/>
+              Mario Benedetti.
+            </p>
+          </div>
           <li><b>pre-line</b> ignora los espacios en blanco, pero respeta los saltos de línea y ordena el contenido evitando que se desborde.</li>
+          <div class="idEst miniIdEst">
+            <p class="ws-preLine">
+              "El_mundo_y_yo_te_queremos_de_veras, pero yo siempre un poquito más que el mundo."<br/>
+              Mario Benedetti.
+            </p>
+          </div>
         </ul>
         <h2>word-break</h2>
         <p>Esta propiedad manipula la continuidad del texto al encontrarse con el final de los renglones. Tiene 4 valores:</p>
         <ul>
           <li><b>normal</b> es el valor por default, sigue el flujo del texto.</li>
+          <div class="idEst miniIdEst">
+            <p>
+              "El_mundo_y_yo_te_queremos_de_veras, pero yo siempre un poquito más que el mundo."<br/>
+              Mario Benedetti.
+            </p>
+          </div>
           <li><b>break-all</b> no respeta la continuidad de las palabras, si se termina el renglón, corta la palabra y la continua en el siguiente renglón.</li>
+          <div class="idEst miniIdEst">
+            <p class="wb-breakAll">
+              "El_mundo_y_yo_te_queremos_de_veras, pero yo siempre un poquito más que el mundo."<br/>
+              Mario Benedetti.
+            </p>
+          </div>
           <li><b>break-word</b> (no es recomendable usarlo) cuando se termina el renglón busca un punto de corte perfecto para que se rompan las palabras y las continue en otro renglón.</li>
+          <div class="idEst miniIdEst">
+            <p class="wb-breakWord">
+              "El_mundo_y_yo_te_queremos_de_veras, pero yo siempre un poquito más que el mundo."<br/>
+              Mario Benedetti.
+            </p>
+          </div>
           <li><b>keep-all</b> está reservado para idiomas orientales ya que evita que se rompa la cadena de texto.</li>
+          <div class="idEst miniIdEst">
+            <p class="wb-keepAll">
+              "El_mundo_y_yo_te_queremos_de_veras, pero yo siempre un poquito más que el mundo."<br/>
+              Mario Benedetti.
+            </p>
+          </div>
         </ul>
         <h2>overflow-wrap</h2>
         <p>Está destinado para palabras grandes como los enlaces URL. Tiene 3 valores:</p>
         <ul>
           <li><b>normal</b> si hay una palabra grande en un bloque de texto pequeño o regular, se desbordará la palabra de su contenedor.</li>
+          <div class="idEst miniIdEst">
+            <p>
+              "El_mundo_y_yo_te_queremos_de_veras, pero yo siempre un poquito más que el mundo."<br/>
+              Mario Benedetti.
+            </p>
+          </div>
           <li><b>anywhere</b> corta la palabra que topa con el final de un renglón y la continua en el siguiente renglón, se usa en enlaces grandes en contenedores pequeños.</li>
+          <div class="idEst miniIdEst">
+            <p class="ow-anywhere">
+              "El_mundo_y_yo_te_queremos_de_veras, pero yo siempre un poquito más que el mundo."<br/>
+              Mario Benedetti.
+            </p>
+          </div>
           <li><b>break-word</b> corta la palabra que topa con el final de un renglón buscando un punto de intersección en donde sea más recomendable cortar la palabra como una puntuación, un signo o una sílaba  y continua la palabra en el siguiente renglón.</li>
+          <div class="idEst miniIdEst">
+            <p class="ow-breakWord">
+              "El_mundo_y_yo_te_queremos_de_veras, pero yo siempre un poquito más que el mundo."<br/>
+              Mario Benedetti.
+            </p>
+          </div>
         </ul>
         <h2>hyphens.</h2>
         <p>Corta textos que topen con el límite de un renglón, coloca un guion y continua las palabras en el siguiente renglón. Tiene 3 valores:</p>
         <ul>
           <li><b>none</b> es el valor por defecto y no coloca un guion cuando corta el texto.</li>
+          <div class="idEst miniIdEst">
+            <p>
+              "El_mundo_y_yo_te_queremos_de_veras, pero yo siempre un poquito más que el mundo."<br/>
+              Mario Benedetti.
+            </p>
+          </div>
           <li><b>manual</b> realiza un corte solamente cuando encuentra un guion en el texto.</li>
+          <div class="idEst miniIdEst">
+            <p class="h-manual">
+              "El_mundo_y_yo_te_queremos_de_veras, pero yo siempre un poquito más que el mundo."<br/>
+              Mario Benedetti.
+            </p>
+          </div>
           <li><b>auto</b> realiza los cortes donde el navegador cree necesario.</li>
+          <div class="idEst miniIdEst">
+            <p class="h-auto">
+              "El_mundo_y_yo_te_queremos_de_veras, pero yo siempre un poquito más que el mundo."<br/>
+              Mario Benedetti.
+            </p>
+          </div>
         </ul>
       </div>
     </section>

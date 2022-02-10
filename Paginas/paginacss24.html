@@ -11,6 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../Estilos/normalization.css">
   <link rel="stylesheet" href="../Estilos/stylecss21.css">
+  <link rel="stylesheet" href="../Estilos/stylecss2n-n.css">
   <title>Listas y contadores</title>
 </head>
 <body class="body">
@@ -27,29 +28,40 @@
     <section class="container">
       <div>
         <p>Con la propiedad <b>list-style-type: ___;</b> se pueden modificar estos estilos (tiene un shorthand: list-style: _;), a continuación, se muestran los valores de esta propiedad:</p>
-        <dl>
+        <ol class="listStyle">
           <dt>none</dt>
-          <dd>Elimina los estilos de las listas.</dd>
+          <dd><ol><li>Elimina los estilos de las listas.</li></ol></dd>
           <dt>disc</dt>
-          <dd>Coloca una viñeta en forma de disco.</dd>
+          <dd><ol><li>Coloca una viñeta en forma de disco.</li></ol></dd>
           <dt>circle</dt>
-          <dd>Coloca una viñeta en forma de círculo.</dd>
+          <dd><ol><li>Coloca una viñeta en forma de círculo.</li></ol></dd>
           <dt>square</dt>
-          <dd>Coloca una viñeta en forma de cuadrado.</dd>
+          <dd><ol><li>Coloca una viñeta en forma de cuadrado.</li></ol></dd>
           <dt>decimal-leading-zero</dt>
-          <dd>Coloca números decimales empezando eventualmente por ceros (por ejemplo: 01, 02, ..., 98, 99).</dd>
+          <dd><ol><li>Coloca números decimales empezando eventualmente por ceros (por ejemplo: 01, 02, ..., 98, 99).</li></ol></dd>
           <dt>upper-roman</dt>
-          <dd>Coloca números romanos en mayúscula (I, II, III, IV etc.).</dd>
-          <dd>Existe su versión con "lower-roman" o con varios alfabetos como griego o latín.</dd>
+          <dd><ol>
+            <li>Coloca números romanos en mayúscula (I, II, III, IV etc.).</li>
+            <li>Existe su versión con "lower-roman" (i, ii, iii, iv, etc.).</li>
+            <li>O con varios alfabetos como griego o latín.</li>
+          </ol></dd>
         </dl>
         <p>Las listas también pueden adquirir imágenes en vez de viñetas o números con la propiedad <b>list-style-image: <u>url</u>;</b>, solo que las imágenes no se pueden redimensionar, por lo que deben tener el tamaño adecuado, aunque la mejor manera de colocar imágenes en los estilos de las listas es colocando pseudo-elementos vacíos como se vio anteriormente.</p>
+        <ol><li class="ls-image">Ejemplo.</li></ol>
         <p>Otra propiedad muy útil es <b>list-style-position:</b> [ inside | outside ]<b>;</b> el cual indica si las viñetas o números de los ítems se colocan adentro de su entorno o afuera de su entorno, por default están afuera del entorno de los ítems por lo que si se le da un estilo de fondo al ítem, la viñeta o número no recibirán ese estilo.</p>
+        <ol><li class="ls-position-out">Ejemplo outside.</li></ol>
+        <ol><li class="ls-position-in">Ejemplo inside.</li></ol>
         <p>Existen dos formas de modificar la viñeta de las listas, la única desventaja con estas dos opciones es que no todos los navegadores les dan soporte todavía (actualmente del año 2021):</p>
         <dl>
           <dt>list-style-type: symbols(...);</dt> 
           <dd>Esta propiedad tiene varias funciones para ordenar o modificar las viñetas (pueden colocarse emojis). Solo es soportado por 1 navegador actualmente.</dd>
+          <ol>
+            <li class="ls-type">Ejemplo.</li>
+            <li class="ls-type">Ejemplo.</li>
+          </ol>
           <dt>li::marker{content: "-";}</dt>
           <dd>Este pseudo-elemento cambia las viñetas de las list items colocando en su lugar lo que se coloca en la propiedad content (pueden colocarse emojis). Es soportado por varios navegadores actualmente.</dd>
+          <ol><li class="li-marker">Ejemplo.</li></ol>
         </dl>
       </div>
     </section>
@@ -58,26 +70,38 @@
       <div>
         <h2>Contadores.</h2>
         <p>Los contadores se utilizan en las listas ordenar listas ordenadas y no ordenadas y tienen varias propiedades:</p>
-        <dl>
-          <dt>counter-reset: <u>name's-counter</u> <u>#</u>;</dt>
+        <dl class="counter">
+          <dt class="counter-item">counter-reset: <u>name's-counter</u> <u>#</u>;</dt>
           <dd>
             <p>Esta propiedad se coloca en el bloque de padre de los elementos a los que se les aplicará el contador y sirve para reiniciar y crear contadores.</p>
             <p>Se declara colocando como primer valor el nombre que se le dará al contador y como segundo valor (opcional) se especifica después de qué número debe empezar el conteo de los elementos hijo.</p>
             <p>Es recomendable que se eliminen las viñetas o números de las listas para que tengan buena presentación (list-style-type: none;).</p>
           </dd>
-          <dt>counter-increment: <u>name's-counter</u> <u>#</u>;</dt>
+          <dt class="counter-item">counter-increment: <u>name's-counter</u> <u>#</u>;</dt>
           <dd>
             <p>Esta propiedad se coloca en el bloque de los elementos hijo.</p>
             <p>Indica el conteo de incremento de la numeración de los elementos hijo, es decir, indica si los elementos se contarán de 2 en 2 o de 10 en 10.</p>
             <p>Se declara colocando como primer valor el nombre que se le ha dado al contador y como segundo valor (opcional) la unidad de incremento.</p>
           </dd>
-          <dt>content: counter(<u>name's-counter</u>, <u>upper-roman</u>) '<u>.- </u>';</dt>
+          <dt class="counter-item">content: counter(<u>name's-counter</u>, <u>upper-roman</u>) '<u>.- </u>';</dt>
           <dd>
-            <p>La función <b>counter</b> se coloca en el bloque de los elementos hijo con el pseudo-elemento ::before y como valor de la propiedad content.</p>
-            <p>Indica el tipo de viñeta o numeración de los ítems y gracias al pseudo-elemento puede añadir contenido para separar el ítem del pseudo-elemento o para agregarle más contenido a las numeraciones.</p>
+            <p>La función <b>counter</b> se coloca en el bloque de los elementos hijo utilizando el pseudo-elemento ::before.</p>
+            <p>Indica el tipo de viñeta o numeración de los ítems y gracias al pseudo-elemento, se puede añadir contenido para separar el ítem del pseudo-elemento o para agregarle más contenido a las numeraciones.</p>
             <p>Se declara colocando como primer parámetro el nombre que se le ha dado al contador y como segundo parámetro el tipo de numeración (alguno de los valores de list-style-type).</p>
           </dd>
         </dl>
+        <aside class="idEst">
+          .counter{<br/>
+          &emsp;counter-reset: nombresito 10;<br/>
+          }<br/>
+          .counter-item{<br/>
+          &emsp;counter-increment: nombresito 2;<br/>
+          &emsp;list-style-type: none;<br/>
+          }<br/>
+          .counter-item::before{<br/>
+          &emsp;content: counter(nombresito, upper-roman) ') ';<br/>
+          }
+        </aside>
         <h3>Contadores anidados.</h3>
         <p>Los contadores anidados ayudan a darles un estilo diferente a los sub-ítems de las listas anidadas.</p>
         <aside class="idEst">
@@ -99,6 +123,8 @@
           }<br/>
           <i class="coment">// "chapter" representa el contador el padre y "sub-chapter" representa el contador del elemento actual.</i>
         </aside>
+        <p>Nota:<br/>
+        Este tipo de contadores anidados se utilizó en la creación del menú del manual.</p>
       </div>
     </section>
   </main>

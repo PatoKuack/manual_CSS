@@ -11,6 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../Estilos/normalization.css">
   <link rel="stylesheet" href="../Estilos/stylecss21.css">
+  <link rel="stylesheet" href="../Estilos/stylecss2n-n.css">
   <title>Filtros</title>
 </head>
 <body class="body">
@@ -30,19 +31,43 @@
         <dl>
           <dt>filter: grayscale();</dt>
           <dd>Aplica un degradado de grises sacando el promedio de tonalidad a cada pixel (ejemplo: rgb(200, 100, 60) = rgb(120, 120, 120)), <i>se le puede colocar como parámetro un valor de 0 a 1, hace caso omiso a valores menores a 0 y mayores a 1. También se le puede colocar valores del 0% al 100%, si se omite el valor en el parámetro, automáticamente se aplicará un 100%.</i></dd>
+          <img src="../Imgs/shopi.jpg" alt="Foto personal aplicando escala de grises." title="Aplicando grayscale()" id="grayscale">
+          <form action="#">
+            <div class="ejemploFormulario">
+              <label>0%</label>
+              <input id="rangograyscale" type="range" min="0" max="10" step="1" value="5">
+              <label>10%</label>
+            </div>
+          </form>
           <dt>filter: sepia();</dt>
           <dd>Aplica una conversión de colores a escalas de tipo marrón, <i>se le puede colocar como parámetro un valor de 0 a 1, hace caso omiso a valores menores a 0 y mayores a 1. También se le puede colocar valores del 0% al 100%, si se omite el valor en el parámetro, automáticamente se aplicará un 100%.</i></dd>
           <dd>En javascript se puede editar este filtro para modificar la conversión a la escala marrón.</dd>
+          <img src="../Imgs/shopi.jpg" alt="Foto personal aplicando escala de marrones." title="Aplicando sepia()" id="sepia">
+          <form action="#">
+            <div class="ejemploFormulario">
+              <label>0%</label>
+              <input id="rangosepia" type="range" min="0" max="10" step="1" value="5">
+              <label>10%</label>
+            </div>
+          </form>
           <dt>filter: invert();</dt>
           <dd>Aplica una inversión de colores colocándole a cada pixel su contraparte de color restando a sus tonalidades de rgb 255 (ejemplo: rgb(255-50, 255-80, 255-200)), <i>se le puede colocar como parámetro un valor de 0 a 1, hace caso omiso a valores menores a 0 y mayores a 1. También se le puede colocar valores del 0% al 100%, si se omite el valor en el parámetro, automáticamente se aplicará un 100%.</i></dd>
           <dd>Cuando se le coloca un .5 o 50% en el parámetro, la imagen se ve completamente gris ya que todos los colores se colocan en una tonalidad neutra que resulta ser gris.</dd>
+          <img src="../Imgs/shopi.jpg" alt="Foto personal aplicando inversión de colores." title="Aplicando invert()" id="invert">
+          <form action="#">
+            <div class="ejemploFormulario">
+              <label>0%</label>
+              <input id="rangoinvert" type="range" min="0" max="10" step="1" value="5">
+              <label>10%</label>
+            </div>
+          </form>
           <dt>filter: hue-rotate();</dt>
           <dd>Funciona con la rueda de colores posicionando cada pixel en el grado de su tonalidad rotando su tono de acuerdo a los grados del parámetro, <i>se le puede colocar como parámetro valores en radianes, numero de vueltas (1turn) o grados de 0deg a 360deg, si se coloca un número mayor vuelve a contar desde 0, por ejemplo, un valor de 361deg lo tomaría como 1deg. También acepta números negativos los cuales resta de 360, por ejemplo, un valor de -100deg lo tomaría como 260deg.</i></dd>
           <aside class="idEst">
             <i class="coment">// Para una animación de colores:</i><br/><br/>
             .imagen {<br/>
             &emsp;filter: hue-rotate(0);<br/>
-            &emsp;animation: hue 3s linear infinite<br/>;
+            &emsp;animation: hue 3s linear infinite alternate;<br/>
             }<br/><br/>
             @keyframes hue {<br/>
             &emsp;to {<br/>
@@ -50,24 +75,44 @@
             &emsp;}<br/>
             }
           </aside>
+          <img src="../Imgs/shopi.jpg" alt="Foto personal aplicando rotación de colores." title="Aplicando hue-rotate()" id="huerotate">
+          <form action="#">
+            <div class="ejemploFormulario">
+              <label>0°</label>
+              <input id="rangohuerotate" type="range" min="0" max="36" step="1" value="18">
+              <label>360°</label>
+            </div>
+          </form>
           <dt>filter: brightness();</dt>
           <dd>Maneja la luminosidad de los colores, <i>el valor por default es 100% o 1, se le puede colocar como parámetro un valor mayor o igual a 0, hace caso omiso a valores menores a 0. También se le puede colocar valores mayores o igual a 0%, si se omite el valor en el parámetro, automáticamente se aplicará un 100%.</i></dd>
-          <aside class="idEst">
-            <i class="coment">// Para una animación de colores:</i><br/><br/>
-            .imagen {<br/>
-            &emsp;filter: hue-rotate(0);<br/>
-            &emsp;animation: hue 3s linear infinite alternate<br/>;
-            }<br/><br/>
-            @keyframes hue {<br/>
-            &emsp;to {<br/>
-            &emsp; &emsp;filter: hue-rotate(1turn);<br/>
-            &emsp;}<br/>
-            }
-          </aside>
+          <img src="../Imgs/shopi.jpg" alt="Foto personal aplicando luminosidad." title="Aplicando brightness()" id="brightness">
+          <form action="#">
+            <div class="ejemploFormulario">
+              <label>0%</label>
+              <input id="rangobrightness" type="range" min="0" max="20" step="1" value="10">
+              <label>20%</label>
+            </div>
+          </form>
           <dt>filter: contrast();</dt>
           <dd>Hace más marcada las delimitantes entre las áreas de las luces y sombras, <i>el valor por default es 100% o 1, se le puede colocar como parámetro un valor mayor o menor a 1, o mayor o menor a 100%. El valor de 0% o 0 elimina todo el contraste entre las áreas oscuras o claras haciendo que la imagen sea gris completamente.</i></dd>
+          <img src="../Imgs/shopi.jpg" alt="Foto personal aplicando contraste." title="Aplicando contrast()" id="contrast">
+          <form action="#">
+            <div class="ejemploFormulario">
+              <label>0%</label>
+              <input id="rangocontrast" type="range" min="0" max="20" step="1" value="10">
+              <label>20%</label>
+            </div>
+          </form>
           <dt>filter: saturate();</dt>
           <dd>Aumenta la pureza de cada color, <i>el valor por default es 100% o 1, se le puede colocar como parámetro un valor mayor o menor a 1, o mayor o menor a 100%. El valor de 0% o 0 elimina toda la saturación haciendo que la imagen se convierta en una escala de grises.</i></dd>
+          <img src="../Imgs/shopi.jpg" alt="Foto personal aplicando pureza a cada uno de sus colores." title="Aplicando saturate()" id="saturate">
+          <form action="#">
+            <div class="ejemploFormulario">
+              <label>0%</label>
+              <input id="rangosaturate" type="range" min="0" max="20" step="1" value="10">
+              <label>20%</label>
+            </div>
+          </form>
         </dl>
       </div>
     </section>
@@ -77,22 +122,63 @@
         <dl>
           <dt>filter: blur();</dt>
           <dd>Mezcla los pixeles entre sí de acuerdo con el valor que se le proporcione en el parámetro, <i>recibe como parámetro una unidad de medida (como px) y no recibe valores negativos, en sí es el perímetro el que utiliza para mezclar los píxeles del elemento.</i></dd>
+          <img src="../Imgs/shopi.jpg" alt="Foto personal aplicando una mezcla de pixeles." title="Aplicando blur()" id="blur">
+          <form action="#">
+            <div class="ejemploFormulario">
+              <label>0px</label>
+              <input id="rangoblur" type="range" min="0" max="10" step="1" value="5">
+              <label>10px</label>
+            </div>
+          </form>
           <dt>filter: opacity();</dt>
           <dd>Existe ya una propiedad opacity la cual sirve para elementos estáticos como fotos, pero el filtro opacity sirve para elementos animados (utiliza aceleración de hardware), <i>recibe valores mayores a 0 como parámetro.</i></dd>
+          <img src="../Imgs/shopi.jpg" alt="Foto personal aplicando opacidad." title="Aplicando opacity()" id="opacity">
+          <form action="#">
+            <div class="ejemploFormulario">
+              <label>0</label>
+              <input id="rangoopacity" type="range" min="0" max="10" step="1" value="5">
+              <label>10</label>
+            </div>
+          </form>
           <dt>filter: drop-shadow();</dt>
           <dd>Se aplica a elementos .svg o .png dándoles una sombra al contorno de sus contenidos usando el canal alfa(transparencia) para dar sombra en cambio la propiedad box-shadow le crea una sombra a la figura perimetral del elemento, <i>recibe como parámetros 4 valores, el traslado de la sombra en X, en Y, el nivel de difuminado de la sombra y el color de la sombra.</i></dd>
+          <img src="../Imgs/shopi.jpg" alt="Foto personal aplicando sombra." title="Aplicando drop-shadow()" id="dropshadow">
+          <form action="#">
+            <div class="ejemploFormulario">
+              <label>-10px</label>
+              <input id="rangodropshadowX" type="range" min="-10" max="10" step="1" value="0">
+              <label>10px</label>
+            </div>
+            <div class="ejemploFormulario">
+              <label>-10px</label>
+              <input id="rangodropshadowY" type="range" min="-10" max="10" step="1" value="0">
+              <label>10px</label>
+            </div>
+            <div class="ejemploFormulario">
+              <label>+-0px</label>
+              <input id="rangodropshadowBlur" type="range" min="0" max="10" step="1" value="5">
+              <label>10px</label>
+            </div>
+            <div class="ejemploFormulario">
+              <input id="rangodropshadowColor" type="color" value="#ffffff">
+            </div>
+            <div class="ejemploFormulario">
+              <button id="buttonfilter" type="button">Aplicar valores<br/>a la foto</button>
+            </div>
+          </form>
         </dl>
-        <p>Se pueden colocar múltiples filtros en la misma propiedad, cada filtro trabaja con lo que se le va mostrando y no con el elemento base, así que el orden en que las funciones se colocan dentro de la propiedad filter influye en el resultado de la imagen.</p>
+        <p><b>Se pueden colocar múltiples filtros en la misma propiedad, cada filtro trabaja con lo que se le va mostrando y no con el elemento base, así que el orden en que las funciones se colocan dentro de la propiedad filter influye en el resultado de la imagen.</b></p>
       </div>
     </section>
   </main>
-  <!-- <footer>
+  <footer>
     <section class="container">
       <div>
         <h3>Referencias:</h3>
-        <p></p>
+        <p><a href="https://developer.mozilla.org/es/docs/Web/CSS/filter" target="_blank" rel="noopener noreferrer">Valores de filter.</a></p>
       </div>
     </section>
-  </footer> -->
+  </footer>
+  <script src="../JavaScript/codigojs28.js"></script>
 </body>
 </html>

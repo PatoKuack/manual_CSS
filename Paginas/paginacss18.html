@@ -11,6 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../Estilos/normalization.css">
   <link rel="stylesheet" href="../Estilos/stylecss21.css">
+  <link rel="stylesheet" href="../Estilos/stylecss2n-n.css">
   <title>Desbordamiento</title>
 </head>
 <body class="body">
@@ -28,8 +29,20 @@
       <div>
         <h2>Desbordamiento horizontal.</h2>
         <ul>
-          <li><b>text-overflow: clip;</b> Corta el texto que sobresale por encima de su contenedor padre.</li>
-          <li><b>text-overflow: ellipse;</b> Corta el texto que sobresale por encima de su contenedor padre sustituyéndolo por puntos suspensivos.</li>
+          <li><b>text-overflow: clip;</b> Corta el texto que sobresale por encima de su contenedor padre, requiere ser utilizada junto con <i>overflow: hidden;</i>.</li>
+          <div class="idEst miniIdEst">
+            <p class="to-c">
+              "El_mundo_y_yo_te_queremos_de_veras, pero yo siempre un poquito más que el mundo."<br/>
+              Mario Benedetti.
+            </p>
+          </div>
+          <li><b>text-overflow: ellipsis;</b> Corta el texto que sobresale por encima de su contenedor padre sustituyéndolo por puntos suspensivos, requiere ser utilizada junto con <i>overflow: hidden;</i>.</li>
+          <div class="idEst miniIdEst">
+            <p class="to-e">
+              "El_mundo_y_yo_te_queremos_de_veras, pero yo siempre un poquito más que el mundo."<br/>
+              Mario Benedetti.
+            </p>
+          </div>
         </ul>
         <h2>Desbordamiento vertical.</h2>
         <p><b>line-clamp</b> corta el texto que sobresale por encima de su contenedor padre. Se utiliza con -webkit el cual tiene soporte por casi todos los navegadores, pero se tiene q usar el prefijo (-).</p>
@@ -44,12 +57,36 @@
           &emsp;<i class="coment">// Oculta el contenido que se desborda.</i><br/>
           }
         </aside>
+        <div class="idEst miniIdEst">
+          <p class="wlc">
+            "El_mundo_y_yo_te_queremos_de_veras, pero yo siempre un poquito más que el mundo."<br/>
+            Mario Benedetti.
+          </p>
+        </div>
         <h2>overflow</h2>
         <p>También se puede utilizar overflow para manipular un poco el desbordamiento vertical.</p>
         <ul>
           <li><b>overflow: visible;</b> hace que el texto desbordado, sobresalga por encima del elemento.</li>
+          <div class="idEst miniIdEst">
+            <p class="o-visible">
+              "El_mundo_y_yo_te_queremos_de_veras, pero yo siempre un poquito más que el mundo."<br/>
+              Mario Benedetti.
+            </p>
+          </div>
           <li><b>overflow: hidden;</b> hace que el texto desbordado que sobresalga por encima del elemento, no sea visible.</li>
+          <div class="idEst miniIdEst">
+            <p class="o-hidden">
+              "El_mundo_y_yo_te_queremos_de_veras, pero yo siempre un poquito más que el mundo."<br/>
+              Mario Benedetti.
+            </p>
+          </div>
           <li><b>overflow: scroll;</b> crea una barra de desplazamiento lateral para visualizar el texto desbordado que no se muestra en el elemento.</li>
+          <div class="idEst miniIdEst">
+            <p class="o-scroll">
+              "El_mundo_y_yo_te_queremos_de_veras, pero yo siempre un poquito más que el mundo."<br/>
+              Mario Benedetti.
+            </p>
+          </div>
         </ul>
       </div>
     </section>

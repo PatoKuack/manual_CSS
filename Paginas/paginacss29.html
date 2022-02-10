@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../Estilos/normalization.css">
   <link rel="stylesheet" href="../Estilos/stylecss21.css">
-  <link rel="stylesheet" href="../Estilos/stylecss29.css">
+  <link rel="stylesheet" href="../Estilos/stylecss2n-n.css">
   <title>Recortes y figuras</title>
 </head>
 <body class="body">
@@ -38,35 +38,54 @@
           <li><b>shape-margin: #;</b> Recibe un solo valor el cual crea un margen del grosor especificado en el contorno de la forma del <i>shape-outside</i> o del canal alfa de la imagen.</li>
         </ul>
         <dl>
-          <dt>clip-path: inset([# round #]);</dt>
+          <dt>clip-path: inset([ # round # ]);</dt>
           <dd>
             <p>La función inset() recibe un parámetro de medición que indica la proporción de contorno que se recortará.</p>
             <p>Funciona como un shorthand, ya que se le pueden pasar 2, 3 o 4 valores para indicar las proporciones de recorte.</p>
             <p>Después de los valores de proporción, se le pueden asignar dos últimos valores finales <b>round #</b>, el primer valor indica que sus esquinas serán redondeadas y el segundo valor indica que proporción de redondeo se le asignarán a las esquinas.</p>
             <p>Las proporciones de redondeo también funcionan como un shorthand, se le pueden pasar de 1 a 4 valores para indicar el redondeo en general o cada una de las esquinas.</p>
-            <dl>
-              <dt>float: [top | right | left | bottom];</dt>
-              <dd>Se coloca en el contenedor de la imagen con las dimensiones de la imagen. Permite que el elemento se mueva entre el texto colocándolo en la posición especificada (por ejemplo, al lado izquierdo de un párrafo).</dd>
-              <dt>object-fit: [fill | container | cover | none | scale-down];</dt>
-              <dd>Se coloca en la imagen junto con el <i>clip-path</i> (y las dimensiones de 100%). Propiedad que indica a una imagen como redimensionarse de acuerdo con el contenedor.</dd>
-            </dl>
+            <div class="idEst center">
+              <p>clip-path: inset(20px 80px 30px 45px round 10px);</p>
+              <div class="cp marg-auto">
+                <img src="../Imgs/sailor_moon.jpg" alt="Imagen de Sailor Moon aplicandole clip-path: inset(parámetros)" title="inset()" class="cp-inset">
+              </div>
+            </div>
           </dd>
-          <dt>clip-path: circle( [# | # at X Y] );</dt>
+          <dt>clip-path: circle( [ # | # at X Y ] );</dt>
           <dd>
             <p>Si recibe un solo valor (de medición), el valor será el tamaño del radio del círculo.</p>
             <p>Si recibe dos valores (de medición), significarán el radio y la posición del círculo en el eje X y en el eje Y (at 50% 50% es su posición original).</p>
+            <div class="idEst center">
+              <p>clip-path: circle(40px at 35% 50%);</p>
+              <div class="cp marg-auto">
+                <img src="../Imgs/sailor_moon.jpg" alt="Imagen de Sailor Moon aplicandole clip-path: circle(parámetros)" title="circle()" class="cp-circle">
+              </div>
+            </div>
           </dd>
-          <dt>clip-path: ellipse( [# | # at X Y] );</dt>
+          <dt>clip-path: ellipse( [ # # | # # at X Y ] );</dt>
           <dd>
             <p>Recibe dos valores obligatoriamente, el primero es el radio en el eje X y el segundo en el Y.</p>
             <p>Funciona igual que el circulo con respecto al posicionamiento.</p>
+            <div class="idEst center">
+              <p>clip-path: ellipse(30px 40px at 35% 50%);</p>
+              <div class="cp marg-auto">
+                <img src="../Imgs/sailor_moon.jpg" alt="Imagen de Sailor Moon aplicandole clip-path: ellipse(parámetros)" title="ellipse()" class="cp-ellipse">
+              </div>
+            </div>
           </dd>
           <dt>clip-path: polygon( [X Y, X Y, X Y, ...] );</dt>
           <dd>
             <p>Recibe 3 coordenadas <u>como mínimo</u>, colocando la coordenada [0% 0%] en la esquina superior izquierda (izquierda del usuario) del elemento y la coordenada [100% 100%] en la esquina inferior derecha. Tiene la desventaja de que no se pueden redondear los bordes.</p>
             <p>Existe una página llamada <a href="https://bennettfeely.com/clippy/" target="_blank" rel="noopener noreferrer">Clippy</a> que facilita el corte y la posición de las coordenadas.</p>
-            <p><i>Nota: la animación con polygon usando transition, requiere que se utilicen la misma cantidad d coordenada en el recorte original y en la transición.</i></p>
-            <aside class="idEst">
+            <div class="idEst center">
+              <p>clip-path: polygon(15% 40%, 35% 0, 55% 40%, 35% 100%);</p>
+              <div class="cp marg-auto">
+                <img src="../Imgs/sailor_moon.jpg" alt="Imagen de Sailor Moon aplicandole clip-path: polygon(parámetros)" title="polygon()" class="cp-polygon">
+              </div>
+            </div>
+            <p>Ejemplo con animación:</p>
+            <p><i>Nota: la animación con polygon usando transition, requiere que se utilicen la misma cantidad de coordenada en el recorte original y en la transición.</i></p>
+            <aside class="idEst center">
               .img {<br/>
               &emsp;clip-path: polygon(0 100%, 50% 0, 100% 100%);<br/>
               &emsp;transition: clip-path 2s;<br/>
@@ -76,8 +95,35 @@
               }
             </aside>
           </dd>
-          <dt>clip-path: url('');</dt>
-          <dd>Este valor de URL solamente funciona con la ruta del logo SVG más el id del clipPath (ejemplo: /react-logo.svg#react-clip), sin embargo en la propiedad <b>shape-outside</b> funciona con la ruta del SVG sin el id y también funciona con imágenes PNG.</dd>
+          <dt>clip-path: [ url('') | path('') ];</dt>
+          <dd>
+            <p>Este valor de URL solamente funciona con la ruta del archivo SVG más el id del clipPath (ejemplo: /react-logo.svg#react-clip), sin embargo en la propiedad <b>shape-outside</b> funciona con la ruta del SVG sin el id y también funciona con imágenes PNG.</p>
+            <p>También se puede utilizar el path del archivo SVG y se obtiene el mismo resultado.</p>
+            <div class="idEst center">
+              <p>clip-path: path('M15.987 26.329C...');</p>
+              <div class="cp marg-auto">
+                <img src="../Imgs/sailor_moon.jpg" alt="Imagen de Sailor Moon aplicandole clip-path: path(parámetros)" title="path()" class="cp-path">
+              </div>
+            </div>
+          </dd>
+          <dt>float: [top | right | left | bottom];</dt>
+          <dd><img src="../Imgs/edTeam.svg" alt="Imagen de Sailor Moon aplicandole float" title="Sailor Moon" class="float">Se coloca en el contenedor de la imagen con las dimensiones de la imagen. Permite que el elemento se mueva entre el texto colocándolo en la posición especificada (por ejemplo, al lado izquierdo de un párrafo).</dd>
+          <dt>object-fit: [fill | contain | cover | scale-down | none];</dt>
+          <dd>
+            <p>Se coloca en la imagen junto con el <i>clip-path</i> (y las dimensiones de 100%). Propiedad que indica a una imagen como redimensionarse de acuerdo con el contenedor.</p>
+            <div class="idEst center">
+              width: 18%;<br/>
+              height: 150px;<br/>
+              object-fit:<i class="highlight"> fill | contain | cover | scale-down | none </i>;
+            </div>
+          </dd>
+          <div class="center">
+            <img src="../Imgs/sailor_moon.jpg" alt="Imagen de Sailor Moon aplicandole object-fit: fill" title="fill" class="objectfit fill">
+            <img src="../Imgs/sailor_moon.jpg" alt="Imagen de Sailor Moon aplicandole object-fit: contain" title="contain" class="objectfit contain">
+            <img src="../Imgs/sailor_moon.jpg" alt="Imagen de Sailor Moon aplicandole object-fit: cover" title="cover" class="objectfit cover">
+            <img src="../Imgs/sailor_moon.jpg" alt="Imagen de Sailor Moon aplicandole object-fit: scale-down" title="scale-down" class="objectfit scale-down">
+            <img src="../Imgs/sailor_moon.jpg" alt="Imagen de Sailor Moon aplicandole object-fit: none" title="none" class="objectfit none">
+          </div>
         </dl>
       </div>
     </section>
