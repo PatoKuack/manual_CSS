@@ -1,14 +1,15 @@
 :root {
-  --bg1: mistyrose;
-  --bg2: white;
-  --bg3: rgb(252, 243, 243);
+  --bg1: rgb(255, 228, 225);
+  --bg2: rgb(255, 255, 255);
+  --bg3: rgb(248, 240, 240);
   --bg4: rgba(0, 238, 255, 0.137);
   --bgCSS: rgba(150, 253, 150, 0.180);
   --bgSCSS: rgba(203, 150, 253, 0.180);
   --bord1: rgba(0, 0, 0, 0.767);
-  --bord2: pink;
+  --bord2: rgb(255, 192, 203);
   --bord2: rgba(0, 238, 255, 0.178);
   --comentColor: rgb(95, 95, 95);
+  --textColor: rgb(7, 7, 7);
   --transparent: transparent;
   --max-w: 700px; }
 
@@ -16,7 +17,8 @@
   background-image: radial-gradient(circle, var(--bg1) 25%, var(--bg3) 28.5%, var(--bg2) 28.5%, var(--bg2) 29%, var(--bg3) 29%, var(--bg1) 32%);
   background-size: 40rem 30rem;
   background-repeat: repeat;
-  background-position: 30% 18%; }
+  background-position: 30% 18%;
+  color: var(--textColor); }
 
 .bubble {
   background-image: radial-gradient(circle, var(--transparent) 5%, var(--bg3) 8.5%, var(--bg2) 8.5%, var(--bg2) 9%, var(--bg3) 9%, var(--transparent) 12%);
@@ -47,7 +49,8 @@
 .exempliGratia {
   max-width: 48vw;
   border: 0.3em double var(--bord1);
-  padding: .2em; }
+  padding: .2em;
+  hyphens: auto; }
 
 .egCSS {
   background-color: var(--bgCSS);
@@ -56,6 +59,13 @@
 .egSCSS {
   background-color: var(--bgSCSS);
   flex: 1; }
+
+.cmd {
+  background-color: var(--textColor);
+  color: var(--bg3);
+  width: 50%;
+  padding: .5rem;
+  margin: 1rem auto; }
 
 .image {
   max-width: 480px; }

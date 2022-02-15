@@ -9,6 +9,7 @@
   <!-- ------------------- -->
   <!-- Estilos -->
   <link rel="stylesheet" href="../Estilos/stylecss51.css">
+  <link rel="stylesheet" href="../Estilos/stylecss53.css">
   <link rel="stylesheet" href="../Estilos/normalization.css">
   <!-- ------- -->
   <meta charset="UTF-8">
@@ -36,7 +37,7 @@
           <dd>Esta propiedad le aplica la animación especificada al elemento, permite aplicar más de una animación si se colocan separadas por comas (valor por defecto = none).</dd>
           <dt>animation-duration: [ time ];</dt>
           <dd>Esta propiedad indica la duración de la animación y no acepta valores negativos (valor por defecto = 0s).</dd>
-          <dd>Si se coloca un valor, pero se tiene más de una animación aplicada, éste único valor de duración se aplica a todas las animaciones. También se pueden colocar más de una duración, pero si se colocan más valores de los que hay en <i>animation-name</i>, no se tomarán en cuenta los valores sobrantes. <b>Esto se aplica a todas las propiedades de animación a excepción de <i>animation-name</i></b>.</dd>
+          <dd>Si se coloca un valor, pero se tiene más de una animación aplicada, éste único valor de duración se aplica a todas las animaciones. También se pueden colocar más de una duración, pero si se colocan más valores de los que hay en <i>animation-name</i>, no se tomarán en cuenta los valores sobrantes. <b>Esto se aplica a todas las propiedades de animación (como delay, direction, etc.) a excepción de <i>animation-name</i></b>.</dd>
         </dl>
       </div>
     </section>
@@ -47,30 +48,35 @@
         <p>Las animaciones cambian las propiedades CSS a través de momentos en el tiempo definidos como @keyframes.</p>
         <p><b>Es importante especificar cada keyframe con el signo %</b>, aunque también se pueden especificar con from y to. <b>from</b> es lo mismo que 0% y <b>to</b> es lo mismo que 100%</p>
         <p>Si no se especifica un valor inicial, se asigna automáticamente un 0% y lo mismo sucede si no se especifica un valor final, se le asigna automáticamente un 100%. Esto funciona muy bien con el <i>from</i> y el <i>to</i></p>
-        <aside class="idEst">
+        <div class="idEst">
           .div {<br/>
-            &emsp;animation-name: <u>name</u>;<br/>
+            &emsp;animation-name: <u>miAnimacion</u>;<br/>
             &emsp;animation-duration: 2s;<br/>
             }<br/>
-            @keyframes <u>name</u> {<br/>
+            @keyframes <u>miAnimacion</u> {<br/>
             &emsp;from {<br/>
-            &emsp;&emsp;...código...<br/>
+            &emsp;&emsp;from{<br/>
+            &emsp;&emsp;&emsp;transform: translateX(0%) rotate(0);<br/>
+            &emsp;&emsp;}<br/>
+            &emsp;&emsp;to{<br/>
+            &emsp;&emsp;&emsp;transform: translateX(var(--translate)) rotate(2turn);<br/>
+            &emsp;&emsp;}<br/>
             &emsp;}<br/>
             }<br/>
             <i class="coment">// Automáticamente indica el <b>from</b> que se iniciará en 0% y como no se especifica el final, automáticamente se asigna un 100%.</i>
-        </aside>
-        <p>Es posible animar varias propiedades al mismo tiempo, solo hay que separarlas por comas, ejemplo:</p>
-        <aside class="idEst">
+        </div>
+        <p>Es posible animar varios momentos del tiempo al mismo tiempo, solo hay que separarlas por comas, ejemplo:</p>
+        <div class="idEst">
           .div {<br/>
           &emsp;animation-name: <u>name</u>;<br/>
           &emsp;animation-duration: 3s;<br/>
           }<br/>
           @keyframes <u>name</u> {<br/>
           &emsp;20%, 30%, 40% {<br/>
-          &emsp;&emsp;...código...<br/>
+          &emsp;&emsp;color: cyan; bottom: 10px;<br/>
           &emsp;}<br/>
           }
-        </aside>
+        </div>
       </div>
     </section>
     <!-- Propiedades secundarias -->
@@ -79,7 +85,21 @@
         <h2>Propiedades secundarias.</h2>
         <dl>
           <dt>animation-iteration-count: [ number | infinite ];</dt>
-          <dd>Indica la cantidad de veces que se repetirá una animación y sí acepta valores con decimales (valor por defecto = 1).</dd>
+          <dd>Indica la cantidad de veces que se repetirá una animación.</dd>
+          <dd>Acepta valores con decimales (valor por defecto = 1).</dd>
+          <div class="idEst animate-example1">
+            .div {<br/>
+            &emsp;border: 10px dotted rgb(255, 0, 0);<br/>
+            &emsp;animation-name: <u>oscurecer</u>;<br/>
+            &emsp;animation-duration: 10s;<br/>
+            &emsp;animation-iteration-count: infinite;<br/>
+            }<br/>
+            @keyframes <u>oscurecer</u> {<br/>
+            &emsp;to {<br/>
+            &emsp;&emsp;border-color: rgb(20, 248, 134);<br/>
+            &emsp;}<br/>
+            }
+          </div>
           <dt>animation-timing-function: [ ease | ease-in | ease-in-out | ease-out | linear | steps | cubic-bezier() ];</dt>
           <dd>
             <ul>
@@ -92,14 +112,14 @@
               <li><b>cubic-bezier()</b> </li>
             </ul>
           </dd>
-          <aside class="idEst">
+          <div class="idEst">
             <div class="button" id="button">Animar</div>
             <div class="ball ease">ease</div>
             <div class="ball ease-in">ease-in</div>
             <div class="ball ease-in-out">ease-in-out</div>
             <div class="ball ease-out">ease-out</div>
             <div class="ball linear">linear</div>
-          </aside>
+          </div>
           <dt>animation-direction: [ normal | reverse | alternate | alternate-reverse ];</dt>
           <dd>
             Indica la dirección que tomará la animación (valor por defecto = normal).
@@ -110,14 +130,53 @@
               <li><b>alternate-reverse</b> iniciará la animación en el fotograma del 100% al 0% y regresará al 100%.</li>
             </ul>
           </dd>
+          <div class="idEst animate-example2">
+            .div {<br/>
+              <i>
+                &emsp;border: 10px dotted rgb(255, 0, 0);<br/>
+                &emsp;animation-name: <u>oscurecer</u>;<br/>
+                &emsp;animation-duration: 10s;<br/>
+                &emsp;animation-iteration-count: infinite;<br/>
+              </i>
+            &emsp;animation-direction: alternate;<br/>
+            }<br/>
+            @keyframes <u>oscurecer</u> {<br/>
+              <i>
+                &emsp;to {<br/>
+                &emsp;&emsp;border-color: rgb(20, 248, 134);<br/>
+                &emsp;}<br/>
+              </i>
+            }
+          </div>
           <dt>animation-play-state: [ running | paused ];</dt>
-          <dd>Permite pausar la animación, su valor por defecto es running que indica que la animación continue normalmente. Si una animación se pausa, no se reinicia cuando se renueva la pausa, a menos que se utilice JavaScript.</dd>
+          <dd>Permite pausar la animación, su valor por defecto es running que indica que la animación continue normalmente. Si una animación se pausa, no se reinicia cuando se reanuda la pausa, a menos que se utilice JavaScript.</dd>
+          <div class="idEst animate-example3">
+            .div {<br/>
+              <i>
+                &emsp;border: 10px dotted rgb(255, 0, 0);<br/>
+                &emsp;animation-name: <u>oscurecer</u>;<br/>
+                &emsp;animation-duration: 10s;<br/>
+                &emsp;animation-iteration-count: infinite;<br/>
+                &emsp;animation-direction: alternate;<br/>
+              </i>
+            }<br/>
+            .div:active{<br/>
+            &emsp;animation-play-state: paused;<br/>
+            }<br/>
+            @keyframes <u>oscurecer</u> {<br/>
+              <i>
+                &emsp;to {<br/>
+                &emsp;&emsp;border-color: rgb(20, 248, 134);<br/>
+                &emsp;}<br/>
+              </i>
+            }
+          </div>
           <dt>animation-delay: [ time ];</dt>
           <dd>Indica cuanto tiempo pasará hasta que inicie la animación. Acepta valores negativos los cuales adelantan la animación, es decir, si una animación dura 4s y se le coloca un delay de -3s, la animación iniciará desde el segundo 3.</dd>
           <dt>animation-fill-mode: [ none | forwards | backwards | both ];</dt>
           <dd>
             <ul>
-              <li><b>none</b> Al finalizar la animación, el elemento no usará el primer ni el último fotograma como posición final, es el valor por defecto.</li>
+              <li><b>none</b> Es el valor por defecto. Al finalizar la animación, el elemento no usará el primer ni el último fotograma como posición final.</li>
               <li><b>forwards</b> Al finalizar la animación, el elemento se quedará con los valores del último keyframe.</li>
               <li><b>backards</b> Al finalizar la animación, el elemento se quedará con los valores del primer keyframe.</li>
               <li><b>both</b> Al finalizar la animación, el elemento tomará los valores que pueda del primer keyframe y luego tomará los valores que pueda del último keyframe.</li>
@@ -259,6 +318,6 @@
       </div>
     </section>
   </footer>
-  <script src="../JavaScript/codigojs53.js"></script>
+  <script src="../JavaScript/codigojs5n.js"></script>
 </body>
 </html>

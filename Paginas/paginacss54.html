@@ -9,6 +9,7 @@
   <!-- ------------------- -->
   <!-- Estilos -->
   <link rel="stylesheet" href="../Estilos/stylecss51.css">
+  <link rel="stylesheet" href="../Estilos/stylecss54.css">
   <link rel="stylesheet" href="../Estilos/normalization.css">
   <!-- ------- -->
   <meta charset="UTF-8">
@@ -23,7 +24,7 @@
         <h1 class="center">Transformaciones.</h1>
         <p>En CSS todo elemento es un rectángulo y su origen siempre estará en la esquina superior izquierda (en perspectiva del usuario).</p>
         <p>El sistema de coordenadas de CSS va de izquierda a derecha en el vector X y de arriba abajo en el sector Y.</p>
-        <img src="https://lh6.googleusercontent.com/Qm5yAY48kXoY4pqqafMEAuuAAeMit9x0UxiGYfjiyPqFOAS8jqjw-Ie9vW9Rxe_Sm6QYFOBPI8S_6UBCfb3TYXt0EOdmp4XYu2vx3oBTs93EGVHLmwTgfq97LlhFvDBSJ8pGdiGD" alt="sistema de coordenadas canvas">
+        <img src="../Imgs/canvas.svg" class="coordenadasCanvas block" alt="sistema de coordenadas canvas" title="sistema de coordenadas canvas">
       </div>
     </section>
   </header>
@@ -35,9 +36,15 @@
         <dl>
           <dt>transform: translate(x | x, y) | translateX() | translateY()</dt>
           <dd>Esta propiedad traslada un elemento a través del espacio.</dd>
+          <div class="idEst">
+            <img src="../Imgs/gotenks_ghost.png" class="translateGhost" alt="Ejemplo de translado 2D con un fantasmita de Gotenks" title="translate()">
+          </div>
           <dt>transform: scale(x=y | x, y) | scaleX() | scaleY()</dt>
           <dd>
-            <p>Cambiar el tamaño de un elemento al usar las propiedades width y height consume muchos recursos al navegador.</p>
+            <p><i>
+              Nota:<br/>
+              Cambiar el tamaño de un elemento al usar las propiedades width y height consume muchos recursos al navegador.
+            </i></p>
             <p>Esta propiedad cambia el tamaño del elemento sin afectar el Layout. Por lo tanto, consume pocos recursos.</p>
           </dd>
           <dt>transform: skew(x | x, y) | skewX() | skewY()</dt>

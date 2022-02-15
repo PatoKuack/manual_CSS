@@ -1,34 +1,84 @@
+:root{
+  --sizeBall: 50px;
+}
+@media screen and (max-width: 735px) {
+  :root{
+    --translate: calc(100vw - 8.5rem - var(--sizeBall));
+  }
+}
+@media screen and (min-width: 735px) {
+  :root{
+    --translate: calc(613.6px - var(--sizeBall));
+  }
+}
+
 /* propiedades */
 .button {
   display: table;
-  padding: 1em 2em;
-  background-color: hsl(10, 80%, 60%);
-  color: #fff;
+  padding: .5em 1em;
+  background-color: hsl(286, 39%, 75%);
+  border: .1em solid hsl(286, 81%, 45%);
+  border-radius: .5em;
+  box-shadow: -5px 3px 5px rgb(217, 207, 236) inset;
+  color: rgb(8, 8, 8);
+  font-weight: bold;
   margin: 1em auto;
   cursor: pointer;
 }
+.button:active{
+  box-shadow: 0px 0px 10px rgb(82, 42, 155) inset;
+}
 
 .ball {
-  background: #222;
+  background: rgba(185, 223, 193, 0.671);
+  box-shadow: 0 0 20px rgb(60, 206, 133) inset;
+  color: rgb(22, 95, 77);
+  font-weight: bold;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #fff;
-  width: 80px;
-  height: 80px;
+  width: var(--sizeBall);
+  height: var(--sizeBall);
   border-radius: 50%;
-  margin: 1em 0;
-  font-size: 12px;
-  transform: translateX(0) rotate(0);
-  transition: transform 2s;
+  text-align: center;
+  margin: .5em 0;
 }
-
 .animate .ball {
-  transform: translateX(calc(100vw - 100%)) rotate(2turn);
+  animation-name: pelotas;
+  animation-duration: 2s;
+}
+@keyframes pelotas {
+  from{
+    transform: translateX(0%) rotate(0);
+  }
+  to{
+    transform: translateX(var(--translate)) rotate(2turn);
+  }
 }
 
-.ball.ease        { transition-timing-function: ease }
-.ball.ease-in     { transition-timing-function: ease-in }
-.ball.ease-out    { transition-timing-function: ease-out }
-.ball.ease-in-out { transition-timing-function: ease-in-out }
-.ball.linear      { transition-timing-function: linear }
+.ball.ease        { animation-timing-function: ease }
+.ball.ease-in     { animation-timing-function: ease-in }
+.ball.ease-out    { animation-timing-function: ease-out }
+.ball.ease-in-out { animation-timing-function: ease-in-out }
+.ball.linear      { animation-timing-function: linear }
+
+
+[class*="animate-example"]{
+  box-shadow: 0 0 15px rgb(255, 0, 0), 0 0 15px rgb(255, 0, 0) inset;
+  border: 10px dotted rgb(255, 0, 0);
+  animation-name: oscurecer;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+.animate-example2, .animate-example3{
+  animation-direction: alternate;
+}
+.animate-example3:active{
+  animation-play-state: paused;
+}
+@keyframes oscurecer {
+  to{
+    border-color: rgb(20, 248, 134);
+    box-shadow: 0 0 15px rgb(20, 248, 134), 0 0 15px rgb(20, 248, 134) inset;
+  }
+}

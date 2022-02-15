@@ -63,3 +63,6 @@
 .highlight{
   background-color: rgba(195, 149, 255, 0.486);
 }
+.text-through{
+  text-decoration: line-through;
+}

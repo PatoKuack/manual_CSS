@@ -8,6 +8,7 @@
   <!-- ------------------- -->
   <!-- Estilos -->
   <link rel="stylesheet" href="../Estilos/stylecss51.css">
+  <link rel="stylesheet" href="../Estilos/stylecss52.css">
   <link rel="stylesheet" href="../Estilos/normalization.css">
   <!-- ------- -->
   <meta charset="UTF-8">
@@ -38,6 +39,16 @@
               <li><b>none</b> Indica que la transición no se le aplicará a ninguna propiedad.</li>
               <li>Se pueden especificar las propiedades a las que se les aplicará la transición, si son más de una se separan por comas.</li>
             </ul>
+            <div class="idEst animated-example1">
+              <div class="button">Animar</div>
+              &emsp;.animated-example{<br/>
+              &emsp;&emsp;transition-property: background-color, color;<br/>
+              &emsp;}<br/><br/>
+              &emsp;.animated-example:active{<br/>
+              &emsp;&emsp;background-color: rgb(139, 70, 103);<br/>
+              &emsp;&emsp;color: rgb(246, 246, 174);<br/>
+              &emsp;}
+            </div>
           </dd>
           <dt>transition-duration: [ 0s | time, time, ... ]</dt>
           <dd>No se permiten valores negativos. Lo que hace es definir la duración de las transiciones.
@@ -45,9 +56,33 @@
               <li>Si es que se coloca un dígito, se aplica ese tiempo a todas las transiciones.</li>
               <li>Si se coloca más de un dígito, se debe colocar un tiempo separado por comas por cada propiedad especificada en <i>transition-properties</i>.</li>
             </ul>
+            <div class="idEst animated-example2">
+              <div class="button">Animar</div>
+              &emsp;.animated-example{<br/>
+              &emsp;&emsp;transition-property: background-color, color;<br/>
+              &emsp;&emsp;transition-duration: 1s, 2s;<br/>
+              &emsp;}<br/><br/>
+              &emsp;.animated-example:active{<br/>
+              &emsp;&emsp;background-color: rgb(139, 70, 103);<br/>
+              &emsp;&emsp;color: rgb(246, 246, 174);<br/>
+              &emsp;}
+            </div>
           </dd>
           <dt>transition-delay: 0s;</dt>
-          <dd>Indica cuanto esperará la transición para comenzar o para volver a su estado original (default 0s).</dd>
+          <dd>
+            <p>Indica cuanto esperará la transición para comenzar o para volver a su estado original (default 0s).</p>
+            <div class="idEst animated-example3">
+              <div class="button">Animar</div>
+              &emsp;.animated-example{<br/>
+              &emsp;&emsp;transition-property: background-color, color;<br/>
+              &emsp;&emsp;transition-delay: .2s, .5s;<br/>
+              &emsp;}<br/><br/>
+              &emsp;.animated-example:active{<br/>
+              &emsp;&emsp;background-color: rgb(139, 70, 103);<br/>
+              &emsp;&emsp;color: rgb(246, 246, 174);<br/>
+              &emsp;}
+            </div>
+          </dd>
           <dt>transition-timing-function: [ ease | linear | ease-in | ease-out | ease-in-out | step-start | step-end ];</dt>
           <dd>
             Indica si hay o no aceleración, la aceleración de la transición y en qué momentos hay aceleración.
@@ -61,22 +96,29 @@
               <li><b>step-end</b> Sirve para hacer animaciones o slides en pasos.</li>
             </ul>
           </dd>
+          <div class="idEst" id="container">
+            <div class="button" id="button">Animar</div>
+            <div class="ball ease">ease</div>
+            <div class="ball ease-in">ease-in</div>
+            <div class="ball ease-in-out">ease-in-out</div>
+            <div class="ball ease-out">ease-out</div>
+            <div class="ball linear">linear</div>
+          </div>
           <dt>transition: [ properties duration timing-function delay ];</dt>
           <dd>Es un shorthand de las propiedades anteriores.</dd>
           <dd>Se le puede omitir el timing-function y el delay porque tienen valores por defecto (ease y 0s). La primera propiedad (all) también tiene un valor por defecto (all), pero no es viable usar ese valor porque afecta el rendimiento de la aplicación o página.</dd>
           <dd>Cuando se aplican a varias propiedades se usa así: transition: color 1s, margin 2s;</dd>
         </dl>
-        <aside class="idEst">
-          .enlace {<br/>
-          &emsp;background-color: pink;<br/>
-          &emsp;color: blue;<br/>
-          &emsp;transition: background-color .5s, color .5s<br/>
-          }<br/><br/>
-          .parrafo:hover .enlace {<br/>
-          &emsp;background-color: brown;<br/>
-          &emsp;color: pink;<br/>
-          }
-        </aside>
+        <div class="idEst animated-example4">
+          <div class="button">Animar</div>
+          &emsp;.animated-example{<br/>
+          &emsp;&emsp;transition: background-color 1s .2s, color 2s .5s;<br/>
+          &emsp;}<br/><br/>
+          &emsp;.animated-example:active{<br/>
+          &emsp;&emsp;background-color: rgb(139, 70, 103);<br/>
+          &emsp;&emsp;color: rgb(246, 246, 174);<br/>
+          &emsp;}
+        </div>
       </div>
     </section>
     <!-- Eventos -->
@@ -184,5 +226,6 @@
       </div>
     </section>
   </footer>
+  <script src="../JavaScript/codigojs5n.js"></script>
 </body>
 </html>

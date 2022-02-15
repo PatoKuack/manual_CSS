@@ -25,6 +25,12 @@
   background-color: var(--bgContainer);
 }
 
+.exempliGratia{
+  border:           .2em solid var(--bg1);
+  padding:          .5rem 1rem;
+  hyphens:          auto;
+}
+
 .link{
   color: var(--link);
 }

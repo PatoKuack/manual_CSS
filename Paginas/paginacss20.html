@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../Estilos/normalization.css">
   <link rel="stylesheet" href="../Estilos/stylecss21.css">
-  <link rel="stylesheet" href="../Estilos/stylecss29.css">
+  <link rel="stylesheet" href="../Estilos/stylecss2n-n.css">
   <title>Máscaras</title>
 </head>
 <body class="body">
@@ -30,18 +30,69 @@
     <section class="container">
       <div>
         <h2>Máscaras.</h2>
-        <p>Entre shape y clip-path la diferencia es el comportamiento mientras que entre clip-path y mask es el área delimitada que se mostrara en la imagen, o sea que con la propiedad mask se usa el <u>canal alfa</u> de un elemento (en la capa superior) <u>para hacer el recorte</u> de otro elemento (en la capa inferior).</p>
+        <p>Entre shape y clip-path la diferencia es el comportamiento, mientras que, entre clip-path y mask la diferencia es el área delimitada que se mostrara en la imagen, es decir que con la propiedad mask se <b>usa el <u>canal alfa</u></b> de un elemento (en la capa superior) <u>para hacer el recorte</u> de otro elemento (en la capa inferior).</p>
         <p>Esta función esta parcialmente soportada por los navegadores por lo que hay que utilizar <b>-webkit-</b> antes de cada propiedad, solamente Firefox lo soporta totalmente en la actualidad (diciembre del 2021).</p>
         <p>Esta propiedad tiene un comportamiento similar a cuando se usa un fondo como background-repeat, size, position, etc.</p>
+        <p class="highlight center">*** Si no ves los ejemplos es porque el navegador que utilizas, no tiene soporte para las propiedades que se utilizan. ***</p>
         <dl>
           <dt>mask-image: url('___');</dt>
-          <dd>Recibe la URL de la imagen.</dd>
+          <dd>
+            <p>Recibe la URL de la imagen.</p>
+            <div class="idEst">
+              <p>
+                <span class="highlight">
+                  width: 100px;<br/>
+                  height: 50px;<br/>
+                  border: 5px solid black;<br/>
+                  background-image: linear-gradient(320deg, purple 30%, violet 70%);<br/>
+                </span>
+                -webkit-mask-image: url('../Imgs/edTeam.svg');
+              </p>
+              <div class="cp marg-auto maskimage-url"></div>
+            </div>
+          </dd>
           <dt>mask-repeat: [repeat | no-repeat | repeat-x | repeat-y];</dt>
-          <dd>Por default se repite el recorte, pero se puede ordenar que no se repita o que se repita en el eje X o en el eje Y.</dd>
+          <dd>
+            <p>Por default se repite el recorte, pero se puede ordenar que no se repita o que se repita en el eje X o en el eje Y.</p>
+            <div class="idEst">
+              <p>
+                <span class="highlight">
+                  <b>. . .</b><br/>
+                </span>
+                <i>-webkit-mask-image: url('../Imgs/edTeam.svg');</i><br/>
+                -webkit-mask-repeat: repeat-y;
+              </p>
+              <div class="cp marg-auto maskimage-url maskrepeat"></div>
+            </div>
+          </dd>
           <dt>mask-position: [top | right | bottom | left | center];</dt>
-          <dd>Por default se coloca el recorte en la parte superior izquierda (en perspectiva del usuario), pero se puede elegir la posición deseada.</dd>
+          <dd>
+            <p>Por default se coloca el recorte en la parte superior izquierda (en perspectiva del usuario), pero se puede elegir la posición deseada.</p>
+            <div class="idEst">
+              <p>
+                <span class="highlight">
+                  <b>. . .</b><br/>
+                </span>
+                <i>-webkit-mask-image: url('../Imgs/edTeam.svg');</i><br/>
+                -webkit-mask-position: center;
+              </p>
+              <div class="cp marg-auto maskimage-url maskposition"></div>
+            </div>
+          </dd>
           <dt>mask-size: [auto | contain | cover | #];</dt>
-          <dd>Define el tamaño del recorte, por defecto tiene el tamaño del elemento original.</dd>
+          <dd>
+            <p>Define el tamaño del recorte, por defecto tiene el tamaño del elemento original.</p>
+            <div class="idEst">
+              <p>
+                <span class="highlight">
+                  <b>. . .</b><br/>
+                </span>
+                <i>-webkit-mask-image: url('../Imgs/edTeam.svg');</i><br/>
+                -webkit-mask-size: contain;
+              </p>
+              <div class="cp marg-auto maskimage-url masksize"></div>
+            </div>
+          </dd>
           <dt>mask: _ _ _ / _;</dt>
           <dd>
             Se puede utilizar el shorthand de las 4 propiedades anteriores.
@@ -52,9 +103,33 @@
             </aside>
           </dd>
           <dt>mask-image: linear-gradient()</dt>
-          <dd>Esta propiedad no trabaja con el canal alfa de otro elemento, simplemente crea una capa encima de la imagen y genera el degradado lineal.</dd>
+          <dd>
+            <p>Esta propiedad no trabaja con el canal alfa de otro elemento, simplemente crea una capa encima de la imagen y genera el degradado lineal.</p>
+            <p>Tiene que utilizarse dos colores para el degradado y uno de esos dos tiene que ser transparente</p>
+            <div class="idEst">
+              <p>
+                <span class="highlight">
+                  <b>. . .</b><br/>
+                </span>
+                -webkit-mask-image: linear-gradient(50deg, black 10%, transparent 80%);
+              </p>
+              <div class="cp marg-auto maskimage-url mi-lineargradient"></div>
+            </div>
+          </dd>
           <dt>mask-image: radial-gradient()</dt>
-          <dd>Esta propiedad no trabaja con el canal alfa de otro elemento, simplemente crea una capa encima de la imagen y genera el degradado radial.</dd>
+          <dd>
+            <p>Esta propiedad no trabaja con el canal alfa de otro elemento, simplemente crea una capa encima de la imagen y genera el degradado radial.</p>
+            <div class="idEst">
+              <p>
+                <span class="highlight">
+                  <b>. . .</b><br/>
+                </span>
+                -webkit-mask-image: radial-gradient(black 10%, transparent 75%);
+              </p>
+              <div class="cp marg-auto maskimage-url mi-radialgradient"></div>
+            </div>
+          </dd>
+          </dd>
           <dt>mask-composite: [add | subtract | intersect | exclude]</dt>
           <dd>
             <p>Se utiliza con dos o más elementos que recortan a una imagen, es decir, dos o más máscaras (ver el ejemplo de código).</p>
@@ -74,6 +149,17 @@
               &emsp;mask-composite: subtract;<br/>
               }
             </aside>
+            <div class="idEst">
+              <p>
+                <span class="highlight">
+                  <b>. . .</b><br/>
+                </span>
+                -webkit-mask-image: url('../Imgs/platzi.svg'), url('../Imgs/edTeam.svg');<br/>
+                -webkit-mask-composite: add;
+              </p>
+              <div class="cp marg-auto maskimage-url maskcomposite"></div>
+            </div>
+          </dd>
           </dd>
         </dl>
       </div>

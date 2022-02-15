@@ -1,0 +1,36 @@
+:root{
+  --bgDark54: rgb(0, 0, 0);
+  /* --border54: rgba(56, 41, 41, 0.808); */
+  --border54: rgb(30, 136, 185);
+  --trunksghost: 7rem;
+}
+@media screen and (max-width: 735px) {
+  :root{
+    --translate: calc(100vw - 8.5rem - var(--trunksghost));
+  }
+}
+@media screen and (min-width: 735px) {
+  :root{
+    --translate: calc(613.6px - var(--trunksghost));
+  }
+}
+
+.coordenadasCanvas{
+  max-width: 500px;
+  margin: 1rem auto;
+}
+
+.idEst{
+  background-image: radial-gradient(ellipse at -100% 70%, var(--bgDark54) 55%, var(--border54) 55%, var(--border54) 60%, var(--bgDark54) 75%);
+}
+[class*="Ghost"]{
+  width: var(--trunksghost);
+}
+
+.idEst .translateGhost{
+  transform: translate(-10%, -10%);
+  transition: transform 2s;
+}
+.idEst:active .translateGhost{
+  transform: translate(var(--translate), 10%);
+}

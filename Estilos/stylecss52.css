@@ -1,0 +1,71 @@
+ .button {
+  display: table;
+  padding: .5em 1em;
+  background-color: hsl(286, 39%, 75%);
+  border: .1em solid hsl(286, 81%, 45%);
+  border-radius: .5em;
+  box-shadow: -5px 3px 5px rgb(217, 207, 236) inset;
+  color: rgb(8, 8, 8);
+  font-weight: bold;
+  margin: 1em auto;
+  cursor: pointer;
+}
+.button:active{
+  box-shadow: 0px 0px 10px rgb(82, 42, 155) inset;
+}
+
+.ball {
+  background: rgba(185, 223, 193, 0.671);
+  box-shadow: 0 0 20px rgb(60, 206, 133) inset;
+  color: rgb(22, 95, 77);
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  text-align: center;
+  margin: .5em 0;
+  /* font-size: 12px; */
+  transform: translateX(0) rotate(0);
+  transition: transform 2s;
+}
+@media screen and (max-width: 735px) {
+  .animate .ball {
+    transform: translateX(calc(100vw - 8.5rem - 100%)) rotate(2turn);
+  }
+}
+@media screen and (min-width: 735px) {
+  .animate .ball {
+    transform: translateX(calc(613.6px - 100%)) rotate(2turn);
+  }
+}
+
+
+.ball.ease        { transition-timing-function: ease; }
+.ball.ease-in     { transition-timing-function: ease-in; }
+.ball.ease-out    { transition-timing-function: ease-out; }
+.ball.ease-in-out { transition-timing-function: ease-in-out; }
+.ball.linear      { transition-timing-function: linear; }
+
+
+.animated-example1{
+  transition-property: background-color, color;
+}
+.animated-example2{
+  transition-property: background-color, color;
+  transition-duration: 1s, 2s;
+}
+.animated-example3{
+  transition-property: background-color, color;
+  transition-delay: .2s, .5s;
+}
+.animated-example4{
+  transition: background-color 1s .2s, color 2s .5s;
+}
+
+[class*="animated-example"]:active{
+  background-color: var(--bg3);
+  color           : var(--border);
+}

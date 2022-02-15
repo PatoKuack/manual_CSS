@@ -5,6 +5,7 @@
   background-size       : 40rem 30rem;
   background-repeat     : repeat;
   background-position   : 30% 18%;
+  color                 : var(--textColor);
 }
 .bubble{
   background-image      : radial-gradient(circle, var(--transparent) 5%, var(--bg3) 8.5%, var(--bg2) 8.5%, var(--bg2) 9%, var(--bg3) 9%, var(--transparent) 12%);
@@ -38,6 +39,7 @@
   max-width         : 48vw;
   border            : .3em double var(--bord1);
   padding           : .2em;
+  hyphens           : auto;
 }
 .egCSS{
   background-color  : var(--bgCSS);
@@ -48,6 +50,13 @@
   flex              : 1;
 }
 
+.cmd{
+  background-color: var(--textColor);
+  color           : var(--bg3);
+  width           : 50%;
+  padding         : .5rem;
+  margin          : 1rem auto;
+}
 .image{
   max-width   : 480px;
 }

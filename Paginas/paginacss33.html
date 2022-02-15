@@ -119,9 +119,22 @@
         </aside>
         <p>Declaración de una función para sobrescribir estilos.</p>
         <aside class="exempliGratia">
-          &emsp;const setStyles = (element, templateStrings) =>{<br/>
-          &emsp;&emsp;element.setAttribute('style',templateStrings);<br/>
-          &emsp;}
+          &emsp;const <u>boton</u> = document.getElementById("<u>boton</u>");<br/>
+          &emsp;const <u>documentoCSS</u> = document.styleSheets[1];<br/>
+          &emsp;<i class="highlight">// Selecciona y guarda el segundo documento stylesheet del documento HTML.</i><br/>
+          &emsp;let <u>bloqueCSS</u>;<br/>
+          &emsp;let <u>anchoElemento</u>;<br/><br/>
+          &emsp;for(let i = 0; i < <u>documentoCSS</u>.cssRules.length; i++) {<br/>
+          &emsp;&emsp;if(<u>documentoCSS</u>.cssRules[i].selectorText === '.div > .ball') {<br/>
+          &emsp;&emsp;&emsp;<u>bloqueCSS</u> = <u>documentoCSS</u>.cssRules[i];<br/>
+          &emsp;&emsp;&emsp;<i class="highlight">// Encrontrará el bloque de código ".animate .ball" del documento CSS especificado en el stylesheet seleccionado.</i><br/>
+          &emsp;&emsp;}<br/>
+          &emsp;}<br/><br/>
+          &emsp;function <u>cambiarAncho</u>(){<br/>
+          &emsp;&emsp;<u>anchoElemento</u> = container.getBoundingClientRect().width;<br/>
+          &emsp;&emsp;<u>bloqueCSS</u>.style.setProperty('width', `${<u>anchoElemento</u>}`);<br/>
+          &emsp;}<br/><br/>
+          &emsp;<u>boton</u>.addEventListener('click', <u>cambiarAncho</u>);<br/>
         </aside>
       </div>
     </section>
@@ -131,7 +144,7 @@
         <h2>Leer variables mediante getPropertyValue()</h2>
         <p>El valor devuelto por <b>getPropertyValue()</b> es una cadena de texto que contiene el valor de la propiedad CSS especificada de un elemento.</p>
         <aside class="exempliGratia">
-          <i class="highlight">// *** archivo.css ***</i><br/>
+          <i class="highlight"><i class="highlight"> *** archivo.css ***</i><br/>
           &emsp;:root{<br/>
           &emsp;&emsp;--name: 'Pato';<br/>
           &emsp;}<br/><br/>
@@ -151,7 +164,7 @@
         <p>El método permite establecer un nuevo valor para una propiedad en un elemento.</p>
         <aside class="exempliGratia">
           &emsp;const element = document.documentElement;<br/>
-          &emsp;element.style.setProperty('--name','Beto')<br/>
+          &emsp;element.style.setProperty('--name','Beto');<br/>
           <i class="highlight">
             /* Recibe como primer parámetro el nombre de la propiedad y como segundo parámetro el nuevo valor. */
           </i><br/><br/>
@@ -208,5 +221,13 @@
       </div>
     </section>
   </main>
+  <footer>
+    <section class="container">
+      <div>
+        <h3>Referencias:</h3>
+        <a class="link" href="https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration/setProperty" target="_blank" rel="noopener noreferrer">setProperty</a>
+      </div>
+    </section>
+  </footer>
 </body>
 </html>

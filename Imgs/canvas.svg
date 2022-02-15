@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.3.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 732.1 456.9" style="enable-background:new 0 0 732.1 456.9;" xml:space="preserve">
+<style type="text/css">
+	.st0{font-family:'ArialMT';}
+	.st1{font-size:30px;}
+	.st2{fill:#5CFF82;}
+	.st3{fill:none;stroke:#5CFF82;stroke-width:3;stroke-miterlimit:10;}
+</style>
+<g>
+	<rect x="36.4" y="55.1" width="641.3" height="6.9"/>
+	<polygon points="676.7,38.6 676.7,78.1 711,58.3 	"/>
+	<polygon points="59.2,393.6 43,393.6 43,59.6 36.2,59.6 36.2,393.6 19.6,393.6 39.4,427.9 	"/>
+	<polygon points="3.1,453.1 3.1,0.1 0.1,0.1 0.1,453.1 0.1,454.2 0.1,456.9 732.1,456.9 732.1,453.1 	"/>
+	<text transform="matrix(1 0 0 1 388.8424 308.6143)" class="st0 st1">40, 40</text>
+	<text transform="matrix(1 0 0 1 58.0464 102.2016)" class="st0 st1">0, 0</text>
+	<text transform="matrix(1 0 0 1 379.6986 102.2016)" class="st0 st1">40, 0</text>
+	<text transform="matrix(1 0 0 1 63.5247 310.3755)" class="st0 st1">0, 40</text>
+	<text transform="matrix(1 0 0 1 9.7856 383.9406)" class="st0 st1">Y</text>
+	<text transform="matrix(1 0 0 1 646.778 43.4192)" class="st0 st1">X</text>
+</g>
+<g>
+	<circle class="st2" cx="42.1" cy="60.7" r="10.3"/>
+	<circle class="st3" cx="42.2" cy="61.2" r="18.5"/>
+	<circle class="st3" cx="362.5" cy="57.7" r="18.5"/>
+	<circle class="st3" cx="38.8" cy="302.4" r="18.5"/>
+	<circle class="st3" cx="363.1" cy="299.7" r="18.5"/>
+	<circle class="st2" cx="362" cy="57.4" r="10.3"/>
+	<circle class="st2" cx="362.9" cy="299.1" r="10.3"/>
+	<circle class="st2" cx="39.1" cy="302" r="10.3"/>
+</g>
+</svg>
