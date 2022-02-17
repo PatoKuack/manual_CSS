@@ -39,7 +39,7 @@
   max-width         : 48vw;
   border            : .3em double var(--bord1);
   padding           : .2em;
-  hyphens           : auto;
+  overflow-wrap     : break-word;
 }
 .egCSS{
   background-color  : var(--bgCSS);

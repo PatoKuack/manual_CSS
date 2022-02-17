@@ -1,0 +1,23 @@
+:root{
+  --bgDark54: rgb(0, 0, 0);
+  --border54: rgb(30, 136, 185);
+  --color:    rgb(240, 248, 255);
+}
+
+.idEstDark{
+  background-image: radial-gradient(ellipse at -100% 70%, var(--bgDark54) 55%, var(--border54) 55%, var(--border54) 60%, var(--bgDark54) 75%);
+  color: var(--color);
+}
+
+.saludoSVG{
+  stroke-dasharray: 880;
+  stroke-dashoffset: 880;
+}
+.drawhola:active .saludoSVG{
+  animation: draw 2s forwards;
+}
+@keyframes draw {
+  to{
+    stroke-dashoffset: 0;
+  }
+}

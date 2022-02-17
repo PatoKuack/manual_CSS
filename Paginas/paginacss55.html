@@ -21,7 +21,15 @@
     <section class="container">
       <div>
         <h1 class="center">Trucos y consideraciones.</h1>
-        <p></p>
+        <p>El <b>Framerate</b> es la cantidad de cuadros que procesa una animación por segundo (fps), cada animación genera entre 25 y 60 imagenes por segundo para dar la ilusión de movimiento, lo ideal es que llegue a 60fps, si no lo esta consiguiendo, significa que se esta exigiendo demasiado procesamiento al navegador.</p>
+        <p>El navegador utiliza el harware del equipo de computo por lo que el procesamiento del navegador depende de la memoria RAM, CPU y GPU del equipo de computo que se este utilizando.</p>
+        <p>El <b>Waterfall</b> es una serie de etapas que ejecuta el navegador para generar una página.</p>
+        <ul>
+          <li><b>Recalculate style</b>: es la etapa menos costosa en el rendimiento de las animaciones. Calcula y recalcula estilos que se esten modificando de algún elemento o que están por defecto en la página.</li>
+          <li><b>Layout</b>: genera los posicionamientos geometricos de la página.</li>
+          <li><b>Paint</b>: es la etapa más costosa en el rendimiento de las animaciones. Pinta los elementos de la página.</li>
+        </ul>
+        <p>El <b>Threaded compositor</b> (hilo compositor) libera al proceso principal de carga de procesamiento, mandando los procesos de las animaciones de la CPU a la GPU. Esto es importante porque el proceso principal esta siempre ocupado por eventos de JavaScript y el Waterfall.</p>
       </div>
     </section>
   </header>
@@ -29,31 +37,30 @@
     <!--  -->
     <section class="container">
       <div>
-        <h2></h2>
-        <p></p>
+        <h2>Rendimiento.</h2>
+        <p>Para mejorar el rendimiento se debe evitar utilizar shorthands de las propiedades ya que algunos shorthands abarcan muchas propiedades que generalmente no se utilizan y solo provocan que el navegador trate de calcular valores que no existen, tal es la propiedad background que abarca imagen de fondo, posiciones en los ejes X y Y, atachment, etc. Aún cuando solo hayamos utilizado background: red; por default invoca todas las demás propiedades referentes a background.</p>
+        <p>Existe una propiedad para mejorar el rendiemiento si se utiliza adecuadamente:</p>
+        <dl>
+          <dt>will-change: propiedad1, propiedad2, ...;</dt>
+          <dd>
+            <p>Manda una aniamción al Threaded compositor para que sea ejecutada por el GPU. No es recomendable mandar varios procesos al GPU con esta propiedad ya que puede afectar el rendimiento de la página.</p>
+            <p>Después de utilizar will-change, es recomendable colocarla en modo auto con JavaScript utilizando animation-end o transition-end.</p>
+          </dd>
+          <div class="idEst">
+            .contenedor:hover .animacion{<br/>
+              &emsp;will-change: transform;<br/>
+            }</div>
+        </dl>
+        <p>Los valores de la propiedad <b>transform</b> aislan las capas de las animaciones y las mandan al Threaded compositor para que sean procesadas por la GPU.</p>
       </div>
     </section>
     <!--  -->
-    <section class="container">
+    <!-- <section class="container">
       <div>
         <h2></h2>
         <p></p>
       </div>
-    </section>
-    <!--  -->
-    <section class="container">
-      <div>
-        <h2></h2>
-        <p></p>
-      </div>
-    </section>
-    <!--  -->
-    <section class="container">
-      <div>
-        <h2></h2>
-        <p></p>
-      </div>
-    </section>
+    </section> -->
   </main>
   <footer>
     <section class="container">

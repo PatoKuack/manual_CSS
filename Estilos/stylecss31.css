@@ -29,6 +29,7 @@
   border:           .2em solid var(--bg1);
   padding:          .5rem 1rem;
   hyphens:          auto;
+  overflow-wrap:    break-word;
 }
 
 .link{

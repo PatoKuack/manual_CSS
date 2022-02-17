@@ -37,7 +37,7 @@
   border: 1px solid var(--bg3);
   background-color: var(--border);
   opacity: 50%;
-  hyphens: auto; }
+  overflow-wrap: break-word; }
 
 .center {
   text-align: center; }

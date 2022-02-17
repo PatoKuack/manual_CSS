@@ -36,7 +36,7 @@
         <dl>
           <dt>transform: translate(x | x, y) | translateX() | translateY()</dt>
           <dd>Esta propiedad traslada un elemento a través del espacio.</dd>
-          <div class="idEst">
+          <div class="idEstDark">
             <img src="../Imgs/gotenks_ghost.png" class="translateGhost" alt="Ejemplo de translado 2D con un fantasmita de Gotenks" title="translate()">
           </div>
           <dt>transform: scale(x=y | x, y) | scaleX() | scaleY()</dt>
@@ -47,12 +47,22 @@
             </i></p>
             <p>Esta propiedad cambia el tamaño del elemento sin afectar el Layout. Por lo tanto, consume pocos recursos.</p>
           </dd>
+          <div class="idEstDark center">
+            <img src="../Imgs/gotenks_ghost.png" class="scaleGhost" alt="Ejemplo de escalas 2D con un fantasmita de Gotenks" title="scale()">
+          </div>
           <dt>transform: skew(x | x, y) | skewX() | skewY()</dt>
-          <dd>Esta propiedad inclina un elemento en un ángulo determinado.</dd>
-          <dt>transform: rotate(<i>[Unidad_de_rotación]</i>)</dt>
-          <dd>Esta propiedad rota un elemento en su propio eje determinados grados.</dd>
+          <dd>Esta propiedad inclina un elemento en un <u>ángulo</u> determinado.</dd>
+          <div class="idEstDark center">
+            <img src="../Imgs/gotenks_ghost.png" class="skewGhost" alt="Ejemplo de inclinación 2D con un fantasmita de Gotenks" title="skew()">
+          </div>
+          <dt>transform: rotate( <i>[Unidad de rotación]</i> )</dt>
+          <dd>Esta propiedad rota un elemento en su propio eje determinados grados.
+            <div class="idEstDark center">
+              <img src="../Imgs/gotenks_ghost.png" class="rotateGhost" alt="Ejemplo de rotación 2D con un fantasmita de Gotenks" title="rotate()">
+            </div>
+          </dd>
         </dl>
-        <p>A continuación, se muestran las unidades de rotación en donde el sentido horario es la unidad positiva, los dígitos de ejemplo son equivalentes a 1 vuelta:</p>
+        <p>A continuación, se muestran las unidades de rotación o inclinación en donde el sentido horario es la unidad positiva, los dígitos de ejemplo son equivalentes a 1 vuelta:</p>
         <ul>
           <li>grados -> (360deg)</li>
           <li>gradianes -> (400grad)</li>
@@ -66,6 +76,9 @@
             <p>Con la propiedad <b>transform-origin: X Y;</b> en donde X es la posición que tomará el punto de origen en el eje X y Y es la posición que tomará en el eje Y, tanto X como Y pueden tomar el valor de <b>right, left, center o un valor numérico</b> en X y <b>top, center, bottom o un valor numérico</b> en Y. Al modificar la ubicación del punto de origen, se modifica el comportamiento de las transformaciones.</p>
             <p>Nota:<br/>La modificación del punto de origen no afecta el comportamiento de la propiedad <i>translate</i>.</p>
           </dd>
+          <div class="idEstDark center">
+            <img src="../Imgs/gotenks_ghost.png" class="originGhost" alt="Ejemplo de transformación 2D con un origen modificado usando un fantasmita de Gotenks" title="transform-origin">
+          </div>
         </dl>
         <p>La propiedad transform no hace que el elemento pierda su espacio reservado y es importante tener en cuenta que aplica sus características en cascada, pero se tienen que aplicar en la misma propiedad, por ejemplo:</p>
         <aside class="idEst">
@@ -94,7 +107,7 @@
           &emsp;transform: rotate(30deg) translateY(10px);<br/>
           }<br/>
         </aside>
-        <p>El sistema de coordenadas de transforma modificado por el valor rotate, solo es modificado a los valores de transform y no a otras propiedades como los posicionamientos top, bottom, etc.</p>
+        <p>El sistema de coordenadas de transform modificado por el valor rotate, solo es modificado a los valores de transform y no a otras propiedades como los posicionamientos top, bottom, etc.</p>
       </div>
     </section>
     <!-- Funciones de transformación 3D -->
@@ -139,34 +152,67 @@
             </ul>
           </dd>
           <dt>backface-visibility: [ visible | hidden ]</dt>
-          <dd>Permite mostrar con el valor <i>visible</i> u ocultar con el valor <i>hidden</i> un elemento que se posicione atrás de otro elemento que ha sido rotado. Se coloca en el elemento que se rotará y del cual se quiere mostrar u ocultar los elementos que le quedan detrás.</dd>
+          <dd>
+            <p>Permite mostrar con el valor <i>visible</i> u ocultar con el valor <i>hidden</i> la cara trasera de un elemento o un elemento que se posicione atrás de otro elemento que ha sido rotado. Se coloca en el elemento que se rotará y del cual se quiere mostrar u ocultar los elementos que le quedan detrás.</p>
+            <p>En el siguiente ejemplo se puede mostrar u ocultar el texto que queda en la misma posición del fantasma.</p>
+          </dd>
+          <div class="idEstDark">
+            <img src="../Imgs/gotenks_ghost.png" class="visibilityGhost" alt="Ejemplo de transformación 3D con visibilidad usando un fantasmita de Gotenks" title="backface-visibility">
+          </div>
+          <div class="idEst">
+            .contenedor{<br/>
+              &emsp;perspective: 400px;<br/>
+              &emsp;perspective-origin: top right;<br/>
+              &emsp;backface-visibility: visible;<br/>
+              &emsp;-webkit-perspective: 400px;<br/>
+              &emsp;-webkit-perspective-origin: top right;<br/>
+              &emsp;-webkit-backface-visibility: visible;<br/>
+              &emsp;<i class="coment">/* Coloco los -webkit- para los navegadores que no soportan totalmente esta propiedad. */</i><br/>
+            }<br/>
+            .contenedor .fantasma{<br/>
+              &emsp;transform: translate3d(0, 0, 0);<br/>
+              &emsp;-webkit-transform: translate3d(0, 0, 0);<br/>
+              &emsp;transition: transform 2s;<br/>
+            }<br/>
+            .contenedor:active .fantasma{<br/>
+              &emsp;transform: translate3d(180%, -40%, 100px);<br/>
+              &emsp;-webkit-transform: translate3d(180%, -40%, 100px);<br/>
+            }
+          </div>
           <dt>transform-style: preserve-3d;</dt>
           <dd>Se aplica en el elemento padre y permite aplicar a todos los elementos "hijos" los cambios hechos al elemento "padre".</dd>
         </dl>
+        <hr/>
         <p>Existen otras funciones de tranformación 3D shorthand para rotate, translate y scale:</p>
         <dl>
-          <dt>rotate3d( x, y, z, [Unidad_de_rotación] );</dt>
+          <dt>rotate3d( x, y, z, [Unidad de rotación] );</dt>
           <dd>
             <p>El ángulo positivo en el vector X girará el elemento hacia arriba y el ángulo negativo lo girará hacia abajo. El ángulo positivo en el vector Y girará el elemento hacia la derecha y el ángulo negativo lo girará hacia la izquierda.</p>
             <p>En los primeros 3 parámetros se coloca 1 si se desea que la rotación se aplique al eje correspondiente o 0 si no se desea que se aplique la rotación en ese eje y en el último parámetro se coloca la rotación, ejemplo:</p>
             <aside class="idEst">
-              <i class="coment">// Se aplicará la rotación de 180 grados al eje X y al eje Y.</i><br/>
-              transform: rotate3d(1, 1, 0, 1turn);
+              <i class="coment">// Se aplicará la rotación de 320 grados al eje Y.</i><br/>
+              transform: rotate3d(0, 1, 0, 320deg);
             </aside>
           </dd>
+          <div class="idEstDark center">
+            <img src="../Imgs/gotenks_ghost.png" class="rotate3dGhost" alt="Ejemplo de transformación 3D con rotación usando un fantasmita de Gotenks" title="rotate3d()">
+          </div>
           <dt>translate3d( x , y , z );</dt>
           <dd>
             <p>En el primer parámetro se coloca la distancia que deberá trasladarse el elemento en el eje X, en el segundo parámetro se coloca la distancia que deberá trasladarse el elemento en el eje Y y en el tercer parámetro se coloca la distancia que deberá trasladarse el elemento en el eje Z, ejemplo:</p>
             <aside class="idEst">
-              transform: translate3d(100px, 200px, 50px);
+              transform: translate3d(180%, -40%, 100px);
             </aside>
           </dd>
           <dt>scale3d( x , y , z );</dt>
           <dd>
             <p>En el primer parámetro se coloca la escala a la que deberá aumentar o disminuir el elemento en el eje X, en el segundo parámetro se coloca la escala del elemento en el eje Y y en el tercer parámetro se coloca la escala del elemento en el eje Z, ejemplo:</p>
             <aside class="idEst">
-              transform: scale3d(2, 1, 3);
+              transform: scale3d(1, 2, 3);
             </aside>
+            <div class="idEstDark center">
+              <img src="../Imgs/gotenks_ghost.png" class="scale3dGhost" alt="Ejemplo de transformación 3D con escalas usando un fantasmita de Gotenks" title="scale3d()">
+            </div>
           </dd>
         </dl>
       </div>

@@ -9,6 +9,7 @@
   <!-- ------------------- -->
   <!-- Estilos -->
   <link rel="stylesheet" href="../Estilos/stylecss51.css">
+  <link rel="stylesheet" href="../Estilos/stylecss56.css">
   <link rel="stylesheet" href="../Estilos/normalization.css">
   <!-- ------- -->
   <meta charset="UTF-8">
@@ -70,56 +71,129 @@
         <p>Existe una etiqueta llamada <b>viewbox</b> que define el sistema de coordenadas interno del SVG.</p>
         <p>Las coordenadas del viewbox se calcularán según el ancho y alto renderizados en el gráfico (no es necesario asignar una unidad de media, ya que es un sistema de coordenadas interno).</p>
         <p><b>rect</b> es una etiqueta que crea un rectángulo, se tiene que definir el punto dentro del sistema de coordenadas en donde se comenzará a dibujar (x="#" y="#") y las dimensiones del rectángulo (width="#" height="#").</p>
-        <aside class="idEst">
-          <i class="coment">// Se define el punto inicial (0 0) y el punto final (400 300) obteniendo un sistema de coordenadas de 400 de ancho y 300 de alto.</i><br/>
-          &#60;svg viewbox="0 0 400 300"&#62;<br/>
-          <i class="coment">// Se genera un rectángulo a partir de las coordenadas (20 50) de un ancho de 200px y un alto de 120px.</i><br/>
-          &emsp;&#60;rect x="20" y="50" width="200" height="120" /&#62;<br/>
+        <div class="idEst">
+          <i class="coment">// Se define el punto inicial (0 0) y el punto final (300 100) obteniendo un sistema de coordenadas de 300 de ancho y 100 de alto.</i><br/>
+          &#60;svg width="300px" height="100px" viewBox="0 0 300 100"&#62;<br/>
+          <i class="coment">// Se genera un rectángulo a partir de las coordenadas (10 10) de un ancho de 280px y un alto de 80px.</i><br/>
+          &emsp;&#60;rect x="10" y="10" width="280" height="80" /&#62;<br/>
           &#60;/svg&#62;
-        </aside>
+        </div>
+        <div class="center">
+          <svg width="230px" height="100px" viewBox="0 0 300 100">
+            <rect x="10" y="10" width="280" height="80"/>
+          </svg>
+        </div>
         <p>Con la etiqueta <b>line</b> se puede crear una línea definiendo el punto dentro del sistema de coordenadas en donde se comenzará a dibujar (x1="#" y1="#") y el punto final (x2="#" y2="#"), con stroke se puede definir el color de la línea (stroke="green") y con stroke-width su grosor (stroke-width="#").</p>
-        <p>Otras propiedades para esta etiqueta son:<br/>
-          stroke-linecap: [none | round | square]; Indica si a la línea se le agregará un medio círculo, un cuadrado o nada en cada extremo.<br/>
-          stroke-dasharray: # #; Sirve para hacer segmentos, el primer valor es el segmento y el segundo el espaciado. Se le pueden agregar más de dos valores y el SVG hace un cálculo dinámico entre espaciados y segmentaciones.<br/>
-          stroke-dashoffset: #; Esta propiedad funciona junto con stroke-dasharray, define desde que parte de la línea comenzará el trazo.
+        <p>Otras propiedades para esta etiqueta son:
+          <dl>
+            <dt>stroke-linecap: [none | round | square];</dt>
+            <dd>Indica si a la línea se le agregará un medio círculo, un cuadrado o nada en cada extremo.</dd>
+            <div class="idEst">
+              ...<br/>
+              &emsp;&#60; line x1="50" y1="20" x2="250" y2="20" stroke="black" stroke-width="10px" <b>stroke-linecap="round"</b> /&#62;<br/>
+              ...
+            </div>
+            <div class="center">
+              <svg width="230px" height="100px" viewBox="0 0 300 100">
+                <line x1="50" y1="20" x2="250" y2="20" stroke="black" stroke-width="10px"  stroke-linecap="none"/>
+                <line x1="50" y1="50" x2="250" y2="50" stroke="black" stroke-width="10px" stroke-linecap="round"/>
+                <line x1="50" y1="80" x2="250" y2="80" stroke="black" stroke-width="10px" stroke-linecap="square"/>
+              </svg>
+            </div>
+            <dt>stroke-dasharray: # #;</dt>
+            <dd>Sirve para hacer segmentos. El primer valor es el segmento y el segundo es el espaciado. Se le pueden agregar más de dos valores y el SVG hace un cálculo dinámico entre espaciados y segmentaciones.</dd>
+            <div class="idEst">
+              ...<br/>
+              &emsp;&#60; line x1="50" y1="50" x2="250" y2="50" stroke="black" stroke-width="10px" <b>stroke-dasharray="50 15"</b> /&#62;<br/>
+              ...
+            </div>
+            <div class="center">
+              <svg width="230px" height="100px" viewBox="0 0 300 100">
+                <line x1="50" y1="50" x2="250" y2="50" stroke="black" stroke-width="10px" stroke-dasharray="50 15"/>
+              </svg>
+            </div>
+            <dt>stroke-dashoffset: #;</dt>
+            <dd>Esta propiedad funciona junto con stroke-dasharray, define desde que parte de la línea comenzará el trazo.</dd>
+            <div class="idEst">
+              ...<br/>
+              &emsp;&#60; line x1="50" y1="50" x2="250" y2="50" stroke="black" stroke-width="10px" stroke-dasharray="50 15" <b>stroke-dashoffset="50"</b> /&#62;<br/>
+              ...
+            </div>
+            <div class="center">
+              <svg width="230px" height="100px" viewBox="0 0 300 100">
+                <line x1="50" y1="50" x2="250" y2="50" stroke="black" stroke-width="10px" stroke-dasharray="50 15" stroke-dashoffset="50"/>
+              </svg>
+            </div>
+          </dl>
         </p>
-        <aside class="idEst">
-          &#60;svg viewbox="0 0 400 300"&#62;<br/>
-          &emsp;&#60;line x1="10" y1="10" x2="200" y2="150" stroke="green" stroke-width="20" /&#62;<br/>
-          &#60;/svg&#62;
-        </aside>
         <p>Con la etiqueta <b>polyline</b> se puede generar una figura conformada por varios puntos, se define el punto dentro del sistema de coordenadas en donde se comenzará a dibujar y después se definen los puntos que conforman la figura (points="# #, # #, # #, ...").</p>
         <p>Utiliza las mismas propiedades stroke que utiliza la etiqueta line, aunque se pueden utilizar otras como stroke-linejoin: [round | none]; que permite redondear las esquinas en las que se interceptan las líneas de las coordenadas.</p>
         <p>Por default se colorea de negro y si no se le agrega una coordenada que cierre la figura, automáticamente se cierra, aunque no se visualizarán las propiedades stroke en esa línea de cierre.</p>
-        <aside class="idEst">
-          &#60;svg viewbox="0 0 400 300"&#62;<br/>
-          &emsp;&#60;polyline stroke="red" points="10 20, 50 100, 200 100" /&#62;<br/>
+        <div class="idEst">
+          <i class="coment block center">SVG</i><br/>
+          &#60;svg width="300px" height="100px" viewBox="0 0 200 100"&#62;<br/>
+          &emsp;&#60;<b>polyline</b> class="saludoSVG" points="20 20, 20 80, ... , 20 20"  stroke="currentColor" fill="currentColor" stroke-width="10px" <b>stroke-linejoin="round"</b> /&#62;<br/>
           &#60;/svg&#62;
-        </aside>
+        </div>
+        <div class="idEst">
+          <i class="coment block center">Animación</i><br/>
+          .saludoSVG{<br/>
+          &emsp;stroke-dasharray: 880;<br/>
+          &emsp;stroke-dashoffset: 880;<br/>
+          }<br/>
+          .contenedorSaludoSVG:active .saludoSVG{<br/>
+          &emsp;animation: draw 2s forwards;<br/>
+          }<br/>
+          @keyframes draw {<br/>
+          &emsp;to{<br/>
+          &emsp;&emsp;stroke-dashoffset: 0;<br/>
+          &emsp;}<br/>
+          }
+        </div>
+        <div class="idEstDark center drawhola">
+          Da clic<br/>
+          <svg width="230px" height="100px" viewBox="0 0 200 100">
+            <polyline class="saludoSVG" points="20 20, 20 80, 20 50, 50 50, 50 80, 100 80, 100 50, 70 50, 70 80, 120 80, 120 20, 120 80, 170 80, 170 40, 170 50, 140 50, 140 80, 180 80, 170 80, 50 80, 50 50, 20 50, 20 20" stroke="currentColor" fill="currentColor" stroke-width="10px" stroke-linejoin="round"/>
+          </svg>
+        </div>
         <p>Con la etiqueta <b>polygon</b> se puede generar una figura igual que polyline, con la diferencia de que, si no se le indica una coordenada de cierre, la figura se cierra automáticamente creando una línea desde la última coordenada a la coordenada inicial (es posible visualizar el diseño de stroke en esta línea de cierre).</p>
-        <aside class="idEst">
-          &#60;svg viewbox="0 0 400 300"&#62;<br/>
-          &emsp;&#60;polygon stroke="red" points="10 20, 50 100, 200 100" /&#62;<br/>
+        <p>Como se vio en el saludo animado, se puede utilizar la propiedad <b>stroke-linejoin=" [none | square | round ] "</b>para que los trazos queden con esquinas redondeadas o cuadradas.</p>
+        <p>Ya que la etiqueta polyline se genera un relleno por default (como la "o" y la "a" del ejemplo animado), se puede utilizar la propiedad <b>fill="color"</b> para colorear el relleno o eliminar el relleno con el valor <i>transparent</i>.</p>
+        <p>Con la etiqueta <b>circle</b> se crea un círculo definiendo el punto dentro del sistema de coordenadas en donde se comenzará a dibujar (cx="#" cy="#"), se define el radio (r="#") y su color de relleno (fill="aqua").</p>
+        <div class="idEst">
+          &#60;svg width="230px" height="100px" viewBox="0 0 200 100"&#62;<br/>
+          &emsp;&#60;circle cx="100" cy="50" r="45" fill="aqua" stroke="black" stroke-width="2" /&#62;<br/>
           &#60;/svg&#62;
-        </aside>
-        <p>Con la etiqueta <b>circle</b> se crea un círculo definiendo el punto dentro del sistema de coordenadas en donde se comenzará a dibujar (cx="#" cy="#"), se define el radio (r="#") y su color (fill="aqua").</p>
-        <aside class="idEst">
-          &#60;svg viewbox="0 0 400 300"&#62;<br/>
-          &emsp;&#60;circle cx="200" cy="150" r="50" fill="aqua" /&#62;<br/>
-          &#60;/svg&#62;
-        </aside>
+        </div>
+        <div class="center">
+          <svg width="230px" height="100px" viewBox="0 0 200 100">
+            <circle cx="100" cy="50" r="45" fill="aqua" stroke="black" stroke-width="2"/>
+          </svg>
+        </div>
         <p>Con la etiqueta <b>ellipse</b> se genera una elipse, es similar a <i>circle</i> con la diferencia de que ellipse requiere dos radios (rx="#" ry="#").</p>
-        <aside class="idEst">
-          &#60;svg viewbox="0 0 400 300"&#62;<br/>
-          &emsp;&#60;ellipse cx="200" cy="150" rx="50" ry="100" fill="aqua" /&#62;<br/>
+        <div class="idEst">
+          &#60;svg  width="230px" height="100px" viewBox="0 0 200 100"&#62;<br/>
+          &emsp;&#60;ellipse cx="100" cy="50" rx="80" ry="45" fill="aqua" stroke="black" stroke-width="2" /&#62;<br/>
           &#60;/svg&#62;
-        </aside>
+        </div>
+        <div class="center">
+          <svg width="230px" height="100px" viewBox="0 0 200 100">
+            <ellipse cx="100" cy="50" rx="80" ry="45" fill="aqua" stroke="black" stroke-width="2"/>
+          </svg>
+        </div>
         <p>Con la etiqueta <b>text</b> se puede generar un texto definiendo el punto dentro del sistema de coordenadas en donde se comenzará a dibujar (x="#" y="#").</p>
         <aside class="idEst">
-          &#60;svg viewbox="0 0 400 300"&#62;<br/>
-          &emsp;&#60;text x="200" y="150"&#62;¡Hola mundo!&#60;/text&#62;<br/>
+          &#60;svg width="230px" height="100px" viewBox="0 0 200 100"&#62;<br/>
+          &emsp;&#60;text x="10" y="80" font-size="80"&#62;<br/>
+          &emsp;&emsp;hola<br/>
+          &emsp;&#60;/text&#62;<br/>
           &#60;/svg&#62;
         </aside>
+        <div class="center">
+          <svg width="230px" height="100px" viewBox="0 0 200 100">
+            <text x="10" y="80" font-size="80">hola</text>
+          </svg>
+        </div>
       </div>
     </section>
     <!-- Estilos -->

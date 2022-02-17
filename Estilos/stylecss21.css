@@ -28,6 +28,7 @@
   border-radius:    .5em;
   padding:          .5em;
   background-color: var(--fondoaside);
+  overflow-wrap:    break-word;
 }
 
 /* .main{

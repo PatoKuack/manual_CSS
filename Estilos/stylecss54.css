@@ -20,17 +20,82 @@
   margin: 1rem auto;
 }
 
-.idEst{
+.idEstDark{
   background-image: radial-gradient(ellipse at -100% 70%, var(--bgDark54) 55%, var(--border54) 55%, var(--border54) 60%, var(--bgDark54) 75%);
 }
 [class*="Ghost"]{
   width: var(--trunksghost);
 }
 
-.idEst .translateGhost{
+.idEstDark .translateGhost{
   transform: translate(-10%, -10%);
   transition: transform 2s;
 }
-.idEst:active .translateGhost{
+.idEstDark:active .translateGhost{
   transform: translate(var(--translate), 10%);
+}
+.idEstDark .scaleGhost{
+  transform: scale(50%);
+  transition: transform 2s;
+}
+.idEstDark:active .scaleGhost{
+  transform: scale(150%);
+}
+.idEstDark .skewGhost{
+  transform: skew(0deg);
+  transition: transform 2s;
+}
+.idEstDark:active .skewGhost{
+  transform: skew(150deg);
+}
+.idEstDark .rotateGhost{
+  transform: rotate(0deg);
+  transition: transform 2s ease-out;
+}
+.idEstDark:active .rotateGhost{
+  transform: rotate(680deg);
+}
+.idEstDark .originGhost{
+  transform-origin: 100% 50%;
+  transform: rotate(0deg);
+  transition: transform 2s ease-out;
+}
+.idEstDark:active .originGhost{
+  transform: rotate(680deg);
+}
+
+.idEstDark{
+  perspective: 400px;
+  perspective-origin: top right;
+  backface-visibility: visible;
+  -webkit-backface-visibility: visible;
+}
+.idEstDark .visibilityGhost{
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transition: transform 2s;
+}
+.idEstDark:active .visibilityGhost{
+  transform: translate3d(180%, -40%, 100px);
+  -webkit-transform: translate3d(180%, -40%, 100px);
+}
+/* ------------------------------------------- */
+.idEstDark .rotate3dGhost{
+  transform: rotate3d(0, 1, 0, 0deg);
+  -webkit-transform: translate3d(0, 1, 0, 0deg);
+  transition: transform 2s;
+}
+.idEstDark:active .rotate3dGhost{
+  transform: rotate3d(0, 1, 0, 320deg);
+  -webkit-transform: rotate3d(0, 1, 0, 320deg);
+}
+/* ------------------------------------------- */
+.idEstDark .scale3dGhost{
+  transform: scale3d(.5, .5, 1);
+  -webkit-transform: scale3d(.5, .5, 1);
+  transition: transform 2s;
+}
+.idEstDark:active .scale3dGhost{
+  transform: scale3d(1, 2, 3);
+  -webkit-transform: scale3d(1, 2, 3);
 }
