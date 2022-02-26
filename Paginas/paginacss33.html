@@ -47,6 +47,7 @@
               &emsp;let <u>variable</u> = document.querySelector( '<u>.selector</u>' );<br/>
               &emsp;getComputedStyle( <u>variable</u> );
             </aside>
+            <p>Para conseguir un valor de un estilo desde la raiz del código (root) se puede utilizar <b>getComputedStyle( document.documentElement ).fontSize</b>, en este caso se utilizó para obtener el tamaño de fuente del documento.</p>
           </dd>
           <dt>getPropertyValue()</dt>
           <dd>
@@ -105,7 +106,7 @@
           &emsp;&emsp;color: <u>white</u>;<br/>
           &emsp;&emsp;margin-top: <u>4rem</u>;<br/>
           &emsp;&emsp;borden-bottom: ${<u>size</u> * <u>2</u>}<u>px</u> <u>solid</u> <u>black</u>;`<br/><br/>
-          <i class="highlight">/*Implementando los estilos*/</i>
+          <i class="highlight">/*Implementando los estilos*/</i><br/>
           &emsp;document.getElementById('<u>title</u>').setAttribute('style',<u>styles</u>);<br/><br/>
           <i class="highlight">//setAttribute(nombreAtributo,objetoConEstilos);</i>
         </aside>
@@ -144,7 +145,7 @@
         <h2>Leer variables mediante getPropertyValue()</h2>
         <p>El valor devuelto por <b>getPropertyValue()</b> es una cadena de texto que contiene el valor de la propiedad CSS especificada de un elemento.</p>
         <aside class="exempliGratia">
-          <i class="highlight"><i class="highlight"> *** archivo.css ***</i><br/>
+          <i class="highlight"> *** archivo.css ***</i><br/>
           &emsp;:root{<br/>
           &emsp;&emsp;--name: 'Pato';<br/>
           &emsp;}<br/><br/>
@@ -169,8 +170,8 @@
             /* Recibe como primer parámetro el nombre de la propiedad y como segundo parámetro el nuevo valor. */
           </i><br/><br/>
           <i class="highlight">
-            /* La propiedad documentElement retorna el elemento raíz de document,
-            devuelve el elemento &#60;html&#62; del <b>document.style.setProperty(propertyName, value, priority);</b> */
+            /* La propiedad document.documentElement retorna el elemento raíz de document, es decir, el HTML.
+            <!-- devuelve el elemento &#60;html&#62; del <b>document.style.setProperty(propertyName, value, priority);</b> */ -->
           </i><br/>
         </aside>
       </div>

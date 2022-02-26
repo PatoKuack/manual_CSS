@@ -9,6 +9,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../Estilos/stylecss7.css">
+  <link rel="stylesheet" href="../Estilos/styleHelp.css">
   <title>Pseudoclases</title>
 </head>
 <body>
@@ -20,7 +21,13 @@
     </span>
     <article class="rut">
       <b>:root</b> representa al DOM (document object model) es decir a todo el documento HTML. Se puede usar para declarar variables, (--color: pink) y a todos sus hijos les heredará el valor de la variable ya que las variables solo pueden ser utilizadas por los hijos del elemento donde se declararon. Es recomendable usar <span>:root{}</span> en vez de colocar <span>html{}</span>  para tener más disposición con la especificidad.<br>
-      <img src="../Imgs/pseudo root.jpg" alt="Ejemplo de pseudoclase :root" title="Ejemplo de pseudoclase :root">
+      <aside class="terminal">
+        <span class="cOrg2">:root</span> <span class="cOrg1">{</span><br/>
+          &emsp;<span class="cBlue">--colora</span>: <span class="cYll">rgb</span><span class="cPrp">(</span><span class="cGrn">7</span>, <span class="cGrn">180</span>, <span class="cGrn">94</span><span class="cPrp">)</span>;<br/>
+          &emsp;<span class="cBlue">--colorb</span>: <span class="cYll">rgb</span><span class="cPrp">(</span><span class="cGrn">189</span>, <span class="cGrn">242</span>, <span class="cGrn">255</span><span class="cPrp">)</span>;<br/>
+          &emsp;<span class="cBlue">--colorc</span>: <span class="cYll">rgb</span><span class="cPrp">(</span><span class="cGrn">255</span>, <span class="cGrn">213</span>, <span class="cGrn">185</span><span class="cPrp">)</span>;<br/>
+        <span class="cOrg1">}</span>
+      </aside>
     </article>
     <article class="jover">
       <b>:hover</b> es una pseudoclase de estado, se muestra el estilo al sobrepasar el mouse sobre el elemento (aquí se podría usar el display: none).<br>
@@ -28,8 +35,18 @@
       h1:hover{} aplica un estilo a la etiqueta h1.<br>
       h1 :hover{} aplica un estilo a los hijos de h1.<br>
       las etiquetas como <b>br</b> cuentan como hijos, tómalo en cuenta cuando apliques estilos a los últimos hijos.<br>
-      <img src="../Imgs/pseudo hover1.jpg" alt="Ejemplo de :hover selector combinado" title="Ejemplo :hover selector combinado">
-      <img src="../Imgs/pseudo hover2.jpg" alt="Ejemplo de :hover selector descendiente" title="Ejemplo :hover selector descendiente">
+      <aside class="terminal">
+        <span class="cOrg2">article:hover</span> <span class="cOrg1">{</span><br/>
+          &emsp;<span class="cBlue">border</span>: <span class="cGrn">2px</span> <span class="cOrg3">solid</span> <span class="cYll">var</span><span class="cPrp">(</span><span class="cBlue">--colora</span><span class="cPrp">)</span>;<br/>
+          &emsp;<span class="cBlue">border-radius</span>: <span class="cGrn">2px</span>;<br/>
+          &emsp;<span class="cBlue">margin</span>: <span class="cGrn">3px</span>;<br/>
+        <span class="cOrg1">}</span>
+      </aside>
+      <aside class="terminal">
+        <span class="cOrg2">article :hover</span> <span class="cOrg1">{</span><br/>
+          &emsp;<span class="cBlue">background-color</span>: <span class="cYll">rgb</span><span class="cPrp">(</span><span class="cBlue">--colorb</span><span class="cPrp">)</span>;<br/>
+        <span class="cOrg1">}</span>
+      </aside>
     </article>
     <article class="activ">
       <b>:active</b> activa un estilo cuando se mantiene presionado el clic sobre el elemento, se utiliza para usabilidad en UX (user experience) para dar la sensación al usuario de que ha hecho una acción.<br>
