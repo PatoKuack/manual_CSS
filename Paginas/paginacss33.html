@@ -185,7 +185,7 @@
           <dl>
             <p>Es un método del objeto Windows que evalúa los breakpoints de CSS desde JS, aceptando como argumento cualquier media query válida de CSS y retornado un objeto, cuya propiedad matches retorna un booleano (true|false).</p>
             <p>Este método permite el uso de JS en el diseño de layout en el RWD.</p>
-            <p>NO USAR windows.innerWidth, es una mala práctica y es limitado; no permite los diferentes tipos y combinaciones de consultas; no considera el viewport (sino el Windows) y esto puede generar conflictos.</p>
+            <p>NO USAR windows.innerWidth, usarlo es una mala práctica y es limitado; no permite los diferentes tipos y combinaciones de consultas; no considera el viewport (sino el Windows) y esto puede generar conflictos.</p>
             <aside class="exempliGratia">
               &emsp;const <u>mediaBp</u> = matchMedia( '(<u>min-width: 568px</u>) and (<u>orientation: landscape</u>)' );<br/>
               <i class="highlight">//*retorna un objeto del tipo MediaQueryList.*</i><br/>

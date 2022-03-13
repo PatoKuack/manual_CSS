@@ -6,6 +6,10 @@ body{
   background-color: khaki;
 }
 
+img{
+  max-width: 25rem;
+}
+
 .caja{
   background: rgb(199, 239, 255);
   height: 7em;
