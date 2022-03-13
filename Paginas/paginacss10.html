@@ -9,8 +9,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300&display=swap" rel="stylesheet"> 
   <link rel="stylesheet" href="../Estilos/stylecss10.css">
+  <link rel="stylesheet" href="../Estilos/styleHelp.css">
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300&display=swap" rel="stylesheet"> 
   <title>Tipografía</title>
 </head>
 <body>
@@ -69,13 +70,19 @@
   </article>
   <article class="fonts">
     <h2>Fuentes</h2>
-    <b>font-family: '[<i>fuente</i>]', '[<i>fuente alternativa</i>]';</b><br>
-    Se suelen colocar dos o más fuentes alternativas por si no se encuentra la fuente en la web o en el equipo.<br>
-    La instrucción solamente reconoce las fuentes instaladas en el equipo (en el sistema operativo de cada usuario o propietario) o las vinculadas a través del código html desde otra página web.<br>
-    A través de páginas como <a href="https://fonts.google.com/" title="Fuentes de obtenibles de google" rel="noopener" target="_blank">Google fonts</a> se pueden obtener fuentes y estilos de las mismas para descargarlas o usarlas directamente desde la página web "Google fonts" por medio de la etiqueta <b>link</b>, el link que define el <i>vínculo de la fuente</i> se coloca antes de la etiqueta link que define el <i>vínculo del documento CSS</i> para que con el efecto en cascada se obtenga la fuente y después la use a través de CSS, pero al utilizar muchas fuentes en una página puede alentar la carga de la misma.<br>
-    En Google fonts se seleccionan las fuentes con sus estilos deseados y se abre el panel de "familias seleccionadas", después se copia el link de vinculación el cual se coloca en el documento HTML y también se copia la propiedad CSS que se coloca en el elemento deseado del documento CSS. Con esto cualquier usuario puede ver la fuente ya que se carga a través del código y no a través de un sistema operativo.<br>
-    Si en el link de vinculación están seleccionadas más de un grosor o estilo de la misma fuente, se puede seleccionar cuál de ellas se desea utilizar.<br>
-    <img src="../Imgs/fonts.jpg" alt="Ejemplo del uso de fuentes en CSS" title="Ejemplo del uso de fuentes en CSS">
+    <p><b>&#60;link rel="stylesheet" href="https://fonts..."&#62;</b><br/>
+    Esta es la manera de declaración en el documento HTML, se coloca al último de las etiquetas <b>link</b> para que la fuente cargue al final de todos los recursos.</p>
+    <p><b>&#60;font-family: '[<i>fuente</i>]', '[<i>fuente alternativa</i>]'&#62;</b><br>
+    Esta es la manera de declaración en el documento CSS, se suelen colocar dos o más fuentes alternativas por si no se encuentra la fuente en la web o en el equipo.<br>
+    La instrucción solamente reconoce las fuentes instaladas en el equipo (en el sistema operativo de cada usuario o propietario) o las vinculadas a través del código html desde otra página web.</p>
+    A través de páginas como <a href="https://fonts.google.com/" title="Fuentes de obtenibles de google" rel="noopener" target="_blank">Google fonts</a> se pueden obtener fuentes y estilos de las mismas para descargarlas o usarlas directamente desde la página web "Google fonts" por medio de la etiqueta <b>link</b>, el link que define el <i>vínculo de la fuente</i> se coloca antes de la etiqueta link que define el <i>vínculo del documento CSS</i> para que con el efecto en cascada se obtenga la fuente y después la use a través de CSS, pero al utilizar muchas fuentes en una página puede alentar la carga de la misma.
+    <p>En Google fonts se seleccionan las fuentes con sus estilos deseados y se abre el panel de "familias seleccionadas", después se copia el link de vinculación el cual se coloca en el documento HTML, también se copia la propiedad CSS que se coloca en el elemento deseado del documento CSS. Con esto cualquier usuario puede ver la fuente ya que se carga a través del código y no a través de un sistema operativo.<br>
+    Si en el link de vinculación están seleccionados más de un grosor o estilo de la misma fuente, se puede seleccionar cuál de ellas se desea utilizar.</p>
+    <aside class="terminal">
+      <span class="cOrg2">.fonts :not(b)</span> <span class="cOrg1">{</span><br/>
+        &emsp;<span class="cBlue">border</span>: <span class="cOrg3">'Comic Neue'</span>, <span class="cOrg3">'cursive'</span>, <span class="cOrg3">'sans-serif'</span>;<br/>
+      <span class="cOrg1">}</span>
+    </aside>
   </article>
   <img src="../Imgs/fontcomic1.jpg" alt="Ejemplo de selección de fuentes en Google fonts" title="Ejemplo de selección de fuentes en Google fonts">
   <img src="../Imgs/fontcomic2.jpg" alt="Ejemplo de obtención del link de vinculación y propiedad de CSS en Google fonts" title="Ejemplo de obtención del link de vinculación y propiedad de CSS en Google fonts">
@@ -83,7 +90,12 @@
     <h2>Sombras de texto</h2>
     Se utiliza generalmente para crear un efecto de separación o para crear contraste con el fondo.<br>
     <b>text-shadow: X Y blur color, X Y blur color, ...;</b><br>
-    <img src="../Imgs/shadous.jpg" alt="Ejemplo de obtención del link de vinculación y propiedad de CSS en Google fonts" title="Ejemplo de obtención del link de vinculación y propiedad de CSS en Google fonts">
+    <aside class="terminal">
+      <span class="cOrg2">.shadou :first-child</span> <span class="cOrg1">{</span><br/>
+        &emsp;<span class="cBlue">text-shadow</span>: <span class="cGrn">3px</span> <span class="cGrn">3px</span> <span class="cGrn">2px</span> <span class="cOrg3">deepskyblue</span>;<br/>
+        &emsp;<span class="cBlue">color</span>: <span class="cOrg3">aliceblue</span>;<br/>
+      <span class="cOrg1">}</span>
+    </aside>
   </article>
 </body>
 </html>

@@ -9,35 +9,20 @@ body{
 }
 
 img{
-  width: 270px;
+  max-width: 270px;
 }
 
-div{
-  display: inline-block;
-  width: 550px;
-  height: 100px;
+.vacio{
+  height: 75px;
+  width: 200px;
 }
 
-div.descrip{
-  display: inline-block;
-  width: 400px;
-  height: 40px;
-}
-
-article.activ, article.rut, article.jover, article.taryet, article.firstch, article.lastch, article.firsttaip, article.lasttaip, article.nthtaip, article.tips, section.oder, span.oder, article.not, article.empti, article.visired, article.chaild, .afterbefore{
-  width: 850px;
-  height: auto;
+article{
+  display: block;
+  max-width: 850px;
   margin: 5px;
   padding: 5px;
   margin-top: 7px;
-}
-
-img.chtp{
-  width: 350px;
-}
-
-img.nthtips{
-  width: 450px;
 }
 
 article:hover{

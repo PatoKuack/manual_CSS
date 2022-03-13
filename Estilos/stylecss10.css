@@ -1,3 +1,7 @@
+*::before, *::after, *{
+  box-sizing: border-box;
+}
+
 h1, h2{
   line-height: .5em;
 }
@@ -31,24 +35,14 @@ div:hover{
   background-image: linear-gradient(210deg, rgb(66, 255, 208) 5%, rgb(122, 243, 243) 20%, rgb(122, 243, 243) 50%, rgb(155, 198, 255) 90%);
 }
 
-.tipografi{
-  width: 850px;
-  height: 350px;
-}
-
-.font{
-  width: 850px;
-  height: 250px;
-}
-
 article{
   margin: 20px 0px 0px 20px;
   border-width: 3.5px;
   border-style: solid;
   border-color: darkred crimson red orangered;
   padding: 20px 20px 20px 20px;
-  width: 850px;
-  height: 450px;
+  max-width: 850px;
+  min-height: 230px;
 }
 
 article:hover{
@@ -59,28 +53,28 @@ article:hover{
   font-size: 1.2em;
 }
 
-span:nth-of-type(1){
+span:nth-of-type(1):not(.terminal span){
   font-style: italic;
 }
-span:nth-of-type(2){
+span:nth-of-type(2):not(.terminal span){
   font-weight: bold;
 }
-span:nth-of-type(3){
+span:nth-of-type(3):not(.terminal span){
   text-align: center;
 }
-span:nth-of-type(4){
+span:nth-of-type(4):not(.terminal span){
   line-height: 2em;
 }
-span:nth-of-type(5){
+span:nth-of-type(5):not(.terminal span){
   text-decoration: underline;
 }
-span:nth-of-type(6){
+span:nth-of-type(6):not(.terminal span){
   text-transform: capitalize;
 }
-span:nth-of-type(7){
+span:nth-of-type(7):not(.terminal span){
   letter-spacing: .5em;
 }
-span:nth-of-type(8){
+span:nth-of-type(8):not(.terminal span){
   word-spacing: .5em;
 }
 
@@ -88,11 +82,7 @@ span:nth-of-type(8){
   font-family: 'Comic Neue', 'cursive', 'sans-serif';
 }
 
-.shadou :first-child{
+.shadou :first-child:not(.terminal span){
   text-shadow: 3px 3px 2px deepskyblue;
   color: aliceblue;
-}
-
-.shadou{
-  height: 230px;
 }

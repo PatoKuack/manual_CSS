@@ -22,16 +22,16 @@
     </section>
   </header>
   <main>
-    <!-- Breackpoints -->
+    <!-- Breakpoints -->
     <section class="container">
       <div>
-        <h2>Breackpoints</h2>
+        <h2>Breakpoints</h2>
         <p>Los breakpoints o puntos de quiebre, son puntos en los que cambian el diseño basado en el viewport del dispositivo (major breakpoint) o por ajustes del contenido (minor breakpoint), implementando medias queries y mostrando el mejor diseño posible al usuario.</p>
         <ul>
-          <li><strong>Major breackpoints</strong>: Representan cambios mayores en el diseño, componentes o layout.</li>
-          <li><strong>Minor breackpoints</strong>: Representan cambios menores muy específicos, donde el contenido necesita algún ajuste de diseño.</li>
+          <li><strong>Major breakpoints</strong>: Representan cambios mayores en el diseño, componentes o layout.</li>
+          <li><strong>Minor breakpoints</strong>: Representan cambios menores muy específicos, donde el contenido necesita algún ajuste de diseño.</li>
         </ul>
-        <p>Es una muy buena práctica utilizar SASS para crear un mapa de breackpoints ya que se utilizan medidas específicas para implementar el responsive web designe en cada tamaño de dispositivo, el siguiente ejemplo muestra algunos tamaños mayormente utilizados, pero no existe un estándar:</p>
+        <p>Es ideal que solo existan 3 breakpoints por proyecto; y es una buena práctica colocar los breakpoints hasta el final del archivo CSS, aunque es una mejor práctica utilizar SASS para crear un mapa de breakpoints ya que se utilizan medidas específicas para implementar el responsive web designe en cada tamaño de dispositivo, el siguiente ejemplo muestra algunos tamaños mayormente utilizados, pero no existe un estándar:</p>
         <p>
           Para pantallas pequeñas se definen medidas de 320px, 360px o 480px<br/>
           Para pantallas medianas se definen medidas de 640px o 768px<br/>
@@ -39,6 +39,7 @@
           Para pantallas extra grandes se definen medidas de 1200px o 1280px<br/>
           Para pantallas super extra grandes se definen medidas de 1440px o 1600px
         </p>
+        <p>En la página <b><a class="link" href="https://www.mydevice.io/" target="_blank" rel="noopener noreferrer">MyDevice</a></b> se pueden observar varias medidas en pixeles de pantallas de celular, tablet o del dispositivo que se esta utilizando.</p>
         <aside class="exempliGratia">
           <i class="highlight">// *** EJEMPLO CON SASS ***</i><br/>
           &emsp;$breakpoints: (<br/>
@@ -79,6 +80,13 @@
           &emsp;&emsp;}<br/>
           &emsp;}
         </aside>
+        <p>También se pueden colocar los breakpoints desde HTML permitiendo cargar un archivo de estilos dependiendo el tamaño de la pantalla del dispositivo.</p>
+        <aside class="exempliGratia">
+          <i class="highlight">&#60;!-- Ejemplo con HTML --&#62;</i><br/>
+          &emsp;&#60;link rel="stylesheet" href="./style1.css" /&#62;<br/>
+          &emsp;&#60;link rel="stylesheet" href="./style2.css" media="screen and (min-width: 600px)" /&#62;
+        </aside>
+        <p>El navegador descargará todos los archivos css, pero les va a dar prioridad de descarga a los que se estén utilizando en ese momento.</p>
       </div>
     </section>
     <!-- Video responsive -->

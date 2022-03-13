@@ -9,6 +9,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../Estilos/stylecss8.css">
+  <link rel="stylesheet" href="../Estilos/styleHelp.css">
   <title>Background</title>
 </head>
 <body>
@@ -19,12 +20,20 @@
   <article class="bgcolor">
     <b>background-color: <i>color</i>;</b><br>
     Es la correcta forma de definir un color de fondo, los colores rellenan todo.
-    <img src="../Imgs/bg_color.jpg" title="ejemplo de color de fondo" alt="ejemplo de color de fondo">
+    <aside class="terminal">
+      <span class="cOrg2">.bgcolor</span> <span class="cOrg1">{</span><br/>
+        &emsp;<span class="cBlue">background-color</span>: <span class="cYll">rgb</span><span class="cPrp">(</span><span class="cGrn">197, 246, 255</span><span class="cPrp">)</span>;<br/>
+      <span class="cOrg1">}</span>
+    </aside>
   </article>
   <article class="bgimach">
     <b>background-image: url(<i>url web | ubicación del archivo en el equipo</i>);</b><br>
     Incrusta una imagen de fondo colocando una URL de internet o el directorio de una imagen guardada en el equipo de cómputo.
-    <img src="../Imgs/bg_imach.jpg" title="ejemplo de imagen de fondo" alt="ejemplo de imagen de fondo">
+    <aside class="terminal">
+      <span class="cOrg2">.bgimach</span> <span class="cOrg1">{</span><br/>
+        &emsp;<span class="cBlue">background-image</span>: <span class="cYll">url</span><span class="cPrp">(</span><span class="cOrg3">"../img/fondo_marino.jpg"</span><span class="cPrp">)</span>;<br/>
+      <span class="cOrg1">}</span>
+    </aside>
   </article>
   <article class="bgripit">
     <b>background-repeat: <i>repeat | no-repeat | repeat-X | repeat-Y</i></b><br>
@@ -33,7 +42,12 @@
     <b>no-repeat</b> evita que se repita.<br>
     <b>repeat-X</b> la repite en el eje X (repeticiones una al lado de la otra).<br>
     <b>repeat-Y</b> la repite en el eje Y (repeticiones una abajo de la otra).
-    <img src="../Imgs/bgripit.jpg" title="ejemplo de imagen no repetida" alt="ejemplo de imagen no repetida">
+    <aside class="terminal">
+      <span class="cOrg2">.bgripit</span> <span class="cOrg1">{</span><br/>
+        &emsp;<span class="cBlue">background-image</span>: <span class="cYll">url</span><span class="cPrp">(</span><span class="cOrg3">"../img/fondo_marino.jpg"</span><span class="cPrp">)</span>;<br/>
+        &emsp;<span class="cBlue">background-repeat</span>: <span class="cOrg3">no-repeat</span>;<br/>
+      <span class="cOrg1">}</span>
+    </aside>
   </article>
   <article class="bgsais">
     <b>background-size: <i>auto | [ancho]px | [ancho]px [alto]px</i>;</b><br>
@@ -41,14 +55,24 @@
     <b>auto</b> coloca el tamaño original.<br>
     Se puede colocar el <b>ancho</b> deseado en pixeles y el largo se modifica automáticamente.<br>
     Se puede colocar el <b>ancho</b> y el <b>largo</b> en pixeles (también se pueden utilizar porcentajes % en vez de pixeles px).
-    <img src="../Imgs/bgsais.jpg" title="ejemplo de modificación de tamaño con pixeles" alt="ejemplo de modificación de tamaño con pixeles">
+    <aside class="terminal">
+      <span class="cOrg2">.bgsais</span> <span class="cOrg1">{</span><br/>
+        &emsp;<span class="cBlue">background-image</span>: <span class="cYll">url</span><span class="cPrp">(</span><span class="cOrg3">"../img/fondo_marino.jpg"</span><span class="cPrp">)</span>;<br/>
+        &emsp;<span class="cBlue">background-size</span>: <span class="cGrn">870px 220px</span>;<br/>
+      <span class="cOrg1">}</span>
+    </aside>
   </article>
   <article class="bgsaisc">
     <b>background-size: <i>contain | cover</i>;</b><br>
     Ajusta la imagen de fondo a su contenido.<br>
     <b>contain</b> la adapta para que se visualice en la pantalla completa y si el navegador se agranda o se achica, la imagen adaptará su tamaño para verse completa sin deformarse, pero al no deformarse, obliga a que la imagen no cubra por completo el contenido.<br>
     <b>cover</b> obliga a que la imagen de fondo cubra todo el contenido aunque implique deformarse, además de que la imagen no se adapta al cambio de tamaño del navegador y la imagen se corta en lo alto o en lo ancho.
-    <image src="../Imgs/bgsaisc.jpg" title="ejemplo de relleno en el contenido" alt="ejemplo de relleno en el contenido">
+    <aside class="terminal">
+      <span class="cOrg2">.bgsaisc</span> <span class="cOrg1">{</span><br/>
+        &emsp;<span class="cBlue">background-image</span>: <span class="cYll">url</span><span class="cPrp">(</span><span class="cOrg3">"../img/fondo_marino.jpg"</span><span class="cPrp">)</span>;<br/>
+        &emsp;<span class="cBlue">background-size</span>: <span class="cOrg3">contain</span>;<br/>
+      <span class="cOrg1">}</span>
+    </aside>
   </article>
   <article class="bgpos1">
     <b>background-position: <i><u>+</u> [coordenada X] px <u>+</u> [coordenada Y] px</i>;</b><br>
