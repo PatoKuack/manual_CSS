@@ -90,16 +90,18 @@
       </aside>
       <div id="mostrar">
         <a href="#secreto" title="Ocultar texto de nuevo">Ocultar (desaparecer)</a><br>
-        La URL cambia al activar la pseudoclase, aumentando al final el elemento al que se le aplica el estilo manteniendo el target activo:<br>
-        http://127.0.0.1:5500/Paginas/Prueba7.html<u><b>#mostrar</b></u><br><br><br><br><br>
+        La URL cambia al activar la pseudoclase, aumentando al final el elemento al que se le aplica el estilo manteniendo el target activo, ejemplo:<br>
+        https://manualcss/pseudoclases<u><b>#mostrar</b></u><br><br><br><br><br>
       </div>
     </article>
     <article class="not">
       <b>:not</b> niega una condición, por ejemplo, si colocamos un estilo a todos los <i>span</i> entonces podemos declarar con <b>span:not(.elemento)</b> que se le aplique a todos los <i>span</i> menos al <i>span</i> con la clase "elemento".<br>
       En este caso se activará un fondo azulado a todos los hijos de cada <i>article</i> excepto a esta sección cuya clase es "not".
+      <img src="../Imgs/pseudo not.jpg" alt="Ejemplo de pseudoclase :not" title="Ejemplo de pseudoclase :not">
       <aside class="terminal">
         <span class="cOrg2">article:not(.not) :hover</span> <span class="cOrg1">{</span><br/>
-          &emsp;<span class="cBlue">background-color</span>: <span class="cYll">var</span><span class="cPrp">(</span><span class="cBlue">--colorb</span><span class="cPrp">)</span>;<br/>
+          &emsp;<span class="cBlue">background-color</span>: <span class="cYll">var</span><span class="cPrp">(</span><span class="cBlue">--colorc</span><span class="cPrp">)</span>;<br/>
+          &emsp;<span class="cBlue">transition</span>: <span class="cOrg3">all</span> <span class="cGrn">1s</span>;<br/>
         <span class="cOrg1">}</span>
       </aside>
       <div>
