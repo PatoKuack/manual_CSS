@@ -14,44 +14,6 @@
 <body>
   <main>
     <section>
-      <!-- list-style: ;  max/min-height/width: ; -->
-      <div>
-        <b>list-style: none;</b> elimina el estilo de las listas para que no obtengan marcas que indiquen cada uno de sus items.<br/><br/>
-        <b>min-height: #;</b> indica el mínimo de espacio vertical que ocupará un elemento.<br/>
-        <b>min-width: #;</b> indica el mínimo de espacio horizontal que ocupará un elemento.<br/>
-        <b>max-height: #;</b> indica el máximo de espacio vertical que ocupará un elemento.<br/>
-        <b>max-width: #;</b> indica el máximo de espacio horizontal que ocupará un elemento.<br/>
-        <em>nota: se suele colocar la propiedad <b>min-[height | width]: 100vh;</b> para indicar el mínimo de altura o de ancho de una página y a partir de eso que pueda crecer de acuerdo con el contenido.</em>
-      </div>
-      <!-- object-fit: ; -->
-      <div>
-        <b>object-fit: [fill | contain | cover | none | scale-down];</b> se aplica a imágenes y modifica sus dimenciones.<br/>
-        <b>fill</b> - Es el valor por default. Si es necesario la imagen puede estirar o aplastar su tamaño para adaptarse a su contenedor.<br/>
-        <b>contain</b> - La imagen cambia automaticamente sus dimenciones para encajar por completo en su contenedor.<br/>
-        <b>cover</b> - La imagen conserva sus proporciones y rellena su contenedor aumentando sus dimenciones, pero la imagen es cortada para que pueda encajar.<br/>
-        <b>none</b> - La imagen no cambia sus dimeciones.<br/>
-        <b>scale-down</b> - La imagen conserva sus proporciones, pero disminuye sus dimenciones para encajar en su contenedor.
-      </div>
-      <!-- white-space: nowrap; -->
-      <div>
-        <b>white-space: nowrap;</b> - evita que el elemento salte de línea cuando se tope con el borde de la página creando un scroll horizontal.
-      </div>
-      <!-- overflow: ; -->
-      <div>
-        <b>overflow: [visible | hidden | scroll | auto]</b><br/>
-        <b>visible</b>: (valor por defecto) El contenido no es recortado, podría ser dibujado fuera de la caja contenedora.
-        <b>hidden</b>: El contenido es recortado y no se muestran barras de posición.
-        <b>scroll</b>: El contenido es recortado y el navegador web usa las barras de desplazamiento, se haya recortado contenido o no. Esto previene cualquier problema con las barras de desplazamiento apareciendo o desapareciendo en un entorno dinámico. Puede que las impresoras impriman contenido excedente.
-        <b>auto</b>: Depende del agente de usuario. Navegadores de escritorio como Firefox proveen barras de desplazamiento si hay contenido excedente.
-        <br/>
-      </div>
-      <!-- clip-path: polygon(); -->
-      <div>
-        clip-path: polygon(x1 y1, x2 y2, x3 y3, x4 y4);
-
-        Cuadrilatero con la base en diagonal
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 94%);
-      </div>
       <!-- Tamaños de pantalla -->
       <div>
         XS - Extra pequeño &#60; 34em<br/>
@@ -71,27 +33,6 @@
         cursor: <u><i>value</i></u>;<br/>
         Esta propiedad indica que el apuntador del mouse hace clic sobre un elemento y ese indicador depende del valor de la propiedad.<br/>
         https://www.w3schools.com/csSref/pr_class_cursor.asp
-      </div>
-      <!-- Estilo al scroll -->
-      <div>
-        <h6>Para dar estilo al scroll</h6>
-        ::-webkit-scrollbar-thumb {<br/>
-          background: #ccc;<br/>
-          border-radius: 4px;<br/>
-        }<br/>
-        ::-webkit-scrollbar {<br/>
-          width: 8px;<br/>
-          height: 8px;<br/>
-          background:rgba(255,255,255,.4);<br/>
-          border-radius: 4px;<br/>
-        }<br/>
-        ::-webkit-scrollbar:hover {<br/>
-          background: #b3b3b3;<br/>
-          box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);<br/>
-        }<br/>
-        ::-webkit-scrollbar:hover:active {<br/>
-          background: #999;<br/>
-        }
       </div>
       <!-- Animaciones de tecto simples -->
       <div>

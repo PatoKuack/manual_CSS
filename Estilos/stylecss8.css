@@ -41,32 +41,26 @@ i:hover{
   background-color: var(--b);
 }
 
-article:not(.bgcolor):active{
-  background-image: url("../Imgs/fondo marino2.jpg");
-  transition: all 2s;
-}
-
-
 .bgcolor{
   background-color: var(--b);
 }
 
 .bgimach{
-  background-image: url("../Imgs/fondo marino1.jpg");
+  background-image: url("../Imgs/fondo marino.jpg");
 }
 
 .bgripit{
-  background-image: url("../Imgs/fondo marino1.jpg");
+  background-image: url("../Imgs/fondo marino.jpg");
   background-repeat: no-repeat;
 }
 
 .bgsais{
-  background-image: url("../Imgs/fondo marino1.jpg");
+  background-image: url("../Imgs/fondo marino.jpg");
   background-size: 870px 220px;
 }
 
 .bgsaisc{
-  background-image: url("../Imgs/fondo marino1.jpg");
+  background-image: url("../Imgs/fondo marino.jpg");
   background-size: contain;
 }
 
@@ -75,7 +69,7 @@ article.bgsaisc:hover{
 }
 
 .bgpos1{
-  background-image: url("../Imgs/fondo marino1.jpg");
+  background-image: url("../Imgs/fondo marino.jpg");
   background-repeat: no-repeat;
   background-size: 200px;
   background-position: 580px 50px;
@@ -86,7 +80,7 @@ article.bgsaisc:hover{
 }
 
 .bgpos2{
-  background-image: url("../Imgs/fondo marino1.jpg");
+  background-image: url("../Imgs/fondo marino.jpg");
   background-repeat: no-repeat;
   background-position: right 10px bottom 5px;
 }
@@ -96,22 +90,22 @@ article.bgsaisc:hover{
 }
 
 .bgclip{
-  background-image: url(../Imgs/fondo\ marino1.jpg);
+  background-image: url(../Imgs/fondo\ marino.jpg);
   background-clip: content-box;
 }
 
 .bgorillin{
-  background-image: url("../Imgs/fondo marino1.jpg");
+  background-image: url("../Imgs/fondo marino.jpg");
   background-origin: content-box;
 }
 
 .bgatachment{
-  background-image: url("../Imgs/fondo marino1.jpg");
+  background-image: url("../Imgs/fondo marino.jpg");
   background-attachment: fixed;
 }
 
 .bg{
-  background: url("../Imgs/fondo\ marino1.jpg") 0 bottom / 100px repeat-X content-box padding-box var(--b);
+  background: url("../Imgs/fondo\ marino.jpg") 0 bottom / 100px repeat-X content-box padding-box var(--b);
 }
 
 .other, aside{

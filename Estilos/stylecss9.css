@@ -1,3 +1,7 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 table, td, tr{
   border: 2px solid plum;
 }
@@ -6,14 +10,16 @@ body{
   background-color: lightcyan;
 }
 
-div{
+img{
+  width: 100%;
+  max-width: 300px;
 }
 
 .a{
   display: block;
   max-width: 850px;
   padding: 1em;
-  margin: 5px 20px;
+  margin: 5px auto;
   border: 3px solid transparent;
 }
 /* article{
@@ -41,58 +47,51 @@ div{
 .enlace4{
   color: crimson;
 }
-a{
+.cc{
   color: currentColor;
 }
+.ir_a{
+  padding-left: .5rem;
+}
 
-.a img{
+.a img, .ir_a{
   border: 10px solid;
   border-color: chocolate brown chocolate brown;
 }
 
 .degline{
   display: inline-block;
-  width: 490px;
+  width: 100%;
   height: 120px;
   background-image: 
     linear-gradient(lime, orange, cyan), 
     linear-gradient(lime 10%, orange 40%, orange 60%, cyan 90%), 
     linear-gradient(225deg, lime 20%, orange 40%, orange 60%, cyan 80%);
-  background-size: 150px 100px;
+  background-size: 30% 100%;
   background-repeat: no-repeat;
-  background-position: 10px 10px, 170px 10px, 330px 10px;
-  /* background-position: 180px 490px, 380px 490px, 580px 490px; */
-  /* background-size: 12% 15%;
-  background-position: 870px 330px, 870px 400px, 870px 460px; */
-}
-
-.digris{
-  height: 300px;
+  background-position: 0% 0%, 50% 0%, 100% 0%;
 }
 
 .degrad{
   display: inline-block;
-  width: 490px;
+  width: 100%;
   height: 120px;
   background-image: 
     radial-gradient(darkviolet, aqua, teal),  
     radial-gradient(darkviolet 10%, aqua 45%, aqua 55%, teal 90%),  
     radial-gradient(at -5px -10px, darkviolet 10%, aqua 45%, aqua 55%, teal 90%), 
     radial-gradient(circle at -5px -10px, darkviolet 10%, aqua 45%, aqua 55%, teal 90%);
-  background-size: 150px 100px;
+  background-size: 30% 100%;
   background-repeat: no-repeat;
-  background-position: 10px 10px, 170px 10px, 330px 10px;
+  background-position: 0% 0%, 50% 0%, 100% 0%;
   /* background-position: 280px 310px, 430px 310px, 580px 310px, 730px 310px; */
 }
 
-.gradientlainear, .gradientradial, .gradientripit{
-  margin: .5em 0;
-  /* width: 90%; */
-}
-
 .degripit{
-  display: inline-block;
-  width: 300px;
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 300px;
   height: 300px;
   background-image: url(../Imgs/bugsbuni.png),  
   radial-gradient(#000 0%, #000 23%, transparent 23%),
@@ -102,7 +101,7 @@ a{
   background-size: 150px, 100% 100%, 100% 100%;
   background-repeat: no-repeat;
   /* background-position: 420px 400px, 300px 280px, 300px 280px; */
-  background-position: 120px 75%, 0em 0em, 0em 0em;
+  background-position: 50% 75%, 0em 0em, 0em 0em;
   background-attachment: fixed, scroll, scroll;
 }
 
@@ -110,12 +109,22 @@ pre{
   color: aliceblue;
 }
 
-.ejemplo{
-  background-image: linear-gradient(#FFF 15%, #000 15%);
+[class^="ejemplo-"]{
   background-origin: border-box;
-  background-repeat: no-repeat;
-  width: 55em;
-  height: 25em;
+  max-width: 100%;
+  padding: 10px;
+}
+.ejemplo-white{
+  background-color: white;
+  color: darkblue;
+}
+.ejemplo-black{
+  background-color: black;
+  color: antiquewhite;
+}
+
+[class^="ying-yang"]{
+  margin: 0 auto;
 }
 
 div.ying-yang_p1{

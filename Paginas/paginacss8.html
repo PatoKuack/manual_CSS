@@ -77,7 +77,14 @@
   <article class="bgpos1">
     <b>background-position: <i><u>+</u> [coordenada X] px <u>+</u> [coordenada Y] px</i>;</b><br>
     Coloca la imagen de fondo en las coordenadas colocadas (<u>+</u>X <u>+</u>Y) (también se pueden utilizar porcentajes % en vez de pixeles px).
-    <image src="../Imgs/bgpos1.jpg" title="ejemplo de posicionamiento con coordenadas" alt="ejemplo de posicionamiento con coordenadas">
+    <aside class="terminal">
+      <span class="cOrg2">.bgpos1</span> <span class="cOrg1">{</span><br/>
+        &emsp;<span class="cBlue">background-image</span>: <span class="cYll">url</span><span class="cPrp">(</span><span class="cOrg3">"../img/fondo_marino.jpg"</span><span class="cPrp">)</span>;<br/>
+        &emsp;<span class="cBlue">background-repeat</span>: <span class="cOrg3">no-repeat</span>;<br/>
+        &emsp;<span class="cBlue">background-size</span>: <span class="cGrn">200px</span>;<br/>
+        &emsp;<span class="cBlue">background-position</span>: <span class="cGrn">400px 50px</span>;<br/>
+      <span class="cOrg1">}</span>
+    </aside>
   </article>
   <article class="bgpos2">
     <b>background-position: <i>[left | center | right] [#px] [top | center | bottom] [#px]</i>;</b><br>
@@ -88,7 +95,13 @@
     El cuarto valor indica la separación horizontal con el borde del navegador.<br>
     Ejemplo: right 20px bottom 20px<br>
     Ejemplo explicado: coloca la imagen de fondo a la derecha del usuario despegada 20px del borde del navegador y hasta abajo despegada 20px del borde del navegador (también se pueden utilizar porcentajes % en vez de pixeles px).
-    <image src="../Imgs/bgpos2.jpg" title="ejemplo de posicionamiento sin coordenadas" alt="ejemplo de posicionamiento sin coordenadas">
+    <aside class="terminal">
+      <span class="cOrg2">.bgpos2</span> <span class="cOrg1">{</span><br/>
+        &emsp;<span class="cBlue">background-image</span>: <span class="cYll">url</span><span class="cPrp">(</span><span class="cOrg3">"../img/fondo_marino.jpg"</span><span class="cPrp">)</span>;<br/>
+        &emsp;<span class="cBlue">background-repeat</span>: <span class="cOrg3">no-repeat</span>;<br/>
+        &emsp;<span class="cBlue">background-position</span>: <span class="cOrg3">right</span> <span class="cGrn">10px</span> <span class="cOrg3">bottom</span> <span class="cGrn">5px</span>;<br/>
+      <span class="cOrg1">}</span>
+    </aside>
   </article>
   <article class="bgclip">
     <b>background-clip: <i>content-box | border-box | padding-box</i>;</b><br>
@@ -97,20 +110,35 @@
     <b>content-box</b> acomoda la imagen para contenerla en el contenido de la caja.<br>
     <b>border-box</b> acomoda la imagen para contenerla hasta el borde de la caja.<br>
     <b>padding-box</b> acomoda la imagen para contenerla hasta el relleno de la caja.
-    <image src="../Imgs/bgclip.jpg" title="ejemplo de limitante de fondo" alt="ejemplo de limitante de fondo">
+    <aside class="terminal">
+      <span class="cOrg2">.bgclip</span> <span class="cOrg1">{</span><br/>
+        &emsp;<span class="cBlue">background-image</span>: <span class="cYll">url</span><span class="cPrp">(</span><span class="cOrg3">"../img/fondo_marino.jpg"</span><span class="cPrp">)</span>;<br/>
+        &emsp;<span class="cBlue">background-clip</span>: <span class="cOrg3">content-box</span>;<br/>
+      <span class="cOrg1">}</span>
+    </aside>
   </article>
   <article class="bgorillin">
     <b>background-origin: <i>content-box | border-box | padding-box</i>;</b><br>
     Indica desde dónde comienza a dibujarse la imagen de fondo, desde la caja de contenido, borde o relleno.<br>
     A diferencia del <i>background-clip</i>, éste no limita sus duplicados para no pasar de su caja correspondiente.<br>
     Siempre se comienza a dibujar desde arriba a tu izquierda hasta abajo a tu derecha.
-    <image src="../Imgs/bgorillin.jpg" title="ejemplo de comienzo de fondo" alt="ejemplo de comienzo de fondo">
+    <aside class="terminal">
+      <span class="cOrg2">.bgorillin</span> <span class="cOrg1">{</span><br/>
+        &emsp;<span class="cBlue">background-image</span>: <span class="cYll">url</span><span class="cPrp">(</span><span class="cOrg3">"../img/fondo_marino.jpg"</span><span class="cPrp">)</span>;<br/>
+        &emsp;<span class="cBlue">background-origin</span>: <span class="cOrg3">content-box</span>;<br/>
+      <span class="cOrg1">}</span>
+    </aside>
   </article>
   <article class="bgatachment">
     <b>background-attachment: <i>fixed</i>;</b><br>
     Indica si la imagen de fondo ignorará el scroll activando el fixed o se moverá junto con él (el valor por default es scroll).<br>
     Se puede jugar con más de una imagen para simular unas y otras no.
-    <image src="../Imgs/bgatachment.jpg" title="ejemplo de ignoro del scroll" alt="ejemplo de ignoro del scroll">
+    <aside class="terminal">
+      <span class="cOrg2">.bgattachment</span> <span class="cOrg1">{</span><br/>
+        &emsp;<span class="cBlue">background-image</span>: <span class="cYll">url</span><span class="cPrp">(</span><span class="cOrg3">"../img/fondo_marino.jpg"</span><span class="cPrp">)</span>;<br/>
+        &emsp;<span class="cBlue">background-attachment</span>: <span class="cOrg3">fixed</span>;<br/>
+      <span class="cOrg1">}</span>
+    </aside>
   </article>
   <article class="bg">
     <b>background: <i>url position / size repeat attachment origin clip color</i>;</b><br>
@@ -122,7 +150,11 @@
     Todas las imágenes tienen una posición definida cada una, pero solo la primera imagen tiene definida una coordenada. Ya que las demás imágenes no tienen definida una, se le aplicará la coordenada de la primera imagen a las demás.<br>
     La primera instrucción <b>background-size</b> no es aplicada por el efecto de la segunda instrucción <b>background</b>, por el estilo en cascada se sobre escribe el tamaño de 20% por el de 50% en todas las imágenes.<br>
     El slash (/) tiene que colocarse a fuerza después de colocar la url o la posición.
-    <image src="../Imgs/bg.jpg" title="ejemplo de comienzo de fondo" alt="ejemplo de comienzo de fondo">
+    <aside class="terminal">
+      <span class="cOrg2">.bg</span> <span class="cOrg1">{</span><br/>
+        &emsp;<span class="cBlue">background-image</span>: <span class="cYll">url</span><span class="cPrp">(</span><span class="cOrg3">"../img/fondo_marino.jpg"</span><span class="cPrp">)</span> <span class="cGrn">0</span> <span class="cOrg3">bottom</span> <span class="cYll">/</span> <span class="cGrn">100px</span> <span class="cOrg3">repeat-X content-box padding-box</span> <span class="cYll">var</span><span class="cPrp">(</span><span class="cBlue">--b</span><span class="cPrp">)</span>;<br/>
+      <span class="cOrg1">}</span>
+    </aside>
   </article>
   <div class="other">
     Se pueden utilizar múltiples background en una sola instrucción, por ejemplo:<br>
