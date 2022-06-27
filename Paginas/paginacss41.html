@@ -145,14 +145,20 @@
         </div>
         <p>En el ejemplo anterior se colocarán los estilos de la siguiente manera:</p>
         <p>
-          - En la carpeta base, en el archivo _base.scss se colocarán los estilos básicos como *, *::before, *::after{}, color de las fuentes, tamaño de títulos, etc.<br/>
+          - En la carpeta base, en el archivo _base.scss se colocarán los estilos básicos como *, *::before, *::after{}, color de las fuentes, tamaño de títulos, estilos generales para etiquetas HTML como p, h1, body, etc. Es como un normalice.<br/>
           - En la carpeta components se colocan los archivos con los estilos de cada bloque del proyecto, como los estilos de los botones, de la cabecera, menú, etc.<br/>
           - En la carpeta config se colocan los componentes que se configuran como los mixins o las variables de colores o medidas.<br/>
-          - En la carpeta layouts se colocan los archivos con estilos de layout como los grid y flex con sus columnas, filas y medidas de RWD.<br/>
-          - En la carpeta themes se colocan los archivos de los estilos decorativos o apariencia de la página que se visualiza.<br/>
+          - En la carpeta layouts se colocan los archivos con estilos de layout (con geometría) como los grid y flex con sus columnas, filas y medidas de RWD.<br/>
+          - En la carpeta themes se colocan los archivos de los estilos de tipografía y color de la página.<br/>
           - Por último, en el archivo styles.scss se importan todos los archivos para compilarlos y obtener un único archivo style.css.<br/>
           &emsp;Se comienza por las variables y los mixins, después los estilos base y layout, después los componentes en el orden en que se utilizan en el proyecto (comenzando por el header y menú y finalizando con los componentes adicionales como botones e iconos) y por último se importan los temas del proyecto.
         </p>
+        <p>Existen 3 formas de arquitectura conocidas:</p>
+        <ul>
+          <li><a href="https://swapps.com/es/blog/que-es-smacss-y-como-usarlo/" target="_blank" rel="noopener noreferrer">SMACSS (la màs antigua)</a></li>
+          <li><a href="https://apiumhub.com/es/tech-blog-barcelona/arquitectura-de-triangulo-invertido-para-css-itcss/" target="_blank" rel="noopener noreferrer">ITCSS</a></li>
+          <li><a href="https://gist.github.com/rveitch/84cea9650092119527bc" target="_blank" rel="noopener noreferrer">7 in 1</a></li>
+        </ul>
       </div>
     </section>
     <!-- @import -->

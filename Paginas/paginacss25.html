@@ -92,14 +92,28 @@
           </dd>
         </dl>
         <p>Para utilizar una fuente descargada con su licencia se utiliza el mismo código de la ley @font-face</p>
+        <aside class="idEst">
+          @font-face {<br/>
+          &emsp;font-family: 'Ubuntu';<br/>
+          &emsp;font-style: normal;<br/>
+          &emsp;font-weight: 400;<br/>
+          &emsp;src:  local(''),<br/>
+          &emsp;&emsp;url("../assets/fonts/ubuntu-v20-latin-regular.woff2") format('woff2'),<br/>
+          &emsp;&emsp;url("../assets/fonts/ubuntu-v20-latin-regular.woff") format('woff');<br/>
+          }<br/><br/>
+          .body{<br/>
+          &emsp;font-family: 'Ubuntu';<br/>
+          }
+        </aside>
       </div>
     </section>
   </main>
   <footer>
     <section class="container">
       <div>
-        <h3>Referencias:</h3>
+        <h3>Recursos:</h3>
         <p>
+          <a href="https://cybmeta.com/font-face-como-utilizar-cualquier-fuentetipografia-en-tu-web" target="_blank" rel="noopener noreferrer">Utilización de @font-face.</a><br/>
           <a href="https://fonts.google.com/" target="_blank" rel="noopener noreferrer">Google fonts.</a><br/>
           <a href="https://www.fontsquirrel.com/" target="_blank" rel="noopener noreferrer">Font squirrel.</a><br/>
           <a href="https://www.myfonts.com/search/free/?freeFont=%5B%22Free+fonts+only%22%5D" target="_blank" rel="noopener noreferrer">My fonts.</a><br/>
