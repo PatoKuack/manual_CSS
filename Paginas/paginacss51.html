@@ -36,8 +36,7 @@
         <ol>
           <li><b>Layout</b>: analiza la geometría y posición de los elementos.</li>
           <li><b>Paint</b>: pintar los píxeles de los elementos.</li>
-          <li>
-            <b>Composite</b>: combina y dibuja las capas en pantalla, sin afectar el Layout o Paint.
+          <li><b>Composite</b>: combina y dibuja las capas en pantalla, sin afectar el Layout o Paint.
             <ul>
               <li>Solo opacity y transform desencadenan la composición.</li>
               <li>Se crea una capa que almacena al objeto y solo esa capa es transformada, en lugar de repintar todos los pixeles.</li>

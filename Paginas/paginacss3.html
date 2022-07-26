@@ -84,7 +84,7 @@
     .ejemplo{<br>
       color: red;<br>
       color blue;<br>
-    }
+    }<br/>
     </code>
     El flujo en el código es el orden en el que se imprimen los documentos en la página web conforme al documento HTML
   </p>
@@ -102,6 +102,27 @@
     Esto es útil en elementos como enlaces cuyo color siempre es azulado y no se ve afectado por herencias.<br>
     <b>initial</b> nos permite desheredar el estilo de ancestros colocando el elemento en su valor inicial (ejemplo: spam{font-size: initial;}).
   </p>
+  <h2>Orden de propiedades</h2>
+  <p>
+    El orden de las propiedades dentro de los selectores no importa, pero hay una convención que utilizan varios programadores:<br/>
+    - Position.<br/>
+    - Modelo de caja.<br/>
+    - Texto.<br/>
+    - Color.<br/>
+    - Miscelanea (animaciones y transiciones).<br/></br/>
+    ejemplo:<br/>
+    <pre>
+      .button {
+        position: relative; <i>//indica el tipo de posicionamiento</i>
+        display: block; <i>//indica que se comportará como bloque</i>
+        width: 220px; <i>//indica el ancho</i>
+        height: 40px; <i>//indica la altura</i>
+        text-transform: uppercase; <i>//indica la presentación de la letra (todas mayúsculas)</i>
+        background-color: #fff; <i>//indica el color de fondo</i>
+        opacity: 80%; <i>//indica el nivel de transparencia</i>
+      }
+    </pre>
+  </p>
   <hr>
   <section>
     <div>
@@ -117,7 +138,7 @@
       <h3>BEM (Block Element Modify)</h3>
       <p>
         Separa los bloques, elementos y modificadores, es decir, los nombres de las clases en HTML pueden indicar su contenido, su etiqueta y a sus padres,<br/>
-        ejemplo: la siguiente clase viene de una etiqueta header, es un botón y su acción será cambiar una opción o imagen, class="header_button-next"
+        ejemplo: la siguiente clase viene de una etiqueta header, es un botón y su acción será cambiar una opción o imagen, class="header__button--next"
       </p>
       <h3>SMACSS (Scalable and Modular Architecture for CSS)</h3>
       <dl>

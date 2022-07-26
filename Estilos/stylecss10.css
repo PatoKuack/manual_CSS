@@ -29,6 +29,8 @@ div{
   border-style: solid;
   border-color: darkgreen green forestgreen limegreen;
   padding: 20px 20px 20px 20px;
+  max-width: 850px;
+  min-height: 230px;
 }
 
 div:hover{
