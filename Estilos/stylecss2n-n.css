@@ -134,7 +134,8 @@
 
 [class*="miniIdEst"]{
   width: 12rem;
-  margin: .5rem 0;
+  height: 4rem;
+  margin: .5rem auto 2rem;
 }
 [class*="miniIdEst"]>*{
   margin: 0;

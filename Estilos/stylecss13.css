@@ -21,6 +21,7 @@
 
 body{
   background-color: var(--colorC);
+  color: var(--colorD);
 }
 
 header, main, section, footer{
@@ -31,8 +32,7 @@ header, main, section, footer{
   padding: 1em;
 }
 
-header, main, h2{
-  color: var(--colorD) ;
+h1, h2, h3, main, footer, figcaption, .codigo{
   text-align: center;
 }
 
@@ -55,10 +55,6 @@ h2{
   border-right: .2em solid var(--colorA);
 }
 
-footer{
-  text-align: center;
-}
-
 section, footer{
   border: .2em solid var(--colorA);
   background-color: var(--colorB);
@@ -76,7 +72,6 @@ ul{
 
 .codigo{
   font-size: .9em;
-  text-align: center;
 }
 
 .entrada{
@@ -109,7 +104,6 @@ ul{
 }
 
 figcaption{
-  text-align: center;
   background-image: linear-gradient(var(--colorH) 57%, var(--colorF) 100%);
   padding: .1em;
 }

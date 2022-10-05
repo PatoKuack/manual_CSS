@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- No guardar cache en navegadores -->
+  <meta http-equiv="Last-Modified" content="0">
+  <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <!-- ------------------- -->
+  <!-- Estilos -->
+  <link rel="stylesheet" href="../Estilos/stylecss51.css">
+  <link rel="stylesheet" href="../Estilos/stylecss71.css">
+  <link rel="stylesheet" href="../Estilos/normalization.css">
+  <!-- ------- -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counters</title>
+</head>
+<body class="body">
+<div class="game-container" id="game-container">
+  <div class="layer-1" id="layer-1">
+    <input type="checkbox" name="" id="input-1">
+    <div class="airplane__wing"></div>
+    <div class="airplane__tail"></div>
+  </div>
+  <div class="layer-2" id="layer-2">
+    <input type="checkbox" name="" id="input-2">
+    <div class="airplane__wing"></div>
+    <div class="airplane__tail"></div>
+  </div>
+  <div class="layer-3" id="layer-3">
+    <input type="checkbox" name="" id="input-3">
+    <div class="helicopter__propellers"></div>
+    <div class="helicopter__tail"></div>
+    <div class="helicopter__landingSkid"></div>
+  </div>
+  <div class="layer-4" id="layer-4">
+    <input type="checkbox" name="" id="input-4">
+    <div class="tank__head"></div>
+    <div class="tank__canyon"></div>
+    <div class="tank__wheel"></div>
+  </div>
+  <div class="layer-5" id="layer-5">
+    <input type="checkbox" name="" id="input-5">
+    <div class="tank__head"></div>
+    <div class="tank__canyon"></div>
+    <div class="tank__wheel"></div>
+  </div>
+  <div class="layer-6">
+    <div class="cloud"></div>
+  </div>
+  <div class="layer-7">
+    <div class="rock"></div>
+  </div>
+  <!-- grass -->
+  <div class="layer-8"></div>
+  <h1 class="total-count">Score: </h1>
+  <div class="kaboom" id="kaboom">
+    <?xml version="1.0" encoding="utf-8"?>
+    <svg version="1.1" id="Layer_1" x="0px" y="0px"
+        viewBox="0 0 570.7 560" style="enable-background:new 0 0 570.7 560;" xml:space="preserve">
+    <style type="text/css">
+      .st0{fill:#FFFF3E;stroke:#000000;stroke-miterlimit:10;}
+      .st1{fill:#FF556C;stroke:#000000;stroke-miterlimit:10;}
+    </style>
+    <polygon class="st0" points="154.5,218 61.5,278.2 189.1,314.8 221.1,409 280.7,348.1 369.8,414.8 352.5,301.3 446.8,290.4 
+      353.8,220.5 394.2,135.9 306.4,164.1 233.9,91.1 237.8,170.5 132.7,142.3 "/>
+    <path class="st1" d="M225,289.8l-64.1-25.6l58.3-14.1c0,0,4.5-58.3,6.4-58.3s39.7,31.4,39.7,31.4l57.7-44.2l-1.9,58.3l46.2,30.8
+      l-49.4,4.5l3.8,77.6l-48.1-45.5l-41,45.5L225,289.8z"/>
+    <polygon class="st0" points="260.2,260.9 240.4,223.7 278.8,244.9 287.2,225.7 292.9,246.8 319.8,251.9 293.6,267.3 303.2,300.7 
+      275.6,287.2 236.5,285.9 "/>
+    </svg>
+  </div>
+  <p class="win" id="win">¡¡¡YOU WIN!!!</p>
+</div>
+<section class="container">
+  <div>
+    <h2>Estilos contador.</h2>
+    <dl>
+      <dt>counter-reset: <u>nombre del contador</u>;</dt>
+      <dd>Crea o reinicia un contador. En este caso se colocó en el body.</dd>
+      <dt>counter-increment: <u>nombre del contador</u>;</dt>
+      <dd>Incrementa un valor de contador. En este caso se colocó como propiedad de los inputs cuando estan validados (input:checked{}).</dd>
+      <dt>.<u>nombre de etiqueta</u>::after { content: counter(<u>nombre del contador</u>); }</dt>
+      <dd>Llama al conteo generado. En este caso se insertó con con un pseudoelemento en una etiqueta del HTML.</dd>
+    </dl>
+
+    <p>En este juego se tiene que colocar la etiqueta que llevará el score al último de los checkbox para que los tome en cuenta, los checkbox que se coloquen después del contador no se registrarán en el conteo.</p>
+  </div>
+</section>
+<!-- <footer>
+  <section class="container">
+    <div>
+      <h3>Referencias:</h3>
+      <p>
+        <a href="" target="_blank" rel="noopener noreferrer"></a><br/>
+      </p>
+    </div>
+  </section>
+</footer> -->
+<script src="../JavaScript/codigojs71.js"></script>
+</body>
+</html>

@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="../Estilos/stylecss13.css">
   <link rel="stylesheet" href="../Estilos/mano_regresar.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet"> rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
   <title>Grid</title>
 </head>
 <body>
@@ -23,7 +23,7 @@
     Permite construir layouts a través de dos ejes inline (horizontal) y block (vertical).<br/>
     No importa la posición e un elemento para construir el layout.<br/>
     Al igual que <i>flexbox</i>, requiere una relación de padre (grid-container) a hijo (grid-ítems).
-  <émain>
+  </main>
   <h2>Terminología y elementos.</h2>
   <section class="entrada">
     <ul>
@@ -44,7 +44,7 @@
         </li>
         <li>
           <b>grid-ítems</b>
- é      </li>
+        </li>
         <ul>
           <li>
             hijos directos del grid.
@@ -54,7 +54,7 @@
           </li>
           <li>
             texto (contenido del elemento ítem).
-    é     </li>
+          </li>
         </ul>
       </ul>
       <li>
@@ -99,7 +99,7 @@
       <img src="../Imgs/Grid.jpg" alt="ejemplo de partes del Grid" title="Partes de Grid">
     </figure>
   </section>
-  <h2>Propiedades Grid.</h2>
+  <h2>Grid explícito (propiedades Grid).</h2>
   <section>
     <article>
       <h3>Grid-tracks</h3>
@@ -786,10 +786,14 @@
         grid-area: left1;
       </div>
     </article>
-    <hr>
+  </section>
+  <br />
+  <h2>Alineaciones.</h2>
+  <br />
+  <section>
     <article>
       <h3>Alineaciones de ítems</h3>
-é     <figure class="GI">
+      <figure class="GI">
         <div id="contenedorGIji-e">
           <div class="gridesGIji1">
             start
@@ -853,10 +857,10 @@
           </div>
         </div>
       </figure>
-      <é href="#contenedorGIji-e" title="Mostrar ejemplo"><b>justify-items</b></é> propiedad que alinea los ítems <u>enéel eje X</u> dentro de los tracks correspondientes, se coloca <u>en el contenedor padre</u> grid.<br/>
-      <a href="#contenedorGIjs-e" title="Mostrar ejemplo"><b>justify-self</b></a> propiedad que alinea un ítem especiéico <u>en el eje X</u>, se coloca <u>en el hijo</u> del contenedor grid.<br/>
-      <é href="#contenedorGIai-e" title="Mostrar ejemplo"><b>align-items</b></é> propiedad que alinea los ítems <u>enéel eje Y</u> dentro de los tracks correspondientes, se coloca <u>en el contenedor padre</u> grid.<br/>
-      <a href="#contenedorGIas-e" title="Mostrar ejemplo"><b>align-self</b></a> propiedad que alinea un ítem especiéico <u>en el eje Y</u>, se coloca <u>en el hijo</u> del contenedor grid.<br/>
+      <a href="#contenedorGIji-e" title="Mostrar ejemplo"><b>justify-items</b></a> propiedad que alinea los ítems <u>en el eje X</u> dentro de los tracks correspondientes, se coloca <u>en el contenedor padre</u> grid.<br/>
+      <a href="#contenedorGIjs-e" title="Mostrar ejemplo"><b>justify-self</b></a> propiedad que alinea un ítem específico <u>en el eje X</u>, se coloca <u>en el hijo</u> del contenedor grid.<br/>
+      <a href="#contenedorGIai-e" title="Mostrar ejemplo"><b>align-items</b></a> propiedad que alinea los ítems <u>en el eje Y</u> dentro de los tracks correspondientes, se coloca <u>en el contenedor padre</u> grid.<br/>
+      <a href="#contenedorGIas-e" title="Mostrar ejemplo"><b>align-self</b></a> propiedad que alinea un ítem específico <u>en el eje Y</u>, se coloca <u>en el hijo</u> del contenedor grid.<br/>
       <em>
         nota:<br/>
         Valores de justify y de align: [start | end | center]
@@ -905,7 +909,11 @@
         Valores de align: [start | end | center | space-between | space-around | space-evenly | baseline | stretch]
       </em>
     </article>
-    <hr>
+  </section>
+  <hr />
+  <h2>Grid implícito.</h2>
+  <hr />
+  <section>
     <article>
       <h3>Grid placement</h3>
       El <b>grid placement</b> es el algoritmo que utiliza css grid para saber dónde colocar los elementos en el grid.<br/>
@@ -1135,6 +1143,7 @@
   <div class="regreso">
     <a class="mano" href="../index.html" title="regresar al menú">&#9754;</a>
   </div>
+  <br />
   <footer>
     <a target="_blank" href="https://cssgridgarden.com/#es" title="juego de Grid">Juego de Grid: https://cssgridgarden.com/#es</a><br/>
     <a target="_blank" href="https://css-tricks.com/snippets/css/complete-guide-grid/" title="guía de Grid">Guía de Grid: https://css-tricks.com/snippets/css/complete-guide-grid/</a>

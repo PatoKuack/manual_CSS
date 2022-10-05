@@ -5,6 +5,7 @@
   --fondoaside: rgba(246, 255, 161, 0.349);
   --fondodiv  : rgb(179, 217, 255);
   --sombra    : rgba(195, 149, 255, 0.486);
+  --decoration: rgba(171, 93, 255, 0.137);
 }
 
 .body{
@@ -17,7 +18,15 @@
   max-width:        750px;
   border:           3px solid var(--bordediv);
   padding:          1em;
-  background-color: var(--fondodiv);
+  background-image: 
+      radial-gradient(circle at 0% 100%, transparent 12.4%,var(--decoration) 12.4%, var(--decoration) 12.5%, transparent 12.5%),
+      radial-gradient(circle at .2% 100%, transparent 12.1%,var(--decoration) 12.1%, var(--decoration) 12.2%, transparent 12.2%),
+      radial-gradient(circle at .8% 100%, transparent 11.6%,var(--decoration) 11.6%, var(--decoration) 11.7%, transparent 11.7%),
+      radial-gradient(circle at 2.6% 100%, transparent 10.6%,var(--decoration) 10.6%, var(--decoration) 10.7%, transparent 10.7%),
+      radial-gradient(circle at 5.3% 100%, transparent 9.1%,var(--decoration) 9.1%, var(--decoration) 9.2%, transparent 9.2%),
+      radial-gradient(circle at 9.3% 100%, transparent 7%,var(--decoration) 7%, var(--decoration) 7.1%, transparent 7.1%),
+      radial-gradient(circle at 100% 0%, transparent 7%,var(--decoration) 7%, var(--decoration) 7.1%, transparent 7.1%, transparent 9.1%, var(--decoration) 9.1%, var(--decoration) 9.2%, transparent 9.2%, transparent 10.6%,var(--decoration) 10.6%, var(--decoration) 10.7%, transparent 10.7%, transparent 11.6%,var(--decoration) 11.6%, var(--decoration) 11.7%, transparent 11.7%, transparent 12.1%,var(--decoration) 12.1%, var(--decoration) 12.2%, transparent 12.2%, transparent 12.4%,var(--decoration) 12.4%, var(--decoration) 12.5%, transparent 12.5%),
+      linear-gradient(var(--fondodiv) 0%, var(--fondodiv) 100%);
   margin:           .5em auto;
   box-sizing:       border-box;
   box-shadow:       .7em .3em .3em 0em var(--sombra);
