@@ -47,6 +47,6 @@ const kaboom = document.getElementById('kaboom');
   gameContainer.addEventListener('click', () => {
     gameContainer.append(kaboom);
     let bodyWidth = getComputedStyle(document.body).width;
-    // bodtWidth obtiene un string (como '1500px') así que al pasarlo como argumento, se transforma en número cortandole el 'px' del string y usando Number() para transformarlo a número
+    // bodyWidth obtiene un string (como '1500px') así que al pasarlo como argumento, se transforma en número cortandole el 'px' del string y usando Number() para transformarlo a número
     fireIn(event.pageX, event.pageY, Number(bodyWidth.slice(0, -2)));
   });

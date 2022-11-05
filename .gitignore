@@ -1,3 +1,4 @@
 *.key
 Imgs/patrick-big.png
 Imgs/sponge-big.png
+node_modules/*

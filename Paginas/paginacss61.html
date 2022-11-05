@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es" id="htmlId">
+<head>
+  <!-- No guardar cache en navegadores -->
+  <meta http-equiv="Last-Modified" content="0">
+  <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <!-- ------------------- -->
+  <!-- Estilos -->
+  <link rel="stylesheet" href="../Estilos/tailwind_dist/tailwind.css">
+  <link rel="stylesheet" href="../Estilos/normalization.css">
+  <!-- ------- -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tailwind</title>
+</head>
+<body class="bg-blue-200 p-4 leading-normal dark:bg-purple-800 dark:text-white">
+  <header class="pk-section">
+    <h1 class="text-3xl">Tailwind</h1>
+    <section>
+      <p>Es un framework de CSS, es decir, un conjunto de herramientas para construir una interfaz web con CSS permitiendo agilizar el desarrollo.</p>
+      <h2>Características.</h2>
+      <ul>
+        <li>Está representado mediante clases, al agregar clases a las etiquetas de HTML, se agregan los estilos.</li>
+        <li>Está orientado a utilidades por lo que lo vuelve personalizable.</li>
+      </ul>
+      <p>Los frameworks basados en utilidades ( <a href="https://tailwindcss.com/docs/utility-first" target="_blank" rel="noopener noreferrer">utility-first</a> ) permiten tener una estructura limpia y ordenada en los estilos. Además, el desarrollo es rápido porque todo se trabaja dentro del mismo archivo.</p>
+    </section>
+  </header>
+  <main>
+    <!-- Otros frameworks -->
+    <section class="pk-section">
+      <h2>Otros frameworks.</h2>
+      <dl>
+        <dt>Bootstrap</dt>
+        <dd>
+          <ul class="m-0">
+            <li>Está basado en componentes.</li>
+            <li>Abstrae la creación de componentes.</li>
+            <li>Poco personalizable.</li>
+          </ul>
+        </dd>
+        <dt>Material UI</dt>
+        <dd>
+          <ul class="m-0">
+            <li>Está basado en componentes pre-construidos.</li>
+            <li>Está basado en el tema de Material (como el sistema operativo de Android).</li>
+            <li>Es tan complejo que se vuelve un Design System.</li>
+          </ul>
+        </dd>
+        <dt>Bulma</dt>
+        <dd>
+          <ul class="m-0">
+            <li>Es modular, es decir, permite importar solamente los archivos que se van a utilizar.</li>
+            <li>Es personalizable, ya que se le puede agregar cualquier estilo mediante la creación de variables en Sass.</li>
+            <li>Está basado en Flexbox.</li>
+          </ul>
+        </dd>
+      </dl>
+    </section>
+    <!-- Instalación -->
+    <section class="pk-section">
+      <h2>Instalaciones.</h2>
+      <p>Se tiene que inicializar NPM desde la terminal con el comando <code>npm init</code> y se agregan las especificaciones que se deseen o se puede dar enter hasta que acabe la inicialización de NPM.</p>
+      <p>Desde la <a href="https://v2.tailwindcss.com/docs/installation" target="_blank" rel="noopener noreferrer">documentación de tailwindcss</a> se pueden ver varias guías para instalar Tailwind de diferentes formas como por CLI o por PostCSS y en este caso se explicará la instalación de PostCSS porque crea un archivo de configuración y facilita personalizar clases, además se puede hacer uso de todas las directivas de tailwind.</p>
+      <p>Como dice la documentación:</p>
+      <p>Primero se ejecuta en la terminal el comando (documentación - Install Tailwind vía npm):</p>
+      <p><code>npm install -D tailwindcss@latest postcss@latest autoprefixer@latest</code></p>
+      <p>Para configurar los Postcss plugins, se crean dos carpetas, una para almacenar las configuraciones y otra para compilarlas, <u>en este caso se crearán en la raíz del proyecto</u> de la siguiente forma:</p>
+      <pre>
+  |- public
+  | |- index.html
+  | |- css
+  |   |- tailwind.css
+  |
+  |- src
+  | |- css
+  |   |- tailwind.css
+      </pre>
+      <p>En el archivo src/css/tailwind.css se agrega lo siguiente (documentación - including Tailwind in your CSS):</p>
+      <p class="pk-example"><code class="pk-text-example">
+        @tailwind base;<br/>
+        @tailwind components;<br/>
+        @tailwind utilities;<br/>
+      </code></p>
+      <p>En el archivo html se vincula el estilo (<b>en este caso</b>) public/css/tailwind.css</p>
+      <p>Después se crea el archivo de configuración (tailwind.config.js) con el que se podrá personalizar colores o tiopgrafías, ejecutando el comando (documentación - Create your configuration file):</p>
+      <p><code>npx tailwindcss init</code></p>
+      <p>Se obtendrá el archivo de configuración con un código simple en el que se agregará la ruta del html y otros datos que se especifican en la documentación:</p>
+      <p class="pk-example"><code>
+        module.exports = {<br/>
+        &emsp;content: [<span class="pk-text-example">"./public/index.html", "./src/**/*.{html,js}"</span>],<br/>
+        &emsp;theme: {<br/>
+        &emsp; &emsp;extend: {},<br/>
+        &emsp;},<br/>
+        &emsp;<span class="pk-text-example">variants: {},</span><br/>
+        &emsp;plugins: [],<br/>
+        }      
+      </code></p>
+      <p>Antes de utilizar tailwind, se indica que el archivo tailwind.css que proviene del directorio src/css haga un build en el archivo public/css/tailwind.css, para esto se ejecuta el comando (documentación - Using a custom CSS file) (<u>en este caso se utilizan las siguientes rutas</u>):</p>
+      <p><code>npx tailwindcss -i ./src/css/tailwind.css -o ./public/css/tailwind.css <i class="pk-text-example">-w</i></code></p>
+      <p><i>La instrucción <b>-w</b> mantiene compilando los cambios sin repetir el código a cada modificación, pero se tiene que abrir otra terminal ya que este comando bloquea la terminal mientras este en uso. Para parar el comando se presiona control+C desde la terminal.</i></p>
+      <p>Ya que se puede utilizar tailwind, se prueba agregando algún estilo como un div class= "w-64 h-64 bg-red-200"</p>
+      <h3>Resumen:</h3>
+      <p>Desde la consola: <code>npm init</code></p>
+      <p>Desde la consola: <code>npm install -D tailwindcss@latest postcss@latest autoprefixer@latest</code></p>
+      <p>Desde la consola: <code>npx tailwindcss init</code></p>
+      <p>Se agrega la ruta del html en tailwind.config.js: <code>"./public/index.html", "./src/**/*.{html,js}"</code></p>
+      <p>Se crea el directorio de entrada y salida para la compilación del framework. En el de entrada se agregan las directivas: <code>@tailwind base; @tailwind components; @tailwind utilities;</code></p>
+      <p>Se vincula el archivo public/src/tailwind.css con el archivo html</p>
+      <p>Desde la consola: <code>npx tailwindcss -i ./dir_entrada/tailwind.css -o ./dir_salida/tailwind.css <i class="pk-text-example">--watch</i></code></p>
+    </section>
+    <!-- Facilidades -->
+    <section class="pk-section">
+      <h2>Facilidades.</h2>
+      <h3>Extensión:</h3>
+      <p>Si se utiliza Visual Studio Code, se puede instalar la extensión Tailwind CSS IntelliSense para visualizar colores o recibir sugerencias de comandos.</p>
+      <h3>npm run.</h3>
+      <p>Para no digitar todo el código de compilación, se utiliza un script en el documento <b>Package.json</b></p>
+      <p>En el bloque de "scripts" se encuentra por default el script "test", al final de su línea de código se <u>coloca una coma</u> y se agrega la siguiente línea:</p>
+      <p><code>"tw:build": "tailwindcss -i ./dir_entrada/tailwind.css -o ./dir_salida/tailwind.css --watch"</code></p>
+      <p>Y de esta manera solo se tiene que colocar en la terminal el comando: <code>npm run tw:build</code> <i>(el nombre del objeto del script puede ser el que se desee)</i></p>
+    </section>
+    <!-- Directivas -->
+    <section class="pk-section">
+      <h2>Directivas.</h2>
+      <p>Una directiva es una instrucción que inserta código al archivo final de CSS. Existen muchas directivas que se especifican en <a href="https://v2.tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noopener noreferrer">la documentación (Functions & Directives)</a>.</p>
+      <dl>
+        <dt>@tailwind base;</dt>
+        <dd>Inicializa todos los elementos de nuestro HTML sin estilo.</dd>
+        <dt>@tailwind components;</dt>
+        <dd>Nos permite acceder a todas las clases de tailwind.</dd>
+        <dt>@tailwind utilities;</dt>
+        <dd>Agrega todas las utilidades al proyecto y nos permite acceder a ellas.</dd>
+        <dt>@tailwind screen;</dt>
+        <dd>Modifica breakpoints a la preferencia de uno.</dd>
+        <dt>@layer</dt>
+        <dd>Especifica qué bloque de código pertenece a qué estilo.</dd>
+        <dt>@variants</dt>
+        <dd>Agrega estilos responsivos orientados a manipulación de eventos como :hover, :focus o :active.</dd>
+        <dt>@responsive</dt>
+        <dd>Genera diferentes estilos responsivos en las clases.</dd>
+        <dt>theme()</dt>
+        <dd>Accede a los valores de configuración iniciales de tailwind</dd>
+      </dl>
+    </section>
+    <!-- Colores -->
+    <section class="pk-section">
+      <h2>Estilos.</h2>
+      <p>En la documentación, en la parte de LAYOUT se encuentran los estilos css de tailwind. La forma de activar tailwind en las etiquetas es con class=""</p>
+      <p>Las medidas de tailwind son <b>1 = 4px = .25rem</b></p>
+      <p>Se pueden observar todos los estilos desde <a href="https://v2.tailwindcss.com/docs/display" target="_blank" rel="noopener noreferrer">la documentación a partir del bloque LAYOUT</a>.</p>
+      <p>Tailwind tiene una gran paleta de colores que se puede visualizar en <a href="https://v2.tailwindcss.com/docs/customizing-colors" target="_blank" rel="noopener noreferrer">la documentación (Colors)</a>, estos colores pueden ser personalizados.</p>
+      <p>Mediante <a href="https://play.tailwindcss.com/" target="_blank" rel="noopener noreferrer">el playground de tailwind</a> se pueden probar los colores escribiendo etiquetas con sus clases en el lado negro y visualizando el resultado en el lado blanco.</p>
+    </section>
+    <!-- Breackpoints -->
+    <section class="pk-section">
+      <h2>Breackpoints.</h2>
+      <p>El breackpoint es el cambio de layout de la pantalla.</p>
+      <p>Las <a href="https://v2.tailwindcss.com/docs/container" target="_blank" rel="noopener noreferrer">medidas dentro de tailwind</a> son:</p>
+      <table class="mx-auto border-collapse border-2 border-primary border-solid dark:border-secondary">
+        <tbody>
+          <tr>
+            <td class="border-2 border-primary border-solid p-0.5 dark:border-secondary">sm</td>
+            <td class="border-2 border-primary border-solid p-0.5 dark:border-secondary">max-width: 640px;</td>
+          </tr>
+          <tr>
+            <td class="border-2 border-primary border-solid p-0.5 dark:border-secondary">md</td>
+            <td class="border-2 border-primary border-solid p-0.5 dark:border-secondary">max-width: 768px;</td>
+          </tr>
+          <tr>
+            <td class="border-2 border-primary border-solid p-0.5 dark:border-secondary">lg</td>
+            <td class="border-2 border-primary border-solid p-0.5 dark:border-secondary">max-width: 1024px;</td>
+          </tr>
+          <tr>
+            <td class="border-2 border-primary border-solid p-0.5 dark:border-secondary">xl</td>
+            <td class="border-2 border-primary border-solid p-0.5 dark:border-secondary">max-width: 1280px;</td>
+          </tr>
+          <tr>
+            <td class="border-2 border-primary border-solid p-0.5 dark:border-secondary">2xl</td>
+            <td class="border-2 border-primary border-solid p-0.5 dark:border-secondary">max-width: 1536px;</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Para especificar los estilos para versiones web del proyecto se utiliza el breakpoint especificándolo antes de agregar las clases, ejemplo: <b>lg:w-full lg:h-full</b></p>
+    </section>
+    <!-- Dark mode -->
+    <section class="pk-section">
+      <h2>Dark-mode.</h2>
+      <p>Para agregar el modo oscuro en un proyecto, se agrega el siguiente bloque en el archivo <b>tailwind.config.js</b>:</p>
+      <p class="pk-example"><code>
+        content: [ ... ],<br/>
+        <span class="pk-text-example">
+          module.exports = {<br/>
+          &emsp;darkMode: 'class',<br/>
+          },<br/>
+        </span>
+        theme: { ... },
+      </code></p>
+      <p>Después se agregan las clases que se deseen en el modo oscuro al final de la clase de la siguiente manera: <b>class="bg-white <u>dark:bg-black text-white</u>"</b> ...</p>
+      <p>El modo oscuro se aplica de diferentes formas, por ejemplo, si la etiqueta HTML tiene la clase "dark" o si se indica el tema mediante la memoria del navegador (localstorage), para colocar esta última se tiene que agregar un <b>documento javascript</b> con el siguiente código:</p>
+      <p><a class="font-bold" href="../JavaScript/codigocss61.js" target="_blank" rel="noopener noreferrer">Código</a> para agregar función dark-mode a un botón con 2 ids (el de la etiqueta html y la del botón).</p>
+      <button id="toDarkMode" class="mx-auto my-4 py-2 px-4 block bg-cyan-200 border-2 border-solid border-secondary rounded-full shadow-md transition ease-out delay-50 active:bg-cyan-300 active:shadow-none dark:bg-cyan-800 dark:shadow-cyan-400">
+        <span class="my-auto blur-xs hidden dark:inline">To Light Mode</span>
+        <span class="my-auto blur-xs dark:hidden">To Dark Mode</span>
+      </button>
+      <p>Para más información <a href="https://tailwindcss.com/docs/dark-mode" target="_blank" rel="noopener noreferrer">consultar la documentación</a>.</p>
+    </section>
+    <!-- Plugins -->
+    <section class="pk-section">
+      <h2>Plugins.</h2>
+      <p>Tailwind cuenta con varios plugins oficiales, pero los más útiles son:</p>
+        <h3>Forms</h3>
+        <p>Permite resetear los estilos predeterminados con los que cuentan los formularios, de esta manera es posible sobrescribir los estilos y trabajar con clases de utilidades dentro de Tailwind.</p>
+        <p><a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank" rel="noopener noreferrer">Documentación del plugin Form.</a></p>
+        <p><a href="https://tailwindcss-forms.vercel.app/" target="_blank" rel="noopener noreferrer">Ejemplos del plugin Form.</a></p>
+        <h3>Typography</h3>
+        <p>Agrega una nueva clase 'prose' que permite dar un mejor formato a estos elementos permitiendo tener el control sobre estilos vanilla con los que cuenta HTML, elementos como headings, paragraphs, listas, entre otros.</p>
+        <p><a href="https://github.com/tailwindlabs/tailwindcss-typography" target="_blank" rel="noopener noreferrer">Documentación del plugin Typography 1.</a></p>
+        <p><a href="https://tailwindcss.com/docs/typography-plugin" target="_blank" rel="noopener noreferrer">Documentación del plugin Typography 2.</a></p>
+        <p><a href="https://play.tailwindcss.com/uj1vGACRJA?layout=preview" target="_blank" rel="noopener noreferrer">Ejemplos del plugin Typography.</a></p>
+        <h3>Aspect ratio</h3>
+        <p>Aspect ratio es <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio" target="_blank" rel="noopener noreferrer">la relación entre el ancho y el alto de la imagen o video</a>. En muchas ocasiones cuando se modifican las dimensiones de elementos o imágenes, se pueden llegar a tener problemas con el aspect ratio, pero con este plugin se resuelve el problema integrando la clase 'aspect' que permite establecer un aspect ratio de manera fija para los elementos.</p>
+        <p><a href="https://github.com/tailwindlabs/tailwindcss-aspect-ratio" target="_blank" rel="noopener noreferrer">Plugin Aspect Ratio.</a></p>
+      </section>
+    <!-- Personalización -->
+    <section class="pk-section">
+      <h2>Personalización.</h2>
+      <p>Para agregar personalizaciones en Tailwind, se deben agregar las siguientes configuraciones en el archivo Tailwind.config.js:</p>
+      <h3>Agregar imágenes de fondo</h3>
+      <p>Se tienen que tener las imágenes ubicadas dentro del proyecto.</p>
+      <p class="pk-example"><code>
+        theme: {<br/>
+        &emsp;extend: {<br/>
+        &emsp;&emsp;<span class="pk-text-example">backgroundImage: {<br/>
+        &emsp;&emsp;&emsp;'<u>imageName</u>': "url(<u>directorio/de/la/imagen</u>)",<br/>
+        &emsp;&emsp;},</span><br/>
+        &emsp;},<br/>
+        },
+      </code></p>
+      <h3>Agregar colores de fondo.</h3>
+      <p>Se incorporan los colores nativos de tailwind con ...theme</p>
+      <p class="pk-example"><code>
+        theme: {<br/>
+        &emsp;extend: {<br/>
+        &emsp;&emsp;<span class="pk-text-example">backgroundColor: theme =>({<br/>
+        &emsp;&emsp;&emsp;...theme('colors'),<br/>
+        &emsp;&emsp;&emsp;'<u>colorName</u>': '<u>hexadecimalColor</u>',<br/>
+        &emsp;&emsp;}),</span><br/>
+        &emsp;},<br/>
+        },
+      </code></p>
+      <p>Ahora se podrá utilizar en las clases, por ejemplo: <b>bg-colorName</b></p>
+      <h3>Agregar colores de texto.</h3>
+      <p>Aunque se utilice el mismo color en un texto y en un fondo, se tiene que colocar por separado el color en backgroundColor y en textColor.</p>
+      <p class="pk-example"><code>
+        theme: {<br/>
+        &emsp;extend: {<br/>
+        &emsp;&emsp;<span class="pk-text-example">textColor: {<br/>
+        &emsp;&emsp;&emsp;'<u>colorName</u>': '<u>hexadecimalColor</u>',<br/>
+        &emsp;&emsp;},</span><br/>
+        &emsp;},<br/>
+        },
+      </code></p>
+      <p>Ahora se podrá utilizar en las clases, por ejemplo: <b>text-colorName</b></p>
+      <h3>Agregar colores de outline.</h3>
+      <p class="pk-example"><code>
+        theme: {<br/>
+        &emsp;extend: {<br/>
+        &emsp;&emsp;<span class="pk-text-example">ringColor: {<br/>
+        &emsp;&emsp;&emsp;'<u>colorName</u>': '<u>hexadecimalColor</u>',<br/>
+        &emsp;&emsp;},</span><br/>
+        &emsp;},<br/>
+        },
+      </code></p>
+      <p>Ahora se podrá utilizar en las clases, por ejemplo: <b>focus:ring-colorName</b></p>
+      <h3>Agregar fuentes de texto.</h3>
+      <p>Se agregan las fuentes a la sección de head del archivo HTML como si se utilizaran normalmente sin tailwind.</p>
+      <p class="pk-example"><code>
+        theme: {<br/>
+        &emsp;extend: {<br/>
+        &emsp;&emsp;<span class="pk-text-example">fontFamily: {<br/>
+        &emsp;&emsp;&emsp;<u>fontName</u>: ['<u>font</u>', '<u>subfont</u>'],<br/>
+        &emsp;&emsp;},</span><br/>
+        &emsp;},<br/>
+        },
+      </code></p>
+      <p>Ahora se podrá utilizar en las clases, por ejemplo: <b>text-fontName</b></p>
+      <p>Después de cada modificación se compila el proyecto (desde la consola: tw:build).</p>
+      <p>Ahora no nada más se puede colocar un color con <b>class="bg-red-200"</b>, sino también con <b>class="bg-<u>colorName</u>"</b>. También se puede colocar la fuente personalizada con <b>class="font-<u>fontName</u>"</b>.</p>
+    </section>
+    <!-- Extracción de componentes -->
+    <section class="pk-section">
+      <h2>Extracción de componentes.</h2>
+      <p>La extracción de componentes sirve para no escribir el mismo código en componentes que se utilizarán más de una vez y poder mantener el principio de utility-first. La extracción de componentes trabaja de la mano con la directiva <b>@apply</b>.</p>
+      <p>En la <a href="https://tailwindcss.com/docs/reusing-styles#extracting-classes-with-apply" target="_blank" rel="noopener noreferrer">documentación (Reusing styles)</a> se puede saber cómo utilizar la extracción de componentes.</p>
+      <p>En el archivo <b>src/css/tailwind.css</b> se crean clases con el nombre deseado y con la primera letra en mayúscula, dentro de la clase se introducen todos los estilos de Tailwind que se estarán reutilizando haciendo el uso de la directiva @apply seguido de las clases de Tailwind, ejemplo:</p>
+      <p class="pk-example"><code>
+        @tailwind base;<br/>
+        @tailwind components;<br/>
+        @tailwind utilities;<br/>
+        <span class="pk-text-example">
+          .<u>clase-name</u> {<br/>
+          &emsp;@apply w-48 h-64 shadow-md rounded-lg<br/>
+          }
+        </span>
+      </code></p>
+      <p>Se compila el proyecto y después se podrá utilizar el nombre de la nueva clase en el archivo HTML.</p>
+      <p>Tailwind no está diseñado para trabajar con muchas clases usando @apply, por lo que se debe identificar y limitar la cantidad de clases que se crearán.</p>
+    </section>
+    <!-- Purge -->
+    <section class="pk-section">
+      <h2>Purge.</h2>
+      <p>El Purge o Purga, limpia el proyecto removiendo archivos que no se utilizan y mimifica el código. Para purgar se inserta el siguiente código en el archivo de configuración <b>tailwind.config.js</b>:</p>
+      <p class="pk-example"><code>
+        module.exports = {<br/>
+        &emsp;plugins: {<br/>
+        <span class="pk-text-example">
+          &emsp;&emsp;tailwindcss: {},<br/>
+          &emsp;&emsp;autoprefixer: {},<br/>
+          &emsp;&emsp;...(process.env.NODE_ENV === 'production' ? { cssnano: {} } : {})<br/>
+        </span>
+        &emsp;}<br/>
+        }
+      </code></p>
+    </section>
+  </main>
+  <footer class="pk-section">
+    <p class="text-xl font-semibold">Referencias:</p>
+    <section><ul>
+      <li><a href="https://tailwindcss.com/docs/" target="_blank" rel="noopener noreferrer">Documentación de Tailwind.</a></li>
+      <li><a href="https://heroicons.com/" target="_blank" rel="noopener noreferrer">Iconos que prove Tailwind.</a></li>
+      <li><a href="https://alpinejs.dev/" target="_blank" rel="noopener noreferrer">Alpine.js</a></li>
+    </ul></section>
+  </footer>
+  <script src="../JavaScript/codigocss61.js"></script>
+</body>
+</html>

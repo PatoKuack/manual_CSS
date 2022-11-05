@@ -1,0 +1,25 @@
+{
+  "name": "css",
+  "version": "1.0.0",
+  "description": "Es un manual de lo que he aprendido de CSS.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tw-build": "tailwindcss -i ./Estilos/tailwind_src/tailwind.css -o ./Estilos/tailwind_dist/tailwind.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PatoKuack/manual_CSS.git"
+  },
+  "author": "Pato Kuack <nocturno_x_13514@hotmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PatoKuack/manual_CSS/issues"
+  },
+  "homepage": "https://github.com/PatoKuack/manual_CSS#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.12",
+    "postcss": "^8.4.18",
+    "tailwindcss": "^3.2.1"
+  }
+}
