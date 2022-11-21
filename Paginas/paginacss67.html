@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es" id="htmlId">
+<head>
+  <!-- No guardar cache en navegadores -->
+  <meta http-equiv="Last-Modified" content="0">
+  <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <!-- ------------------- -->
+  <!-- Estilos -->
+  <link rel="stylesheet" href="../Estilos/tailwind_dist/tailwind.css">
+  <!-- ------- -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Extracción de componentes</title>
+</head>
+<body class="bg-blue-200 p-4 leading-normal dark:bg-purple-800 dark:text-white">
+  <header class="pk-section">
+    <h1 class="text-3xl text-center">Extracción de componentes</h1>
+    <p>La extracción de componentes sirve para no escribir el mismo código en componentes que se utilizarán más de tres veces y poder mantener el principio de utility-first.</p>
+  </header>
+  <main>
+    <!-- Extracción de componentes -->
+    <section class="pk-section">
+      <p>La extracción de componentes trabaja de la mano con la directiva <b>@apply</b>.</p>
+      <p>En la <a href="https://tailwindcss.com/docs/reusing-styles#extracting-classes-with-apply" target="_blank" rel="noopener noreferrer">documentación (Reusing styles)</a> se puede saber cómo utilizar la extracción de componentes.</p>
+      <p>En el archivo <b>src/css/tailwind.css</b> se crean clases con el nombre deseado y con la primera letra en mayúscula, dentro de la clase se introducen todos los estilos de Tailwind que se estarán reutilizando haciendo el uso de la directiva @apply seguido de las clases de Tailwind, ejemplo:</p>
+      <p class="pk-example"><code>
+        @tailwind base;<br/>
+        @tailwind components;<br/>
+        @tailwind utilities;<br/>
+        <span class="pk-text-example">
+          .<u>clase-name</u> {<br/>
+          &emsp;@apply w-48 h-64 shadow-md rounded-lg<br/>
+          }
+        </span>
+      </code></p>
+      <p>Se compila el proyecto y después se podrá utilizar el nombre de la nueva clase en el archivo HTML.</p>
+      <p>Tailwind no está diseñado para trabajar con muchas clases usando @apply, por lo que se debe identificar y limitar la cantidad de clases que se crearán.</p>
+    </section>
+  </main>
+  <footer class="pk-section">
+    <p class="text-xl font-semibold">Referencias:</p>
+    <section><ul>
+      <li><a href="https://tailwindcss.com/docs/" target="_blank" rel="noopener noreferrer">Documentación de Tailwind.</a></li>
+      <li><a href="https://heroicons.com/" target="_blank" rel="noopener noreferrer">Iconos que prove Tailwind.</a></li>
+      <li><a href="https://alpinejs.dev/" target="_blank" rel="noopener noreferrer">Alpine.js</a></li>
+    </ul></section>
+  </footer>
+  <script src="../JavaScript/codigocss61.js"></script>
+</body>
+</html>

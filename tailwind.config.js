@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./Paginas/paginacss61.html", "./Estilos/tailwind_src/*.{html,js}"],
+  content: ["./Paginas/*.html", "./Estilos/tailwind_src/*.{html,js}"],
   darkMode: 'class', // false, 'media' or 'class'
   theme: {
     extend: {

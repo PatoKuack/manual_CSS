@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es" id="htmlId">
+<head>
+  <!-- No guardar cache en navegadores -->
+  <meta http-equiv="Last-Modified" content="0">
+  <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <!-- ------------------- -->
+  <!-- Estilos -->
+  <link rel="stylesheet" href="../Estilos/tailwind_dist/tailwind.css">
+  <!-- ------- -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instalación</title>
+</head>
+<body class="bg-blue-200 p-4 leading-normal dark:bg-purple-800 dark:text-white">
+  <header class="pk-section">
+    <h1 class="text-3xl text-center">Instalación</h1>
+  </header>
+  <main>
+    <!-- Instalación -->
+    <section class="pk-section">
+      <p>Se tiene que inicializar NPM desde la terminal con el comando <code>npm init</code> y se agregan las especificaciones que se deseen o se puede dar enter hasta que acabe la inicialización de NPM.</p>
+      <p>Desde la <a href="https://v2.tailwindcss.com/docs/installation" target="_blank" rel="noopener noreferrer">documentación de tailwindcss</a> se pueden ver varias guías para instalar Tailwind de diferentes formas como por CLI o por PostCSS y en este caso se explicará la instalación de PostCSS porque crea un archivo de configuración y facilita personalizar clases, además se puede hacer uso de todas las directivas de tailwind.</p>
+      <p>Como dice la documentación:</p>
+      <p>Primero se ejecuta en la terminal el comando (documentación - Install Tailwind vía npm):</p>
+      <p><code>npm install -D tailwindcss@latest postcss@latest autoprefixer@latest</code></p>
+      <p>Para configurar los Postcss plugins, se crean dos carpetas, una para almacenar las configuraciones y otra para compilarlas, <u>en este caso se crearán en la raíz del proyecto</u> de la siguiente forma:</p>
+      <pre>
+|-public
+| |-index.html
+| |-css
+|   |-tailwind.css
+|
+|-src
+| |-css
+|   |-tailwind.css
+      </pre>
+      <p>En el archivo src/css/tailwind.css se agrega lo siguiente (documentación - including Tailwind in your CSS):</p>
+      <p class="pk-example"><code class="pk-text-example">
+        @tailwind base;<br/>
+        @tailwind components;<br/>
+        @tailwind utilities;<br/>
+      </code></p>
+      <p>En el archivo html se vincula el estilo (<b>en este caso</b>) public/css/tailwind.css</p>
+      <p>Después se crea el archivo de configuración (tailwind.config.cjs) con el que se podrá personalizar colores o tiopgrafías, ejecutando el comando (documentación -> Create your configuration file):</p>
+      <p><code>npx tailwindcss init</code></p>
+      <p>Se obtendrá el archivo de configuración con un código simple en el que se agregará la ruta del html (<i>./public/index.html</i>) o de varios html (<i>./public/*.html</i>) y otros datos que se especifican en la documentación:</p>
+      <p class="pk-example"><code>
+        module.exports = {<br/>
+        &emsp;content: [<span class="pk-text-example">"./public/index.html", "./src/**/*.{html,js}"</span>],<br/>
+        &emsp;theme: {<br/>
+        &emsp; &emsp;extend: {},<br/>
+        &emsp;},<br/>
+        &emsp;<span class="pk-text-example">variants: {},</span><br/>
+        &emsp;plugins: [],<br/>
+        }      
+      </code></p>
+      <p>Antes de utilizar tailwind, se indica que el archivo tailwind.css que proviene del directorio src/css haga un build en el archivo public/css/tailwind.css, para esto se ejecuta el comando (documentación - Using a custom CSS file) (<u>en este caso se utilizan las siguientes rutas</u>):</p>
+      <p><code>npx tailwindcss -i ./src/css/tailwind.css -o ./public/css/tailwind.css <i class="pk-text-example">-w</i></code></p>
+      <p><i>La instrucción <b>-w</b> mantiene compilando los cambios sin repetir el código a cada modificación, pero se tiene que abrir otra terminal ya que este comando bloquea la terminal mientras este en uso. Para parar el comando se presiona control+C desde la terminal.</i></p>
+      <p>Ya que se puede utilizar tailwind, se prueba agregando algún estilo como un div class= "w-64 h-64 bg-red-200"</p>
+      <hr class="my-4"/>
+      <h2>Resumen:</h2>
+      <p>Desde la consola: <code>npm init</code></p>
+      <p>Desde la consola: <code>npm install -D tailwindcss@latest postcss@latest autoprefixer@latest</code></p>
+      <p>Desde la consola: <code>npx tailwindcss init</code></p>
+      <p>Se agrega la ruta del html en tailwind.config.js: <code>"./public/index.html", "./src/**/*.{html,js}"</code></p>
+      <p>Se crea el directorio de entrada y salida para la compilación del framework. En el de entrada se agregan las directivas: <code>@tailwind base; @tailwind components; @tailwind utilities;</code></p>
+      <p>Se vincula el archivo public/src/tailwind.css con el archivo html</p>
+      <p>Desde la consola: <code>npx tailwindcss -i ./dir_entrada/tailwind.css -o ./dir_salida/tailwind.css <i class="pk-text-example">--watch</i></code></p>
+    </section>
+    <!-- Facilidades -->
+    <section class="pk-section">
+      <h2>Facilidades.</h2>
+      <h3>Extensión:</h3>
+      <p>Si se utiliza Visual Studio Code, se puede instalar la extensión Tailwind CSS IntelliSense para visualizar colores o recibir sugerencias de comandos.</p>
+      <h3>npm run:</h3>
+      <p>Para no digitar todo el código de compilación, se utiliza un script en el documento <b>Package.json</b></p>
+      <p>En el bloque de "scripts" se encuentra por default el script "test", al final de su línea de código se <u>coloca una coma</u> y se agrega la siguiente línea:</p>
+      <p><code>"tw:build": "tailwindcss -i ./dir_entrada/tailwind.css -o ./dir_salida/tailwind.css --watch"</code></p>
+      <p>Y de esta manera solo se tiene que colocar en la terminal el comando: <code>npm run tw:build</code> <i>(el nombre del objeto del script puede ser el que se desee)</i></p>
+    </section>
+  </main>
+  <footer class="pk-section">
+    <p class="text-xl font-semibold">Referencias:</p>
+    <section><ul>
+      <li><a href="https://tailwindcss.com/docs/" target="_blank" rel="noopener noreferrer">Documentación de Tailwind.</a></li>
+      <li><a href="https://heroicons.com/" target="_blank" rel="noopener noreferrer">Iconos que prove Tailwind.</a></li>
+      <li><a href="https://alpinejs.dev/" target="_blank" rel="noopener noreferrer">Alpine.js</a></li>
+    </ul></section>
+  </footer>
+  <script src="../JavaScript/codigocss61.js"></script>
+</body>
+</html>

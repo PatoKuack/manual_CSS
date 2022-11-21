@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es" id="htmlId">
+<head>
+  <!-- No guardar cache en navegadores -->
+  <meta http-equiv="Last-Modified" content="0">
+  <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <!-- ------------------- -->
+  <!-- Estilos -->
+  <link rel="stylesheet" href="../Estilos/tailwind_dist/tailwind.css">
+  <!-- ------- -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personalización</title>
+</head>
+<body class="bg-blue-200 p-4 leading-normal dark:bg-purple-800 dark:text-white">
+  <header class="pk-section">
+    <h1 class="text-3xl text-center">Personalización</h1>
+    <section>
+    </section>
+  </header>
+  <main>
+    <!-- Personalización -->
+    <section class="pk-section">
+      <p>Para agregar personalizaciones en Tailwind, se deben agregar las siguientes configuraciones en el archivo Tailwind.config.js:</p>
+      <h2>Agregar imágenes de fondo</h2>
+      <p>Se tienen que tener las imágenes ubicadas dentro del proyecto.</p>
+      <p class="pk-example"><code>
+        theme: {<br/>
+        &emsp;extend: {<br/>
+        &emsp;&emsp;<span class="pk-text-example">backgroundImage: {<br/>
+        &emsp;&emsp;&emsp;'<u>imageName</u>': "url(<u>directorio/de/la/imagen</u>)",<br/>
+        &emsp;&emsp;},</span><br/>
+        &emsp;},<br/>
+        },
+      </code></p>
+      <h2>Agregar colores de fondo.</h2>
+      <p>Se incorporan los colores nativos de tailwind con ...theme</p>
+      <p class="pk-example"><code>
+        theme: {<br/>
+        &emsp;extend: {<br/>
+        &emsp;&emsp;<span class="pk-text-example">backgroundColor: theme =>({<br/>
+        &emsp;&emsp;&emsp;...theme('colors'),<br/>
+        &emsp;&emsp;&emsp;'<u>colorName</u>': '<u>hexadecimalColor</u>',<br/>
+        &emsp;&emsp;}),</span><br/>
+        &emsp;},<br/>
+        },
+      </code></p>
+      <p>Ahora se podrá utilizar en las clases, por ejemplo: <b>bg-colorName</b></p>
+      <h2>Agregar colores de texto.</h2>
+      <p>Aunque se utilice el mismo color en un texto y en un fondo, se tiene que colocar por separado el color en backgroundColor y en textColor.</p>
+      <p class="pk-example"><code>
+        theme: {<br/>
+        &emsp;extend: {<br/>
+        &emsp;&emsp;<span class="pk-text-example">textColor: {<br/>
+        &emsp;&emsp;&emsp;'<u>colorName</u>': '<u>hexadecimalColor</u>',<br/>
+        &emsp;&emsp;},</span><br/>
+        &emsp;},<br/>
+        },
+      </code></p>
+      <p>Ahora se podrá utilizar en las clases, por ejemplo: <b>text-colorName</b></p>
+      <h2>Agregar colores de outline.</h2>
+      <p class="pk-example"><code>
+        theme: {<br/>
+        &emsp;extend: {<br/>
+        &emsp;&emsp;<span class="pk-text-example">ringColor: {<br/>
+        &emsp;&emsp;&emsp;'<u>colorName</u>': '<u>hexadecimalColor</u>',<br/>
+        &emsp;&emsp;},</span><br/>
+        &emsp;},<br/>
+        },
+      </code></p>
+      <p>Ahora se podrá utilizar en las clases, por ejemplo: <b>focus:ring-colorName</b></p>
+      <h2>Agregar fuentes de texto.</h2>
+      <p>Se agregan las fuentes a la sección de head del archivo HTML como si se utilizaran normalmente sin tailwind.</p>
+      <p class="pk-example"><code>
+        theme: {<br/>
+        &emsp;extend: {<br/>
+        &emsp;&emsp;<span class="pk-text-example">fontFamily: {<br/>
+        &emsp;&emsp;&emsp;<u>fontName</u>: ['<u>font</u>', '<u>subfont</u>'],<br/>
+        &emsp;&emsp;},</span><br/>
+        &emsp;},<br/>
+        },
+      </code></p>
+      <p>Ahora se podrá utilizar en las clases, por ejemplo: <b>text-fontName</b></p>
+      <p>Después de cada modificación se compila el proyecto (desde la consola: tw:build).</p>
+      <p>Ahora no nada más se puede colocar un color con <b>class="bg-red-200"</b>, sino también con <b>class="bg-<u>colorName</u>"</b>. También se puede colocar la fuente personalizada con <b>class="font-<u>fontName</u>"</b>.</p>
+    </section>
+  </main>
+  <footer class="pk-section">
+    <p class="text-xl font-semibold">Referencias:</p>
+    <section><ul>
+      <li><a href="https://tailwindcss.com/docs/" target="_blank" rel="noopener noreferrer">Documentación de Tailwind.</a></li>
+      <li><a href="https://heroicons.com/" target="_blank" rel="noopener noreferrer">Iconos que prove Tailwind.</a></li>
+      <li><a href="https://alpinejs.dev/" target="_blank" rel="noopener noreferrer">Alpine.js</a></li>
+    </ul></section>
+  </footer>
+  <script src="../JavaScript/codigocss61.js"></script>
+</body>
+</html>

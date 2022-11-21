@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es" id="htmlId">
+<head>
+  <!-- No guardar cache en navegadores -->
+  <meta http-equiv="Last-Modified" content="0">
+  <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <!-- ------------------- -->
+  <!-- Estilos -->
+  <link rel="stylesheet" href="../Estilos/tailwind_dist/tailwind.css">
+  <!-- ------- -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Directivas</title>
+</head>
+<body class="bg-blue-200 p-4 leading-normal dark:bg-purple-800 dark:text-white">
+  <header class="pk-section">
+    <h1 class="text-3xl text-center">Directivas</h1>
+    <p>Una directiva es una instrucción que inserta código al archivo final de CSS.</p>
+  </header>
+  <main>
+    <!-- Directivas -->
+    <section class="pk-section">
+      <p>Existen muchas directivas que se especifican en <a href="https://v2.tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noopener noreferrer">la documentación (Functions & Directives)</a>.</p>
+      <dl>
+        <dt>@tailwind base;</dt>
+        <dd>Inicializa todos los elementos de nuestro HTML sin estilo.</dd>
+        <dt>@tailwind components;</dt>
+        <dd>Nos permite acceder a todas las clases de tailwind.</dd>
+        <dt>@tailwind utilities;</dt>
+        <dd>Agrega todas las utilidades al proyecto y nos permite acceder a ellas.</dd>
+        <dt>@tailwind screen;</dt>
+        <dd>Modifica breakpoints a la preferencia de uno.</dd>
+        <dt>@layer</dt>
+        <dd>Especifica qué bloque de código pertenece a qué estilo.</dd>
+        <dt>@variants</dt>
+        <dd>Agrega estilos responsivos orientados a manipulación de eventos como :hover, :focus o :active.</dd>
+        <dt>@responsive</dt>
+        <dd>Genera diferentes estilos responsivos en las clases.</dd>
+        <dt>theme()</dt>
+        <dd>Accede a los valores de configuración iniciales de tailwind</dd>
+      </dl>
+    </section>
+  </main>
+  <footer class="pk-section">
+    <p class="text-xl font-semibold">Referencias:</p>
+    <section><ul>
+      <li><a href="https://tailwindcss.com/docs/" target="_blank" rel="noopener noreferrer">Documentación de Tailwind.</a></li>
+      <li><a href="https://heroicons.com/" target="_blank" rel="noopener noreferrer">Iconos que prove Tailwind.</a></li>
+      <li><a href="https://alpinejs.dev/" target="_blank" rel="noopener noreferrer">Alpine.js</a></li>
+    </ul></section>
+  </footer>
+  <script src="../JavaScript/codigocss61.js"></script>
+</body>
+</html>
